@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="What Erin cooks, based on all 240 posts on her food Instagram, with 16 recipes picked to match.">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font: 14px system-ui, sans-serif; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>Erin's Kitchen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column of "recipe box" sections; recipe cards sit two-up on wide screens, one-up on phones. */
+:root {
+  --bg: #f6f7f2;        /* plate white, faint green bias */
+  --surface: #ffffff;
+  --ink: #1d3328;       /* deep herb green */
+  --muted: #5b6b61;
+  --rule: #d9dfd6;
+  --scallion: #3a7a4c;  /* bar + accent */
+  --yolk: #f2b705;      /* highlight marker */
+  --yolk-ink: #6b4f00;
+  --chip: #e8eee5;
+  --display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111713; --surface: #18201b; --ink: #e4ebe5; --muted: #a2b1a7; --rule: #2c3830;
+    --scallion: #7cc08f; --yolk: #f5c842; --yolk-ink: #f5c842; --chip: #223028; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111713; --surface: #18201b; --ink: #e4ebe5; --muted: #a2b1a7; --rule: #2c3830;
+  --scallion: #7cc08f; --yolk: #f5c842; --yolk-ink: #f5c842; --chip: #223028; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.6;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 40px 64px;
+}
+.wrap { max-width: 980px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: 1.7rem; font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 700; }
+p { margin: 0; }
+.lede { max-width: 62ch; font-size: 1.15rem; color: var(--muted); }
+.eyebrow { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.mark { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--yolk) 45%, transparent) 60%); }
+header { display: flex; flex-direction: column; gap: 14px; }
+.facts { display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--mono); font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.facts b { font-weight: 500; font-size: 1.25rem; display: block; color: var(--ink); }
+.facts span { color: var(--muted); }
+section { display: flex; flex-direction: column; gap: 20px; }
+.section-head { display: flex; flex-direction: column; gap: 6px; border-top: 2px solid var(--ink); padding-top: 14px; }
+.section-head p { color: var(--muted); max-width: 62ch; }
+
+/* Bar chart */
+.chart { display: grid; grid-template-columns: minmax(0, 13rem) 1fr; gap: 6px 14px; align-items: center; }
+.chart .lbl { font-size: 0.95rem; text-align: right; }
+.bar-row { position: relative; display: flex; align-items: center; gap: 8px; min-width: 0; outline: none; }
+.bar { height: 18px; background: var(--scallion); border-radius: 0 4px 4px 0; min-width: 4px; }
+.bar-val { font-family: var(--mono); font-size: 0.85rem; font-variant-numeric: tabular-nums; color: var(--ink); }
+.tip { position: absolute; left: 0; bottom: calc(100% + 6px); z-index: 2; background: var(--ink); color: var(--bg); font-size: 0.85rem; line-height: 1.4; padding: 8px 10px; border-radius: 6px; max-width: min(26rem, 80vw); pointer-events: none; opacity: 0; transform: translateY(4px); transition: opacity .12s, transform .12s; }
+.bar-row:hover .tip, .bar-row:focus-visible .tip { opacity: 1; transform: none; }
+.bar-row:focus-visible .bar { outline: 2px solid var(--yolk); outline-offset: 2px; }
+.chart-note { font-size: 0.85rem; color: var(--muted); font-style: italic; }
+@media (max-width: 560px) { .chart { grid-template-columns: 1fr; } .chart .lbl { text-align: left; margin-top: 6px; } }
+
+/* Signature moves */
+.moves { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 18px 28px; }
+.move { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.move h3 { font-size: 1.05rem; }
+.move p { color: var(--muted); font-size: 0.97rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { background: var(--chip); border-radius: 999px; padding: 4px 12px; font-size: 0.9rem; }
+
+/* Recipe cards */
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 18px; }
+.card { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 20px 22px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.card-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.time { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); white-space: nowrap; }
+.why { font-size: 0.95rem; border-left: 3px solid var(--yolk); padding-left: 10px; }
+.why b { font-family: var(--mono); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yolk-ink); display: block; }
+.label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.ing { font-size: 0.95rem; }
+ol.steps { margin: 0; padding-left: 1.3em; font-size: 0.95rem; display: flex; flex-direction: column; gap: 4px; }
+
+/* Pantry table */
+.table-wrap { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.95rem; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+td:first-child { font-weight: 600; white-space: nowrap; }
+footer { font-size: 0.88rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 16px; max-width: 70ch; }
+@media (prefers-reduced-motion: reduce) { .tip { transition: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header>
+  <span class="eyebrow">From @erinsharesherfood · July 2024 to October 2026</span>
+  <h1>Erin's Kitchen</h1>
+  <p class="lede">I went through every post on her Instagram, set aside takeout, restaurant meals, snacks and drinks, and looked at what's left: the meals she cooked herself. Below is what she cooks, the habits that show up again and again, and <span class="mark">16 recipes picked to fit them</span>.</p>
+  <div class="facts">
+    <div><b>240</b><span>posts reviewed</span></div>
+    <div><b>~150</b><span>meals she cooked</span></div>
+    <div><b>~90</b><span>set aside (takeout, restaurants, snacks, drinks)</span></div>
+  </div>
+</header>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">What she cooks</span>
+    <h2>Pasta leads, with Tex-Mex and eggs close behind</h2>
+    <p>Home-cooked posts sorted by type. Hover over or tab to a bar to see examples.</p>
+  </div>
+  <div class="chart" role="list" aria-label="Home-cooked posts by category">
+    <span class="lbl">Pasta &amp; Italian</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(32/32*85%)"></div><span class="bar-val">32</span><span class="tip">Rigatoni with red sauce, pappardelle with meat sauce, shrimp alfredo, spaghetti and meatballs, carbonara, chicken parm, gnocchi, tortellini, pasta salads</span></div>
+    <span class="lbl">Tex-Mex</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(25/32*85%)"></div><span class="bar-val">25</span><span class="tip">Taco salads, steak tacos, burritos, quesadillas, chili with cornbread, cowboy caviar, chicken and black bean bowls, Mexican rice with guacamole</span></div>
+    <span class="lbl">Eggs &amp; savory breakfast</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(21/32*85%)"></div><span class="bar-val">21</span><span class="tip">Fried eggs on avocado toast, egg salad on toast, egg muffins, egg bakes, hash brown and egg plates, breakfast sandwiches</span></div>
+    <span class="lbl">Fish, rice bowls &amp; stir-fries</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(20/32*85%)"></div><span class="bar-val">20</span><span class="tip">Poke bowls, seared ahi tuna, salmon over rice with scallions, egg fried rice, chicken and broccoli stir-fry, lettuce wraps, ramen stir-fry</span></div>
+    <span class="lbl">Salads &amp; vegetable sides</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(9/32*85%)"></div><span class="bar-val">9</span><span class="tip">Caesar salads, cucumber salad, balsamic asparagus, a ham, feta and tomato salad</span></div>
+    <span class="lbl">Sweet breakfast bowls</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(8/32*85%)"></div><span class="bar-val">8</span><span class="tip">Chia pudding with blueberries and pepitas, chocolate chia with raspberries, yogurt and granola with berries</span></div>
+    <span class="lbl">Loaded potatoes</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(8/32*85%)"></div><span class="bar-val">8</span><span class="tip">Baked potatoes with bacon, sour cream and scallions, twice-baked potatoes, buffalo chicken potato, sweet potato with ground beef</span></div>
+    <span class="lbl">Simple proteins &amp; sheet pan</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(8/32*85%)"></div><span class="bar-val">8</span><span class="tip">Pork tenderloin with green beans, baked chicken, wings with ranch, steak bites with sweet potato fries</span></div>
+    <span class="lbl">Sandwiches &amp; burgers</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(8/32*85%)"></div><span class="bar-val">8</span><span class="tip">Avocado burger, caprese burger with balsamic, grilled cheese, quesadilla-style wraps</span></div>
+    <span class="lbl">Soups &amp; stews</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(7/32*85%)"></div><span class="bar-val">7</span><span class="tip">Beef stew (twice), squash soup with pepitas, corn chowder, slow-cooker soup, tomato soup with garlic bread</span></div>
+    <span class="lbl">Baking &amp; desserts</span>
+    <div class="bar-row" tabindex="0" role="listitem"><div class="bar" style="width:calc(3/32*85%)"></div><span class="bar-val">3</span><span class="tip">Frosted bars, a lemon dessert, cinnamon rolls</span></div>
+  </div>
+  <p class="chart-note">I sorted these by eye from the photos. The posts have no captions, so the counts are approximate.</p>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Her style</span>
+    <h2>Habits that show up again and again</h2>
+  </div>
+  <div class="moves">
+    <div class="move"><h3>Sauce piped in lines across the top</h3><p>Mayo on the poke bowls, sour cream on the chili and taco salads. She finishes a lot of dishes with a sauce zig-zagged across the top.</p></div>
+    <div class="move"><h3>Scallions to finish</h3><p>Scattered over poke bowls, salmon and rice, loaded potatoes and egg dishes.</p></div>
+    <div class="move"><h3>Avocado on a lot of things</h3><p>Toast, bowls, tacos, chili, burgers, seared tuna.</p></div>
+    <div class="move"><h3>Shredded parmesan on pasta</h3><p>Almost every pasta gets a pile of shredded or shaved parmesan, and garlic toast often comes on the side.</p></div>
+    <div class="move"><h3>Bowls, with toppings</h3><p>A base (rice, lettuce or grains), a protein, then layers of toppings. This is the most common shape of meal across all two years.</p></div>
+    <div class="move"><h3>Runny eggs</h3><p>Fried or jammy eggs on toast, hash browns, English muffins and avocado.</p></div>
+  </div>
+  <div class="chips" aria-label="Ingredients she uses most">
+    <span class="chip">avocado</span><span class="chip">scallions</span><span class="chip">eggs</span><span class="chip">parmesan</span><span class="chip">sour cream</span><span class="chip">Japanese-style mayo</span><span class="chip">white rice</span><span class="chip">salmon</span><span class="chip">ahi tuna</span><span class="chip">ground beef</span><span class="chip">black &amp; kidney beans</span><span class="chip">corn</span><span class="chip">cherry tomatoes</span><span class="chip">potatoes &amp; sweet potatoes</span><span class="chip">bacon</span><span class="chip">pepitas</span><span class="chip">berries</span><span class="chip">balsamic glaze</span>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Recipes · 1 of 5</span>
+    <h2>Next steps on dishes she already makes</h2>
+    <p>Same flavors she likes, made a slightly new way.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><h3>Salmon sushi bake</h3><span class="time">~40 min</span></div>
+      <p class="why"><b>Why she'd like it</b>Three poke bowls this month (Oct 13–16, 2026) and salmon over rice with scallions five times (March 2025, August 2026). This is the same idea, baked as a casserole.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Sushi rice, rice vinegar, salmon fillet, cream cheese, Japanese mayo, sriracha, furikake, roasted seaweed snack sheets, avocado, cucumber, scallions</p>
+      <ol class="steps">
+        <li>Cook the rice and season it with rice vinegar, a little sugar and salt. Press it into an 8×8 dish and sprinkle with furikake.</li>
+        <li>Bake the salmon at 400°F for 12–15 min. Flake it and mix with 2 oz cream cheese, ¼ cup mayo and sriracha to taste.</li>
+        <li>Spread over the rice. Bake 10 min, then broil 2 min until it browns in spots.</li>
+        <li>Top with scallions and more sriracha mayo. Scoop onto the seaweed sheets with avocado and cucumber.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Ahi tuna on crispy rice</h3><span class="time">~30 min + 1 hr chill</span></div>
+      <p class="why"><b>Why she'd like it</b>She already sears tuna: sliced over avocado and cucumber (Feb 2025), sesame-crusted (Mar 30, 2026), and in the October bowls. Crispy rice adds crunch.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Sushi-grade ahi, sesame seeds, cold cooked sushi rice, neutral oil, ponzu, avocado, jalapeño, scallions</p>
+      <ol class="steps">
+        <li>Press cold rice ¾ inch thick into a lined pan. Chill 1 hour, then cut into squares.</li>
+        <li>Pan-fry the squares in oil until golden on both sides.</li>
+        <li>Coat the tuna in sesame seeds. Sear 30–45 seconds per side and slice thin.</li>
+        <li>Top each square with avocado, tuna and a thin slice of jalapeño. Spoon over a little ponzu.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Creamy vodka rigatoni</h3><span class="time">~25 min</span></div>
+      <p class="why"><b>Why she'd like it</b>Pasta is her biggest category. She makes both red sauce (rigatoni, Jul 2024; pappardelle, Aug 2026) and cream sauce (shrimp alfredo, Sep 2024). Vodka sauce is both at once.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Rigatoni, shallot, garlic, tomato paste, vodka (optional), heavy cream, parmesan, chili flakes, basil, butter</p>
+      <ol class="steps">
+        <li>Soften a minced shallot and 2 cloves of garlic in butter.</li>
+        <li>Add ¼ cup tomato paste and cook, stirring, until it turns brick-red (about 4 min). Add a splash of vodka and let it bubble off.</li>
+        <li>Stir in ¾ cup cream and a pinch of chili flakes.</li>
+        <li>Toss with the pasta, a splash of pasta water and a big handful of parmesan. Top with basil and more parm.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Shakshuka with garlic toast</h3><span class="time">~30 min</span></div>
+      <p class="why"><b>Why she'd like it</b>Eggs are her most common breakfast, she made a tomato and egg scramble (Aug 13, 2025), and garlic toast is her usual side.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Eggs, crushed tomatoes, bell pepper, onion, garlic, cumin, smoked paprika, feta, cilantro or parsley, crusty bread</p>
+      <ol class="steps">
+        <li>Cook the sliced onion and pepper until soft. Add garlic, 1 tsp cumin and 1 tsp paprika.</li>
+        <li>Add a 28 oz can of crushed tomatoes and simmer 10 min.</li>
+        <li>Make wells and crack in 4–5 eggs. Cover and cook 5–8 min, until the whites set.</li>
+        <li>Finish with feta and herbs. Serve with garlic toast for dipping.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Recipes · 2 of 5</span>
+    <h2>More Tex-Mex</h2>
+    <p>About 25 of her meals are Tex-Mex. These add new ways to use the toppings she already buys.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><h3>Loaded sweet potatoes with chipotle black beans</h3><span class="time">~1 hr, mostly oven</span></div>
+      <p class="why"><b>Why she'd like it</b>She's made loaded potatoes about eight times (bacon, sour cream and scallions in Oct 2025; buffalo chicken in Nov 2024) and a sweet potato with ground beef (Jul 21, 2026).</p>
+      <p class="ing"><span class="label">You'll need</span><br>Sweet potatoes, black beans, chipotle in adobo, corn, lime, sour cream, cotija, scallions, avocado</p>
+      <ol class="steps">
+        <li>Bake the sweet potatoes at 400°F for 45–60 min, until soft.</li>
+        <li>Warm the beans and corn with 1 minced chipotle and a spoon of the adobo sauce.</li>
+        <li>Stir lime juice into the sour cream.</li>
+        <li>Split the potatoes and fill with the beans. Drizzle the lime sour cream in lines, then top with cotija, scallions and avocado.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Sheet-pan chicken fajitas</h3><span class="time">~35 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She made a sliced chicken bowl with peppers, corn and black beans (May 18, 2026) and steak tacos (Nov 18, 2025). This makes the filling on one pan.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Chicken thighs, 3 bell peppers, 1 onion, chili powder, cumin, smoked paprika, garlic powder, lime, tortillas, sour cream, avocado</p>
+      <ol class="steps">
+        <li>Slice everything into strips. Toss with oil, 2 tsp chili powder, 1 tsp each cumin, paprika and garlic powder, plus salt.</li>
+        <li>Spread on a sheet pan in one layer and roast at 425°F for 20–25 min.</li>
+        <li>Squeeze lime over the top and serve in warm tortillas or over rice.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Slow-cooker birria tacos</h3><span class="time">20 min + 8 hr slow cook</span></div>
+      <p class="why"><b>Why she'd like it</b>She uses a slow cooker (Dec 2, 2024), makes beef stew (Oct 2025, Mar 2026) and steak tacos. These are cheesy, crispy tacos you dip in their own broth.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Chuck roast, dried guajillo or ancho chiles (or 3 Tbsp chili powder), 1 chipotle in adobo, onion, garlic, cumin, oregano, beef broth, corn tortillas, Oaxaca or mozzarella cheese, cilantro, lime</p>
+      <ol class="steps">
+        <li>Soak the chiles in hot water for 10 min. Blend with the chipotle, half the onion, garlic, spices and 2 cups broth.</li>
+        <li>Pour over the beef and cook on low for 8 hr. Shred the meat.</li>
+        <li>Dip each tortilla in the red fat on top of the broth. Griddle it with cheese and beef, then fold.</li>
+        <li>Serve with a cup of broth for dipping, plus onion, cilantro and lime.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Recipes · 3 of 5</span>
+    <h2>Takeout she could make herself</h2>
+    <p>Things she has ordered and photographed. Each one uses skills she has already shown.</p>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><h3>Pad see ew</h3><span class="time">~25 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She ordered pad see ew (Aug 21, 2025) and pad thai (Dec 15, 2024), and she already makes chicken and broccoli stir-fry (Jan 2025).</p>
+      <p class="ing"><span class="label">You'll need</span><br>Wide fresh rice noodles, chicken, broccoli or Chinese broccoli, 2 eggs, garlic, oyster sauce, soy sauce, dark soy sauce, sugar</p>
+      <ol class="steps">
+        <li>Mix the sauce: 2 Tbsp oyster sauce, 1 Tbsp soy sauce, 1 Tbsp dark soy and 2 tsp sugar (for 2 servings).</li>
+        <li>Stir-fry the chicken and garlic over high heat. Add the broccoli for 2 min.</li>
+        <li>Push everything aside and scramble the eggs.</li>
+        <li>Add the noodles and sauce. Let them sit undisturbed for 30 seconds at a time so they char a little.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Hibachi fried rice with yum yum sauce</h3><span class="time">~20 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She makes egg fried rice in a skillet (Mar 3, 2026), ordered hibachi (Sep 14, 2024), and puts a mayo sauce on all her bowls.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Day-old rice, eggs, butter, garlic, soy sauce, onion, peas and carrots, chicken or shrimp. For the sauce: mayo, ketchup, melted butter, garlic powder, paprika, sugar</p>
+      <ol class="steps">
+        <li>Sauce: ½ cup mayo, 1 Tbsp ketchup, 1 Tbsp melted butter, ¼ tsp each garlic powder and paprika, 1 tsp sugar, a splash of water. Chill.</li>
+        <li>Cook the protein in butter and set it aside. Soften the onion, peas and carrots.</li>
+        <li>Add the rice, a big pat of butter, garlic and soy sauce. Scramble in the eggs.</li>
+        <li>Return the protein. Drizzle the sauce over the top in lines.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Misir wot (Ethiopian red lentils)</h3><span class="time">~40 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She has eaten Ethiopian food twice (Aug 30, 2025 and Aug 29, 2026). Red lentils are cheap and the dish keeps for days.</p>
+      <p class="ing"><span class="label">You'll need</span><br>1 cup red lentils, 2 onions (chopped fine), garlic, ginger, tomato paste, berbere spice, butter. Injera from an Ethiopian market, or flatbread</p>
+      <ol class="steps">
+        <li>Cook the onions in a dry pot over medium heat for 8–10 min, until soft and jammy.</li>
+        <li>Add 3 Tbsp butter, the garlic, ginger, 2–3 Tbsp berbere and 1 Tbsp tomato paste. Cook for 2 min.</li>
+        <li>Add the lentils and 3 cups water. Simmer 25 min, stirring often, until thick.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Burrito bowl with cilantro-lime rice</h3><span class="time">~35 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She bought a Chipotle bowl (May 27, 2026), and she builds her own bowls more than anything else.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Rice, lime, cilantro, chicken thighs, chipotle in adobo, black beans, corn, red onion, romaine, cheese, sour cream, guacamole</p>
+      <ol class="steps">
+        <li>Stir lime juice, zest and chopped cilantro into hot rice.</li>
+        <li>Rub the chicken with blended chipotle, garlic and oil. Sear or grill it, then chop.</li>
+        <li>Corn salsa: corn, diced red onion, cilantro, lime and salt.</li>
+        <li>Build the bowls with rice, beans, chicken and salsa, then top with lettuce, cheese, sour cream and guac.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Recipes · 4 of 5</span>
+    <h2>Breakfast</h2>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><h3>Turkish eggs (çılbır)</h3><span class="time">~15 min</span></div>
+      <p class="why"><b>Why she'd like it</b>She has posted runny eggs on toast at least six times (Sep 2024 to Aug 2025), often with avocado and hot sauce. This puts the eggs on garlicky yogurt with chili butter.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Greek yogurt, garlic, eggs, butter, Aleppo pepper (or paprika plus a pinch of chili flakes), dill, crusty bread</p>
+      <ol class="steps">
+        <li>Stir a grated garlic clove and a pinch of salt into 1 cup yogurt. Spread it on a plate.</li>
+        <li>Poach or fry 2 eggs until the whites are just set and lay them on the yogurt.</li>
+        <li>Melt 2 Tbsp butter with 1 tsp Aleppo pepper and spoon it over. Add dill and serve with toast.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Pumpkin pie chia pudding</h3><span class="time">5 min + overnight</span></div>
+      <p class="why"><b>Why she'd like it</b>Chia with blueberries and pepitas (Sep 27, 2026) and chocolate chia with raspberries (Sep 16, 2026). A fall flavor using the same method.</p>
+      <p class="ing"><span class="label">You'll need</span><br>¼ cup chia seeds, 1 cup milk, ⅓ cup pumpkin purée, 1 Tbsp maple syrup, ½ tsp pumpkin pie spice, vanilla, Greek yogurt, pepitas</p>
+      <ol class="steps">
+        <li>Whisk everything except the yogurt and pepitas. Stir again after 10 min so it doesn't clump.</li>
+        <li>Chill overnight. Top with a spoon of yogurt and toasted pepitas.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Lemon blueberry baked oats</h3><span class="time">~35 min, makes 4</span></div>
+      <p class="why"><b>Why she'd like it</b>She has posted yogurt, granola and blueberry bowls many times (Jan 31 and Feb 3, 2026) and made a lemon dessert (Nov 11, 2024). One pan covers breakfast for several days.</p>
+      <p class="ing"><span class="label">You'll need</span><br>2 cups oats, 1 ripe banana, 2 eggs, 1 cup milk, ½ cup Greek yogurt, 1 tsp baking powder, zest of 1 lemon, 1 cup blueberries, 2 Tbsp maple syrup</p>
+      <ol class="steps">
+        <li>Mash the banana and whisk in the eggs, milk, yogurt, maple syrup and lemon zest.</li>
+        <li>Stir in the oats and baking powder, then fold in the blueberries.</li>
+        <li>Bake in a greased 8×8 pan at 375°F for 25–30 min, until set in the middle.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Recipes · 5 of 5</span>
+    <h2>Fall comfort food</h2>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <div class="card-top"><h3>Butternut squash mac and cheese</h3><span class="time">~40 min</span></div>
+      <p class="why"><b>Why she'd like it</b>A combination of her squash soup (Sep 23, 2026) and her cheesy sausage-and-pepper pasta (Sep 28, 2026).</p>
+      <p class="ing"><span class="label">You'll need</span><br>Short pasta, 2 cups roasted or frozen butternut squash, milk, sharp cheddar, parmesan, garlic, a pinch of nutmeg, panko or crushed pepitas</p>
+      <ol class="steps">
+        <li>Blend the squash with 1 cup warm milk and garlic until smooth.</li>
+        <li>Heat the purée and stir in 1½ cups cheddar, ½ cup parmesan, nutmeg and salt.</li>
+        <li>Toss with the cooked pasta. Top with panko or pepitas and broil 2–3 min.</li>
+      </ol>
+    </article>
+    <article class="card">
+      <div class="card-top"><h3>Thai red curry squash soup</h3><span class="time">~35 min</span></div>
+      <p class="why"><b>Why she'd like it</b>The squash soup she already makes, with Thai flavors like the takeout she orders.</p>
+      <p class="ing"><span class="label">You'll need</span><br>Butternut squash (cubed), onion, garlic, ginger, 2–3 Tbsp red curry paste, 1 can coconut milk, broth, lime, cilantro, pepitas</p>
+      <ol class="steps">
+        <li>Soften the onion, garlic and ginger. Stir in the curry paste for 1 min.</li>
+        <li>Add the squash, coconut milk and 2 cups broth. Simmer 20 min, until the squash is soft.</li>
+        <li>Blend until smooth and add lime juice to taste. Top with a swirl of coconut milk, cilantro and pepitas.</li>
+      </ol>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="section-head">
+    <span class="eyebrow">Shopping list</span>
+    <h2>Six pantry items to try</h2>
+    <p>These are the pantry items behind most of the new flavors above. Each one keeps for months.</p>
+  </div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Item</th><th>What it does</th><th>Try it in</th></tr></thead>
+      <tbody>
+        <tr><td>Chipotle in adobo</td><td>Smoky heat; a little goes a long way</td><td>Loaded sweet potatoes, burrito bowl chicken, birria, mixed into mayo or sour cream</td></tr>
+        <tr><td>Ponzu</td><td>Citrusy soy sauce with no cooking needed</td><td>Seared tuna, poke bowls, a dressing for cucumber salad</td></tr>
+        <tr><td>Furikake</td><td>Sesame and seaweed seasoning</td><td>Sushi bake, salmon and rice, avocado toast, popcorn</td></tr>
+        <tr><td>Red curry paste + coconut milk</td><td>An easy Thai curry base</td><td>Squash soup, a quick shrimp or chicken curry</td></tr>
+        <tr><td>Berbere</td><td>Ethiopian chili spice blend</td><td>Misir wot, roasted sweet potatoes, eggs</td></tr>
+        <tr><td>Gochujang</td><td>Sweet-spicy Korean chili paste</td><td>Mixed into mayo for poke, bibimbap, glazed salmon</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<footer>
+  <p>Method: I reviewed all 240 posts on @erinsharesherfood (July 17, 2024 to October 16, 2026) from the photos alone, since the posts have no captions. I left out restaurant plates, takeout containers, packaged snacks and drinks. Where I couldn't tell if something was homemade, I left it out of the "inspired by" notes. Dates are the post dates shown on Instagram. Prepared October 18, 2026.</p>
+</footer>
+
+</div>
+</body>
+</html>
