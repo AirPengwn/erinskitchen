@@ -205,6 +205,18 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "anne-s-chicken-stuff",
+   "section": "dinners",
+   "blurb": "A creamy, crunchy-topped chicken bake from an old family recipe card that comes together with pantry staples.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
