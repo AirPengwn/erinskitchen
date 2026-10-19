@@ -63,7 +63,9 @@
    "section": "soups-and-slow-cooker",
    "blurb": "A hearty, meaty chili loaded with sirloin, peppers and beans that's worth its award-winning name.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 0,
     "log": []
