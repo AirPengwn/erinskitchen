@@ -60,7 +60,7 @@ You get a recipe as pasted text, screenshots/photos, a PDF, or a mix. Read all o
 Stay faithful to the source: same dish, same ingredients and amounts, same method. Write every step in your own words; never copy the source's sentences. Then fill in what the source leaves out, using standard technique, and list each thing you added or changed in "assumptions" as one short sentence (for example "Added an oven temperature of 425°F; the source didn't give one."). If the source is unreadable in places, say so in assumptions rather than inventing amounts.
 
 Fields:
-- title: the dish name, short, in sentence case.
+- title: the dish name, short, in title case (like "Chicken Pot Pie Soup with Biscuits" or "Tacos al Pastor").
 - proteins: any of chicken, beef, pork, seafood, eggs, meatless (meatless means no meat or fish; a dish can have several, like eggs and meatless).
 - slowCooker: true only if the main method is a slow cooker or crockpot.
 - cozy: true for warm, hearty dishes suited to cold days (soups, stews, chili, bakes, braises, pastas in rich sauces, warm baked goods).
@@ -132,9 +132,39 @@ const LIB_FIELDS = ["id", "title", "proteins", "slowCooker", "cozy", "servings",
 function cleanText(s, max = 2000) { return typeof s === "string" ? s.replace(/\s+/g, " ").trim().slice(0, max) : ""; }
 function cleanList(a, max = 40) { return Array.isArray(a) ? a.map((s) => cleanText(s)).filter(Boolean).slice(0, max) : []; }
 
+// Recipe names in title case: "Chicken Pot Pie Soup with Biscuits". Small words stay lowercase
+// unless they start or end the name or follow a colon or "("; each part of a hyphenated word is
+// capitalized ("Stir-Fry"); words that already mix cases (BBQ, McDonald's) are left alone; a name
+// written in ALL CAPS is lowered first.
+const SMALL_WORDS = new Set(("a an the and but or nor for so yet as at by in of off on per to up via vs vs. with from into onto over " +
+  "n e y à a la au aux al alla con di de del du da en").split(" "));
+export function titleCase(s) {
+  if (!s) return s;
+  if (s === s.toUpperCase() && /\p{L}/u.test(s)) s = s.toLowerCase();
+  const words = s.split(/(\s+)/);
+  const real = words.map((w, i) => (/\p{L}|\d/u.test(w) ? i : -1)).filter((i) => i >= 0);
+  const first = real[0], last = real[real.length - 1];
+  let afterBreak = false;
+  return words.map((w, i) => {
+    if (!/\p{L}|\d/u.test(w)) { if (/[:(—–]\s*$/.test(w)) afterBreak = true; return w; }
+    const forceCap = i === first || i === last || afterBreak || /^[("“]/.test(w);
+    afterBreak = /[:—–]$/.test(w);
+    return w.split(/([-/])/).map((part, j, parts) => {
+      const m = /^([^\p{L}\d]*)([\p{L}\d][\p{L}\d'’.]*)(.*)$/u.exec(part);
+      if (!m) return part;
+      const [, pre, core, post] = m;
+      if (/\p{Lu}/u.test(core.slice(1))) return part; // BBQ, McDonald's, iPhone
+      const lower = core.toLowerCase().replace(/['’]+$/, ""); // 'n' in mac 'n' cheese
+      const edge = forceCap && (j === 0 || j === parts.length - 1 && i === last);
+      if (SMALL_WORDS.has(lower) && !edge && parts.length === 1) return pre + core.toLowerCase() + post;
+      return pre + core.charAt(0).toLocaleUpperCase() + core.slice(1) + post;
+    }).join("");
+  }).join("");
+}
+
 export function cleanRecipe(r) {
   const out = {
-    title: cleanText(r.title, 120),
+    title: titleCase(cleanText(r.title, 120)),
     proteins: Array.isArray(r.proteins) ? [...new Set(r.proteins.filter((p) => PROTEINS.includes(p)))] : [],
     slowCooker: r.slowCooker === true,
     cozy: r.cozy === true,

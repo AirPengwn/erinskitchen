@@ -1,7 +1,7 @@
 // Offline test of the helper: fakes the Claude API and GitHub, then exercises
 // every route the site uses. Nothing real is called. Run: npm test
 import assert from "node:assert/strict";
-import worker from "../src/index.js";
+import worker, { titleCase } from "../src/index.js";
 
 const ORIGIN = "https://airpengwn.github.io";
 const env = {
@@ -71,6 +71,23 @@ const call = (path, body, method = "POST", origin = ORIGIN) =>
 
 let passed = 0;
 async function test(name, fn) { await fn(); passed++; console.log("  ok -", name); }
+
+await test("recipe names come out in title case", async () => {
+  const cases = {
+    "Chicken pot pie soup with biscuits": "Chicken Pot Pie Soup with Biscuits",
+    "Burgers, caprese or avocado-bacon": "Burgers, Caprese or Avocado-Bacon",
+    "Misir wot (Ethiopian red lentils)": "Misir Wot (Ethiopian Red Lentils)",
+    "Turkish eggs (çılbır)": "Turkish Eggs (Çılbır)",
+    "tacos al pastor": "Tacos al Pastor",
+    "CHICKEN NOODLE SOUP": "Chicken Noodle Soup",
+    "nana's mac 'n' cheese": "Nana's Mac 'n' Cheese",
+    "BBQ pulled pork": "BBQ Pulled Pork",
+    "soup: a love story": "Soup: A Love Story",
+    "what to dip it in": "What to Dip It In",
+    "slow-cooker birria tacos": "Slow-Cooker Birria Tacos",
+  };
+  for (const [from, to] of Object.entries(cases)) assert.equal(titleCase(from), to);
+});
 
 await test("CORS preflight allows the site and nothing else", async () => {
   const ok = await call("/parse", null, "OPTIONS");
