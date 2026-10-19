@@ -53,8 +53,11 @@
     "john likes"
    ],
    "made": {
-    "count": 0,
-    "log": []
+    "count": 1,
+    "log": [],
+    "undo": {
+     "date": null
+    }
    },
    "confidence": "clear"
   },
