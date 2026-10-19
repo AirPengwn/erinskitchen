@@ -1,0 +1,58 @@
+{
+ "id": "turkish-eggs",
+ "title": "Turkish eggs (çılbır)",
+ "proteins": [
+  "eggs",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "10 min (plus 20 min to take the chill off the yogurt)",
+ "cook": "10 min",
+ "total": "40 min",
+ "equipment": [
+  "Medium saucepan (for poaching)",
+  "Small saucepan or skillet (for the chili butter)",
+  "Slotted spoon",
+  "Small cup (for cracking eggs)"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 cup plain whole-milk Greek yogurt",
+    "1 small clove garlic, finely grated",
+    "¼ tsp kosher salt",
+    "4 large eggs",
+    "1 Tbsp white vinegar (for the poaching water)",
+    "2 Tbsp unsalted butter",
+    "1 tsp Aleppo pepper (or ½ tsp paprika plus a pinch of red chili flakes)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 Tbsp chopped fresh dill",
+    "4 slices crusty bread, toasted"
+   ]
+  }
+ ],
+ "steps": [
+  "Take the yogurt out of the fridge 20 min early so it isn't cold. Stir in the garlic and salt, then spread it on 2 plates or shallow bowls.",
+  "Fill the medium saucepan with 3 inches of water, add the vinegar and bring it to a bare simmer over medium heat, with small bubbles but no rolling boil.",
+  "Crack each egg into the small cup. Stir the water to make a gentle swirl and slide the eggs in one at a time. Cook 3–4 min, until the whites are fully set and the yolks are still soft.",
+  "Lift the eggs out with the slotted spoon, let them drain 5 sec and set 2 on each plate of yogurt.",
+  "Melt the butter in the small pan over medium-low heat. When it foams, stir in the Aleppo pepper and take the pan off the heat after 15–20 sec, before it scorches.",
+  "Spoon the chili butter over the eggs and yogurt. Sprinkle with dill and serve with toast."
+ ],
+ "tips": [
+  "To fry instead, cook the eggs in 1 tsp butter in a covered nonstick skillet over medium-low heat 3–4 min, until the whites are set.",
+  "Forgot to take the yogurt out? Microwave it 15–20 sec and stir. Cold yogurt cools the eggs fast.",
+  "Poach the eggs 2 at a time if your pan is small, so they don't run together."
+ ],
+ "storage": "Doesn't keep. Eat it right away. The garlic yogurt alone keeps 3 days in the fridge.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

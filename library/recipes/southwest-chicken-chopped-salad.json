@@ -1,0 +1,72 @@
+{
+ "id": "southwest-chicken-chopped-salad",
+ "title": "Southwest chicken chopped salad",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "20 min",
+ "cook": "15 min",
+ "total": "40 min (includes resting)",
+ "equipment": [
+  "12-inch skillet",
+  "Meat mallet or rolling pin",
+  "Large salad bowl",
+  "Small bowl and whisk",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 boneless skinless chicken breasts (about 1½ lb)",
+    "1 Tbsp olive oil",
+    "1 tsp chili powder",
+    "½ tsp ground cumin",
+    "½ tsp garlic powder",
+    "¾ tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Salad",
+   "items": [
+    "1 can (15 oz) black beans, rinsed and drained",
+    "1½ cups corn kernels (frozen and thawed, or canned and drained)",
+    "2 bell peppers (red, yellow or orange), diced",
+    "½ red onion, finely diced",
+    "1½ cups cherry tomatoes, halved",
+    "½ cup fresh cilantro, chopped"
+   ]
+  },
+  {
+   "group": "Dressing",
+   "items": [
+    "¼ cup fresh lime juice (2 limes)",
+    "¼ cup olive oil",
+    "1 tsp honey",
+    "2 Tbsp fresh cilantro, finely chopped",
+    "½ tsp kosher salt"
+   ]
+  }
+ ],
+ "steps": [
+  "Put the chicken between 2 sheets of plastic wrap. Pound the thick end with a meat mallet or rolling pin until it's an even ¾ inch thick, so it cooks through without drying out.",
+  "Mix the chili powder, cumin, garlic powder and ¾ tsp salt and sprinkle it all over the chicken.",
+  "Heat the oil in a 12-inch skillet over medium-high heat until it shimmers. Add the chicken and cook 5–6 min without moving, until browned. Flip, lower the heat to medium and cook 4–6 min more, until it reads 165°F in the thickest part.",
+  "Move to a cutting board and rest 5 min, then slice ½ inch thick.",
+  "While the chicken cooks, whisk the lime juice, oil, honey, cilantro and salt in a small bowl.",
+  "In a large bowl, toss the beans, corn, peppers, onion, tomatoes and cilantro with most of the dressing.",
+  "Divide among 4 bowls, top with the sliced chicken and drizzle with the rest of the dressing."
+ ],
+ "tips": [
+  "Boneless thighs stay juicier and need no pounding. Cook them 5–6 min per side to 165°F.",
+  "For meal prep, keep the dressing in a separate jar and toss just before eating.",
+  "Add diced avocado or crushed tortilla chips right before serving."
+ ],
+ "storage": "Undressed salad and chicken keep in the fridge up to 4 days. Once dressed, eat it within 1 day. Serve the chicken cold or warm it in the microwave 30–60 sec.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

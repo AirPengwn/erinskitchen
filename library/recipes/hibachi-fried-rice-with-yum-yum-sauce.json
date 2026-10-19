@@ -1,0 +1,67 @@
+{
+ "id": "hibachi-fried-rice-with-yum-yum-sauce",
+ "title": "Hibachi fried rice with yum yum sauce",
+ "proteins": [
+  "chicken",
+  "seafood"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "15 min",
+ "total": "30 min",
+ "equipment": [
+  "12-inch nonstick skillet or wok",
+  "Small bowl",
+  "Wide spatula",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 cups cooked white rice, chilled at least 12 hr (from about 1⅓ cups uncooked)",
+    "1 lb boneless skinless chicken thighs or breast, cut into ¾-inch pieces, or 1 lb peeled deveined shrimp",
+    "1 Tbsp neutral oil",
+    "4 Tbsp unsalted butter, divided",
+    "1 small yellow onion, diced",
+    "1 cup frozen peas and carrots",
+    "3 cloves garlic, minced",
+    "3 Tbsp soy sauce, divided",
+    "3 large eggs, beaten",
+    "Kosher salt and black pepper, to taste"
+   ]
+  },
+  {
+   "group": "Yum yum sauce",
+   "items": [
+    "½ cup mayo",
+    "1 Tbsp ketchup",
+    "1 Tbsp butter, melted",
+    "¼ tsp garlic powder",
+    "¼ tsp paprika",
+    "1 tsp sugar",
+    "1–2 Tbsp water"
+   ]
+  }
+ ],
+ "steps": [
+  "Whisk the sauce ingredients together, adding water until it pours like heavy cream. Chill while you cook.",
+  "Break up the cold rice with your hands so there are no clumps.",
+  "Heat the oil and 1 Tbsp butter in the skillet over medium-high heat. Add the protein, season with salt, pepper and 1 Tbsp soy sauce and cook until the chicken reads 165°F (5–7 min) or the shrimp are pink and opaque (2–3 min). Move it to a plate.",
+  "Add 1 Tbsp butter, the onion and the peas and carrots. Cook 3–4 min, stirring, until the onion softens.",
+  "Add the rice, the remaining 2 Tbsp butter, the garlic and 2 Tbsp soy sauce. Spread it out and cook 4–5 min, turning it every minute, until hot and starting to crisp.",
+  "Push the rice to one side. Pour the eggs into the empty spot and scramble about 1 min, until set, then stir them into the rice.",
+  "Return the protein and its juices and toss 1 min to heat through. Serve with the yum yum sauce drizzled over the top in lines."
+ ],
+ "tips": [
+  "Use rice cooked the day before and chilled. Fresh rice turns mushy. In a pinch, spread fresh rice on a sheet pan and refrigerate 30 min uncovered.",
+  "If your pan is small, cook the rice in 2 batches. A crowded pan steams the rice instead of frying it.",
+  "The sauce tastes better after an hour in the fridge, so make it first or the day before."
+ ],
+ "storage": "Cool leftover fried rice within 2 hr and refrigerate up to 3 days. Reheat in a skillet over medium heat with a splash of water, or microwave covered until steaming hot (165°F). The sauce keeps 1 week in the fridge.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,64 @@
+{
+ "id": "lettuce-wraps",
+ "title": "Lettuce wraps",
+ "proteins": [
+  "pork",
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings (about 12 wraps)",
+ "prep": "15 min",
+ "cook": "12 min",
+ "total": "25 min",
+ "equipment": [
+  "12-inch skillet",
+  "Small bowl",
+  "Wooden spoon",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 Tbsp neutral oil",
+    "1 lb ground pork or ground chicken",
+    "2 cloves garlic, minced",
+    "1 tsp fresh ginger, grated",
+    "1 can (8 oz) water chestnuts, drained and diced"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "3 Tbsp hoisin sauce",
+    "1 Tbsp soy sauce",
+    "1 tsp rice vinegar",
+    "1 tsp sriracha"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 head butter lettuce (about 12 leaves), leaves separated",
+    "2 scallions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Stir the hoisin, soy sauce, rice vinegar and sriracha in a small bowl. Separate the lettuce leaves, rinse and pat dry.",
+  "Heat the oil in a 12-inch skillet over medium-high heat. Add the meat and cook 6–8 min, breaking it into small crumbles, until browned with no pink left. Pork should read 160°F and chicken 165°F. Spoon off extra fat if using pork.",
+  "Add the garlic and ginger and stir 30–60 sec, until fragrant.",
+  "Add the water chestnuts and sauce. Cook 2 min, stirring, until the sauce coats the meat and looks glossy.",
+  "Spoon about ⅓ cup filling into each lettuce cup and top with scallions."
+ ],
+ "tips": [
+  "Dry the lettuce well or the cups get watery.",
+  "Add 1 cup diced mushrooms or a diced bell pepper with the meat for more vegetables.",
+  "Serve any extra filling over rice."
+ ],
+ "storage": "Filling keeps in the fridge up to 4 days or the freezer up to 3 months. Reheat in a skillet over medium heat or in the microwave until hot (165°F). Store the lettuce separately, wrapped in a damp paper towel, up to 3 days.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

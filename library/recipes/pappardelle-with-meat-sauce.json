@@ -1,0 +1,64 @@
+{
+ "id": "pappardelle-with-meat-sauce",
+ "title": "Pappardelle with meat sauce",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "45 min",
+ "total": "1 hr",
+ "equipment": [
+  "Dutch oven or deep 12-inch skillet",
+  "6- to 8-quart pot",
+  "Tongs",
+  "Vegetable peeler (for shaving parmesan)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 Tbsp olive oil",
+    "1 lb ground beef (85% lean)",
+    "1 medium yellow onion, finely chopped",
+    "1 medium carrot, peeled and finely chopped",
+    "3 cloves garlic, minced",
+    "2 Tbsp tomato paste",
+    "1 can (28 oz) crushed tomatoes",
+    "1 tsp Italian seasoning",
+    "1 tsp kosher salt, plus more to taste",
+    "¼ tsp black pepper",
+    "¼ cup whole milk",
+    "12 oz dried pappardelle",
+    "1 Tbsp kosher salt (for the pasta water)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 oz parmesan, shaved with a peeler (about ½ cup)",
+    "¼ cup fresh basil leaves, torn"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oil in a Dutch oven over medium-high heat. Add the beef, onion and carrot and cook 8–10 min, breaking up the meat, until browned with no pink left (160°F) and the vegetables are soft.",
+  "Spoon off extra fat. Stir in the garlic and tomato paste and cook 1 min, until the paste darkens slightly.",
+  "Add the tomatoes, Italian seasoning, salt and pepper. Bring to a simmer, then lower the heat to low, partly cover and simmer at least 30 min, stirring now and then, until thick.",
+  "About 15 min before the sauce is done, bring a large pot of water to a boil and add 1 Tbsp salt. Cook the pappardelle until al dente. Save 1 cup of pasta water, then drain.",
+  "Stir the milk into the sauce and simmer 2 min. Taste and add salt if needed.",
+  "Add the pappardelle and a splash of pasta water to the sauce and toss gently with tongs until coated.",
+  "Top with shaved parmesan and basil."
+ ],
+ "tips": [
+  "For a richer sauce, simmer it up to 1½ hr on low. Add a splash of water if it gets too thick.",
+  "Use half ground beef and half ground pork for a softer, richer sauce; cook it to 160°F the same way."
+ ],
+ "storage": "Fridge up to 4 days. Freeze the sauce alone up to 3 months. Reheat in a skillet over medium heat with a splash of water until it reaches 165°F.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

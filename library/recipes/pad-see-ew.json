@@ -1,0 +1,61 @@
+{
+ "id": "pad-see-ew",
+ "title": "Pad see ew",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "15 min",
+ "cook": "10 min",
+ "total": "25 min",
+ "equipment": [
+  "Wok or 12-inch nonstick skillet",
+  "Small bowl",
+  "Wide spatula",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "12 oz fresh wide rice noodles (or 6 oz dried wide rice noodles, soaked as the package says)",
+    "8 oz boneless skinless chicken thighs or breast, sliced ¼ inch thick",
+    "3 Tbsp neutral oil, divided",
+    "3 cloves garlic, minced",
+    "3 cups broccoli florets in bite-size pieces, or 1 bunch Chinese broccoli (stems cut into 1-inch pieces, leaves kept separate)",
+    "2 Tbsp water",
+    "2 large eggs"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "2 Tbsp oyster sauce",
+    "1 Tbsp soy sauce",
+    "1 Tbsp dark soy sauce",
+    "2 tsp sugar",
+    "1 Tbsp water"
+   ]
+  }
+ ],
+ "steps": [
+  "Separate the noodles into single strands. If they're stiff from the fridge, microwave them 30–60 sec, until they pull apart without tearing.",
+  "Stir the oyster sauce, soy sauce, dark soy, sugar and 1 Tbsp water in the small bowl until the sugar dissolves.",
+  "Heat 1 Tbsp oil in the wok over high heat until it shimmers. Add the chicken in one layer and cook 2 min without moving it. Add the garlic and stir-fry 1–2 min more, until the chicken is no longer pink and reads 165°F.",
+  "Add the broccoli (stems first if using Chinese broccoli) and 2 Tbsp water. Stir-fry 2 min, until bright green and crisp-tender. Add any Chinese broccoli leaves for the last 30 sec.",
+  "Push everything to one side. Add 1 Tbsp oil to the empty side, crack in the eggs and scramble 30–60 sec, until just set.",
+  "Add the last 1 Tbsp oil, the noodles and the sauce. Toss gently to coat. Then spread them out and let them sit undisturbed 30 sec at a time, tossing between, for 2–3 min total, until they have charred spots.",
+  "Toss everything together and serve right away."
+ ],
+ "tips": [
+  "Don't double it in one pan. Cook 2 batches, or the noodles steam and break instead of charring.",
+  "No dark soy sauce? Use 1 extra tsp soy sauce plus 1 tsp molasses or brown sugar.",
+  "Try a pinch of chili flakes and a splash of rice vinegar at the table, the way Thai restaurants serve it."
+ ],
+ "storage": "Fridge up to 3 days. Rice noodles harden when cold, so reheat in a skillet over medium heat with 1–2 Tbsp water, covered for 1 min, or microwave covered with a damp paper towel. Doesn't freeze well.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

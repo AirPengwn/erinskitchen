@@ -1,0 +1,57 @@
+{
+ "id": "tomato-and-egg-scramble",
+ "title": "Tomato and egg scramble",
+ "proteins": [
+  "eggs",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "5 min",
+ "cook": "10 min",
+ "total": "15 min",
+ "equipment": [
+  "10-inch nonstick skillet",
+  "Silicone spatula",
+  "Small bowl and fork"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 large eggs",
+    "¼ tsp kosher salt, plus a pinch for the tomatoes",
+    "2 Tbsp neutral oil, divided",
+    "1½ cups cherry tomatoes (about 10 oz), halved",
+    "½ tsp sugar",
+    "2 Tbsp water",
+    "1 scallion, thinly sliced, white and green parts kept separate"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "2 cups cooked white rice, warm, or 2 slices toast"
+   ]
+  }
+ ],
+ "steps": [
+  "Beat the eggs with ¼ tsp salt in a small bowl until no streaks of white remain.",
+  "Heat 1 Tbsp oil in a 10-inch nonstick skillet over medium heat until it shimmers. Pour in the eggs, let them sit 10 sec, then push them slowly from the edges to the center with a spatula.",
+  "When the eggs are mostly set but still a little wet and glossy, 1–2 min, slide them onto a plate. They finish cooking later.",
+  "Add the remaining 1 Tbsp oil and the scallion whites to the pan over medium heat and stir 30 sec. Add the tomatoes, sugar, a pinch of salt and 2 Tbsp water.",
+  "Cook 3–5 min, stirring and pressing some tomatoes with the spatula, until they burst and turn saucy.",
+  "Return the eggs and fold gently 30–60 sec, until no runny egg remains and the eggs are coated in the tomato sauce.",
+  "Top with the scallion greens. Serve over rice or with toast."
+ ],
+ "tips": [
+  "Pull the eggs early. They keep cooking in the hot tomatoes, and dry, rubbery eggs are the most common mistake here.",
+  "Only have regular tomatoes? Cut 2 into wedges and cook them 4–5 min.",
+  "Add 1 tsp soy sauce to the tomatoes for a more savory sauce."
+ ],
+ "storage": "Best eaten right away. Leftovers keep 1 day in the fridge. Reheat in the microwave in 20-sec bursts, just until warm.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

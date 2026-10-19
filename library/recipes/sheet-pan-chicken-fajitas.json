@@ -1,0 +1,62 @@
+{
+ "id": "sheet-pan-chicken-fajitas",
+ "title": "Sheet-pan chicken fajitas",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "25 min",
+ "total": "40 min",
+ "equipment": [
+  "Rimmed sheet pan (or 2 if crowded)",
+  "Parchment paper",
+  "Large bowl",
+  "Foil",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ lb boneless skinless chicken thighs, cut into ½-inch strips",
+    "3 bell peppers (any color), sliced ¼ inch thick",
+    "1 large yellow onion, sliced ¼ inch thick",
+    "2 Tbsp olive oil",
+    "2 tsp chili powder",
+    "1 tsp ground cumin",
+    "1 tsp smoked paprika",
+    "1 tsp garlic powder",
+    "1 tsp kosher salt",
+    "1 lime, halved"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "8 small flour tortillas (or 3 cups cooked rice)",
+    "½ cup sour cream",
+    "1 avocado, sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 425°F with a rack in the upper third. Line the sheet pan with parchment.",
+  "In the large bowl, toss the chicken, peppers and onion with the oil, spices and salt until evenly coated.",
+  "Spread everything in a single layer. Use 2 pans if it's crowded, or the vegetables will steam instead of brown.",
+  "Roast 20–25 min, stirring once halfway, until the vegetables are charred at the edges and the thickest strip of chicken reads 165°F.",
+  "For the last 10 min of roasting, wrap the tortillas in foil and warm them on a lower rack.",
+  "Squeeze the lime over the pan and toss. Serve in the warm tortillas or over rice with sour cream and avocado."
+ ],
+ "tips": [
+  "For more char, broil the pan for the last 2 min, watching closely.",
+  "Chicken breast works too. Check it at 18 min, since it dries out faster.",
+  "Cut the chicken and vegetables to the same thickness so they finish at the same time."
+ ],
+ "storage": "Fridge up to 4 days in a sealed container. Reheat in a skillet over medium heat or in the microwave until the chicken is hot (165°F).",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

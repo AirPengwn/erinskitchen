@@ -1,0 +1,62 @@
+{
+ "id": "crispy-chicken-wings",
+ "title": "Crispy chicken wings",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2–3 servings (about 20 pieces)",
+ "prep": "15 min",
+ "cook": "28 min",
+ "total": "45 min",
+ "equipment": [
+  "Air fryer (5-quart or larger)",
+  "Large mixing bowl",
+  "Paper towels",
+  "Small saucepan or microwave-safe bowl",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 lb chicken wings, split into flats and drumettes, tips removed",
+    "1 Tbsp aluminum-free baking powder (not baking soda)",
+    "1 tsp kosher salt",
+    "½ tsp garlic powder"
+   ]
+  },
+  {
+   "group": "Buffalo sauce",
+   "items": [
+    "½ cup cayenne pepper hot sauce, such as Frank's RedHot",
+    "4 Tbsp unsalted butter, melted"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "½ cup ranch or blue cheese dressing",
+    "3 celery ribs, cut into 3-inch sticks",
+    "2 medium carrots, peeled and cut into 3-inch sticks"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the wings very dry with paper towels. Any moisture left on the skin keeps it from crisping.",
+  "In a large bowl, mix the baking powder, salt and garlic powder. Add the wings and toss until each one has a thin, even dusting.",
+  "Arrange the wings in the air fryer basket in a single layer, not touching. Most baskets fit about 1 lb, so cook in 2 batches if needed.",
+  "Air fry at 380°F for 20 min. Flip the wings, raise the heat to 400°F and cook 5–8 min more, until deep golden and crisp and the thickest drumette reads at least 165°F. Wings are juiciest at 175–185°F.",
+  "While the wings cook, whisk the melted butter and hot sauce together in a large bowl.",
+  "For buffalo wings, toss the hot wings in the sauce right before serving. Serve with the dressing, celery and carrots."
+ ],
+ "tips": [
+  "Oven method: line a rimmed sheet pan with foil and set a wire rack on it. Spread the coated wings on the rack and bake at 425°F on the middle rack for 45–50 min, flipping halfway, until crisp and 165°F.",
+  "Use aluminum-free baking powder; regular can taste metallic. Never swap in baking soda, which tastes soapy."
+ ],
+ "storage": "Fridge up to 4 days. Reheat in the air fryer at 375°F for 5–7 min, until hot (165°F) and crisp again. Sauced wings soften as they sit, so sauce only what you'll eat.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

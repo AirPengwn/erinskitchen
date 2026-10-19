@@ -1,0 +1,70 @@
+{
+ "id": "slow-cooker-birria-tacos",
+ "title": "Slow-cooker birria tacos",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6 servings (about 18 tacos)",
+ "prep": "30 min",
+ "cook": "8 hr on low, plus 30 min for the tacos",
+ "total": "9 hr",
+ "equipment": [
+  "6-quart slow cooker",
+  "Blender",
+  "Medium heatproof bowl",
+  "12-inch nonstick skillet or griddle",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "3 lb boneless beef chuck roast, trimmed of thick fat and cut into 4 large chunks",
+    "1½ tsp kosher salt, plus more to taste",
+    "4 dried guajillo chiles and 2 dried ancho chiles, stems and seeds removed (or 3 Tbsp chili powder)",
+    "2 cups boiling water (for soaking)",
+    "1 chipotle pepper in adobo",
+    "1 medium white onion, half roughly chopped and half finely diced",
+    "5 cloves garlic, peeled",
+    "1 tsp ground cumin",
+    "1 tsp dried oregano (Mexican if you have it)",
+    "2 cups low-sodium beef broth"
+   ]
+  },
+  {
+   "group": "Tacos",
+   "items": [
+    "18 (6-inch) corn tortillas",
+    "12 oz Oaxaca or low-moisture mozzarella cheese, shredded (about 3 cups)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "Finely diced onion (the reserved half from above)",
+    "½ cup chopped fresh cilantro",
+    "2 limes, cut into wedges"
+   ]
+  }
+ ],
+ "steps": [
+  "Put the stemmed, seeded chiles in the heatproof bowl, cover with the 2 cups boiling water and soak 10–15 min, until soft and bendable. Drain and discard the water. If you're using chili powder, skip this step.",
+  "Blend the soaked chiles (or chili powder), chipotle, the roughly chopped onion, garlic, cumin, oregano, 1½ tsp salt and the broth on high 1–2 min, until completely smooth.",
+  "Season the beef with a little salt and put it in the slow cooker. Pour the sauce over it. Cover and cook on low 8 hr, until the beef falls apart when pressed with a fork (about 200°F inside).",
+  "Lift the beef onto a cutting board and shred it with 2 forks, discarding any fat. Skim the red fat from the top of the broth into a small bowl. Taste the broth and add salt if needed. Toss the meat with ½ cup broth.",
+  "Heat the skillet over medium heat. Dip a tortilla in the red fat, or quickly in the broth, and lay it in the pan. Cover half with about 2 Tbsp cheese and 2–3 Tbsp beef.",
+  "Cook 2–3 min, until the tortilla is crisp underneath and the cheese melts. Fold it closed and cook about 1 min per side, until crisp on both sides. Repeat, cooking 2–3 at a time if they fit.",
+  "Ladle the hot broth into small cups. Serve the tacos with the broth for dipping, plus diced onion, cilantro and lime wedges."
+ ],
+ "tips": [
+  "Use a fully thawed roast. Frozen meat stays too cold for too long in a slow cooker.",
+  "For deeper flavor, sear the beef chunks in 1 Tbsp oil in a hot skillet 3–4 min per side before they go in.",
+  "No slow cooker: braise covered in a Dutch oven at 325°F for 3–3½ hr, until it falls apart."
+ ],
+ "storage": "Store the meat and broth separately. Fridge up to 4 days or freezer up to 3 months. Reheat the broth in a pot until simmering and the meat in a covered skillet with a splash of broth. Make the tacos fresh.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

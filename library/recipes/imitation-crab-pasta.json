@@ -1,0 +1,61 @@
+{
+ "id": "imitation-crab-pasta",
+ "title": "Imitation crab pasta",
+ "proteins": [
+  "seafood"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "10 min",
+ "cook": "15 min",
+ "total": "25 min",
+ "equipment": [
+  "6- to 8-quart pot",
+  "12-inch skillet",
+  "Tongs"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "12 oz rotini or fettuccine",
+    "1 Tbsp kosher salt (for the pasta water)",
+    "8 oz imitation crab, pulled into bite-size strips",
+    "2 Tbsp unsalted butter",
+    "2 cloves garlic, minced",
+    "1 lemon, halved",
+    "Kosher salt and black pepper, to taste"
+   ]
+  },
+  {
+   "group": "Pesto version",
+   "items": [
+    "½ cup basil pesto"
+   ]
+  },
+  {
+   "group": "Cream version",
+   "items": [
+    "½ cup heavy cream",
+    "½ cup finely grated parmesan"
+   ]
+  }
+ ],
+ "steps": [
+  "Bring a large pot of water to a boil and add the 1 Tbsp salt. Cook the pasta until al dente. Save 1 cup of pasta water, then drain.",
+  "Meanwhile, melt the butter in a 12-inch skillet over medium-low heat. Add the garlic and cook 1 min, until fragrant but not browned.",
+  "Add the crab and cook 2 min, stirring gently, just until warm. It's already cooked, so it only needs heating.",
+  "For the pesto version, take the pan off the heat and stir in the pesto; cooking pesto turns it dull and oily. For the cream version, pour in the cream, simmer 2 min, then take it off the heat and stir in the parmesan until smooth.",
+  "Add the pasta and ¼ cup pasta water and toss until coated. Add more water if it looks dry.",
+  "Squeeze in the juice of half the lemon, season with salt and pepper and toss. Cut the other half into wedges to serve."
+ ],
+ "tips": [
+  "Imitation crab is made from cooked fish, so long cooking makes it rubbery. Add it near the end.",
+  "Add 1 cup frozen peas to the pasta pot for the last 2 min for color."
+ ],
+ "storage": "Fridge up to 2 days. Reheat gently in a skillet over low heat with a splash of water or milk. Don't freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

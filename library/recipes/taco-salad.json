@@ -1,0 +1,73 @@
+{
+ "id": "taco-salad",
+ "title": "Taco salad",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "12 min",
+ "total": "25 min",
+ "equipment": [
+  "12-inch skillet",
+  "Cutting board and chef's knife",
+  "Small zip-top bag (for the sour cream lines)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb lean ground beef (85–90% lean) or ground turkey",
+    "1 tsp neutral oil (only if using turkey)",
+    "¼ cup water"
+   ]
+  },
+  {
+   "group": "Taco seasoning",
+   "items": [
+    "2 tsp chili powder",
+    "1 tsp ground cumin",
+    "½ tsp garlic powder",
+    "½ tsp onion powder",
+    "½ tsp paprika",
+    "½ tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Salad",
+   "items": [
+    "1 large head romaine or iceberg lettuce (about 8 cups), shredded",
+    "1 cup shredded cheddar (4 oz)",
+    "2 Roma tomatoes, diced",
+    "1 cup guacamole, or 2 ripe avocados, diced"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "½ cup sour cream",
+    "½ cup salsa"
+   ]
+  }
+ ],
+ "steps": [
+  "Stir the chili powder, cumin, garlic powder, onion powder, paprika and salt together in a small bowl.",
+  "Heat a 12-inch skillet over medium-high heat. Add the meat (and the oil if using turkey). Cook 6–8 min, breaking it into small crumbles, until no pink remains. Beef should read 160°F and turkey 165°F.",
+  "Tip the pan and spoon off most of the fat. Lower the heat to medium. Stir in the seasoning and ¼ cup water and simmer 2–3 min, until the liquid is mostly gone and the meat looks glossy.",
+  "While the meat cooks, shred the lettuce and dice the tomatoes and avocado. Divide the lettuce among 4 plates or bowls.",
+  "Spoon the warm meat over the lettuce. Add the cheddar, tomatoes and guacamole or avocado.",
+  "Spoon the sour cream into a small zip-top bag, snip off a tiny corner and pipe it over each salad in lines. Serve with salsa on the side."
+ ],
+ "tips": [
+  "Keep the meat and lettuce apart until you eat. Warm meat wilts lettuce fast.",
+  "Add crushed tortilla chips or a can of rinsed black beans for crunch and bulk.",
+  "Make a triple batch of the seasoning and keep it in a jar. Use 5 tsp per 1 lb of meat."
+ ],
+ "storage": "Cooked meat keeps in the fridge up to 4 days or the freezer up to 3 months. Keep the lettuce and toppings separate. Reheat the meat in a skillet over medium heat with a splash of water, or in the microwave, until hot. Assembled salads do not keep.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

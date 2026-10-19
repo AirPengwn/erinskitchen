@@ -1,0 +1,52 @@
+{
+ "id": "bacon-carbonara",
+ "title": "Bacon carbonara",
+ "proteins": [
+  "pork",
+  "eggs"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "2 servings",
+ "prep": "10 min",
+ "cook": "20 min",
+ "total": "30 min",
+ "equipment": [
+  "6- to 8-quart pot",
+  "12-inch skillet",
+  "Medium bowl and whisk",
+  "Tongs",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "8 oz spaghetti or rigatoni",
+    "2 tsp kosher salt (for the pasta water)",
+    "6 slices bacon, cut into ½-inch pieces",
+    "2 large eggs plus 1 large yolk, at room temperature",
+    "¾ cup finely grated parmesan or pecorino romano, plus 2 Tbsp to serve",
+    "1 tsp coarsely ground black pepper, plus more to serve"
+   ]
+  }
+ ],
+ "steps": [
+  "Bring a large pot of water to a boil and add the 2 tsp salt. That's less than usual because the bacon and cheese are salty.",
+  "Cook the bacon in a 12-inch skillet over medium heat 8–10 min, stirring now and then, until crisp. Turn off the heat. Spoon out all but 1 Tbsp of the fat, leaving the bacon in the pan.",
+  "In a medium bowl, whisk the eggs, yolk, cheese and pepper until smooth.",
+  "Cook the pasta until al dente. Scoop out 1 cup of pasta water, then drain.",
+  "Add the hot pasta to the bacon skillet, still off the heat, and toss to coat it in the fat.",
+  "Pour in the egg mixture and ¼ cup pasta water and toss fast and nonstop with tongs until the sauce turns creamy.",
+  "Set the skillet over low heat and keep tossing 1–2 min, until the sauce thickens slightly and reads 160°F. Pull it off the moment it thickens. If it starts to look curdled, take it off the heat and add a splash of pasta water.",
+  "Serve right away topped with more cheese and pepper."
+ ],
+ "tips": [
+  "Have everything ready before you drain the pasta. The sauce comes together in about 2 min and won't wait.",
+  "Use pasteurized eggs if you're cooking for someone who is pregnant, very young, older or has a weak immune system."
+ ],
+ "storage": "Best eaten right away. Leftovers keep in the fridge up to 2 days. Reheat gently in a skillet over low heat with a splash of water, stirring, until steaming (165°F). Don't freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,49 @@
+{
+ "id": "homemade-pepperoni-pizza",
+ "title": "Homemade pepperoni pizza",
+ "proteins": [
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "1 12-inch pizza (8 slices)",
+ "prep": "15 min",
+ "cook": "10 min",
+ "total": "1 hr 10 min (mostly heating the oven)",
+ "equipment": [
+  "Pizza stone or steel",
+  "Pizza peel",
+  "Pizza cutter"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb pizza dough, at room temperature",
+    "2 Tbsp all-purpose flour or cornmeal, for the peel",
+    "½ cup pizza sauce",
+    "2 cups shredded low-moisture mozzarella (8 oz)",
+    "2 oz sliced pepperoni (about 30 slices)",
+    "1 jalapeño, thinly sliced (optional)",
+    "1 tsp olive oil, for the crust"
+   ]
+  }
+ ],
+ "steps": [
+  "Set a pizza stone or steel on a rack in the upper third of the oven and heat to 500°F for 45 min. Take the dough out of the fridge at the same time so it warms up and stretches easily.",
+  "Sprinkle the peel with the flour or cornmeal. On a floured counter, press the dough into a disk, then stretch it over your knuckles into a 12-inch round, leaving the edge a little thicker. Lay it on the peel.",
+  "Spread the sauce thinly, leaving a 1-inch border. Scatter the mozzarella, then the pepperoni and jalapeño, if using. Brush the border with the oil.",
+  "Shake the peel gently to make sure the pizza slides. If it sticks, lift the edge and toss a little more flour underneath.",
+  "Slide the pizza onto the hot stone with a quick forward-and-back jerk. Bake 7–10 min, until the crust has dark spots and the cheese is bubbling and browned in spots.",
+  "Pull it out with the peel, rest 2 min so the cheese sets, then slice."
+ ],
+ "tips": [
+  "Garlic flatbread slices: stretch a second 1 lb dough ball, brush it with 2 Tbsp olive oil mixed with 2 cloves grated garlic, top with 1 cup mozzarella and bake 6–8 min the same way. Cut into strips.",
+  "No peel? Build the pizza on parchment on an upside-down sheet pan and slide it, parchment and all, onto the stone.",
+  "If the dough keeps shrinking back as you stretch it, cover it 10 min to relax, then try again."
+ ],
+ "storage": "Fridge up to 3 days, wrapped. Reheat slices in a covered skillet over medium heat 3–5 min, until the bottom is crisp and the cheese melts, or in a 400°F oven 5–7 min.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

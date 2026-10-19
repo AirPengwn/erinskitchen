@@ -1,0 +1,69 @@
+{
+ "id": "steak-bites-with-sweet-potato-fries",
+ "title": "Steak bites with sweet potato fries",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "3 servings",
+ "prep": "20 min",
+ "cook": "35 min",
+ "total": "55 min",
+ "equipment": [
+  "Rimmed sheet pan",
+  "Parchment paper",
+  "12-inch cast-iron or stainless skillet",
+  "Blender or food processor",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb top sirloin steak, about 1 inch thick, cut into 1-inch cubes",
+    "¾ tsp kosher salt",
+    "½ tsp black pepper",
+    "1 Tbsp vegetable oil",
+    "2 Tbsp unsalted butter",
+    "3 cloves garlic, minced"
+   ]
+  },
+  {
+   "group": "Fries",
+   "items": [
+    "2 medium sweet potatoes (about 1½ lb), scrubbed and cut into ½-inch-thick sticks",
+    "2 tsp cornstarch",
+    "2 Tbsp vegetable or olive oil",
+    "1 tsp smoked paprika",
+    "¾ tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Green dip",
+   "items": [
+    "¾ cup ranch dressing",
+    "1 jalapeño, stemmed, seeded and roughly chopped",
+    "½ cup packed fresh cilantro leaves and tender stems"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 425°F with a rack in the middle. Line a rimmed sheet pan with parchment.",
+  "Pat the sweet potato sticks dry. In a bowl, toss them with the cornstarch until lightly dusted, then add the oil, paprika and salt and toss again. Spread them on the pan in a single layer with space between; use 2 pans if crowded.",
+  "Bake 25–30 min, flipping once halfway, until browned at the edges and tender inside. Let them sit on the pan 3–5 min to crisp.",
+  "While the fries bake, blend the ranch, jalapeño and cilantro until smooth and pale green. Chill until serving.",
+  "Pat the steak cubes dry and season with the salt and pepper. Heat the oil in the skillet over high heat until it just starts to smoke.",
+  "Add the steak in a single layer, in 2 batches if needed. Sear 1–2 min without moving, until a brown crust forms, then turn and cook 1–2 min more.",
+  "Return all the steak to the pan and lower the heat to medium. Add the butter and garlic and toss 1 min, until the garlic is fragrant and the steak is coated. Check a cube: 130–135°F for medium-rare, 140–145°F for medium.",
+  "Serve the steak bites with the fries and green dip."
+ ],
+ "tips": [
+  "Air fryer fries: cook at 400°F for 14–18 min in a single layer, shaking the basket halfway.",
+  "Leave the jalapeño seeds in if you want the dip spicier."
+ ],
+ "storage": "Steak and fries keep 3 days in the fridge, the dip 4 days. Re-crisp the fries in the air fryer at 400°F or the oven at 425°F for 4–6 min. Warm the steak in a skillet over medium heat 1–2 min so it doesn't overcook.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

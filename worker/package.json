@@ -1,0 +1,12 @@
+{
+  "name": "kitchen-helper",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "deploy": "npx wrangler@4 deploy",
+    "test": "node test/run.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0"
+  }
+}

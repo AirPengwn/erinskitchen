@@ -1,0 +1,67 @@
+{
+ "id": "cowboy-caviar",
+ "title": "Cowboy caviar",
+ "proteins": [
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "8 servings (about 9 cups)",
+ "prep": "20 min",
+ "cook": "0 min",
+ "total": "50 min (includes chilling)",
+ "equipment": [
+  "Colander",
+  "Large mixing bowl",
+  "Small bowl and whisk",
+  "Cutting board and chef's knife"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 can (15 oz) black beans, rinsed and drained",
+    "1 can (15 oz) kidney beans, rinsed and drained",
+    "1 can (15 oz) chickpeas, rinsed and drained",
+    "1½ cups corn kernels (frozen and thawed, or canned and drained)",
+    "1½ cups cherry tomatoes, quartered",
+    "1 bell pepper (any color), diced",
+    "½ red onion, finely diced",
+    "½ cup fresh cilantro, chopped"
+   ]
+  },
+  {
+   "group": "Dressing",
+   "items": [
+    "⅓ cup olive oil",
+    "¼ cup red wine vinegar",
+    "2 Tbsp fresh lime juice (1 lime)",
+    "1 tsp sugar",
+    "½ tsp chili powder",
+    "¾ tsp kosher salt, plus more to taste"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 bag (10–13 oz) tortilla chips"
+   ]
+  }
+ ],
+ "steps": [
+  "Rinse the beans and chickpeas in a colander under cold water. Let them drain well, about 5 min. Extra water dilutes the dressing.",
+  "Quarter the tomatoes. Dice the pepper and onion into pieces about the size of a bean. Chop the cilantro.",
+  "In a small bowl, whisk the oil, vinegar, lime juice, sugar, chili powder and salt until the sugar dissolves.",
+  "Put everything in a large bowl, pour on the dressing and toss gently until coated.",
+  "Cover and chill at least 30 min so the flavors soak in. Stir, taste and add more salt or lime if needed. Serve with tortilla chips."
+ ],
+ "tips": [
+  "If raw onion tastes too sharp to you, soak the diced onion in cold water 10 min, then drain.",
+  "Making it a day ahead? Stir in the tomatoes and cilantro just before serving so they stay fresh.",
+  "Spoon leftovers over grilled chicken or into tacos for an easy dinner."
+ ],
+ "storage": "Fridge up to 4 days in a sealed container. It gets juicier as it sits, so stir before serving. Do not freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

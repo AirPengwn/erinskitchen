@@ -1,0 +1,71 @@
+{
+ "id": "beef-chili-with-all-the-toppings",
+ "title": "Beef chili with all the toppings",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6 servings",
+ "prep": "20 min",
+ "cook": "6–8 hr on low or 3–4 hr on high",
+ "total": "6 hr 20 min–8 hr 20 min on low (3 hr 20 min–4 hr 20 min on high)",
+ "equipment": [
+  "12-inch skillet",
+  "6-quart slow cooker",
+  "Colander",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 Tbsp olive oil",
+    "1½ lb ground beef (85% lean)",
+    "1 medium yellow onion, diced",
+    "4 cloves garlic, minced",
+    "1 can (15 oz) kidney beans, drained and rinsed",
+    "1 can (15 oz) black beans, drained and rinsed",
+    "1 can (28 oz) crushed tomatoes",
+    "1 can (15 oz) diced tomatoes, with their juice",
+    "3 Tbsp chili powder",
+    "2 tsp ground cumin",
+    "1 tsp smoked paprika",
+    "1 tsp kosher salt, plus more to taste",
+    "1 chipotle pepper in adobo, minced (optional)"
+   ]
+  },
+  {
+   "group": "Toppings",
+   "items": [
+    "1 avocado, diced",
+    "½ cup sour cream",
+    "1 cup shredded cheddar (4 oz)",
+    "¼ cup chopped fresh cilantro",
+    "3 scallions, thinly sliced"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "6 squares cornbread"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oil in a 12-inch skillet over medium-high heat. Add the beef and onion and cook 8–10 min, breaking up the meat, until no pink remains and it reads 160°F. Raw ground beef should never go straight into a slow cooker.",
+  "Stir in the garlic and cook 1 min, until fragrant. Tip the pan and spoon off the extra fat.",
+  "Scrape the beef mixture into a 6-quart slow cooker. Add the beans, crushed and diced tomatoes, chili powder, cumin, smoked paprika, salt and chipotle, if using. Stir well.",
+  "Cover and cook on low 6–8 hr or on high 3–4 hr, until thick and the flavors have blended.",
+  "Taste and add more salt if needed. If it's thicker than you like, stir in ½ cup water.",
+  "Ladle into bowls and top with avocado, sour cream, cheddar, cilantro and scallions. Serve cornbread on the side."
+ ],
+ "tips": [
+  "For deeper flavor, stir the spices into the browned beef for the last 1 min in the skillet before it goes into the slow cooker.",
+  "Brown the beef the night before and refrigerate it. In the morning everything goes straight into the pot; add about 30 min to the cook time since it starts cold."
+ ],
+ "storage": "Fridge up to 4 days. Freezer up to 3 months; thaw overnight in the fridge. Reheat on the stove over medium heat, stirring, until it simmers, or in the microwave until steaming.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

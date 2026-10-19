@@ -1,0 +1,58 @@
+{
+ "id": "egg-salad-toast",
+ "title": "Egg salad toast",
+ "proteins": [
+  "eggs",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 toasts (4 servings)",
+ "prep": "15 min",
+ "cook": "12 min",
+ "total": "45 min (includes boiling water and cooling)",
+ "equipment": [
+  "Medium saucepan",
+  "Slotted spoon",
+  "Large bowl (for the ice bath)",
+  "Medium mixing bowl"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "6 large eggs",
+    "4 cups ice (for the ice bath)",
+    "¼ cup mayonnaise",
+    "1 tsp Dijon mustard",
+    "2 Tbsp fresh chives or dill, finely chopped",
+    "¼ tsp kosher salt",
+    "⅛ tsp black pepper"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "4 slices sourdough or whole-grain bread, toasted",
+    "1 Tbsp fresh chives or dill, chopped"
+   ]
+  }
+ ],
+ "steps": [
+  "Fill a medium saucepan with enough water to cover the eggs by 1 inch and bring it to a boil over high heat. Fill a large bowl with the ice and cold water.",
+  "Lower the eggs in gently with a slotted spoon. Turn the heat to medium so the water keeps a steady, gentle boil, and cook 11–12 min.",
+  "Move the eggs to the ice bath and leave them 10 min, until cold. This stops the cooking and makes them easier to peel.",
+  "Tap each egg all over, peel under running water and pat dry. Chop into ½-inch pieces so the salad stays chunky.",
+  "In a medium bowl, stir the mayo, mustard, 2 Tbsp herbs, salt and pepper. Gently fold in the eggs.",
+  "Pile onto the toast and sprinkle with the rest of the herbs."
+ ],
+ "tips": [
+  "Eggs that are a week or more old peel more easily than very fresh ones.",
+  "A gray-green ring around the yolk means the eggs overcooked. Stick to 12 min and chill them right away.",
+  "Add a squeeze of lemon or 1 Tbsp pickle relish for more tang."
+ ],
+ "storage": "Egg salad keeps in the fridge up to 3 days. Unpeeled hard-boiled eggs keep up to 1 week. Toast the bread just before serving. Do not freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

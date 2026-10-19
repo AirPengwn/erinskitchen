@@ -1,0 +1,70 @@
+{
+ "id": "korean-ground-beef-bowls",
+ "title": "Korean ground beef bowls",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "10 min",
+ "cook": "25 min",
+ "total": "35 min",
+ "equipment": [
+  "12-inch skillet",
+  "Medium saucepan with lid",
+  "Nonstick skillet (for the eggs)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ cups jasmine rice, rinsed",
+    "2 cups water",
+    "1 lb ground beef (85% lean)",
+    "3 cloves garlic, minced",
+    "1 tsp grated fresh ginger",
+    "¼ cup soy sauce",
+    "2 Tbsp brown sugar",
+    "1 tsp toasted sesame oil",
+    "1 Tbsp gochujang (optional)"
+   ]
+  },
+  {
+   "group": "Sriracha mayo",
+   "items": [
+    "¼ cup mayo",
+    "1–2 Tbsp sriracha"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 Tbsp butter or neutral oil (for the eggs)",
+    "4 large eggs",
+    "1 small cucumber, thinly sliced",
+    "2 scallions, thinly sliced",
+    "1 tsp sesame seeds"
+   ]
+  }
+ ],
+ "steps": [
+  "Bring the rice and 2 cups water to a boil in the saucepan over high heat. Cover, turn to low and cook 15 min. Rest off the heat, covered, 10 min.",
+  "Meanwhile, cook the beef in the 12-inch skillet over medium-high heat 6–8 min, breaking it up, until browned with no pink left and it reads 160°F. Tilt the pan and spoon off most of the fat, leaving about 1 Tbsp.",
+  "Add the garlic and ginger and stir 1 min, until fragrant.",
+  "Stir in the soy sauce, brown sugar, sesame oil and gochujang, if using. Simmer 2–3 min, stirring, until the sauce reduces and the beef looks glossy.",
+  "Stir the mayo and sriracha together for the drizzle.",
+  "Heat the butter in the nonstick skillet over medium heat. Crack in the eggs and cook 3–4 min, until the whites are fully set and the edges are crisp. Cover for the last minute if the tops of the whites are still clear.",
+  "Spoon rice into bowls and top with beef, cucumber, scallions and sesame seeds. Add a fried egg and drizzle the sriracha mayo in lines."
+ ],
+ "tips": [
+  "Use 90% lean beef or ground turkey for less grease. Cook turkey to 165°F.",
+  "Double the sauce if you like extra to soak into the rice.",
+  "Quick-pickle the cucumber: toss it with 1 Tbsp rice vinegar, 1 tsp sugar and a pinch of salt while the beef cooks."
+ ],
+ "storage": "Fridge up to 4 days, with the beef and rice stored apart from the cucumber. Cool the rice within 2 hr. Reheat the beef and rice covered in the microwave 1–2 min, until steaming. The beef freezes up to 3 months. Fry the eggs fresh.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

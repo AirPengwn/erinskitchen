@@ -1,0 +1,71 @@
+{
+ "id": "chili-with-cornbread",
+ "title": "Chili with cornbread",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "6 servings (plus 9 cornbread squares)",
+ "prep": "15 min",
+ "cook": "45 min",
+ "total": "1 hr",
+ "equipment": [
+  "5-quart Dutch oven or heavy pot",
+  "8×8-inch baking dish",
+  "Medium mixing bowl",
+  "Wooden spoon",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb ground beef (85–90% lean)",
+    "1 medium yellow onion, diced",
+    "3 cloves garlic, minced",
+    "2–3 Tbsp chili powder",
+    "2 tsp ground cumin",
+    "1 tsp kosher salt",
+    "1 can (28 oz) crushed tomatoes",
+    "1 can (15 oz) kidney beans, rinsed and drained",
+    "1 can (15 oz) black or pinto beans, rinsed and drained",
+    "½ cup water or beef broth"
+   ]
+  },
+  {
+   "group": "Cornbread",
+   "items": [
+    "1 box (8.5 oz) cornbread mix, such as Jiffy",
+    "1 large egg",
+    "⅓ cup milk",
+    "1 tsp butter or cooking spray, for the dish"
+   ]
+  },
+  {
+   "group": "Toppings",
+   "items": [
+    "1 ripe avocado, diced",
+    "½ cup sour cream",
+    "¼ cup fresh cilantro, chopped"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 400°F with a rack in the middle. Grease an 8×8-inch baking dish.",
+  "Heat a Dutch oven over medium-high heat. Add the beef and onion and cook 8–10 min, breaking up the meat, until the beef is browned with no pink (160°F) and the onion is soft. Spoon off most of the fat.",
+  "Lower the heat to medium. Add the garlic, chili powder, cumin and salt and stir 1 min, until fragrant.",
+  "Stir in the tomatoes, beans and ½ cup water. Bring to a simmer, then lower the heat to medium-low. Simmer uncovered 30 min, stirring every 5–10 min so the bottom doesn't stick, until thick. Add a splash of water if it gets too thick.",
+  "While the chili simmers, stir the cornbread mix, egg and milk in a bowl until just combined. A few lumps are fine. Spread in the dish and bake 15–20 min, until golden and a toothpick in the center comes out clean. Cool 5 min and cut into 9 squares.",
+  "Taste the chili and add more salt if it needs it. Ladle into bowls. Top with avocado, sour cream in lines and cilantro. Serve with the cornbread."
+ ],
+ "tips": [
+  "Start with 2 Tbsp chili powder. Taste after 15 min of simmering and add the last 1 Tbsp if you want more heat.",
+  "Slow cooker: brown the beef and onion first, then cook everything (except the cornbread) on low 6–8 hr.",
+  "Other cornbread mixes call for different amounts of egg, milk and oil. Follow your box."
+ ],
+ "storage": "Chili keeps in the fridge up to 4 days or the freezer up to 3 months. Reheat on the stove over medium heat, stirring, until steaming (165°F). Cornbread keeps 2 days wrapped at room temperature. Warm it in the microwave 10–15 sec.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

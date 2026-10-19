@@ -1,0 +1,58 @@
+{
+ "id": "loaded-baked-potatoes",
+ "title": "Loaded baked potatoes",
+ "proteins": [
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 potatoes",
+ "prep": "15 min",
+ "cook": "1 hr",
+ "total": "1 hr 15 min",
+ "equipment": [
+  "Rimmed sheet pan",
+  "Foil",
+  "12-inch skillet",
+  "Fork",
+  "Paper-towel-lined plate"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 medium russet potatoes (8–10 oz each), scrubbed and dried",
+    "1 Tbsp olive oil",
+    "1 tsp kosher salt",
+    "6 slices bacon",
+    "4 Tbsp unsalted butter, cut into 4 pats",
+    "Black pepper, to taste"
+   ]
+  },
+  {
+   "group": "Toppings",
+   "items": [
+    "1 cup shredded sharp cheddar (4 oz)",
+    "½ cup sour cream",
+    "3 scallions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 425°F with a rack in the middle. Line a rimmed sheet pan with foil.",
+  "Prick each potato 6–8 times with a fork. Rub with the oil, sprinkle with the salt and set them on the pan.",
+  "Bake 50–60 min, until the skins are crisp and a fork slides into the center with no resistance. If you have a thermometer, the center reads 205–210°F.",
+  "While the potatoes bake, lay the bacon in a cold 12-inch skillet. Cook over medium heat 8–12 min, turning a few times, until crisp. Drain on a paper-towel-lined plate, then crumble.",
+  "Cut a slit along the top of each potato and squeeze the ends toward the middle to open it. Fluff the inside with a fork and tuck in a pat of butter and a pinch of pepper.",
+  "Top each potato with ¼ cup cheddar so it melts on the hot potato, then the bacon, a spoonful of sour cream and the scallions."
+ ],
+ "tips": [
+  "Twice-baked: after baking, let the potatoes cool 10 min. Cut off the top third, scoop the insides into a bowl leaving a ¼-inch shell, and mash with the butter, the sour cream and ¾ cup of the cheddar. Refill the shells, top with the rest of the cheese and bake at 425°F for 15–20 min, until golden on top. Finish with bacon and scallions.",
+  "Don't wrap the potatoes in foil. Foil traps steam and gives you soft, damp skins.",
+  "To cook the bacon in the oven instead, lay it on a second foil-lined pan and bake it next to the potatoes for the last 15–20 min."
+ ],
+ "storage": "Fridge up to 4 days, with the toppings stored separately. Reheat potatoes at 375°F for 15–20 min or in the microwave 2–3 min, then add the cold toppings. Twice-baked potatoes freeze up to 3 months; bake from frozen at 375°F for 40–50 min, until 165°F in the center.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

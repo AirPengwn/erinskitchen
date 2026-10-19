@@ -1,0 +1,71 @@
+{
+ "id": "burritos-with-pico-de-gallo",
+ "title": "Burritos with pico de gallo",
+ "proteins": [
+  "beef",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 burritos",
+ "prep": "25 min",
+ "cook": "15 min",
+ "total": "40 min",
+ "equipment": [
+  "12-inch skillet",
+  "Medium mixing bowl",
+  "Cutting board and chef's knife",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 large (10- to 12-inch) flour tortillas",
+    "2 cups cooked white rice, warm",
+    "1 cup shredded cheddar or Mexican-blend cheese (4 oz)"
+   ]
+  },
+  {
+   "group": "Filling",
+   "items": [
+    "1 lb ground beef (85–90% lean), or 2 cans (15 oz each) black beans, rinsed and drained",
+    "1 tsp olive oil (for the bean version)",
+    "1 Tbsp chili powder",
+    "1 tsp ground cumin",
+    "½ tsp garlic powder",
+    "½ tsp kosher salt",
+    "⅓ cup water"
+   ]
+  },
+  {
+   "group": "Pico de gallo",
+   "items": [
+    "2 Roma tomatoes, seeded and diced",
+    "½ small white onion, finely diced",
+    "1 jalapeño, seeded and minced",
+    "¼ cup fresh cilantro, chopped",
+    "1 Tbsp fresh lime juice (about ½ lime)",
+    "¼ tsp kosher salt"
+   ]
+  }
+ ],
+ "steps": [
+  "Make the pico. In a medium bowl, mix the tomatoes, onion, jalapeño, cilantro, lime juice and salt. Let it sit while you cook.",
+  "For beef, cook it in a 12-inch skillet over medium-high heat 6–8 min, breaking it up, until no pink remains and it reads 160°F. Spoon off the fat. For beans, heat the oil over medium heat and add the beans.",
+  "Stir in the chili powder, cumin, garlic powder, salt and ⅓ cup water. Simmer over medium heat 2–3 min, until the liquid is mostly gone. If using beans, mash about a third of them with a spoon. Move the filling to a bowl and wipe out the skillet.",
+  "Stack the tortillas between damp paper towels and microwave 30–45 sec, until soft and bendable. Warm tortillas fold without cracking.",
+  "Down the center of each tortilla, layer ½ cup rice, a quarter of the filling, ¼ cup cheese and 2–3 Tbsp pico. Lift the pico out with a slotted spoon so its juice stays behind.",
+  "Fold the bottom edge up over the filling, fold in both sides, then roll it up tight.",
+  "Heat the dry skillet over medium heat. Sear the burritos seam-side down 2 min, until golden and the seam holds. Turn and brown the other side 1–2 min. Serve with the rest of the pico."
+ ],
+ "tips": [
+  "Make the pico up to 1 day ahead, but add the salt just before serving so it doesn't turn watery.",
+  "Don't overfill. About 1½ cups of filling is the most a 10-inch tortilla can hold and still roll.",
+  "Tater tots on the side make it a full plate."
+ ],
+ "storage": "Wrap cooled burritos (without pico) in foil. Refrigerate up to 4 days or freeze up to 3 months. Reheat unwrapped in the microwave 1–2 min (3–4 min from frozen, turning halfway), or bake in the foil at 375°F for 15–20 min, until hot in the center (165°F). Pico keeps 2 days in the fridge.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

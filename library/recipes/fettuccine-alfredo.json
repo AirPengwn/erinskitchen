@@ -1,0 +1,59 @@
+{
+ "id": "fettuccine-alfredo",
+ "title": "Fettuccine alfredo",
+ "proteins": [
+  "seafood",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 servings",
+ "prep": "10 min",
+ "cook": "20 min",
+ "total": "30 min",
+ "equipment": [
+  "6- to 8-quart pot",
+  "12-inch skillet",
+  "Microplane or fine grater",
+  "Tongs"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "12 oz fettuccine",
+    "1 Tbsp kosher salt (for the pasta water)",
+    "4 Tbsp unsalted butter, divided",
+    "2 cloves garlic, minced",
+    "1 cup heavy cream",
+    "1 cup finely grated parmesan (about 3 oz), plus 2 Tbsp to serve",
+    "½ tsp black pepper, plus more to serve",
+    "Kosher salt, to taste"
+   ]
+  },
+  {
+   "group": "Add one",
+   "items": [
+    "1 lb large shrimp, peeled, deveined and patted dry",
+    "or 2 cups broccoli florets, cut bite-size"
+   ]
+  }
+ ],
+ "steps": [
+  "Bring a large pot of water to a boil and add the 1 Tbsp salt.",
+  "If using shrimp, melt 1 Tbsp of the butter in a 12-inch skillet over medium-high heat. Add the shrimp in a single layer, sprinkle with a pinch of salt and cook 1–1½ min per side, until pink and opaque all the way through. Move to a plate.",
+  "Cook the fettuccine until al dente. If using broccoli, add it to the pot for the last 3 min. Save 1 cup of pasta water, then drain.",
+  "Meanwhile, melt the remaining butter (3 Tbsp, or all 4 Tbsp if you skipped the shrimp) in the skillet over medium heat. Add the garlic and cook 30 sec, until fragrant. Pour in the cream and simmer gently 3 min, until slightly thickened.",
+  "Take the skillet off the heat. Stir in the parmesan a handful at a time until smooth. Adding it off the heat keeps it from turning grainy.",
+  "Add the pasta, the shrimp or broccoli, the pepper and ¼ cup pasta water. Toss with tongs until the sauce coats every strand, adding more pasta water if it's thick. Taste for salt.",
+  "Serve right away with more parmesan and black pepper."
+ ],
+ "tips": [
+  "Grate the parmesan yourself. Pre-shredded cheese has anti-caking powder that makes the sauce clumpy.",
+  "The sauce thickens fast as it cools. Serve on warm plates and loosen it with a splash of pasta water if needed."
+ ],
+ "storage": "Best fresh. Fridge up to 3 days (2 days with shrimp). Reheat in a skillet over low heat with a splash of milk, stirring, until hot; the microwave can make it oily. Don't freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

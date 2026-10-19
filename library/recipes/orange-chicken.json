@@ -1,0 +1,69 @@
+{
+ "id": "orange-chicken",
+ "title": "Orange chicken",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "20 min",
+ "cook": "25 min",
+ "total": "45 min (with cooked rice)",
+ "equipment": [
+  "12-inch skillet with deep sides",
+  "Small saucepan",
+  "2 shallow bowls (for coating)",
+  "Wire rack on a sheet pan, or a paper towel-lined plate",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ lb boneless skinless chicken thighs, cut into 1-inch pieces",
+    "½ tsp kosher salt",
+    "1 large egg, beaten",
+    "½ cup cornstarch",
+    "2 cups neutral oil (enough for ¼ inch in a 12-inch skillet)"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "½ cup fresh orange juice (from 1–2 oranges)",
+    "1 tsp orange zest",
+    "3 Tbsp soy sauce",
+    "3 Tbsp brown sugar",
+    "1 Tbsp rice vinegar",
+    "2 cloves garlic, minced",
+    "1 tsp fresh ginger, grated",
+    "1 Tbsp cornstarch"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "3 cups cooked white rice, warm",
+    "2 scallions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Whisk all the sauce ingredients in a small saucepan until the cornstarch dissolves. Set it aside, off the heat.",
+  "Season the chicken with the salt and toss it in the beaten egg. Put the cornstarch in a shallow bowl and toss the chicken in it a few pieces at a time, shaking off the extra.",
+  "Heat ¼ inch of oil in a 12-inch skillet over medium-high heat until it reaches about 350°F, or a pinch of cornstarch sizzles right away.",
+  "Fry the chicken in 2 batches without crowding, 3–4 min per side, until golden and crisp and the center reads 165°F. Move to the rack or paper towels.",
+  "While the second batch fries, whisk the sauce again and bring it to a simmer over medium heat, whisking. Cook 1–2 min, until thick and glossy.",
+  "Put the chicken in a large bowl, pour the sauce over and toss until coated. Serve right away over rice with scallions."
+ ],
+ "tips": [
+  "Air fryer: spray the coated chicken with oil and air fry at 400°F for 12–15 min, shaking halfway, until it reads 165°F.",
+  "Toss the chicken with the sauce right before serving. It loses its crunch if it sits.",
+  "Keep the oil at a steady sizzle. If it smokes, lower the heat. If the chicken sits quietly, raise it."
+ ],
+ "storage": "Fridge up to 3 days. The coating softens. Reheat in an air fryer at 375°F for 5–6 min or in a 400°F oven for 8–10 min, until hot (165°F).",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

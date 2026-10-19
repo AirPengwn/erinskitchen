@@ -1,0 +1,67 @@
+{
+ "id": "sausage-baked-ziti",
+ "title": "Sausage baked ziti",
+ "proteins": [
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "8 servings",
+ "prep": "20 min",
+ "cook": "50 min",
+ "total": "1 hr 20 min (includes 10 min resting)",
+ "equipment": [
+  "6- to 8-quart pot",
+  "12-inch skillet",
+  "9×13-inch baking dish",
+  "Aluminum foil",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb ziti",
+    "1 Tbsp kosher salt (for the pasta water)",
+    "1 lb bulk Italian sausage (or links with casings removed)",
+    "1 medium yellow onion, diced",
+    "3 cloves garlic, minced",
+    "2 jars (24 oz each) marinara sauce"
+   ]
+  },
+  {
+   "group": "Ricotta layer",
+   "items": [
+    "15 oz whole-milk ricotta",
+    "1 large egg",
+    "¼ cup grated parmesan"
+   ]
+  },
+  {
+   "group": "Topping",
+   "items": [
+    "2 cups shredded low-moisture mozzarella (8 oz)",
+    "¼ cup grated parmesan",
+    "¼ cup torn fresh basil leaves"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 375°F with a rack in the middle. Bring a large pot of water to a boil and add the 1 Tbsp salt.",
+  "Cook the ziti 2 min less than the package says so it stays firm while it bakes. Drain.",
+  "Meanwhile, cook the sausage and onion in a 12-inch skillet over medium-high heat 8–10 min, breaking up the sausage, until browned with no pink left (160°F). Spoon off extra fat. Stir in the garlic for 30 sec, then the marinara, and simmer 5 min.",
+  "In a bowl, stir together the ricotta, egg and ¼ cup parmesan.",
+  "Toss the ziti with the sausage sauce. Spread half in a 9×13-inch baking dish, dot with spoonfuls of the ricotta mixture, then cover with the rest of the pasta.",
+  "Sprinkle the mozzarella and the remaining ¼ cup parmesan over the top. Cover tightly with foil, tented so it doesn't touch the cheese.",
+  "Bake covered 20 min. Uncover and bake 15–20 min more, until the sauce bubbles at the edges and the cheese is melted and spotted brown.",
+  "Rest 10 min so it sets and scoops cleanly. Scatter the basil over the top and serve."
+ ],
+ "tips": [
+  "Make ahead: assemble, cover and refrigerate up to 24 hr. Bake covered 30 min, then uncovered 20 min, until the center reads 165°F.",
+  "Undercooking the pasta matters. Fully cooked ziti turns mushy after 35 min in the oven."
+ ],
+ "storage": "Fridge up to 4 days. Freezer up to 3 months, wrapped well. Reheat portions in the microwave, or the covered dish in a 350°F oven 20–30 min, until the center reaches 165°F.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

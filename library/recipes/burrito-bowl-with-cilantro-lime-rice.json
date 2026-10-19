@@ -1,0 +1,81 @@
+{
+ "id": "burrito-bowl-with-cilantro-lime-rice",
+ "title": "Burrito bowl with cilantro-lime rice",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 bowls",
+ "prep": "20 min",
+ "cook": "25 min",
+ "total": "45 min",
+ "equipment": [
+  "Medium saucepan with lid",
+  "12-inch skillet or grill pan",
+  "Blender or mini food processor",
+  "Medium bowl",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ cups long-grain white rice, rinsed",
+    "2¼ cups water",
+    "1 tsp kosher salt",
+    "1 lime, zested and juiced",
+    "⅓ cup chopped fresh cilantro"
+   ]
+  },
+  {
+   "group": "Chicken",
+   "items": [
+    "1½ lb boneless skinless chicken thighs",
+    "2 chipotle peppers in adobo, plus 1 Tbsp of the sauce",
+    "3 cloves garlic, peeled",
+    "3 Tbsp neutral oil, divided",
+    "1 tsp ground cumin",
+    "1 tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Corn salsa",
+   "items": [
+    "1½ cups corn (frozen and thawed, or canned and drained)",
+    "¼ cup finely diced red onion",
+    "2 Tbsp chopped fresh cilantro",
+    "1 Tbsp lime juice (from ½ lime)",
+    "¼ tsp kosher salt"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 (15 oz) can black beans, drained",
+    "2 cups shredded romaine",
+    "1 cup shredded Monterey Jack or cheddar",
+    "½ cup sour cream",
+    "1 cup guacamole"
+   ]
+  }
+ ],
+ "steps": [
+  "Blend the chipotles, adobo sauce, garlic, 2 Tbsp oil, cumin and salt until smooth. Rub it all over the chicken and let it sit while you start the rice, or up to 1 hr in the fridge.",
+  "Bring the rice, 2¼ cups water and 1 tsp salt to a boil in the saucepan over high heat. Cover, turn to low and cook 15 min. Rest off the heat, covered, 10 min.",
+  "Heat the remaining 1 Tbsp oil in the skillet over medium-high heat. Cook the chicken 5–7 min per side, until charred in spots and it reads 165°F in the thickest part. Rest 5 min, then chop into bite-size pieces.",
+  "Stir the corn, red onion, cilantro, lime juice and salt together for the salsa.",
+  "Fluff the rice with a fork and stir in the lime zest, lime juice and cilantro.",
+  "Warm the beans in a small pot over medium heat or in the microwave for 2 min.",
+  "Build each bowl with rice, beans, chicken and corn salsa. Top with romaine, cheese, sour cream and guacamole."
+ ],
+ "tips": [
+  "Grill the chicken over medium-high heat instead, 5–6 min per side, to 165°F.",
+  "Freeze the leftover chipotles in a zip-top bag. They keep 3 months.",
+  "For lunches, pack the rice, beans, chicken and salsa together and add the cold toppings after reheating."
+ ],
+ "storage": "Fridge up to 4 days, with the cold toppings kept separate. Cool the rice within 2 hr. Reheat rice, beans and chicken covered in the microwave 2–3 min, until hot. Guacamole browns within a day.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

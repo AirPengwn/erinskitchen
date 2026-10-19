@@ -1,0 +1,55 @@
+{
+ "id": "quesadillas",
+ "title": "Quesadillas",
+ "proteins": [
+  "chicken",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 quesadillas (4 servings)",
+ "prep": "10 min",
+ "cook": "20 min",
+ "total": "30 min",
+ "equipment": [
+  "12-inch nonstick skillet",
+  "Wide spatula",
+  "Rimmed sheet pan (to keep them warm)",
+  "Cutting board and chef's knife"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 large (10-inch) flour tortillas",
+    "2 cups shredded Mexican-blend cheese (8 oz)",
+    "1½ cups shredded cooked chicken, or 1 can (16 oz) refried beans",
+    "2 Tbsp butter, softened"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "½ cup sour cream",
+    "½ cup salsa"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 200°F and put a rimmed sheet pan inside. It keeps finished quesadillas warm while you cook the rest.",
+  "Warm the chicken or beans in the microwave 1 min, so the middle heats through in the pan.",
+  "Lay the tortillas flat. Spread or scatter a quarter of the chicken or beans over one half of each tortilla. Top with ½ cup cheese and fold the bare half over.",
+  "Melt about 1½ tsp butter in a 12-inch nonstick skillet over medium heat. Add 1 or 2 quesadillas.",
+  "Cook 2–3 min, until the bottom is golden brown. Flip with a wide spatula and cook 2–3 min more, until the second side is golden and the cheese is fully melted. If the outside browns before the cheese melts, lower the heat a little.",
+  "Move to the sheet pan in the oven. Repeat with the rest, adding butter for each one.",
+  "Rest 1 min, then cut each into 3 wedges. Serve with sour cream and salsa on the side."
+ ],
+ "tips": [
+  "Leftover taco meat, black beans or sautéed peppers and onions all work as fillings.",
+  "For a crowd, bake them. Brush the outsides with melted butter and bake on a sheet pan at 425°F for 10–12 min, flipping once."
+ ],
+ "storage": "Best fresh. Leftovers keep in the fridge up to 3 days. Reheat in a dry skillet over medium-low heat 3–4 min per side, or in an air fryer at 350°F for 4–5 min, until hot and crisp.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

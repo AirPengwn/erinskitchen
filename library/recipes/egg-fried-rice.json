@@ -1,0 +1,51 @@
+{
+ "id": "egg-fried-rice",
+ "title": "Egg fried rice",
+ "proteins": [
+  "eggs",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "3 servings",
+ "prep": "10 min",
+ "cook": "10 min",
+ "total": "20 min (with chilled rice)",
+ "equipment": [
+  "12-inch nonstick skillet or wok",
+  "Flat wooden or silicone spatula",
+  "Small bowl and fork"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "3 cups cooked white rice, chilled overnight",
+    "3 large eggs",
+    "¼ tsp kosher salt",
+    "2 Tbsp neutral oil, divided",
+    "2 cloves garlic, minced",
+    "½ cup frozen peas",
+    "2 Tbsp soy sauce",
+    "1 tsp toasted sesame oil",
+    "3 scallions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Break up any clumps in the cold rice with your hands so the grains are separate. Beat the eggs with the salt.",
+  "Heat 1 Tbsp oil in a 12-inch skillet over medium heat. Add the eggs and scramble 1–2 min, until set with no runny parts. Move to a plate and chop into small pieces.",
+  "Raise the heat to medium-high and add the remaining 1 Tbsp oil. Add the garlic and peas and stir 1 min, until the garlic smells fragrant.",
+  "Add the rice and spread it in an even layer. Let it sit 1–2 min without stirring so the bottom toasts, then stir and spread it out again. Repeat for 5–6 min total, until the rice is hot and some grains are crisp.",
+  "Drizzle the soy sauce and sesame oil around the edge of the pan and toss to coat.",
+  "Stir in the eggs and most of the scallions and cook 1 min more, until heated through. Top with the rest of the scallions."
+ ],
+ "tips": [
+  "Use cold, cooked rice. Fresh rice turns mushy. If yours is fresh, spread it on a sheet pan and refrigerate uncovered 1 hr first.",
+  "Add diced cooked chicken, ham or shrimp with the rice for a full meal."
+ ],
+ "storage": "Cool within 2 hr and refrigerate up to 4 days. Reheat in a skillet over medium heat, or in the microwave with 1 Tbsp water, covered, until steaming hot (165°F). Reheat only once.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

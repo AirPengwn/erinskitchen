@@ -1,0 +1,59 @@
+{
+ "id": "beef-stew",
+ "title": "Beef stew",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "6 servings",
+ "prep": "25 min",
+ "cook": "2 hr 30 min",
+ "total": "2 hr 55 min",
+ "equipment": [
+  "6-quart Dutch oven or heavy pot with a lid",
+  "Large mixing bowl",
+  "Tongs",
+  "Wooden spoon",
+  "Paper towels"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 lb boneless beef chuck roast, cut into 1½-inch cubes",
+    "2 Tbsp all-purpose flour",
+    "1½ tsp kosher salt, divided",
+    "½ tsp black pepper",
+    "2 Tbsp vegetable oil, divided",
+    "1 medium yellow onion, diced",
+    "3 medium carrots, peeled and cut into 1-inch pieces",
+    "2 celery ribs, cut into ½-inch slices",
+    "3 cloves garlic, minced",
+    "2 Tbsp tomato paste",
+    "4 cups low-sodium beef broth",
+    "1 tsp dried thyme (or 4 fresh sprigs)",
+    "1 bay leaf",
+    "1 lb red potatoes, cut into 1½-inch chunks"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the beef dry with paper towels. In a large bowl, toss it with the flour, 1 tsp of the salt and the pepper until coated.",
+  "Heat 1 Tbsp oil in the Dutch oven over medium-high heat until it shimmers. Add half the beef in a single layer with space between the pieces. Brown 4–5 min, turning, until deep brown on at least 2 sides. Move to a plate and repeat with the rest of the oil and beef. A crowded pot steams the meat instead of browning it.",
+  "Lower the heat to medium. Add the onion, carrots and celery and cook 5 min, stirring and scraping up the browned bits, until the onion is soft. Add the garlic and tomato paste and stir 1–2 min, until the paste turns a darker red.",
+  "Pour in the broth and scrape the bottom of the pot. Return the beef and its juices, then add the thyme, bay leaf and the remaining ½ tsp salt. Bring to a boil over high heat.",
+  "Reduce the heat to low, cover and simmer 1 hr, stirring every 20 min. Keep it at a gentle bubble; a hard boil makes the beef tough.",
+  "Add the potatoes and push them under the liquid. Cover and simmer 40–60 min more, until the potatoes are tender and the beef is fork-tender and pulls apart easily.",
+  "Remove the bay leaf and any thyme stems. Taste and add salt and pepper. For a thicker stew, simmer uncovered 10 min more."
+ ],
+ "tips": [
+  "Slow cooker: do steps 1–4 in the Dutch oven, then move everything, including the raw potatoes, to a 6-quart slow cooker. Cook on low 8 hr, until the beef is fork-tender.",
+  "With white beans, like her October 2025 version: stir in 1 can (15 oz) cannellini beans, drained and rinsed, for the last 15 min.",
+  "Buy a whole chuck roast and cube it yourself. Packaged stew meat is often mixed cuts that cook unevenly."
+ ],
+ "storage": "Fridge up to 4 days. Freezer up to 3 months; the potatoes get a little grainy. Reheat in a covered pot over medium-low heat, stirring, until bubbling, and add a splash of broth if it's too thick.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

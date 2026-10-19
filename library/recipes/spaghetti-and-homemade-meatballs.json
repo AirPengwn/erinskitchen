@@ -1,0 +1,68 @@
+{
+ "id": "spaghetti-and-homemade-meatballs",
+ "title": "Spaghetti and homemade meatballs",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 servings (about 18 meatballs)",
+ "prep": "20 min",
+ "cook": "30 min",
+ "total": "50 min",
+ "equipment": [
+  "Rimmed sheet pan",
+  "Parchment paper",
+  "6- to 8-quart pot",
+  "12-inch skillet",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb ground beef (85% lean)",
+    "½ cup plain breadcrumbs",
+    "¼ cup whole milk",
+    "1 large egg",
+    "⅓ cup finely grated parmesan",
+    "2 cloves garlic, minced",
+    "2 Tbsp chopped fresh parsley",
+    "1 tsp kosher salt",
+    "¼ tsp black pepper"
+   ]
+  },
+  {
+   "group": "Sauce and pasta",
+   "items": [
+    "1 jar (24 oz) marinara sauce",
+    "12 oz spaghetti",
+    "1 Tbsp kosher salt (for the pasta water)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "½ cup finely grated parmesan"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 400°F with a rack in the middle. Line a rimmed sheet pan with parchment.",
+  "In a large bowl, soak the breadcrumbs in the milk 5 min. Add the beef, egg, parmesan, garlic, parsley, salt and pepper and mix gently with your hands just until combined. Overmixing makes them tough.",
+  "Roll into 1½-inch balls (about 18) and set them 1 inch apart on the pan. Wet your hands if the mixture sticks.",
+  "Bake 15–18 min, until browned and the center of a meatball reads 160°F.",
+  "While they bake, bring a large pot of water to a boil and add 1 Tbsp salt. Warm the marinara in a 12-inch skillet over medium-low heat.",
+  "Add the baked meatballs to the sauce, cover and simmer over low heat 10 min, turning them once.",
+  "Meanwhile, cook the spaghetti until al dente. Save ½ cup of pasta water, drain, and toss the spaghetti with a few spoonfuls of sauce and a splash of the water.",
+  "Serve the spaghetti topped with meatballs, more sauce and lots of parmesan."
+ ],
+ "tips": [
+  "Freeze extra baked meatballs on the sheet pan, then bag them. Simmer them from frozen in sauce, covered, about 20 min, until they reach 165°F.",
+  "For a browner crust, sear the baked meatballs in 1 Tbsp oil over medium-high heat 2–3 min before they go into the sauce."
+ ],
+ "storage": "Fridge up to 4 days with the meatballs in the sauce; keep the spaghetti separate. Freeze meatballs in sauce up to 3 months. Reheat covered on the stove over medium-low heat until the meatballs reach 165°F.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

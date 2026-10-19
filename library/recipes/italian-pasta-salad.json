@@ -1,0 +1,61 @@
+{
+ "id": "italian-pasta-salad",
+ "title": "Italian pasta salad",
+ "proteins": [
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "6 servings",
+ "prep": "20 min",
+ "cook": "12 min",
+ "total": "1 hr 5 min (includes 30 min chilling)",
+ "equipment": [
+  "6- to 8-quart pot",
+  "Colander",
+  "Large mixing bowl",
+  "Jar with lid (for homemade dressing)"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "12 oz rotini",
+    "1 Tbsp kosher salt (for the pasta water)",
+    "8 oz mozzarella pearls, drained",
+    "1 pint (about 10 oz) cherry tomatoes, halved",
+    "½ cup sliced black olives, drained",
+    "1 can (15 oz) chickpeas, drained and rinsed",
+    "1 red bell pepper, cut into ½-inch dice",
+    "¼ cup torn fresh basil leaves",
+    "¾ cup Italian dressing, divided"
+   ]
+  },
+  {
+   "group": "Homemade dressing (instead of bottled)",
+   "items": [
+    "½ cup olive oil",
+    "¼ cup red wine vinegar",
+    "1 tsp dried oregano",
+    "½ tsp kosher salt",
+    "¼ tsp black pepper"
+   ]
+  }
+ ],
+ "steps": [
+  "Bring a large pot of water to a boil and add the 1 Tbsp salt. Cook the rotini for the full package time, until tender. Cold pasta firms up, so don't undercook it.",
+  "Drain and rinse under cold water, tossing, until cool. Shake the colander well; leftover water dilutes the dressing.",
+  "If making the homemade dressing, shake the oil, vinegar, oregano, salt and pepper in a jar until blended.",
+  "In a large bowl, combine the pasta, mozzarella, tomatoes, olives, chickpeas and bell pepper. Pour ½ cup of the dressing over and toss well.",
+  "Cover and chill at least 30 min so the flavors blend.",
+  "Right before serving, toss in the basil and the remaining ¼ cup dressing, since the pasta soaks up the first round. Taste and add salt if needed."
+ ],
+ "tips": [
+  "Add the basil at the end. It turns black if it sits in dressing overnight.",
+  "Add 4 oz diced salami for a meat version."
+ ],
+ "storage": "Fridge up to 4 days in a sealed container. Don't leave it out more than 2 hr. Stir in a splash of dressing or olive oil before serving leftovers. Don't freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

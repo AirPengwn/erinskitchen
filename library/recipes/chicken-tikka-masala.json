@@ -1,0 +1,62 @@
+{
+ "id": "chicken-tikka-masala",
+ "title": "Chicken tikka masala",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6 servings",
+ "prep": "15 min",
+ "cook": "6 hr on low or 3–4 hr on high, plus 15 min",
+ "total": "6 hr 30 min on low (3 hr 30 min–4 hr 30 min on high)",
+ "equipment": [
+  "6-quart slow cooker",
+  "Microplane or fine grater",
+  "Medium saucepan with lid (for the rice)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 lb boneless skinless chicken thighs, fully thawed, cut into 1½-inch chunks",
+    "1 medium yellow onion, finely diced",
+    "4 cloves garlic, minced",
+    "1 Tbsp finely grated fresh ginger",
+    "1 can (15 oz) tomato sauce",
+    "2 Tbsp tomato paste",
+    "2 Tbsp garam masala",
+    "1 tsp ground cumin",
+    "1 tsp paprika",
+    "1 tsp kosher salt",
+    "¾ cup heavy cream or full-fat coconut milk"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "6 cups cooked basmati rice (from 2 cups uncooked)",
+    "¼ cup chopped fresh cilantro",
+    "6 pieces naan, warmed"
+   ]
+  }
+ ],
+ "steps": [
+  "Add the chicken, onion, garlic, ginger, tomato sauce, tomato paste, garam masala, cumin, paprika and salt to a 6-quart slow cooker. Stir until the tomato paste is mixed in and the chicken is coated.",
+  "Cover and cook on low 6 hr or on high 3–4 hr, until the chicken is tender and reads 165°F in the thickest piece.",
+  "About 30 min before serving, cook the rice in a medium saucepan as the package directs.",
+  "Stir the cream into the slow cooker. If it was on low, switch to high. Cover and cook 15 min more, until hot and slightly thickened.",
+  "Taste and add salt if needed. If the sauce looks thin, cook uncovered on high 10–15 min more.",
+  "Warm the naan in a dry skillet over medium heat about 1 min per side. Spoon the curry over rice, sprinkle with cilantro and serve with the naan."
+ ],
+ "tips": [
+  "Add the cream only at the end. Hours of cooking can make it separate.",
+  "For deeper flavor, cook the onion in 1 Tbsp oil in a skillet over medium heat 6–8 min, until golden, before it goes in.",
+  "Chicken breast works too. Cook it 4 hr on low or 2–2½ hr on high so it doesn't dry out."
+ ],
+ "storage": "Fridge up to 4 days. Freezer up to 3 months (the sauce can look grainy after freezing; stir well as it heats). Reheat on the stove over medium-low heat or in the microwave until it reaches 165°F. Store rice separately and refrigerate it within 2 hr.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

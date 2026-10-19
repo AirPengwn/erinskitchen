@@ -1,0 +1,52 @@
+{
+ "id": "egg-muffins",
+ "title": "Egg muffins",
+ "proteins": [
+  "eggs",
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "12 egg muffins",
+ "prep": "15 min",
+ "cook": "22 min",
+ "total": "45 min (includes cooling)",
+ "equipment": [
+  "12-cup standard muffin tin",
+  "Nonstick cooking spray",
+  "Large mixing bowl and whisk",
+  "Liquid measuring cup (for pouring)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "8 large eggs",
+    "¼ cup milk",
+    "½ tsp kosher salt",
+    "¼ tsp black pepper",
+    "1 bell pepper (any color), diced small",
+    "1 cup cooked sausage crumbles or diced ham",
+    "¾ cup shredded cheddar (3 oz)"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 350°F with a rack in the middle. Coat a 12-cup muffin tin well with cooking spray, including the top rim.",
+  "Divide the bell pepper, sausage or ham and cheese evenly among the cups, about ¼ cup in each.",
+  "In a large bowl, whisk the eggs, milk, salt and pepper until no streaks of white remain. Pour into a liquid measuring cup.",
+  "Pour the eggs over the fillings until each cup is about ¾ full. They puff as they bake.",
+  "Bake 20–25 min, until puffed, the tops are set and don't jiggle, and the center of one reads 160°F.",
+  "Cool in the tin 5 min. They sink a little as they cool. Run a butter knife around each one and lift it out."
+ ],
+ "tips": [
+  "Always use cooked sausage or ham. Raw meat won't cook through in the time it takes the eggs to set.",
+  "Sauté the bell pepper 3–4 min first if you like it soft instead of crisp.",
+  "Silicone muffin cups, or paper liners sprayed with oil, make them release more easily."
+ ],
+ "storage": "Cool completely, then refrigerate up to 4 days or freeze up to 2 months in a zip-top bag. Reheat in the microwave 30–45 sec from the fridge, or 60–90 sec from frozen, until hot in the center.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

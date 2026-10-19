@@ -1,0 +1,68 @@
+{
+ "id": "salmon-poke-bowl",
+ "title": "Salmon poke bowl",
+ "proteins": [
+  "seafood"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 bowls",
+ "prep": "20 min",
+ "cook": "25 min",
+ "total": "45 min (includes resting the rice)",
+ "equipment": [
+  "Medium saucepan with a tight lid (or a rice cooker)",
+  "Fine-mesh strainer",
+  "Sharp knife and cutting board",
+  "Medium mixing bowl"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "8–10 oz sushi-grade salmon, skin removed, kept cold",
+    "2 Tbsp soy sauce",
+    "1 tsp toasted sesame oil",
+    "1 tsp rice vinegar"
+   ]
+  },
+  {
+   "group": "Rice",
+   "items": [
+    "1 cup sushi rice (short-grain)",
+    "1¼ cups water",
+    "1 Tbsp rice vinegar",
+    "1 tsp sugar",
+    "¼ tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Toppings",
+   "items": [
+    "½ English cucumber, thinly sliced",
+    "1 ripe avocado, sliced",
+    "2 scallions, thinly sliced",
+    "1–2 tsp chili crisp",
+    "2 Tbsp Japanese mayo (such as Kewpie)"
+   ]
+  }
+ ],
+ "steps": [
+  "Buy salmon sold as sushi-grade or for raw eating, from a fish counter you trust. Keep it in the fridge until the moment you cut it.",
+  "Rinse the rice in a strainer under cold water, swishing it with your hand, until the water runs mostly clear, about 1 min. Put it in a saucepan with 1¼ cups water and bring to a boil over high heat. Cover, turn the heat to low and cook 15 min. Turn off the heat and rest 10 min, still covered.",
+  "Stir 1 Tbsp rice vinegar, the sugar and salt until dissolved. Gently fold it into the warm rice and let it cool to just warm, about 10 min.",
+  "While the rice rests, cut the salmon into ¾-inch cubes with a sharp knife. In a medium bowl, toss it with the soy sauce, sesame oil and 1 tsp rice vinegar. Cover and refrigerate 10–30 min.",
+  "Slice the cucumber, avocado and scallions.",
+  "Divide the rice between 2 bowls. Arrange the salmon, cucumber and avocado on top and sprinkle with scallions.",
+  "Spoon on the chili crisp and drizzle the Japanese mayo in lines. Eat right away."
+ ],
+ "tips": [
+  "Put the salmon in the freezer for 15 min before cutting. It firms up and cubes cleanly.",
+  "Can't find sushi-grade fish? Use cooked salmon or cooked shrimp instead of raw.",
+  "Short on time? Use plain warm white rice with a splash of rice vinegar."
+ ],
+ "storage": "Raw fish does not keep. Eat poke the day you make it, and keep the cut salmon cold until you serve it. Leftover plain rice keeps 4 days in the fridge if cooled within 2 hr.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,59 @@
+{
+ "id": "beef-and-broccoli",
+ "title": "Beef and broccoli",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": true,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "5–6 hr on low or 2½–3 hr on high, plus 30 min",
+ "total": "5 hr 45 min–6 hr 45 min on low (3 hr 15 min–3 hr 45 min on high)",
+ "equipment": [
+  "6-quart slow cooker",
+  "Whisk",
+  "Small bowl",
+  "Medium saucepan with lid (for the rice)"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ lb flank steak or boneless chuck, fully thawed, sliced ¼ inch thick against the grain",
+    "1 cup low-sodium beef broth",
+    "½ cup low-sodium soy sauce",
+    "⅓ cup packed brown sugar",
+    "1 Tbsp toasted sesame oil",
+    "3 cloves garlic, minced",
+    "2 Tbsp cornstarch",
+    "3 Tbsp cold water",
+    "4 cups broccoli florets (about 1 large head), cut bite-size"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "4 cups cooked white rice",
+    "1 tsp sesame seeds",
+    "2 scallions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Whisk the broth, soy sauce, brown sugar, sesame oil and garlic in a 6-quart slow cooker until the sugar dissolves.",
+  "Add the beef and stir so every piece is covered by the sauce.",
+  "Cover and cook on low 5–6 hr or on high 2½–3 hr, until the beef is tender when pierced with a fork.",
+  "In a small bowl, stir the cornstarch into the cold water until smooth. Stir it into the slow cooker along with the broccoli.",
+  "Switch to high, cover and cook 20–30 min, until the sauce is thick and glossy and the broccoli is bright green and crisp-tender. Any longer and the broccoli turns mushy.",
+  "Meanwhile, cook the rice as the package directs. Serve the beef and broccoli over rice with sesame seeds and scallions."
+ ],
+ "tips": [
+  "Freeze the steak 20 min before slicing. Firm meat is much easier to cut thin.",
+  "For crisper broccoli, microwave it covered with 2 Tbsp water 3 min and stir it in after the sauce has thickened."
+ ],
+ "storage": "Fridge up to 3 days. Reheat in the microwave or in a skillet over medium heat until hot. The broccoli softens as it sits, so freezing isn't recommended.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

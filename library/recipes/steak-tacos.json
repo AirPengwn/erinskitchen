@@ -1,0 +1,61 @@
+{
+ "id": "steak-tacos",
+ "title": "Steak tacos",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings (8 tacos)",
+ "prep": "15 min",
+ "cook": "10 min",
+ "total": "45 min (includes marinating and resting)",
+ "equipment": [
+  "12-inch cast-iron or heavy skillet",
+  "Tongs",
+  "Cutting board and sharp knife",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb flank or skirt steak",
+    "2 Tbsp neutral oil, divided",
+    "1 tsp chili powder",
+    "1 tsp ground cumin",
+    "2 cloves garlic, minced",
+    "1 lime, zested and juiced",
+    "1 tsp kosher salt",
+    "¼ tsp black pepper"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "8 small (6-inch) flour tortillas",
+    "2 cups shredded iceberg or romaine lettuce",
+    "2 Roma tomatoes, diced",
+    "1 cup shredded cheddar or Mexican-blend cheese (4 oz)"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the steak dry. In a small bowl, mix 1 Tbsp oil, the chili powder, cumin, garlic, lime zest, 1 Tbsp lime juice, salt and pepper. Rub it all over the steak and let it sit at room temperature 15–30 min.",
+  "Heat a 12-inch cast-iron skillet over high heat until it just starts to smoke, about 3 min. Add the remaining 1 Tbsp oil.",
+  "Scrape the garlic bits off the steak so they don't burn. Sear 3–5 min per side without moving it, until deeply browned. Check the thickest part: 130–135°F for medium-rare, 140–145°F for medium. Skirt steak is thinner, so check it after 3 min per side.",
+  "Move the steak to a cutting board and rest 5 min.",
+  "While it rests, warm the tortillas in the skillet over medium heat 20–30 sec per side, until soft and spotted. Wrap them in a clean towel.",
+  "Find the lines (the grain) running along the steak. Slice it ¼ inch thick across those lines. Squeeze the rest of the lime juice over the slices.",
+  "Fill each tortilla with steak and top with lettuce, tomato and cheese."
+ ],
+ "tips": [
+  "Slicing across the grain is what makes flank steak tender. Sliced with the grain, it turns chewy.",
+  "For more flavor, marinate up to 8 hr in the fridge. Any longer and the lime makes the meat mushy.",
+  "Sirloin works too and often costs less. Cook it to the same temperatures."
+ ],
+ "storage": "Fridge up to 3 days. Reheat the sliced steak in a skillet over medium heat 1–2 min, just until warm, so it doesn't overcook. Store the toppings separately.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

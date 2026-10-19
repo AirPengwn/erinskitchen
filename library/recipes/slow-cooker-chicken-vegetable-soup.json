@@ -1,0 +1,54 @@
+{
+ "id": "slow-cooker-chicken-vegetable-soup",
+ "title": "Slow-cooker chicken vegetable soup",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6 servings",
+ "prep": "20 min",
+ "cook": "6 hr 30 min to 7 hr 30 min (low, then high)",
+ "total": "7 hr 50 min",
+ "equipment": [
+  "6-quart slow cooker",
+  "Cutting board",
+  "2 forks",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ lb boneless skinless chicken thighs, fully thawed",
+    "1 medium yellow onion, diced",
+    "3 medium carrots, peeled and sliced ½ inch thick",
+    "2 celery ribs, sliced ½ inch thick",
+    "3 cloves garlic, minced",
+    "1 can (14.5 oz) diced tomatoes, with juice",
+    "6 cups low-sodium chicken broth",
+    "1 tsp Italian seasoning",
+    "1 tsp kosher salt, plus more to taste",
+    "¼ tsp black pepper",
+    "2 cups dry wide egg noodles (about 3 oz)",
+    "3 cups baby spinach or chopped kale, stems removed (about 3 oz)"
+   ]
+  }
+ ],
+ "steps": [
+  "Put the onion, carrots, celery, garlic, tomatoes with their juice, broth, Italian seasoning, salt and pepper in the slow cooker and stir.",
+  "Nestle the chicken thighs into the liquid so they're covered. Use thawed chicken only; frozen chicken stays too long at unsafe temperatures in a slow cooker.",
+  "Cover and cook on low 6–7 hr, until the carrots are tender and the chicken reads at least 165°F in the thickest part. It will be very tender.",
+  "Lift the chicken onto a cutting board, shred it into bite-size pieces with 2 forks and return it to the pot.",
+  "Turn the slow cooker to high. Stir in the noodles, cover and cook 20–30 min, until the noodles are tender.",
+  "Stir in the spinach for the last 5 min, or the kale for the last 10 min, until wilted. Taste and add salt and pepper."
+ ],
+ "tips": [
+  "Leftover turkey: skip the raw chicken and cook the vegetables and broth on low 6 hr. Stir in 3–4 cups chopped cooked turkey with the noodles so it doesn't turn stringy, and heat until it reads 165°F.",
+  "Noodles soak up broth as they sit. If you want leftovers, cook the noodles separately and add them to each bowl."
+ ],
+ "storage": "Fridge up to 4 days. Freeze up to 3 months, ideally without the noodles. Reheat in a pot over medium heat until it boils, adding broth or water since the noodles absorb liquid.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

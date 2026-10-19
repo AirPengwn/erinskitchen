@@ -1,0 +1,325 @@
+// Kitchen helper: a small Cloudflare Worker behind the "Add a recipe" button.
+//   POST /check  { passcode }                       -> { ok }
+//   POST /parse  { passcode, person, text, images, sections, previous?, fix? }
+//                -> { recipe, note, suggestedSection, assumptions }
+//   POST /save   { passcode, person, recipe, box: { mode, section, note } }
+//                -> { id, recipe, boxEntry }
+// Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN, PASSCODE.
+// Settings in wrangler.toml: GITHUB_REPO, GITHUB_BRANCH, ALLOWED_ORIGINS, MODEL, EFFORT.
+import Anthropic from "@anthropic-ai/sdk";
+
+const PROTEINS = ["chicken", "beef", "pork", "seafood", "eggs", "meatless"];
+const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
+const MAX_IMAGES = 3;
+const MAX_IMAGE_B64 = 7_000_000; // about 5 MB per image
+const MAX_TEXT = 30_000;
+
+const STR_ARRAY = { type: "array", items: { type: "string" } };
+const RECIPE_SCHEMA = {
+  type: "object",
+  additionalProperties: false,
+  required: ["isRecipe", "title", "proteins", "slowCooker", "cozy", "servings", "prep", "cook", "total",
+    "equipment", "ingredients", "steps", "tips", "storage", "credit", "note", "suggestedSection", "assumptions"],
+  properties: {
+    isRecipe: { type: "boolean" },
+    title: { type: "string" },
+    proteins: { type: "array", items: { type: "string", enum: PROTEINS } },
+    slowCooker: { type: "boolean" },
+    cozy: { type: "boolean" },
+    servings: { type: "string" },
+    prep: { type: "string" },
+    cook: { type: "string" },
+    total: { type: "string" },
+    equipment: STR_ARRAY,
+    ingredients: {
+      type: "array",
+      items: {
+        type: "object", additionalProperties: false, required: ["group", "items"],
+        properties: { group: { type: "string" }, items: STR_ARRAY },
+      },
+    },
+    steps: STR_ARRAY,
+    tips: STR_ARRAY,
+    storage: { type: "string" },
+    credit: { type: "string" },
+    note: { type: "string" },
+    suggestedSection: { type: "string" },
+    assumptions: STR_ARRAY,
+  },
+};
+
+const SYSTEM = `You turn recipes into the house format for a family recipe website. The cook follows these recipes on a phone while cooking, so every recipe must be complete enough to cook from without guessing.
+
+You get a recipe as pasted text, one or more screenshots/photos, or both. Read all of it. If it is not a recipe, set isRecipe to false, leave the other text fields empty, and put one sentence in assumptions saying what you saw instead.
+
+Stay faithful to the source: same dish, same ingredients and amounts, same method. Write every step in your own words; never copy the source's sentences. Then fill in what the source leaves out, using standard technique, and list each thing you added or changed in "assumptions" as one short sentence (for example "Added an oven temperature of 425°F; the source didn't give one."). If the source is unreadable in places, say so in assumptions rather than inventing amounts.
+
+Fields:
+- title: the dish name, short, in sentence case.
+- proteins: any of chicken, beef, pork, seafood, eggs, meatless (meatless means no meat or fish; a dish can have several, like eggs and meatless).
+- slowCooker: true only if the main method is a slow cooker or crockpot.
+- cozy: true for warm, hearty dishes suited to cold days (soups, stews, chili, bakes, braises, pastas in rich sauces, warm baked goods).
+- servings: like "4 servings", "12 muffins", "1 pie (8 slices)".
+- prep, cook, total: like "15 min", "1 hr 10 min", "8 hr on low". total includes resting, rising, chilling and slow cooking.
+- equipment: 2 to 6 items with sizes ("12-inch skillet", "9×13-inch baking dish", "6-quart slow cooker"). Include "Instant-read thermometer" when meat, poultry or fish needs a safe temperature.
+- ingredients: groups. The first group's name is "" (empty). Later groups are named parts like "Sauce", "Dough", "Toppings", "To serve". Every item has an amount, a unit and its prep, like "1 medium yellow onion, diced" or "1½ lb boneless skinless chicken thighs, cut into 1-inch pieces". Only seasonings may be "to taste". Use US units and the characters ½ ¼ ¾ ⅓ ⅔ ⅛.
+- steps: 4 to 9 steps, plain text, imperative. Each includes, where it applies: the heat level ("over medium-high heat") and pan, oven temperature in °F, time ranges plus a visual or texture cue, safe internal temperatures, and resting time. Start with a preheat step when the oven is used. Every ingredient used in a step must be listed, and every listed ingredient must be used.
+- tips: 1 to 3 short tips (swaps, make-ahead, a common mistake).
+- storage: fridge and freezer time and how to reheat, or say it doesn't keep.
+- credit: where the recipe came from if the source shows it (a site name, cookbook, author or URL), otherwise "".
+- note: one friendly sentence for the recipe card about what the dish is or why it's worth making.
+- suggestedSection: the id of the best-fitting section from the list you're given, or "" if none fits.
+
+Food safety, always: chicken and turkey 165°F; ground beef and pork 160°F; pork chops, tenderloin and roasts 145°F then rest 3 min; beef steaks get a doneness guide (130–135°F medium-rare, 140–145°F medium); fish 145°F or until it flakes; raw or rare fish must be sushi-grade and kept cold; in a slow cooker, brown ground meat first, never use frozen meat, and use canned or cooked beans; baked egg dishes to 160°F.
+
+Voice: plain, direct, second person, short sentences, US spelling, numerals, "min" and "hr", temperatures like "425°F". No em dashes, no exclamation points.`;
+
+/* ---------------- HTTP helpers ---------------- */
+function corsHeaders(req, env) {
+  const origin = req.headers.get("Origin") || "";
+  const allowed = (env.ALLOWED_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean);
+  const h = { "Access-Control-Allow-Methods": "POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Max-Age": "86400", Vary: "Origin" };
+  if (allowed.includes(origin)) h["Access-Control-Allow-Origin"] = origin;
+  return h;
+}
+function json(req, env, status, body) {
+  return new Response(JSON.stringify(body), { status, headers: { "Content-Type": "application/json", ...corsHeaders(req, env) } });
+}
+class HttpError extends Error { constructor(status, message) { super(message); this.status = status; } }
+
+function safeEqual(a, b) {
+  const ea = new TextEncoder().encode(String(a)), eb = new TextEncoder().encode(String(b));
+  let diff = ea.length ^ eb.length;
+  for (let i = 0; i < Math.max(ea.length, eb.length); i++) diff |= (ea[i] || 0) ^ (eb[i] || 0);
+  return diff === 0;
+}
+function checkPasscode(body, env) {
+  if (!env.PASSCODE) throw new HttpError(500, "The helper has no passcode set yet.");
+  if (!body.passcode || !safeEqual(body.passcode, env.PASSCODE)) throw new HttpError(401, "That passcode didn't work.");
+}
+function checkPerson(person) {
+  if (typeof person !== "string" || !/^[a-z0-9-]{1,40}$/.test(person)) throw new HttpError(400, "Unknown person.");
+}
+
+/* ---------------- Recipe cleanup and checks ---------------- */
+const LIB_FIELDS = ["id", "title", "proteins", "slowCooker", "cozy", "servings", "prep", "cook", "total",
+  "equipment", "ingredients", "steps", "tips", "storage", "credit", "addedBy", "addedAt"];
+
+function cleanText(s, max = 2000) { return typeof s === "string" ? s.replace(/\s+/g, " ").trim().slice(0, max) : ""; }
+function cleanList(a, max = 40) { return Array.isArray(a) ? a.map((s) => cleanText(s)).filter(Boolean).slice(0, max) : []; }
+
+export function cleanRecipe(r) {
+  const out = {
+    title: cleanText(r.title, 120),
+    proteins: Array.isArray(r.proteins) ? [...new Set(r.proteins.filter((p) => PROTEINS.includes(p)))] : [],
+    slowCooker: r.slowCooker === true,
+    cozy: r.cozy === true,
+    servings: cleanText(r.servings, 80), prep: cleanText(r.prep, 80), cook: cleanText(r.cook, 80), total: cleanText(r.total, 80),
+    equipment: cleanList(r.equipment, 10),
+    ingredients: (Array.isArray(r.ingredients) ? r.ingredients : []).slice(0, 12).map((g) => ({
+      group: cleanText(g && g.group, 60) || null,
+      items: cleanList(g && g.items, 60),
+    })).filter((g) => g.items.length),
+    steps: cleanList(r.steps, 20),
+    tips: cleanList(r.tips, 6),
+    storage: cleanText(r.storage, 600),
+    credit: cleanText(r.credit, 200) || null,
+  };
+  if (!out.proteins.length) out.proteins = ["meatless"];
+  return out;
+}
+
+export function recipeProblems(r) {
+  const p = [];
+  if (!r.title) p.push("title");
+  for (const k of ["servings", "prep", "cook", "total", "storage"]) if (!r[k]) p.push(k);
+  if (!r.ingredients.length) p.push("ingredients");
+  if (!r.steps.length) p.push("steps");
+  return p;
+}
+
+export function slugify(title) {
+  return title.toLowerCase().normalize("NFKD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60).replace(/-+$/, "") || "recipe";
+}
+
+/* ---------------- Claude ---------------- */
+async function parseRecipe(body, env) {
+  const text = typeof body.text === "string" ? body.text.slice(0, MAX_TEXT) : "";
+  const images = Array.isArray(body.images) ? body.images : [];
+  if (images.length > MAX_IMAGES) throw new HttpError(400, `Use at most ${MAX_IMAGES} images.`);
+  for (const im of images) {
+    if (!im || !IMAGE_TYPES.includes(im.media_type) || typeof im.data !== "string") throw new HttpError(400, "One of the images isn't a supported type.");
+    if (im.data.length > MAX_IMAGE_B64) throw new HttpError(413, "One of the images is too large.");
+  }
+  const hasPrevious = body.previous && typeof body.previous === "object";
+  if (!text.trim() && !images.length && !hasPrevious) throw new HttpError(400, "Paste some text or add an image first.");
+
+  const sections = (Array.isArray(body.sections) ? body.sections : []).slice(0, 40)
+    .filter((s) => s && typeof s.id === "string").map((s) => `- ${cleanText(s.id, 80)}: ${cleanText(s.title, 120)}`).join("\n");
+
+  let prompt = `The recipe is for ${cleanText(body.person, 40)}'s page. Sections on that page:\n${sections || "(none)"}\n`;
+  if (text.trim()) prompt += `\nPasted text:\n<<<\n${text}\n>>>\n`;
+  if (images.length) prompt += `\n${images.length} image(s) of the recipe are attached above.\n`;
+  if (hasPrevious) {
+    prompt += `\nYou already turned this into the recipe below. Apply the cook's correction and return the full corrected recipe. Keep everything else the same unless the correction requires changing it.\nPrevious recipe:\n${JSON.stringify(body.previous).slice(0, 40_000)}\nCorrection:\n${cleanText(body.fix, 2000)}\n`;
+  }
+
+  const content = [
+    ...images.map((im) => ({ type: "image", source: { type: "base64", media_type: im.media_type, data: im.data } })),
+    { type: "text", text: prompt },
+  ];
+
+  const model = env.MODEL || "claude-opus-5-5";
+  const params = {
+    model,
+    max_tokens: 16000,
+    system: SYSTEM,
+    messages: [{ role: "user", content }],
+    output_config: { effort: env.EFFORT || "medium", format: { type: "json_schema", schema: RECIPE_SCHEMA } },
+  };
+  const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
+  let msg;
+  try {
+    // Opus, Sonnet and Fable support server-side fallback when a safety check declines a request.
+    msg = /^claude-(opus|sonnet|fable)/.test(model)
+      ? await client.beta.messages.create({ ...params, betas: ["server-side-fallback-2026-07-01"], fallbacks: "default" })
+      : await client.messages.create(params);
+  } catch (e) {
+    if (e instanceof Anthropic.AuthenticationError) throw new HttpError(500, "The helper's Claude API key isn't working.");
+    if (e instanceof Anthropic.RateLimitError) throw new HttpError(429, "Claude is busy right now. Wait a minute and try again.");
+    if (e instanceof Anthropic.BadRequestError) throw new HttpError(400, "Claude couldn't read that. Try a clearer screenshot or paste the text instead.");
+    if (e instanceof Anthropic.APIError) throw new HttpError(502, "Claude had a problem. Try again in a minute.");
+    throw new HttpError(502, "Couldn't reach Claude. Try again in a minute.");
+  }
+  if (msg.stop_reason === "refusal") throw new HttpError(422, "Claude declined to process this one.");
+  if (msg.stop_reason === "max_tokens") throw new HttpError(422, "That recipe was too long to finish. Try splitting it up.");
+  const block = msg.content.find((b) => b.type === "text");
+  let out;
+  try { out = JSON.parse(block ? block.text : ""); } catch { throw new HttpError(502, "Claude's answer came back garbled. Try again."); }
+  if (!out.isRecipe) throw new HttpError(422, (out.assumptions && out.assumptions[0]) || "That doesn't look like a recipe.");
+
+  const recipe = cleanRecipe(out);
+  const missing = recipeProblems(recipe);
+  if (missing.length) throw new HttpError(422, `The recipe came back incomplete (missing ${missing.join(", ")}). Try again or add more of the recipe.`);
+  return {
+    recipe,
+    note: cleanText(out.note, 300),
+    suggestedSection: cleanText(out.suggestedSection, 80),
+    assumptions: cleanList(out.assumptions, 15),
+    model: msg.model,
+  };
+}
+
+/* ---------------- GitHub ---------------- */
+function b64encode(str) {
+  const bytes = new TextEncoder().encode(str);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i += 0x8000) bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+  return btoa(bin);
+}
+function b64decode(b64) {
+  const bin = atob(b64.replace(/\n/g, ""));
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+async function gh(env, method, path, body) {
+  const branch = env.GITHUB_BRANCH || "main";
+  const url = `https://api.github.com/repos/${env.GITHUB_REPO}/contents/${path}` + (method === "GET" ? `?ref=${encodeURIComponent(branch)}` : "");
+  const res = await fetch(url, {
+    method,
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "kitchen-helper",
+      ...(body ? { "Content-Type": "application/json" } : {}),
+    },
+    body: body ? JSON.stringify({ ...body, branch }) : undefined,
+  });
+  if (res.status === 401 || res.status === 403) throw new HttpError(500, "The helper's GitHub token isn't working.");
+  return res;
+}
+async function getFile(env, path) {
+  const res = await gh(env, "GET", path);
+  if (res.status === 404) return null;
+  if (!res.ok) throw new HttpError(502, "Couldn't read from GitHub.");
+  const j = await res.json();
+  return { sha: j.sha, text: b64decode(j.content) };
+}
+async function putFile(env, path, text, message, sha) {
+  const res = await gh(env, "PUT", path, { message, content: b64encode(text), ...(sha ? { sha } : {}) });
+  if (res.status === 409 || res.status === 422) return false; // changed underneath us, or already exists
+  if (!res.ok) throw new HttpError(502, "Couldn't save to GitHub.");
+  return true;
+}
+
+async function saveRecipe(body, env) {
+  checkPerson(body.person);
+  const recipe = cleanRecipe(body.recipe || {});
+  const missing = recipeProblems(recipe);
+  if (missing.length) throw new HttpError(400, `The recipe is missing ${missing.join(", ")}.`);
+  const mode = body.box && ["new", "made", "library"].includes(body.box.mode) ? body.box.mode : "library";
+
+  const personPath = `people/${body.person}.json`;
+  const personFile = await getFile(env, personPath);
+  if (!personFile) throw new HttpError(400, "Unknown person.");
+
+  const today = new Date().toISOString().slice(0, 10);
+  const base = slugify(recipe.title);
+  let id = base, saved = false;
+  const full = () => {
+    const r = { id, ...recipe, addedBy: body.person, addedAt: today };
+    return Object.fromEntries(LIB_FIELDS.map((k) => [k, r[k] === undefined ? null : r[k]]));
+  };
+  for (let n = 1; n <= 20 && !saved; n++) {
+    id = n === 1 ? base : `${base}-${n}`;
+    if (await getFile(env, `library/recipes/${id}.json`)) continue;
+    saved = await putFile(env, `library/recipes/${id}.json`, JSON.stringify(full(), null, 1) + "\n", `Add recipe: ${recipe.title} (from the website)`);
+  }
+  if (!saved) throw new HttpError(409, "Couldn't find a free name for this recipe.");
+
+  let boxEntry = null;
+  if (mode !== "library") {
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const pf = attempt === 0 ? personFile : await getFile(env, personPath);
+      const p = JSON.parse(pf.text);
+      const sectionIds = (p.sections || []).map((s) => s.id);
+      const section = sectionIds.includes(body.box.section) ? body.box.section : sectionIds[0];
+      boxEntry = {
+        id, section, source: mode, note: cleanText(body.box.note, 300),
+        madeTimes: mode === "made" ? 1 : null, madeDates: mode === "made" ? `Added ${today}` : null, confidence: "clear",
+      };
+      p.box = (p.box || []).filter((b) => b.id !== id).concat([boxEntry]);
+      p.updated = today;
+      if (await putFile(env, personPath, JSON.stringify(p, null, 1) + "\n", `Add ${recipe.title} to ${p.name || body.person}'s box`, pf.sha)) break;
+      if (attempt === 2) throw new HttpError(409, "The recipe saved, but adding it to the box failed. Try saving again.");
+    }
+  }
+  return { id, recipe: full(), boxEntry };
+}
+
+/* ---------------- Router ---------------- */
+export default {
+  async fetch(req, env) {
+    if (req.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders(req, env) });
+    const url = new URL(req.url);
+    if (req.method === "GET" && url.pathname === "/") return json(req, env, 200, { ok: true, service: "kitchen-helper" });
+    if (req.method !== "POST") return json(req, env, 405, { error: "Use POST." });
+    const len = Number(req.headers.get("Content-Length") || 0);
+    if (len > 24_000_000) return json(req, env, 413, { error: "That's too much to send at once. Use fewer or smaller images." });
+    try {
+      let body;
+      try { body = await req.json(); } catch { throw new HttpError(400, "The request wasn't readable."); }
+      checkPasscode(body, env);
+      if (url.pathname === "/check") return json(req, env, 200, { ok: true });
+      if (url.pathname === "/parse") { checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
+      if (url.pathname === "/save") return json(req, env, 200, await saveRecipe(body, env));
+      return json(req, env, 404, { error: "Not found." });
+    } catch (e) {
+      if (e instanceof HttpError) return json(req, env, e.status, { error: e.message });
+      console.error(e);
+      return json(req, env, 500, { error: "Something went wrong in the helper." });
+    }
+  },
+};

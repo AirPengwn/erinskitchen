@@ -1,0 +1,59 @@
+{
+ "id": "creamy-tuscan-chicken",
+ "title": "Creamy Tuscan chicken",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "10 min",
+ "cook": "20 min",
+ "total": "30 min",
+ "equipment": [
+  "12-inch skillet",
+  "Sharp chef's knife",
+  "Tongs",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 boneless skinless chicken breasts (about 1½ lb total), sliced in half horizontally to make 4 thin cutlets",
+    "1 tsp kosher salt",
+    "½ tsp black pepper",
+    "2 Tbsp olive oil (or oil from the sun-dried tomato jar)",
+    "4 cloves garlic, minced",
+    "⅓ cup oil-packed sun-dried tomatoes, drained and chopped",
+    "1 cup heavy cream",
+    "1 tsp Italian seasoning",
+    "½ cup grated parmesan (about 1 oz)",
+    "2 large handfuls baby spinach (about 3 oz)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "12 oz pasta, cooked, or 1 loaf crusty bread, sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the cutlets dry and season both sides with the salt and pepper.",
+  "Heat the oil in the skillet over medium-high heat until it shimmers. Sear the cutlets 3–4 min per side, until golden and they read 165°F in the thickest part. Work in 2 batches if they don't fit with space between them. Move them to a plate.",
+  "Turn the heat to medium. Add the garlic and sun-dried tomatoes to the same pan and cook 1 min, stirring, until fragrant.",
+  "Pour in the cream, add the Italian seasoning and scrape up the browned bits. Simmer gently 3 min, until it thickens slightly.",
+  "Turn the heat to low and stir in the parmesan until melted. Add the spinach and stir 1–2 min, until wilted.",
+  "Return the chicken and any juices to the pan. Spoon the sauce over it and warm 1–2 min. Serve over pasta, or with bread for the sauce."
+ ],
+ "tips": [
+  "If the cutlets are uneven, pound the thick end to ½ inch so they cook evenly.",
+  "Add the parmesan over low heat. If the cream boils hard after the cheese goes in, the sauce can turn grainy.",
+  "Boneless chicken thighs work too. Cook them 5–6 min per side, to 165°F."
+ ],
+ "storage": "Fridge up to 3 days. Reheat in a covered skillet over low heat with a splash of milk or broth until the chicken is hot (165°F). Don't freeze; the cream sauce separates.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

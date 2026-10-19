@@ -1,0 +1,67 @@
+{
+ "id": "burgers-caprese-or-avocado-bacon",
+ "title": "Burgers, caprese or avocado-bacon",
+ "proteins": [
+  "beef",
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 burgers",
+ "prep": "20 min",
+ "cook": "25 min",
+ "total": "45 min",
+ "equipment": [
+  "12-inch cast-iron skillet or a grill",
+  "Lid that fits the skillet",
+  "Wide spatula",
+  "Paper-towel-lined plate",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1½ lb ground beef (80/20), cold",
+    "1 tsp kosher salt",
+    "½ tsp black pepper",
+    "4 brioche buns, split",
+    "1 Tbsp unsalted butter, softened"
+   ]
+  },
+  {
+   "group": "Caprese topping (1 burger)",
+   "items": [
+    "1 slice fresh mozzarella (about 1 oz), ¼ inch thick",
+    "1 slice ripe tomato, ¼ inch thick",
+    "3 fresh basil leaves or 1 Tbsp pesto",
+    "1 tsp balsamic glaze"
+   ]
+  },
+  {
+   "group": "Classic toppings (3 burgers)",
+   "items": [
+    "3 slices sharp cheddar",
+    "6 slices bacon",
+    "1 ripe avocado, sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Cook the bacon in the skillet over medium heat 8–12 min, turning a few times, until crisp. Drain on a paper-towel-lined plate. Pour off all but about 1 Tbsp of the fat.",
+  "Divide the beef into 4 equal portions (6 oz each). Gently shape each into a patty ¾ inch thick and about ½ inch wider than the buns. Press a shallow thumbprint into the center so they don't puff up. Season both sides with the salt and pepper right before cooking.",
+  "Spread the butter on the cut sides of the buns. Toast them cut side down in the skillet over medium heat 1–2 min, until golden. Set aside.",
+  "Raise the heat to medium-high. Add the patties and cook 4–5 min without pressing them, until a brown crust forms. Flip.",
+  "Cook 3–4 min more. For the last minute, lay cheddar on 3 patties and the mozzarella on 1, then cover with the lid until the cheese melts. The burgers are done at 160°F in the center.",
+  "Build the caprese burger with the mozzarella patty, tomato, basil or pesto and a drizzle of balsamic glaze. Build the others with the cheddar patties, 2 slices bacon each and the avocado."
+ ],
+ "tips": [
+  "Grill: heat to medium-high (about 400–450°F) and oil the grates. Cook 4–5 min per side, until 160°F.",
+  "Don't press the patties with the spatula. It squeezes out the juice and makes dry burgers.",
+  "Want ⅓-lb burgers instead: use 1⅓ lb beef for 4 patties, or make 5 from 1⅔ lb."
+ ],
+ "storage": "Cooked patties keep 3–4 days in the fridge. Reheat in a covered skillet over medium-low heat 4–5 min, until hot (165°F). Store toppings separately and build the burgers fresh.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

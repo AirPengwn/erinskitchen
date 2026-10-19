@@ -1,0 +1,54 @@
+{
+ "id": "asian-cucumber-salad",
+ "title": "Asian cucumber salad",
+ "proteins": [
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 side servings",
+ "prep": "15 min",
+ "cook": "0 min",
+ "total": "40 min (includes salting and chilling)",
+ "equipment": [
+  "Colander",
+  "Sharp knife or mandoline",
+  "Medium mixing bowl",
+  "Small bowl and whisk"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 medium cucumbers (or 1 English cucumber), sliced ⅛ inch thick",
+    "1 tsp kosher salt"
+   ]
+  },
+  {
+   "group": "Dressing",
+   "items": [
+    "2 Tbsp rice vinegar",
+    "1 tsp sugar",
+    "1 tsp toasted sesame oil",
+    "½ tsp red pepper flakes",
+    "1 clove garlic, minced"
+   ]
+  }
+ ],
+ "steps": [
+  "Slice the cucumbers ⅛ inch thick. Toss them with 1 tsp salt in a colander set over a bowl.",
+  "Let them sit 10–15 min, until they release water and turn bendy. Shake off the liquid and pat dry with paper towels.",
+  "In a medium bowl, whisk the vinegar, sugar, sesame oil, red pepper flakes and garlic until the sugar dissolves.",
+  "Add the cucumbers and toss to coat. Taste and add a pinch of sugar if it's too sharp.",
+  "Chill 15–30 min before serving."
+ ],
+ "tips": [
+  "Don't skip the salting. It pulls out water so the dressing doesn't get diluted.",
+  "For a chunkier salad that soaks up more dressing, smash the cucumbers with the flat of a knife and cut into bite-size pieces instead of slicing.",
+  "Add 1 tsp toasted sesame seeds or a splash of soy sauce for more depth."
+ ],
+ "storage": "Best the day it's made. It keeps 1–2 days in the fridge but softens and gets watery. Do not freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

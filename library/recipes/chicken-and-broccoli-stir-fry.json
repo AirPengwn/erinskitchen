@@ -1,0 +1,70 @@
+{
+ "id": "chicken-and-broccoli-stir-fry",
+ "title": "Chicken and broccoli stir-fry",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "15 min",
+ "total": "30 min (with cooked rice)",
+ "equipment": [
+  "12-inch skillet or wok",
+  "Lid that fits the skillet",
+  "Small bowl and whisk",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb boneless skinless chicken breast or thighs, cut into 1-inch pieces",
+    "¼ tsp kosher salt",
+    "2 Tbsp neutral oil, divided",
+    "3 cups broccoli florets (from 1 medium head), bite-size",
+    "2 medium carrots, peeled and sliced ¼ inch thick on an angle",
+    "1 cup frozen shelled edamame or peas",
+    "2 Tbsp water"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "3 Tbsp soy sauce",
+    "1 Tbsp honey",
+    "1 tsp toasted sesame oil",
+    "2 cloves garlic, minced",
+    "1 tsp fresh ginger, grated",
+    "2 tsp cornstarch",
+    "¼ cup water"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "3 cups cooked white rice, warm",
+    "1 tsp sesame seeds"
+   ]
+  }
+ ],
+ "steps": [
+  "Whisk the sauce ingredients in a small bowl until the cornstarch dissolves. Pat the chicken dry and season with the salt.",
+  "Heat 1 Tbsp oil in a 12-inch skillet over medium-high heat until it shimmers. Add the chicken in one layer and cook 5–7 min, turning once it's browned, until no pink remains and it reads 165°F. Move to a plate.",
+  "Add the remaining 1 Tbsp oil, the broccoli and carrots. Stir-fry 2 min, until the broccoli turns bright green.",
+  "Add 2 Tbsp water and cover the pan. Steam 2 min, until the carrots are crisp-tender. Uncover, add the edamame or peas and stir-fry 1 min more.",
+  "Return the chicken and any juices. Whisk the sauce again, since the cornstarch settles, and pour it in.",
+  "Stir 1–2 min, until the sauce bubbles, thickens and coats everything in a glossy layer.",
+  "Serve over rice and sprinkle with sesame seeds."
+ ],
+ "tips": [
+  "Cut the vegetables to a similar size so they cook evenly.",
+  "Thighs stay juicier than breast and are harder to overcook.",
+  "Add a pinch of red pepper flakes or 1 tsp sriracha to the sauce for heat."
+ ],
+ "storage": "Fridge up to 4 days. Reheat in a skillet over medium heat with a splash of water, or in the microwave, until hot (165°F). Freezes up to 2 months, though the broccoli softens.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

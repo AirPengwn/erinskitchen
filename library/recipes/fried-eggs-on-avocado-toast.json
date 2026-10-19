@@ -1,0 +1,56 @@
+{
+ "id": "fried-eggs-on-avocado-toast",
+ "title": "Fried eggs on avocado toast",
+ "proteins": [
+  "eggs",
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "5 min",
+ "cook": "5 min",
+ "total": "10 min",
+ "equipment": [
+  "10-inch nonstick skillet",
+  "Thin spatula",
+  "Toaster",
+  "Small bowl and fork"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 thick slices sourdough, or 2 English muffins, split",
+    "1 ripe avocado",
+    "1 tsp fresh lemon juice",
+    "¼ tsp kosher salt",
+    "2–4 large eggs",
+    "1 Tbsp butter"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "Black pepper, to taste",
+    "1 tsp everything bagel seasoning, or hot sauce to taste"
+   ]
+  }
+ ],
+ "steps": [
+  "Toast the bread or English muffins until golden and crisp.",
+  "Halve and pit the avocado. Scoop it into a small bowl and mash with a fork. Stir in the lemon juice and salt.",
+  "Melt the butter in a 10-inch nonstick skillet over medium heat until it foams. Crack in the eggs, leaving space between them.",
+  "Cook 2–3 min, until the whites are fully set and no longer clear, the edges are lightly crisp and the yolks are still runny. If the whites near the yolk are slow to set, cover the pan for the last 30 sec.",
+  "Spread the avocado on the toast. Slide an egg onto each piece with a thin spatula.",
+  "Finish with black pepper and everything seasoning or hot sauce. Eat right away."
+ ],
+ "tips": [
+  "Crack each egg into a small cup first, then slide it into the pan. It keeps the yolk whole and the shell out.",
+  "For over-easy eggs, flip them and cook 20–30 sec more."
+ ],
+ "storage": "Does not keep. The toast goes soggy and the avocado browns, so make it just before eating.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,59 @@
+{
+ "id": "chia-pudding",
+ "title": "Chia pudding",
+ "proteins": [
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "5 min",
+ "cook": "0 min",
+ "total": "4 hr 15 min (mostly chilling)",
+ "equipment": [
+  "Medium bowl",
+  "Whisk",
+  "2 (8-oz) jars with lids"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 cup milk (dairy or any plant milk)",
+    "1 Tbsp maple syrup",
+    "½ tsp vanilla extract",
+    "¼ cup chia seeds"
+   ]
+  },
+  {
+   "group": "For chocolate",
+   "items": [
+    "1 Tbsp unsweetened cocoa powder",
+    "2 tsp maple syrup (extra)"
+   ]
+  },
+  {
+   "group": "Toppings",
+   "items": [
+    "½ cup fresh blueberries or raspberries",
+    "2 Tbsp pepitas (pumpkin seeds)"
+   ]
+  }
+ ],
+ "steps": [
+  "For the chocolate version, start by whisking the cocoa and extra maple syrup with 2–3 Tbsp of the milk in a medium bowl until smooth. This keeps the cocoa from clumping.",
+  "Add the rest of the milk, the maple syrup and vanilla to the bowl and whisk. Add the chia seeds and whisk 30 sec.",
+  "Let it sit 10 min, until it starts to thicken.",
+  "Whisk again, breaking up any clumps at the bottom. Divide between 2 jars, cover and refrigerate at least 4 hr or overnight, until thick and spoonable.",
+  "Stir before serving and add a splash of milk if it's too thick. Top with berries and pepitas."
+ ],
+ "tips": [
+  "The second whisk is the key step. Skip it and the seeds settle into a solid clump at the bottom.",
+  "Too thin after chilling? Stir in 1 Tbsp more chia and chill 30 min more.",
+  "Make 4 or 5 jars at once for grab-and-go breakfasts through the week."
+ ],
+ "storage": "Fridge up to 5 days in covered jars. Add the fruit and pepitas just before eating so the seeds stay crunchy. Do not freeze.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,905 @@
+{
+ "id": "erin",
+ "name": "Erin",
+ "title": "Erin's Kitchen",
+ "handle": "@erinsharesherfood",
+ "avatar": "people/erin.jpg",
+ "avatarAlt": "A black dog with a gray muzzle looking at the camera",
+ "pronoun": "she",
+ "stats": {
+  "postsReviewed": 240
+ },
+ "updated": "2026-10-19",
+ "sections": [
+  {
+   "id": "next-steps-on-dishes-she-already-makes",
+   "kind": "new",
+   "title": "Next steps on dishes she already makes",
+   "intro": "Same flavors she likes, made a slightly new way."
+  },
+  {
+   "id": "more-tex-mex",
+   "kind": "new",
+   "title": "More Tex-Mex",
+   "intro": "About 25 of her meals are Tex-Mex. These add new ways to use the toppings she already buys."
+  },
+  {
+   "id": "takeout-she-could-make-herself",
+   "kind": "new",
+   "title": "Takeout she could make herself",
+   "intro": "Things she has ordered and photographed. Each one uses skills she has already shown."
+  },
+  {
+   "id": "breakfast",
+   "kind": "new",
+   "title": "Breakfast",
+   "intro": ""
+  },
+  {
+   "id": "fall-comfort-food",
+   "kind": "new",
+   "title": "Fall comfort food",
+   "intro": ""
+  },
+  {
+   "id": "more-weeknight-dinners",
+   "kind": "new",
+   "title": "More weeknight dinners",
+   "intro": "A second round, picked to cover more proteins. Each one takes about 40 minutes or less."
+  },
+  {
+   "id": "slow-cooker",
+   "kind": "new",
+   "title": "Slow cooker",
+   "intro": "She already uses a slow cooker (a soup on Dec 2, 2024). These take about 20 minutes of prep, then cook on their own. The birria tacos in the Tex-Mex section are also slow-cooker recipes."
+  },
+  {
+   "id": "warm-and-cozy",
+   "kind": "new",
+   "title": "Warm and cozy",
+   "intro": "Four new recipes for crisp fall days. The \"Warm & cozy\" filter also finds the soups, stews, bakes and slow-cooker dishes elsewhere on the page, including ones she has already made."
+  },
+  {
+   "id": "pasta-italian",
+   "kind": "made",
+   "title": "Pasta & Italian",
+   "intro": "Her biggest category. These are my versions of what's in the photos, not her exact recipes. Cards marked Likely or Best guess are the ones I'm less sure about."
+  },
+  {
+   "id": "tex-mex",
+   "kind": "made",
+   "title": "Tex-Mex",
+   "intro": "Her second-biggest category."
+  },
+  {
+   "id": "eggs-breakfast",
+   "kind": "made",
+   "title": "Eggs & breakfast",
+   "intro": ""
+  },
+  {
+   "id": "bowls-stir-fries",
+   "kind": "made",
+   "title": "Bowls & stir-fries",
+   "intro": ""
+  },
+  {
+   "id": "potatoes",
+   "kind": "made",
+   "title": "Potatoes",
+   "intro": ""
+  },
+  {
+   "id": "soups-stews",
+   "kind": "made",
+   "title": "Soups & stews",
+   "intro": ""
+  },
+  {
+   "id": "salads-sides-dinners",
+   "kind": "made",
+   "title": "Salads, sides & dinners",
+   "intro": ""
+  },
+  {
+   "id": "burgers-baking",
+   "kind": "made",
+   "title": "Burgers & baking",
+   "intro": ""
+  }
+ ],
+ "box": [
+  {
+   "id": "salmon-sushi-bake",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "note": "Three poke bowls this month (Oct 13–16, 2026) and salmon over rice with scallions five times (March 2025, August 2026). This is the same idea, baked as a casserole.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "ahi-tuna-on-crispy-rice",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "note": "She already sears tuna: sliced over avocado and cucumber (Feb 2025), sesame-crusted (Mar 30, 2026), and in the October bowls. Crispy rice adds crunch.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "creamy-vodka-rigatoni",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "note": "Pasta is her biggest category. She makes both red sauce (rigatoni, Jul 2024; pappardelle, Aug 2026) and cream sauce (shrimp alfredo, Sep 2024). Vodka sauce is both at once.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "shakshuka-with-garlic-toast",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "note": "Eggs are her most common breakfast, she made a tomato and egg scramble (Aug 13, 2025), and garlic toast is her usual side.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "loaded-sweet-potatoes-with-chipotle-black-beans",
+   "section": "more-tex-mex",
+   "source": "new",
+   "note": "She's made loaded potatoes about eight times (bacon, sour cream and scallions in Oct 2025; buffalo chicken in Nov 2024) and a sweet potato with ground beef (Jul 21, 2026).",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "sheet-pan-chicken-fajitas",
+   "section": "more-tex-mex",
+   "source": "new",
+   "note": "She made a sliced chicken bowl with peppers, corn and black beans (May 18, 2026) and steak tacos (Nov 18, 2025). This makes the filling on one pan.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-birria-tacos",
+   "section": "more-tex-mex",
+   "source": "new",
+   "note": "She uses a slow cooker (Dec 2, 2024), makes beef stew (Oct 2025, Mar 2026) and steak tacos. These are cheesy, crispy tacos you dip in their own broth.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "pad-see-ew",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "note": "She ordered pad see ew (Aug 21, 2025) and pad thai (Dec 15, 2024), and she already makes chicken and broccoli stir-fry (Jan 2025).",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "hibachi-fried-rice-with-yum-yum-sauce",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "note": "She makes egg fried rice in a skillet (Mar 3, 2026), ordered hibachi (Sep 14, 2024), and puts a mayo sauce on all her bowls.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "misir-wot",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "note": "She has eaten Ethiopian food twice (Aug 30, 2025 and Aug 29, 2026). Red lentils are cheap and the dish keeps for days.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "burrito-bowl-with-cilantro-lime-rice",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "note": "She bought a Chipotle bowl (May 27, 2026), and she builds her own bowls more than anything else.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "turkish-eggs",
+   "section": "breakfast",
+   "source": "new",
+   "note": "She has posted runny eggs on toast at least six times (Sep 2024 to Aug 2025), often with avocado and hot sauce. This puts the eggs on garlicky yogurt with chili butter.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "pumpkin-pie-chia-pudding",
+   "section": "breakfast",
+   "source": "new",
+   "note": "Chia with blueberries and pepitas (Sep 27, 2026) and chocolate chia with raspberries (Sep 16, 2026). A fall flavor using the same method.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "lemon-blueberry-baked-oats",
+   "section": "breakfast",
+   "source": "new",
+   "note": "She has posted yogurt, granola and blueberry bowls many times (Jan 31 and Feb 3, 2026) and made a lemon dessert (Nov 11, 2024). One pan covers breakfast for several days.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "butternut-squash-mac-and-cheese",
+   "section": "fall-comfort-food",
+   "source": "new",
+   "note": "A combination of her squash soup (Sep 23, 2026) and her cheesy sausage-and-pepper pasta (Sep 28, 2026).",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "thai-red-curry-squash-soup",
+   "section": "fall-comfort-food",
+   "source": "new",
+   "note": "The squash soup she already makes, with Thai flavors like the takeout she orders.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "korean-ground-beef-bowls",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "Ground beef is the meat she cooks most (taco meat, taco salads, lettuce wraps on Mar 2, 2026), and rice bowls with scallions and a mayo drizzle are her favorite format.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "miso-glazed-salmon",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She has made salmon over rice with scallions five times (March 2025, August 2026). A sweet-salty glaze is an easy change from her usual.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "creamy-tuscan-chicken",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She made a creamy chicken and spinach pasta (Nov 6, 2025) and finishes nearly everything with parmesan. This is the same sauce with sun-dried tomatoes.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "honey-garlic-pork-tenderloin-with-green-beans",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She roasted a pork tenderloin and served it with green beans in spring 2025, and blistered green beans or asparagus show up with a lot of her dinners. This version cooks everything on one pan.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "garlic-butter-shrimp-orzo",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She has made shrimp alfredo (Sep 25, 2024) and shrimp with ravioli (July 2024), plus a creamy orzo with broccoli. This combines the shrimp and the orzo.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "freezer-breakfast-burritos",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She has posted burritos with tater tots (spring 2026) and an egg-and-tots plate (this past winter). These put everything in one wrap that keeps in the freezer.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "street-corn-pasta-salad",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "note": "She makes pasta salads (a caprese one in August 2025) and cowboy caviar (Sep 16, 2026). This brings Mexican street-corn flavors to a pasta salad.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "salsa-verde-shredded-chicken",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "Chicken goes into a lot of her Tex-Mex meals, like the chicken and black bean bowl (May 18, 2026). One batch makes enough for bowls, tacos and quesadillas all week.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "crispy-pork-carnitas",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "Her tacos and burrito bowls (steak tacos Nov 18, 2025; a Chipotle bowl May 27, 2026) are a natural fit for carnitas, and a quick broil makes the pork crispy.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "beef-chili-with-all-the-toppings",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "She posted chili with avocado, sour cream and cilantro, with cornbread on the side, on Oct 7, 2026. A slow-cooker batch covers several dinners.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "chicken-tikka-masala",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "She makes a lot of tomato-cream sauces and a lot of dinners over rice. This is a new flavor in that same style.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "beef-and-broccoli",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "She makes chicken and broccoli stir-fries (Jan 24, 2025) and orders takeout often. This is a takeout classic that cooks while she's out.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "sausage-white-bean-and-kale-soup",
+   "section": "slow-cooker",
+   "source": "new",
+   "note": "She made beef stew with white beans (Oct 29, 2025) and often serves soup with garlic toast and parmesan. This is a lighter Italian-style soup.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "chicken-pot-pie-soup-with-biscuits",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "note": "Her corn chowder (Dec 3, 2025) and slow-cooker soup (Dec 2, 2024) show she likes a creamy, hearty bowl. This is pot pie in soup form.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "apple-cider-pork-chops-with-roasted-squash",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "note": "She roasted pork tenderloin twice in June 2025 and made squash soup on Sep 23, 2026. This puts fall flavors on a weeknight pork dinner.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "sausage-baked-ziti",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "note": "Red-sauce pasta is her most-posted dish, and she has made sausage and pepper pasta three times. This bakes them together under melted cheese.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "pumpkin-cinnamon-rolls",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "note": "She made cinnamon rolls (Jul 29, 2024) and frosted bars for Thanksgiving (Nov 27, 2025). These are her rolls with pumpkin in the dough.",
+   "madeTimes": null,
+   "madeDates": null,
+   "confidence": "clear"
+  },
+  {
+   "id": "pasta-marinara-with-garlic-toast",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Rigatoni or spaghetti in red sauce under grated parmesan, usually with garlic toast.",
+   "madeTimes": 4,
+   "madeDates": "Jul 22, 2024 · Aug 20, 2024 · Nov 30, 2024 · Feb 15, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "pappardelle-with-meat-sauce",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Wide ribbon pasta in a meaty tomato sauce with shaved parmesan and basil.",
+   "madeTimes": 2,
+   "madeDates": "Oct 7, 2025 · Aug 30, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "spaghetti-and-homemade-meatballs",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Browned meatballs in marinara over spaghetti with lots of parmesan.",
+   "madeTimes": 1,
+   "madeDates": "Dec 10, 2025 (the meatballs got their own post)",
+   "confidence": "clear"
+  },
+  {
+   "id": "fettuccine-alfredo",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Fettuccine in a creamy parmesan sauce, once with shrimp and once with broccoli.",
+   "madeTimes": 2,
+   "madeDates": "Sep 25, 2024 (with shrimp) · Jan 11, 2026 (with broccoli)",
+   "confidence": "clear"
+  },
+  {
+   "id": "creamy-chicken-and-spinach-pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Rigatoni in a creamy sauce with chicken, spinach and parsley.",
+   "madeTimes": 1,
+   "madeDates": "Nov 6, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "sausage-and-pepper-pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Short pasta with sausage, roasted red peppers and onion, finished with parmesan.",
+   "madeTimes": 3,
+   "madeDates": "Mar 15, 2025 · Jun 23, 2025 · Sep 28, 2026 (a cheesy skillet version)",
+   "confidence": "clear"
+  },
+  {
+   "id": "imitation-crab-pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Pasta with pink-and-white strips that look like imitation crab, once with pesto and once in a cream sauce.",
+   "madeTimes": 2,
+   "madeDates": "Mar 25, 2025 · Jun 2, 2026",
+   "confidence": "likely"
+  },
+  {
+   "id": "bacon-carbonara",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Pasta with crispy bacon pieces and a cheesy coating.",
+   "madeTimes": 2,
+   "madeDates": "Apr 14, 2025 · Oct 21, 2025",
+   "confidence": "likely"
+  },
+  {
+   "id": "chicken-parmesan",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Breaded chicken under marinara and melted cheese, served over pasta.",
+   "madeTimes": 2,
+   "madeDates": "Jul 31, 2024 · Jul 30, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "garlic-shrimp-and-mushrooms-with-ravioli",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Seared shrimp and browned mushrooms with large ravioli.",
+   "madeTimes": 1,
+   "madeDates": "Jul 29, 2024",
+   "confidence": "clear"
+  },
+  {
+   "id": "italian-pasta-salad",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Rotini with mozzarella pearls, cherry tomatoes, olives, chickpeas, peppers and basil.",
+   "madeTimes": 2,
+   "madeDates": "May 20, 2025 · Aug 10, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "pan-fried-gnocchi-with-chicken-and-pesto",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "Golden gnocchi tossed with chicken and herbs.",
+   "madeTimes": 1,
+   "madeDates": "May 11, 2025",
+   "confidence": "likely"
+  },
+  {
+   "id": "homemade-pepperoni-pizza",
+   "section": "pasta-italian",
+   "source": "made",
+   "note": "A charred, bubbly pizza on a pizza peel, and a second round with jalapeño and garlic flatbread slices.",
+   "madeTimes": 2,
+   "madeDates": "Sep 4, 2025 · Oct 11, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "taco-salad",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Seasoned ground meat over shredded lettuce with cheddar, tomato, guacamole or avocado, and sour cream in lines.",
+   "madeTimes": 5,
+   "madeDates": "Feb 27, 2025 · Sep 2, 3 & 4, 2025 · Feb 2, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "quesadillas",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Golden quesadillas cut in wedges, sometimes with beans or meat, sour cream on the side.",
+   "madeTimes": 3,
+   "madeDates": "Feb 22, 2025 · Nov 19, 2025 · May 31, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "burritos-with-pico-de-gallo",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Flour tortilla burritos, one opened up to show fresh pico de gallo.",
+   "madeTimes": 2,
+   "madeDates": "Apr 3, 2025 · May 17, 2026 (with tater tots)",
+   "confidence": "clear"
+  },
+  {
+   "id": "steak-tacos",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Soft flour tortillas with seasoned beef, lettuce and tomato.",
+   "madeTimes": 1,
+   "madeDates": "Nov 18, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "chili-with-cornbread",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Bean and tomato chili topped with avocado, sour cream lines and cilantro, with cornbread once.",
+   "madeTimes": 4,
+   "madeDates": "Oct 29, 2024 · Sep 10 & 11, 2025 · Oct 7, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "cowboy-caviar",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "A big bowl of beans, chickpeas, corn, tomatoes, peppers and red onion.",
+   "madeTimes": 2,
+   "madeDates": "Jun 8, 2026 · Sep 16, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "steak-bites-with-corn-salsa-and-guacamole",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Seared steak pieces over corn and black bean salsa with guacamole in the middle.",
+   "madeTimes": 1,
+   "madeDates": "Jun 18, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "southwest-chicken-chopped-salad",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "Sliced seared chicken over chopped peppers, black beans, corn, red onion and tomatoes.",
+   "madeTimes": 1,
+   "madeDates": "May 18, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "mexican-rice-refried-beans-and-guacamole",
+   "section": "tex-mex",
+   "source": "made",
+   "note": "A plate of orange Mexican rice, refried beans and chunky guacamole.",
+   "madeTimes": 1,
+   "madeDates": "Oct 4, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "fried-eggs-on-avocado-toast",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Runny fried eggs on toast or English muffins with mashed avocado, pepper or hot sauce.",
+   "madeTimes": 5,
+   "madeDates": "Sep 5 & 16, 2024 · Dec 8, 2024 · Mar 30, 2025 · Aug 19, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "egg-salad-toast",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Chunky egg salad with herbs piled on toast.",
+   "madeTimes": 4,
+   "madeDates": "Jun 20 & 25, 2025 · Nov 23, 2025 · Feb 16, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "egg-muffins",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Baked egg cups with peppers, meat and cheese.",
+   "madeTimes": 2,
+   "madeDates": "Apr 12, 2026 · Apr 28, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "spinach-and-cheese-breakfast-casserole",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "A cheesy egg bake with greens in a square pan.",
+   "madeTimes": 1,
+   "madeDates": "Apr 28, 2025",
+   "confidence": "likely"
+  },
+  {
+   "id": "tomato-and-egg-scramble",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Soft scrambled eggs with cooked cherry tomatoes.",
+   "madeTimes": 1,
+   "madeDates": "Aug 13, 2025",
+   "confidence": "likely"
+  },
+  {
+   "id": "yogurt-and-granola-bowls",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Greek yogurt with granola, blueberries, strawberries or banana.",
+   "madeTimes": 4,
+   "madeDates": "Jun 16, 2025 · Jan 31, 2026 · Feb 3, 2026 · Mar 4, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "chia-pudding",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "note": "Chia pudding in plain and chocolate versions, topped with fruit and seeds.",
+   "madeTimes": 2,
+   "madeDates": "Sep 16, 2026 (chocolate, with raspberries) · Sep 27, 2026 (with blueberries and pepitas)",
+   "confidence": "clear"
+  },
+  {
+   "id": "salmon-poke-bowl",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Cubed salmon over rice with cucumber, avocado, scallions, chili crisp and Japanese mayo.",
+   "madeTimes": 1,
+   "madeDates": "Oct 16, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "seared-ahi-tuna-bowls",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Rare seared tuna, sometimes sesame-crusted, with avocado, cucumber, edamame, carrot and spicy mayo.",
+   "madeTimes": 5,
+   "madeDates": "Feb 16 & 19, 2025 · Mar 30, 2026 · Oct 13 & 14, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "glazed-salmon-over-rice",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "A glazed salmon fillet over white rice with scallions, asparagus or green beans.",
+   "madeTimes": 5,
+   "madeDates": "Mar 17, 18 & 24, 2025 · Aug 5 & 6, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "chicken-and-broccoli-stir-fry",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Chicken with broccoli, carrots and edamame or peas in a glossy sauce, with rice and sesame seeds.",
+   "madeTimes": 2,
+   "madeDates": "Jan 22, 2025 · Jan 24, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "orange-chicken",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Crispy chicken in a sticky orange glaze, made in a skillet and served over rice.",
+   "madeTimes": 1,
+   "madeDates": "Jun 6, 2026 (two posts)",
+   "confidence": "clear"
+  },
+  {
+   "id": "egg-fried-rice",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "A big skillet of fried rice with scrambled egg and herbs.",
+   "madeTimes": 1,
+   "madeDates": "Mar 3, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "lettuce-wraps",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Butter lettuce cups filled with saucy ground meat and scallions.",
+   "madeTimes": 1,
+   "madeDates": "Mar 2, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "ramen-noodle-stir-fry",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Noodles tossed with chicken, broccoli, carrot and peppers.",
+   "madeTimes": 2,
+   "madeDates": "Apr 20, 2025 · Jul 15, 2026 (with rice noodles)",
+   "confidence": "clear"
+  },
+  {
+   "id": "asian-cucumber-salad",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "note": "Thin-sliced cucumbers with chili flakes in a light dressing.",
+   "madeTimes": 1,
+   "madeDates": "Mar 2, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "loaded-baked-potatoes",
+   "section": "potatoes",
+   "source": "made",
+   "note": "Baked or twice-baked potatoes with bacon, cheddar, sour cream and scallions.",
+   "madeTimes": 6,
+   "madeDates": "Jan 10, 2025 · Mar 4, 2025 · Oct 15 & 19, 2025 · Jan 20 & 23, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "buffalo-chicken-stuffed-potatoes",
+   "section": "potatoes",
+   "source": "made",
+   "note": "A baked potato stuffed with buffalo chicken, cheddar, sour cream and scallions.",
+   "madeTimes": 1,
+   "madeDates": "Nov 21, 2024",
+   "confidence": "clear"
+  },
+  {
+   "id": "sweet-potatoes-with-spiced-ground-beef",
+   "section": "potatoes",
+   "source": "made",
+   "note": "Baked sweet potato with seasoned ground beef and a white garlic sauce.",
+   "madeTimes": 2,
+   "madeDates": "Mar 5, 2025 (with bacon) · Jul 21, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "beef-stew",
+   "section": "soups-stews",
+   "source": "made",
+   "note": "Chunks of beef with red potatoes, carrots, celery and onion in broth.",
+   "madeTimes": 2,
+   "madeDates": "Oct 29, 2025 (with white beans) · Mar 18, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "butternut-squash-soup",
+   "section": "soups-stews",
+   "source": "made",
+   "note": "Smooth orange squash soup topped with pepitas.",
+   "madeTimes": 1,
+   "madeDates": "Sep 23, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "corn-chowder",
+   "section": "soups-stews",
+   "source": "made",
+   "note": "A creamy skillet soup with corn and potatoes.",
+   "madeTimes": 1,
+   "madeDates": "Dec 3, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-chicken-vegetable-soup",
+   "section": "soups-stews",
+   "source": "made",
+   "note": "A slow cooker full of soup with carrots, greens and noodles. It may have been leftover Thanksgiving turkey.",
+   "madeTimes": 1,
+   "madeDates": "Dec 2, 2024",
+   "confidence": "likely"
+  },
+  {
+   "id": "tomato-soup-with-cheesy-garlic-toast",
+   "section": "soups-stews",
+   "source": "made",
+   "note": "A bowl of red soup with parmesan and squares of cheesy garlic toast.",
+   "madeTimes": 2,
+   "madeDates": "Oct 8 & 9, 2025",
+   "confidence": "likely"
+  },
+  {
+   "id": "caesar-salad",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "note": "Romaine with creamy dressing, croutons and parmesan, often with crispy chicken or bacon.",
+   "madeTimes": 4,
+   "madeDates": "Jul 25, 2024 · Jun 3 & 7, 2025 · Aug 15, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "balsamic-asparagus-and-green-beans",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "note": "Charred asparagus and green beans with a dark glaze.",
+   "madeTimes": 2,
+   "madeDates": "Mar 18, 2025 · Mar 24, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "herb-crusted-pork-tenderloin",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "note": "Sliced roast pork tenderloin with green beans and yellow squash.",
+   "madeTimes": 2,
+   "madeDates": "Jun 5, 2025 · Jun 18, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "crispy-chicken-wings",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "note": "Wings with ranch or blue cheese, celery and carrots, sometimes buffalo style.",
+   "madeTimes": 3,
+   "madeDates": "Sep 20, 2024 · Feb 7, 2026 · Mar 7, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "steak-bites-with-sweet-potato-fries",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "note": "Seared steak bites and sweet potato fries with a green dipping sauce.",
+   "madeTimes": 1,
+   "madeDates": "Jan 6, 2026",
+   "confidence": "clear"
+  },
+  {
+   "id": "burgers-caprese-or-avocado-bacon",
+   "section": "burgers-baking",
+   "source": "made",
+   "note": "One burger with fresh mozzarella, tomato, basil and balsamic, and others with cheddar, avocado or bacon.",
+   "madeTimes": 3,
+   "madeDates": "Jul 17, 2024 (caprese) · Jul 30, 2024 · Dec 4, 2025",
+   "confidence": "clear"
+  },
+  {
+   "id": "cinnamon-rolls",
+   "section": "burgers-baking",
+   "source": "made",
+   "note": "Fat, swirled cinnamon rolls with white icing.",
+   "madeTimes": 1,
+   "madeDates": "Jul 29, 2024",
+   "confidence": "clear"
+  },
+  {
+   "id": "frosted-pumpkin-bars",
+   "section": "burgers-baking",
+   "source": "made",
+   "note": "Squares with white frosting and a caramel-colored drizzle. I'm guessing pumpkin from the date and color.",
+   "madeTimes": 1,
+   "madeDates": "Nov 27, 2025 (Thanksgiving)",
+   "confidence": "guess"
+  },
+  {
+   "id": "lemon-icebox-pie",
+   "section": "burgers-baking",
+   "source": "made",
+   "note": "A pale lemon dessert in a glass dish with a lemon slice on top.",
+   "madeTimes": 1,
+   "madeDates": "Nov 11, 2024",
+   "confidence": "guess"
+  }
+ ]
+}

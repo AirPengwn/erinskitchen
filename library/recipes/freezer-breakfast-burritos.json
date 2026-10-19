@@ -1,0 +1,56 @@
+{
+ "id": "freezer-breakfast-burritos",
+ "title": "Freezer breakfast burritos",
+ "proteins": [
+  "eggs",
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "8 burritos",
+ "prep": "25 min",
+ "cook": "35 min",
+ "total": "1 hr 20 min (includes cooling)",
+ "equipment": [
+  "Rimmed sheet pan",
+  "12-inch nonstick skillet",
+  "Large bowl",
+  "Foil",
+  "Gallon freezer bags",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "3 cups frozen tater tots or shredded hash browns",
+    "1 lb bulk breakfast sausage (or 1 lb bacon, cooked crisp and crumbled)",
+    "10 large eggs",
+    "¼ tsp kosher salt",
+    "¼ tsp black pepper",
+    "1 Tbsp butter",
+    "2 cups shredded cheddar (8 oz)",
+    "½ cup thick salsa, drained of extra liquid",
+    "8 large (10-inch) flour tortillas"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oven to 425°F. Spread the tots on the sheet pan and bake 20–25 min (or as the package says), turning once, until crisp. Chop them roughly.",
+  "Meanwhile, cook the sausage in the skillet over medium-high heat 8–10 min, breaking it into small crumbles, until browned with no pink left and it reads 160°F. Drain on paper towels and wipe out the skillet.",
+  "Whisk the eggs with the salt and pepper. Melt the butter in the skillet over medium-low heat, add the eggs and stir slowly 3–4 min, until set with no runny egg left.",
+  "Spread the eggs, sausage and tots on plates or the sheet pan and cool 15–20 min, until they stop steaming. Warm filling makes steam, which makes soggy tortillas and ice crystals.",
+  "Wrap the tortillas in a damp paper towel and microwave 20–30 sec, so they fold without cracking.",
+  "Down the center of each tortilla, layer eggs, sausage, tots, ¼ cup cheese and 1 Tbsp salsa. Fold in the sides, then roll up tightly from the bottom. Wrap each burrito in foil.",
+  "Put the wrapped burritos in freezer bags, press out the air, label with the date and freeze."
+ ],
+ "tips": [
+  "To reheat from frozen, remove the foil, wrap the burrito in a damp paper towel and microwave 1 min per side, then 30–60 sec more, until hot in the center (165°F). For a crisp outside, finish it in a dry skillet over medium heat 1–2 min per side.",
+  "Use thick salsa or drain it well, so the tortillas don't get soggy.",
+  "Don't let the cooked filling sit out more than 2 hr before freezing."
+ ],
+ "storage": "Freezer up to 3 months, or fridge up to 4 days. Reheat from frozen in the microwave (see tips), or bake still in foil at 375°F for 30–35 min, until hot in the center (165°F).",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

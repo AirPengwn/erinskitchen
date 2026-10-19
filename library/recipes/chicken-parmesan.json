@@ -1,0 +1,62 @@
+{
+ "id": "chicken-parmesan",
+ "title": "Chicken parmesan",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 servings",
+ "prep": "20 min",
+ "cook": "25 min",
+ "total": "45 min",
+ "equipment": [
+  "12-inch skillet",
+  "Rimmed sheet pan with a wire rack",
+  "3 shallow dishes",
+  "6- to 8-quart pot",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 large boneless skinless chicken breasts (about 1½ lb), halved horizontally into 4 cutlets about ½ inch thick",
+    "1 tsp kosher salt",
+    "½ tsp black pepper",
+    "½ cup all-purpose flour",
+    "1 large egg, beaten with 1 Tbsp water",
+    "1 cup breadcrumbs (plain or Italian)",
+    "¼ cup finely grated parmesan",
+    "½ cup vegetable oil, for frying",
+    "1 jar (24 oz) marinara sauce, warmed",
+    "1 cup shredded low-moisture mozzarella (4 oz)"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "12 oz spaghetti",
+    "1 Tbsp kosher salt (for the pasta water)",
+    "2 Tbsp finely grated parmesan"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the broiler with a rack 6 inches from the heat. Set a wire rack in a rimmed sheet pan. Bring a large pot of water to a boil and add the 1 Tbsp salt.",
+  "Pat the cutlets dry and season both sides with the salt and pepper. Set up 3 shallow dishes: the flour, the beaten egg, and the breadcrumbs mixed with ¼ cup parmesan.",
+  "Coat each cutlet in flour and shake off the extra, dip it in egg and let it drip, then press it into the breadcrumbs on both sides.",
+  "Heat the oil in a 12-inch skillet over medium heat until a pinch of breadcrumbs sizzles right away. Fry 2 cutlets at a time 3–4 min per side, until deep golden and they read 165°F in the thickest part. Move them to the wire rack.",
+  "While the chicken fries, cook the spaghetti until al dente. Drain and toss with 2 cups of the warm marinara.",
+  "Spoon about ¼ cup of the remaining marinara over each cutlet and top with the mozzarella. Broil 2–4 min, until the cheese is melted and browned in spots. Watch closely.",
+  "Serve the chicken over the spaghetti, sprinkled with parmesan."
+ ],
+ "tips": [
+  "Air fryer: spray the breaded cutlets with oil and cook at 400°F for 10–12 min, flipping halfway, until 165°F. Add the sauce and cheese and cook 1–2 min more to melt.",
+  "Let the breaded cutlets sit 10 min before frying so the coating sticks better."
+ ],
+ "storage": "Fridge up to 3 days. Reheat the cutlets on a sheet pan in a 375°F oven 12–15 min, until they reach 165°F; the microwave makes the breading soggy. Freeze breaded, uncooked cutlets up to 3 months and thaw overnight in the fridge before frying.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

@@ -1,0 +1,56 @@
+{
+ "id": "corn-chowder",
+ "title": "Corn chowder",
+ "proteins": [
+  "meatless"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "4 servings",
+ "prep": "15 min",
+ "cook": "35 min",
+ "total": "50 min",
+ "equipment": [
+  "12-inch deep skillet or sauté pan (at least 4 quarts)",
+  "Whisk",
+  "Wooden spoon",
+  "Potato masher",
+  "Paper-towel-lined plate"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 slices bacon, chopped (optional)",
+    "2 Tbsp unsalted butter (use if skipping the bacon)",
+    "1 medium yellow onion, diced",
+    "2 celery ribs, diced",
+    "2 Tbsp all-purpose flour",
+    "1 tsp dried thyme (or 1 Tbsp fresh thyme leaves)",
+    "3 cups low-sodium vegetable broth",
+    "2 cups whole milk",
+    "2 medium Yukon Gold potatoes (about 1 lb), peeled and cut into ½-inch dice",
+    "1 tsp kosher salt, plus more to taste",
+    "¼ tsp black pepper",
+    "3 cups corn kernels (fresh from 4 ears, or frozen)"
+   ]
+  }
+ ],
+ "steps": [
+  "If using bacon, cook it in the skillet over medium heat 6–8 min, stirring, until crisp. Move it to a paper-towel-lined plate and leave about 2 Tbsp drippings in the pan. If skipping bacon, melt the butter over medium heat instead.",
+  "Add the onion and celery and cook 6–8 min, stirring, until soft and translucent. Sprinkle in the flour and thyme and stir 1 min, until the flour coats the vegetables and smells toasty.",
+  "Slowly pour in the broth while whisking so no lumps form, then whisk in the milk. Add the potatoes, salt and pepper.",
+  "Bring to a gentle simmer over medium heat, stirring often. Reduce to medium-low and simmer uncovered 15–18 min, stirring every few min so the bottom doesn't scorch, until the potatoes are tender when pierced. Don't let it boil hard or the milk can separate.",
+  "Stir in the corn and simmer 5 min, until the corn is hot and tender.",
+  "Press about a quarter of the potatoes against the side of the pan with a potato masher and stir. The chowder thickens in 1–2 min. Taste and add salt and pepper.",
+  "Ladle into bowls and top with the crumbled bacon if you made it."
+ ],
+ "tips": [
+  "Frozen corn goes in straight from the bag. Add 1–2 min to the corn step.",
+  "For a richer chowder, swap 1 cup of the milk for half-and-half."
+ ],
+ "storage": "Fridge up to 3 days. It doesn't freeze well; the potatoes turn grainy and the milk can separate. Reheat gently over medium-low heat, stirring, with a splash of milk if it's thick.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

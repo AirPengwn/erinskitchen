@@ -1,0 +1,61 @@
+{
+ "id": "ramen-noodle-stir-fry",
+ "title": "Ramen noodle stir-fry",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "2 servings",
+ "prep": "15 min",
+ "cook": "15 min",
+ "total": "30 min",
+ "equipment": [
+  "Large pot",
+  "Colander",
+  "12-inch skillet or wok",
+  "Tongs",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 packs (3 oz each) instant ramen, seasoning packets discarded, or 6 oz flat rice noodles",
+    "1 boneless skinless chicken breast (about 8 oz), sliced into thin bite-size strips",
+    "¼ tsp kosher salt",
+    "2 Tbsp neutral oil, plus 1 tsp for the noodles",
+    "2 cups broccoli florets, bite-size",
+    "1 medium carrot, peeled and cut into thin matchsticks",
+    "1 bell pepper (any color), thinly sliced",
+    "2 Tbsp water"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "3 Tbsp soy sauce",
+    "1 Tbsp oyster sauce",
+    "1 Tbsp honey",
+    "1 tsp toasted sesame oil",
+    "2 cloves garlic, minced"
+   ]
+  }
+ ],
+ "steps": [
+  "Stir the sauce ingredients in a small bowl. Bring a large pot of water to a boil.",
+  "Cook the ramen 2 min, just until the noodles separate. For rice noodles, cook 1–2 min less than the package says. Drain, rinse briefly with cold water and toss with 1 tsp oil so they don't stick.",
+  "Season the chicken with the salt. Heat 1 Tbsp oil in a 12-inch skillet over medium-high heat until it shimmers. Cook the chicken 4–5 min, stirring now and then, until browned and it reads 165°F. Move to a plate.",
+  "Add the remaining 1 Tbsp oil, the broccoli and carrot and stir-fry 2 min. Add the bell pepper and 2 Tbsp water and stir-fry 2 min more, until the water is gone and the vegetables are crisp-tender.",
+  "Turn the heat to high. Add the noodles, chicken and sauce and toss with tongs 1–2 min, until the noodles are hot and evenly coated."
+ ],
+ "tips": [
+  "Rice noodles break easily. Cook them only until just bendable, since they soften more in the pan.",
+  "Shrimp or tofu work in place of chicken. Cook shrimp 1–2 min per side, until pink and opaque.",
+  "Add chili crisp or sriracha at the table for heat."
+ ],
+ "storage": "Fridge up to 3 days. Reheat in a skillet over medium heat with a splash of water, or in the microwave, until hot (165°F). The noodles soften as they sit.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}

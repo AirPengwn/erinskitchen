@@ -1,0 +1,71 @@
+{
+ "id": "caesar-salad",
+ "title": "Caesar salad",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings as a main",
+ "prep": "20 min",
+ "cook": "15 min",
+ "total": "35 min",
+ "equipment": [
+  "12-inch skillet",
+  "3 shallow dishes for breading",
+  "Small bowl and whisk",
+  "Large salad bowl",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 large heads romaine (about 1½ lb), chopped into 1-inch pieces, washed and dried",
+    "2 cups croutons",
+    "½ cup shaved or grated parmesan (1½ oz)"
+   ]
+  },
+  {
+   "group": "Dressing",
+   "items": [
+    "½ cup mayonnaise",
+    "⅓ cup finely grated parmesan",
+    "1 Tbsp lemon juice",
+    "1 tsp Dijon mustard",
+    "1 tsp Worcestershire sauce",
+    "1 clove garlic, finely grated or minced",
+    "½ tsp anchovy paste (optional)",
+    "¼ tsp black pepper",
+    "1–2 Tbsp water, to thin"
+   ]
+  },
+  {
+   "group": "Crispy chicken",
+   "items": [
+    "1 lb boneless skinless chicken breasts (2 small), each halved horizontally into thin cutlets",
+    "½ tsp kosher salt",
+    "⅓ cup all-purpose flour",
+    "1 large egg, beaten",
+    "1 cup panko breadcrumbs",
+    "¼ cup vegetable oil, for frying"
+   ]
+  }
+ ],
+ "steps": [
+  "Make the dressing: whisk the mayo, parmesan, lemon juice, Dijon, Worcestershire, garlic, anchovy paste and pepper in a small bowl. Whisk in water 1 tsp at a time until it pours. Chill until serving.",
+  "Pat the chicken cutlets dry and season both sides with the salt. Put the flour, egg and panko in 3 shallow dishes. Coat each cutlet in flour, dip it in egg, then press it into the panko on both sides.",
+  "Heat the oil in a 12-inch skillet over medium-high heat until a panko crumb sizzles right away. Cook the cutlets 3–4 min per side, until deep golden and they read 165°F in the thickest part. Turn the heat to medium if the crumbs brown too fast.",
+  "Drain the chicken on paper towels and rest 5 min, then slice into strips.",
+  "In a large bowl, toss the romaine with about ⅔ of the dressing until every leaf is coated. Add more dressing to taste.",
+  "Divide among plates and top with the croutons, parmesan and sliced chicken."
+ ],
+ "tips": [
+  "Bacon instead of chicken: cook 6 slices bacon in the skillet over medium heat 8–12 min, until crisp. Drain, crumble and scatter over the salad.",
+  "Dry the romaine well in a salad spinner or with towels. Wet leaves water down the dressing and it slides off."
+ ],
+ "storage": "Dressed salad doesn't keep, so toss only what you'll eat. Dressing keeps 4 days in the fridge and the chicken 3 days. Re-crisp the chicken at 400°F in the oven or air fryer for 5–8 min, until it reads 165°F.",
+ "credit": null,
+ "addedBy": "erin",
+ "addedAt": "2026-10-19"
+}
