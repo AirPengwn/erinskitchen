@@ -1,0 +1,60 @@
+{
+ "id": "anne-s-chicken-stuff",
+ "title": "Anne's Chicken Stuff",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "6 servings",
+ "prep": "20 min",
+ "cook": "55 min",
+ "total": "1 hr 20 min",
+ "equipment": [
+  "4-quart saucepan",
+  "Colander",
+  "Large mixing bowl",
+  "2-quart baking dish (8×8-inch or 11×7-inch)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "4 boneless skinless chicken breasts (about 2 lb), cut into 1-inch cubes",
+    "8 cups water, for parboiling",
+    "1 can (10½ oz) condensed cream of chicken soup",
+    "1 cup mayonnaise",
+    "2 Tbsp scallions, finely diced",
+    "1 Tbsp lemon juice",
+    "½ tsp salt",
+    "1 Tbsp black pepper"
+   ]
+  },
+  {
+   "group": "Topping",
+   "items": [
+    "1 large can (6 oz) French fried onion rings, such as Durkee or French's"
+   ]
+  }
+ ],
+ "steps": [
+  "Preheat the oven to 350°F. Lightly grease a 2-quart baking dish.",
+  "Bring 8 cups water to a boil in a 4-quart saucepan over high heat. Add the cubed chicken, lower to medium heat, and simmer 6 to 8 min, until the outside is white and the centers are just barely pink. Drain in a colander.",
+  "In a large mixing bowl, stir together the cream of chicken soup, mayonnaise, scallions, lemon juice, salt and pepper until smooth.",
+  "Fold the drained chicken into the sauce until every piece is coated. Spread it evenly in the baking dish.",
+  "Bake uncovered 30 min, until the sauce bubbles around the edges.",
+  "Take the dish out and crunch the fried onion rings over the top with your hands, covering the chicken evenly.",
+  "Bake another 15 min, until the onions are deep golden and the chicken reads 165°F on an instant-read thermometer in the thickest piece. Let it rest 5 min before serving."
+ ],
+ "tips": [
+  "1 Tbsp of pepper is what the card says and it makes a peppery dish. Start with 1 tsp if your family likes it milder.",
+  "You can use bone-in breasts, as the card notes. Cut the meat off the bone before cubing, or parboil whole and then cube.",
+  "Serve over rice or egg noodles to catch the creamy sauce."
+ ],
+ "storage": "Keeps covered in the fridge for 3 to 4 days. Freezing is not recommended because the mayonnaise sauce can separate. Reheat in a 350°F oven for 15 to 20 min until hot; the onions will soften.",
+ "credit": "Anne",
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}
