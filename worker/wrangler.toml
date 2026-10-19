@@ -6,6 +6,9 @@ main = "src/index.js"
 compatibility_date = "2026-10-01"
 compatibility_flags = ["nodejs_compat"]
 
+# Never remove variables set in the Cloudflare dashboard when deploying.
+keep_vars = true
+
 [vars]
 GITHUB_REPO = "AirPengwn/kitchen"
 GITHUB_BRANCH = "main"
