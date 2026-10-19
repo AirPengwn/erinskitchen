@@ -408,6 +408,11 @@
       pick.addEventListener('click', function () { file.click(); });
       tools.appendChild(pick);
       if (src && !pending) {
+        var adj = btn('linkish', 'Adjust framing');
+        adj.addEventListener('click', function () { frame(src); });
+        tools.appendChild(adj);
+      }
+      if (src && !pending) {
         var rm = btn('linkish', sure ? 'Tap again to remove the photo' : 'Remove photo');
         rm.addEventListener('click', function () {
           if (!sure) { sure = true; draw(); return; }
@@ -437,11 +442,14 @@
           setStatus(errText(e), true);
         });
     }
+    function frame(source) {
+      setStatus('');
+      cropImage(source).then(function (im) { if (im) send(im); })
+        .catch(function (e) { setStatus(e.message, true); });
+    }
     file.addEventListener('change', function () {
       var f = file.files[0]; file.value = '';
-      if (!f) return;
-      setStatus('Preparing the photo…');
-      shrink(f, 1400, 0.82).then(send).catch(function (e) { setStatus(e.message, true); });
+      if (f) frame(f);
     });
     draw();
   }
@@ -582,6 +590,187 @@
     };
   }
 
+  /* ---------- Recipe editor (a saved recipe, or a new one before it's saved) ---------- */
+  var PROTEIN_IDS = ['chicken', 'beef', 'pork', 'seafood', 'eggs', 'meatless'];
+  function lines(s) { return String(s || '').split('\n').map(function (x) { return x.trim(); }).filter(Boolean); }
+  // opts: { saveLabel, onSave(recipe, ui) -> Promise, onCancel(), askClaude, notice }
+  function recipeForm(host, r, opts) {
+    host.textContent = '';
+    var uid = Math.random().toString(36).slice(2, 7), n = 0;
+    var form = el('form', 'editor'); form.noValidate = true;
+    form.addEventListener('submit', function (e) { e.preventDefault(); });
+    if (opts.notice) form.appendChild(opts.notice);
+    function field(label, input, hint, parent) {
+      var f = el('div', 'field'), id = 'ed-' + uid + '-' + (++n);
+      input.id = id; var l = el('label', null, label); l.htmlFor = id;
+      f.appendChild(l); f.appendChild(input); if (hint) f.appendChild(el('span', 'hint', hint));
+      (parent || form).appendChild(f); return input;
+    }
+    function text(v, ph) { var i = el('input'); i.type = 'text'; i.value = v || ''; if (ph) i.placeholder = ph; return i; }
+    function area(v, rows, ph) { var t = el('textarea'); t.rows = rows; t.value = v || ''; if (ph) t.placeholder = ph; return t; }
+    function checks(legend) { var fs = el('fieldset', 'field echecks'); fs.appendChild(el('legend', null, legend)); form.appendChild(fs); return fs; }
+    function check(fs, label, on) {
+      var l = el('label', 'echeck'), c = el('input'); c.type = 'checkbox'; c.checked = !!on;
+      l.appendChild(c); l.appendChild(el('span', null, label)); fs.appendChild(l); return c;
+    }
+
+    var title = field('Recipe name', text(r.title));
+    var pfs = checks('Protein'), pBoxes = {};
+    PROTEIN_IDS.forEach(function (p) { pBoxes[p] = check(pfs, LABEL[p], (r.proteins || []).indexOf(p) !== -1); });
+    var sfs = checks('Style');
+    var slow = check(sfs, 'Slow cooker', r.slowCooker), cozy = check(sfs, 'Warm & cozy', r.cozy);
+    var grid = el('div', 'egrid'); form.appendChild(grid);
+    var servings = field('Serves', text(r.servings, '4 servings'), null, grid);
+    var prep = field('Prep', text(r.prep, '15 min'), null, grid);
+    var cook = field('Cook', text(r.cook, '30 min'), null, grid);
+    var total = field('Total', text(r.total, '45 min'), null, grid);
+    var equipment = field('Equipment', area((r.equipment || []).join('\n'), 4, '12-inch skillet'), 'One item per line.');
+
+    var ing = el('fieldset', 'field egroups'); ing.appendChild(el('legend', null, 'Ingredients'));
+    ing.appendChild(el('span', 'hint', 'One ingredient per line. Use more than one group for parts like a sauce or toppings.'));
+    var groupList = el('div', 'egroup-list'); ing.appendChild(groupList);
+    var groups = [];
+    function addGroup(g) {
+      var box = el('div', 'egroup');
+      var name = text(g.group || '', groups.length ? 'Group name, like Sauce or To serve' : 'Group name (optional)');
+      name.setAttribute('aria-label', 'Ingredient group name');
+      var items = area((g.items || []).join('\n'), Math.min(14, Math.max(4, (g.items || []).length + 1)));
+      items.setAttribute('aria-label', 'Ingredients in this group, one per line');
+      var rm = btn('linkish', 'Remove this group');
+      var entry = { name: name, items: items };
+      rm.addEventListener('click', function () {
+        if (groups.length === 1) { name.value = ''; items.value = ''; return; }
+        groups.splice(groups.indexOf(entry), 1); box.remove();
+      });
+      box.appendChild(name); box.appendChild(items); box.appendChild(rm);
+      groupList.appendChild(box); groups.push(entry);
+      return entry;
+    }
+    (r.ingredients && r.ingredients.length ? r.ingredients : [{ group: null, items: [] }]).forEach(addGroup);
+    var addG = btn('btn', '+ Add a group');
+    addG.addEventListener('click', function () { addGroup({ group: '', items: [] }).name.focus(); });
+    ing.appendChild(addG); form.appendChild(ing);
+
+    var steps = field('Steps', area((r.steps || []).join('\n\n'), 12), 'Each line is one step. Blank lines between steps are fine.');
+    var tips = field('Tips', area((r.tips || []).join('\n\n'), 4), 'Each line is one tip. Optional.');
+    var storage = field('Leftovers', area(r.storage, 3, 'Fridge up to 4 days. Reheat...'));
+    var credit = field('Source', text(r.credit, "Like: Grandma's card, or a website name"), 'Optional.');
+
+    var pass = passRow(form, true);
+    var status = el('p', 'status'); status.setAttribute('aria-live', 'polite');
+    function setStatus(msg, isErr) { status.textContent = msg; status.className = 'status' + (isErr ? ' error' : ''); }
+
+    function read() {
+      return {
+        title: title.value.trim(),
+        proteins: PROTEIN_IDS.filter(function (p) { return pBoxes[p].checked; }),
+        slowCooker: slow.checked, cozy: cozy.checked,
+        servings: servings.value.trim(), prep: prep.value.trim(), cook: cook.value.trim(), total: total.value.trim(),
+        equipment: lines(equipment.value),
+        ingredients: groups.map(function (g) { return { group: g.name.value.trim() || null, items: lines(g.items.value) }; })
+          .filter(function (g) { return g.items.length; }),
+        steps: lines(steps.value), tips: lines(tips.value),
+        storage: storage.value.trim().replace(/\s*\n\s*/g, ' '),
+        credit: credit.value.trim() || null
+      };
+    }
+    function problems(x) {
+      var miss = [];
+      if (!x.title) miss.push([title, 'a recipe name']);
+      if (!x.proteins.length) miss.push([pBoxes.meatless, 'a protein (Meatless if none)']);
+      [[servings, 'Serves'], [prep, 'Prep'], [cook, 'Cook'], [total, 'Total']].forEach(function (f) { if (!f[0].value.trim()) miss.push([f[0], f[1]]); });
+      if (!x.ingredients.length) miss.push([groups[0].items, 'at least one ingredient']);
+      if (!x.steps.length) miss.push([steps, 'at least one step']);
+      if (!x.storage) miss.push([storage, 'leftovers']);
+      return miss;
+    }
+
+    if (opts.askClaude) {
+      var askWrap = el('div', 'vbox easky');
+      askWrap.appendChild(el('h3', null, 'Or ask Claude to change it'));
+      var ask = field('What should change?', area('', 2, 'Like: make it for 2 people, or add an air fryer option'), 'Claude rewrites the form below. Nothing is saved until you tap ' + opts.saveLabel + '.', askWrap);
+      var askBtn = btn('btn', 'Ask Claude');
+      var ar = el('div', 'btn-row'); ar.appendChild(askBtn); askWrap.appendChild(ar);
+      form.insertBefore(askWrap, opts.notice ? opts.notice.nextSibling : form.firstChild);
+      askBtn.addEventListener('click', function () {
+        if (!ask.value.trim()) { ask.focus(); return; }
+        if (pass.need()) { setStatus('Enter the passcode, then tap Ask Claude again.', true); return; }
+        askBtn.disabled = true;
+        var t0 = Date.now(), tick = setInterval(function () { askBtn.textContent = 'Claude is working… ' + Math.round((Date.now() - t0) / 1000) + ' sec'; }, 1000);
+        helper('/parse', { passcode: pass.get(), person: PERSON, previous: read(), fix: ask.value.trim(), sections: person.sections.map(function (s) { return { id: s.id, title: s.title }; }) })
+          .then(function (j) {
+            pass.ok();
+            var note = el('div', 'vbox warn');
+            note.appendChild(el('h3', null, 'Claude changed the form. Check it, then tap ' + opts.saveLabel + '.'));
+            if (j.assumptions && j.assumptions.length) { var ul = el('ul'); j.assumptions.forEach(function (a) { ul.appendChild(el('li', null, a)); }); note.appendChild(ul); }
+            recipeForm(host, j.recipe, Object.assign({}, opts, { notice: note }));
+            host.scrollIntoView({ block: 'start' });
+          })
+          .catch(function (e) { if (e.status === 401) pass.bad(); setStatus(errText(e), true); })
+          .then(function () { clearInterval(tick); askBtn.disabled = false; askBtn.textContent = 'Ask Claude'; });
+      });
+    }
+
+    var row = el('div', 'btn-row');
+    var save = btn('btn primary', opts.saveLabel), cancel = btn('btn', 'Cancel');
+    row.appendChild(save); row.appendChild(cancel);
+    form.appendChild(row); form.appendChild(status);
+    cancel.addEventListener('click', function () { opts.onCancel(); });
+    save.addEventListener('click', function () {
+      var x = read(), miss = problems(x);
+      if (miss.length) { setStatus('Still needed: ' + miss.map(function (m) { return m[1]; }).join(', ') + '.', true); miss[0][0].focus(); return; }
+      save.disabled = true;
+      opts.onSave(x, { pass: pass, setStatus: setStatus }).catch(function (e) {
+        if (e.status === 401) pass.bad();
+        setStatus(errText(e), true);
+      }).then(function () { save.disabled = false; });
+    });
+    host.appendChild(form);
+    // Text boxes grow to fit, so long ingredient lists and steps don't scroll inside a small box.
+    function grow(t) {
+      if (!t.offsetParent) return; // not on screen yet; measuring now would collapse it
+      t.style.height = 'auto'; t.style.height = (t.scrollHeight + 2) + 'px';
+    }
+    setTimeout(function () { Array.prototype.forEach.call(form.querySelectorAll('textarea'), grow); }, 0);
+    form.addEventListener('input', function (e) { if (e.target.tagName === 'TEXTAREA') grow(e.target); });
+    return form;
+  }
+
+  var flash = null; // a one-time message shown at the top of the next recipe opened
+  function openEditor(r) {
+    current = r;
+    viewer.textContent = '';
+    var b = el('div', 'vbar');
+    var back = btn('vback', '← Back to recipe');
+    function toRecipe() { location.hash = 'r-' + r.id; }
+    back.addEventListener('click', toRecipe);
+    b.appendChild(back); viewer.appendChild(b);
+    var body = el('article', 'vbody');
+    body.appendChild(el('span', 'eyebrow', 'Edit recipe'));
+    body.appendChild(el('h1', 'vtitle', r.title));
+    body.appendChild(el('p', 'vhint', "Changes go into the shared library, so they show in every kitchen. Your box, tags, notes and photo stay as they are."));
+    var host = el('div'); body.appendChild(host);
+    viewer.appendChild(body);
+    recipeForm(host, r, {
+      saveLabel: 'Save changes', askClaude: true, onCancel: toRecipe,
+      onSave: function (x, ui) {
+        if (ui.pass.need()) { ui.setStatus('Enter the passcode, then tap Save changes.', true); return Promise.resolve(); }
+        ui.setStatus('Saving…');
+        return helper('/edit', { passcode: ui.pass.get(), person: PERSON, id: r.id, recipe: x }).then(function (j) {
+          ui.pass.ok();
+          library.forEach(function (lr, i) { if (lr.id === r.id) library[i] = j.recipe; });
+          refresh();
+          flash = j.changed ? 'Saved. It shows here now; everyone else sees the change in a minute or two.' : 'Nothing had changed, so there was nothing to save.';
+          toRecipe();
+        });
+      }
+    });
+    show('viewer');
+    document.title = 'Edit ' + r.title + ' · ' + person.title;
+    window.scrollTo(0, 0);
+    back.focus({ preventScroll: true });
+  }
+
   /* ---------- Recipe view ---------- */
   var wakeLock = null, wantWake = false;
   function setWake(on) {
@@ -628,8 +817,15 @@
     }
     var body = el('article', 'vbody');
     var sec = r.section ? sectionById(r.section) : null;
-    body.appendChild(el('span', 'eyebrow', r.inBox ? (person.name + "'s box" + (sec ? ' · ' + sec.title : '')) : 'Whole library'));
+    var vtop = el('div', 'vtop');
+    vtop.appendChild(el('span', 'eyebrow', r.inBox ? (person.name + "'s box" + (sec ? ' · ' + sec.title : '')) : 'Whole library'));
+    var editTop = el('a', 'linkish', 'Edit recipe'); editTop.href = '#e-' + r.id;
+    vtop.appendChild(editTop); body.appendChild(vtop);
+    if (flash) { body.appendChild(el('p', 'status saved', flash)); flash = null; }
     renderRecipeBody(r, body, { interactive: true, panel: boxPanel(r) });
+    var editRow = el('div', 'btn-row vedit');
+    var editBtn = el('a', 'btn', 'Edit this recipe'); editBtn.href = '#e-' + r.id;
+    editRow.appendChild(editBtn); body.appendChild(editRow);
     // Only on paper: this person's own note, and where the printout came from.
     if (r.myNote) body.insertBefore(el('p', 'print-only vprint-note', 'My note: ' + r.myNote), body.querySelector('.vhead'));
     var titleEl = body.querySelector('.vtitle');
@@ -657,6 +853,7 @@
   function route() {
     var h = location.hash.slice(1);
     if (h.indexOf('r-') === 0 && byId[h.slice(2)]) openRecipe(byId[h.slice(2)]);
+    else if (h.indexOf('e-') === 0 && byId[h.slice(2)]) openEditor(byId[h.slice(2)]);
     else if (h === 'add') openAdd();
     else { closeViews(); openedFromList = false; }
   }
@@ -680,6 +877,114 @@
       };
       img.onerror = function () { URL.revokeObjectURL(url); reject(new Error("That file couldn't be read as an image.")); };
       img.src = url;
+    });
+  }
+
+  // A framing window for recipe photos: the photo moves and zooms under a fixed 4:3 frame (drag,
+  // pinch, scroll wheel, slider, or arrow and +/- keys). Resolves with the framed JPEG, or null if
+  // cancelled. The site shows recipe photos at 4:3, so what's in the frame is exactly what shows.
+  function cropImage(source) {
+    return new Promise(function (resolve, reject) {
+      var isUrl = typeof source === 'string';
+      var url = isUrl ? source : URL.createObjectURL(source);
+      var img = new Image();
+      img.onload = function () { open(); };
+      img.onerror = function () { if (!isUrl) URL.revokeObjectURL(url); reject(new Error("That file couldn't be read as an image.")); };
+      img.src = url;
+
+      function open() {
+        var nw = img.naturalWidth, nh = img.naturalHeight;
+        var back = document.activeElement;
+        var modal = el('div', 'crop-modal');
+        var card = el('div', 'crop-card');
+        card.setAttribute('role', 'dialog'); card.setAttribute('aria-modal', 'true'); card.setAttribute('aria-labelledby', 'crop-title');
+        var h = el('h2', null, 'Frame the food'); h.id = 'crop-title'; card.appendChild(h);
+        card.appendChild(el('p', 'hint', 'Drag to move the photo. Pinch, scroll or use the slider to zoom. What is inside the frame is what shows on the recipe.'));
+        var stage = el('div', 'crop-stage'); stage.tabIndex = 0;
+        stage.setAttribute('aria-label', 'Photo frame. Arrow keys move the photo, plus and minus zoom.');
+        img.className = 'crop-img'; img.alt = ''; img.draggable = false;
+        img.style.width = nw + 'px'; img.style.height = nh + 'px';
+        stage.appendChild(img); stage.appendChild(el('div', 'crop-grid'));
+        card.appendChild(stage);
+        var zl = el('label', 'crop-zoom'); zl.appendChild(el('span', null, 'Zoom'));
+        var zoom = el('input'); zoom.type = 'range'; zoom.min = '1'; zoom.max = '5'; zoom.step = '0.01'; zoom.value = '1';
+        zl.appendChild(zoom); card.appendChild(zl);
+        var row = el('div', 'btn-row');
+        var use = btn('btn primary', 'Use this framing'), cancel = btn('btn', 'Cancel');
+        row.appendChild(use); row.appendChild(cancel); card.appendChild(row);
+        modal.appendChild(card); document.body.appendChild(modal);
+        var overflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
+
+        // State: the photo point at the frame's center (cx, cy) and zoom z (1 = photo just covers the frame).
+        var W, H, base, z = 1, cx = nw / 2, cy = nh / 2;
+        function measure() { var b = stage.getBoundingClientRect(); W = b.width; H = b.height; base = Math.max(W / nw, H / nh); }
+        function draw() {
+          var s = base * z, hw = W / (2 * s), hh = H / (2 * s);
+          cx = Math.min(Math.max(cx, hw), nw - hw); cy = Math.min(Math.max(cy, hh), nh - hh);
+          img.style.transform = 'translate(' + (W / 2 - cx * s) + 'px,' + (H / 2 - cy * s) + 'px) scale(' + s + ')';
+          zoom.value = String(z);
+        }
+        function zoomAt(nz, px, py) { // keep the photo point under (px, py) where it is
+          nz = Math.min(5, Math.max(1, nz));
+          var s = base * z, ns = base * nz;
+          var ix = cx + (px - W / 2) / s, iy = cy + (py - H / 2) / s;
+          cx = ix - (px - W / 2) / ns; cy = iy - (py - H / 2) / ns; z = nz; draw();
+        }
+        function pan(dx, dy) { var s = base * z; cx -= dx / s; cy -= dy / s; draw(); }
+        measure(); draw();
+        var onResize = function () { measure(); draw(); };
+        window.addEventListener('resize', onResize);
+
+        var pts = {};
+        function local(e) { var b = stage.getBoundingClientRect(); return { x: e.clientX - b.left, y: e.clientY - b.top }; }
+        stage.addEventListener('pointerdown', function (e) {
+          try { stage.setPointerCapture(e.pointerId); } catch (err) { /* still works without capture */ }
+          pts[e.pointerId] = local(e); e.preventDefault();
+        });
+        stage.addEventListener('pointermove', function (e) {
+          if (!pts[e.pointerId]) return;
+          var ids = Object.keys(pts), p = local(e);
+          if (ids.length === 1) { pan(p.x - pts[e.pointerId].x, p.y - pts[e.pointerId].y); pts[e.pointerId] = p; return; }
+          var other = pts[ids[0] === String(e.pointerId) ? ids[1] : ids[0]], prev = pts[e.pointerId];
+          var d0 = Math.hypot(prev.x - other.x, prev.y - other.y), d1 = Math.hypot(p.x - other.x, p.y - other.y);
+          var m0 = { x: (prev.x + other.x) / 2, y: (prev.y + other.y) / 2 }, m1 = { x: (p.x + other.x) / 2, y: (p.y + other.y) / 2 };
+          if (d0 > 0) zoomAt(z * d1 / d0, m1.x, m1.y);
+          pan(m1.x - m0.x, m1.y - m0.y);
+          pts[e.pointerId] = p;
+        });
+        function lift(e) { delete pts[e.pointerId]; }
+        stage.addEventListener('pointerup', lift); stage.addEventListener('pointercancel', lift);
+        stage.addEventListener('wheel', function (e) { e.preventDefault(); var p = local(e); zoomAt(z * Math.exp(-e.deltaY * 0.0015), p.x, p.y); }, { passive: false });
+        zoom.addEventListener('input', function () { zoomAt(+zoom.value, W / 2, H / 2); });
+        stage.addEventListener('keydown', function (e) {
+          var k = e.key, step = 24;
+          if (k === 'ArrowLeft') pan(step, 0); else if (k === 'ArrowRight') pan(-step, 0);
+          else if (k === 'ArrowUp') pan(0, step); else if (k === 'ArrowDown') pan(0, -step);
+          else if (k === '+' || k === '=') zoomAt(z * 1.1, W / 2, H / 2); else if (k === '-') zoomAt(z / 1.1, W / 2, H / 2);
+          else return;
+          e.preventDefault();
+        });
+        modal.addEventListener('keydown', function (e) { if (e.key === 'Escape') { e.preventDefault(); close(null); } });
+
+        function close(result) {
+          window.removeEventListener('resize', onResize);
+          document.body.style.overflow = overflow;
+          modal.remove();
+          if (!isUrl) URL.revokeObjectURL(url);
+          if (back && back.focus) back.focus({ preventScroll: true });
+          resolve(result);
+        }
+        cancel.addEventListener('click', function () { close(null); });
+        use.addEventListener('click', function () {
+          var s = base * z, sw = W / s, sh = H / s;
+          var outW = Math.round(Math.min(1400, sw)), outH = Math.round(outW * H / W);
+          var c = document.createElement('canvas'); c.width = outW; c.height = outH;
+          c.getContext('2d').drawImage(img, cx - sw / 2, cy - sh / 2, sw, sh, 0, 0, outW, outH);
+          var dataUrl = c.toDataURL('image/jpeg', 0.85);
+          close({ media_type: 'image/jpeg', data: dataUrl.split(',')[1], preview: dataUrl });
+        });
+        stage.focus({ preventScroll: true });
+      }
     });
   }
 
@@ -1028,7 +1333,18 @@
         if (!fix.value.trim()) { fix.focus(); return; }
         runParse({ previous: p.recipe, fix: fix.value.trim() });
       });
-      ff.appendChild(fl); ff.appendChild(fix); var fr = el('div', 'btn-row'); fr.appendChild(fixBtn); ff.appendChild(fr);
+      var editNew = btn('btn', 'Edit it myself');
+      editNew.addEventListener('click', function () {
+        p.note = nt.value; // keep the card description typed so far
+        var top = previewWrap.getBoundingClientRect().top + window.scrollY;
+        recipeForm(previewWrap, p.recipe, {
+          saveLabel: 'Done editing', askClaude: false, onCancel: renderPreview,
+          notice: el('p', 'vhint', 'Change anything below, then tap Done editing to see the preview again. Nothing is saved yet.'),
+          onSave: function (x) { p.recipe = x; renderPreview(); return Promise.resolve(); }
+        });
+        window.scrollTo(0, top - 10);
+      });
+      ff.appendChild(fl); ff.appendChild(fix); var fr = el('div', 'btn-row'); fr.appendChild(fixBtn); fr.appendChild(editNew); ff.appendChild(fr);
       pv.appendChild(ff);
 
       var fs = el('fieldset', 'field choices');

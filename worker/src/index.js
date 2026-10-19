@@ -6,6 +6,7 @@
 //                -> { id, recipe, entry }
 //   POST /box    { passcode, person, id, op: add|remove|made|unmade|tags|note|section, ... }
 //                -> { entry, updated }
+//   POST /edit   { passcode, person, id, recipe } -> { id, recipe, changed }   (id, photo and who added it stay)
 //   POST /photo  { passcode, person, id, image: { media_type: "image/jpeg", data } | null }
 //                -> { id, photo }   (null image removes the photo)
 // Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN,
@@ -330,6 +331,28 @@ async function deleteFile(env, path, message) {
   await gh(env, "DELETE", path, { message, sha });
 }
 
+/* ---------------- Editing a library recipe ---------------- */
+// Replaces the recipe's text fields. Its id (and so its link), photo, addedBy and addedAt stay.
+async function editRecipe(body, env) {
+  const id = typeof body.id === "string" && /^[a-z0-9-]{1,80}$/.test(body.id) ? body.id : null;
+  if (!id) throw new HttpError(400, "Unknown recipe.");
+  const recipe = cleanRecipe(body.recipe || {});
+  const missing = recipeProblems(recipe);
+  if (missing.length) throw new HttpError(400, `The recipe is missing ${missing.join(", ")}.`);
+  const path = `library/recipes/${id}.json`;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const file = await getFile(env, path);
+    if (!file) throw new HttpError(400, "That recipe isn't in the library.");
+    const old = JSON.parse(file.text);
+    const r = { ...old, ...recipe, id };
+    const out = Object.fromEntries(LIB_FIELDS.map((k) => [k, r[k] === undefined ? null : r[k]]));
+    const text = JSON.stringify(out, null, 1) + "\n";
+    if (text === file.text) return { id, recipe: out, changed: false };
+    if (await putFile(env, path, text, `Edit recipe: ${out.title} (from the website)`, file.sha)) return { id, recipe: out, changed: true };
+  }
+  throw new HttpError(409, "Someone else changed this recipe at the same moment. Try again.");
+}
+
 /* ---------------- Recipe photos (shared by every kitchen) ---------------- */
 // The photo is saved as library/photos/<id>-<stamp>.jpg; a new name each time means no browser
 // ever shows a stale copy. The old file is deleted once the recipe points at the new one.
@@ -478,6 +501,7 @@ export default {
       if (url.pathname === "/parse") { checkPasscode(body, env); checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
       if (url.pathname === "/save") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await saveRecipe(body, env)); }
       if (url.pathname === "/box") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await boxAction(body, env)); }
+      if (url.pathname === "/edit") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await editRecipe(body, env)); }
       if (url.pathname === "/photo") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await setPhoto(body, env)); }
       return json(req, env, 404, { error: "Not found." });
     } catch (e) {

@@ -281,6 +281,41 @@ await test("photos: add, replace (old file deleted), remove; checks and passcode
   assert.equal((await photo({ image: null }, "correct horse", "erin")).status, 200, "either kitchen can change a library photo");
 });
 
+await test("editing a recipe: fields change, id/photo/addedBy stay, bad edits refused", async () => {
+  put("library/recipes/taco-night.json", JSON.stringify({ id: "taco-night", title: "Taco Night", proteins: ["beef"], slowCooker: false, cozy: false,
+    servings: "4 servings", prep: "10 min", cook: "15 min", total: "25 min", equipment: ["12-inch skillet"],
+    ingredients: [{ group: null, items: ["1 lb ground beef"] }], steps: ["Brown the beef until it reads 160°F."], tips: [], storage: "Fridge 3 days.",
+    credit: "Anne", photo: "library/photos/taco-night-abc.jpg", addedBy: "erin", addedAt: "2026-10-01" }, null, 1) + "\n");
+  const edit = (recipe, passcode = "blue lantern", person = "mulberry") => call("/edit", { passcode, person, id: "taco-night", recipe });
+  const read = () => JSON.parse(files.get("library/recipes/taco-night.json").text);
+  const base = read();
+
+  let r = await edit({ ...base, title: "taco night with pickled onions", servings: "6 servings", tips: ["Warm the tortillas."], id: "hacked", photo: null, addedBy: "mulberry" });
+  let j = await r.json();
+  assert.equal(r.status, 200, JSON.stringify(j));
+  assert.equal(j.changed, true);
+  const now = read();
+  assert.equal(now.id, "taco-night", "the id never changes");
+  assert.equal(now.title, "Taco Night with Pickled Onions", "titles still get title case");
+  assert.equal(now.servings, "6 servings");
+  assert.deepEqual(now.tips, ["Warm the tortillas."]);
+  assert.equal(now.photo, "library/photos/taco-night-abc.jpg", "the photo can't be changed through an edit");
+  assert.equal(now.addedBy, "erin");
+  assert.equal(now.addedAt, "2026-10-01");
+  assert.ok(!files.has("library/recipes/hacked.json"));
+
+  const sha = files.get("library/recipes/taco-night.json").sha;
+  j = await (await edit(now)).json();
+  assert.equal(j.changed, false, "saving with no changes doesn't commit");
+  assert.equal(files.get("library/recipes/taco-night.json").sha, sha);
+
+  assert.equal((await edit({ ...now, steps: [] })).status, 400, "a recipe needs steps");
+  assert.equal((await edit({ ...now, title: "" })).status, 400);
+  assert.equal((await edit(now, "correct horse", "mulberry")).status, 401, "Erin's passcode can't act as Mulberry");
+  assert.equal((await call("/edit", { passcode: "blue lantern", person: "mulberry", id: "nope-nope", recipe: now })).status, 400);
+  assert.equal((await call("/edit", { passcode: "blue lantern", person: "mulberry", id: "../people/erin", recipe: now })).status, 400);
+});
+
 await test("new recipes are saved with an empty photo field", async () => {
   const r = await call("/save", { passcode: "correct horse", person: "erin", recipe: { ...fakeRecipe, title: "Plain Rice" }, box: { mode: "library" } });
   assert.equal(r.status, 200);
