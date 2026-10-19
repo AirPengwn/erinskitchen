@@ -173,6 +173,15 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .step[aria-pressed="true"] .num { background: var(--yolk); color: var(--on-yolk); }
 .step[aria-pressed="true"] .txt { color: var(--done); }
 .vhint { font-size: 0.9rem; color: var(--muted); }
+.vfacts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; margin: 0; background: var(--rule); border: 1px solid var(--rule); border-radius: 12px; overflow: hidden; }
+.vfacts div { background: var(--surface); padding: 10px 12px; min-width: 0; }
+.vfacts dt { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.vfacts dd { margin: 2px 0 0; font: 600 0.98rem var(--display); line-height: 1.3; }
+@media (max-width: 520px) { .vfacts { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.vequip { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 4px; font-size: 1rem; }
+.vbox { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; font-size: 1rem; }
+.vbox h3 { font-size: 1.05rem; }
+.vbox ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 6px; }
 .vfoot { display: flex; justify-content: center; padding-top: 10px; }
 @media (prefers-reduced-motion: reduce) { .tip, .card { transition: none; } }
 </style>
@@ -356,8 +365,14 @@ td:first-child { font-weight: 600; white-space: nowrap; }
     if (CONF[r.confidence]) t.appendChild(el('span', 'tag conf', CONF[r.confidence]));
     return t;
   }
+  function madeLabel(r) { return r.madeTimes === 1 ? 'Made once' : 'Made ' + r.madeTimes + '×'; }
   function metaFor(r) {
-    return r.source === 'made' ? (r.madeTimes === 1 ? 'Made once' : 'Made ' + r.madeTimes + '×') : r.time;
+    var t = r.total || r.time || '';
+    var parts = [];
+    if (r.source === 'made') parts.push(madeLabel(r));
+    if (t) parts.push(t);
+    if (r.servings) parts.push(r.servings);
+    return parts.join(' · ');
   }
 
   function renderStats() {
@@ -471,11 +486,21 @@ td:first-child { font-weight: 600; white-space: nowrap; }
     body.appendChild(el('span', 'eyebrow', (r.source === 'made' ? 'Her recipe box' : 'New idea') + ' · ' + sec.title));
     body.appendChild(el('h1', 'vtitle', r.title));
     body.appendChild(tagsFor(r));
-    body.appendChild(el('p', 'vmeta', r.source === 'made' ? metaFor(r) + ' · ' + r.madeDates : r.time));
+    if (r.source === 'made') body.appendChild(el('p', 'vmeta', madeLabel(r) + ' · ' + r.madeDates));
+    var facts = [['Serves', r.servings], ['Prep', r.prep], ['Cook', r.cook], ['Total', r.total || r.time]].filter(function (f) { return f[1]; });
+    if (facts.length) {
+      var fg = el('dl', 'vfacts');
+      facts.forEach(function (f) { var d = el('div'); d.appendChild(el('dt', null, f[0])); d.appendChild(el('dd', null, f[1])); fg.appendChild(d); });
+      body.appendChild(fg);
+    }
     var note = el('p', 'vnote'); note.appendChild(el('b', null, r.source === 'made' ? 'In her photos' : "Why she'd like it"));
     note.appendChild(document.createTextNode(r.note));
     if (CONF_NOTE[r.confidence]) note.appendChild(el('span', 'conf', CONF_NOTE[r.confidence]));
     body.appendChild(note);
+    if (r.equipment && r.equipment.length) {
+      var eh = el('div', 'vhead'); eh.appendChild(el('h2', null, 'Equipment')); body.appendChild(eh);
+      var eq = el('ul', 'vequip'); r.equipment.forEach(function (x) { eq.appendChild(el('li', null, x)); }); body.appendChild(eq);
+    }
 
     var nItems = r.ingredients.reduce(function (n, g) { return n + g.items.length; }, 0);
     var ih = el('div', 'vhead'); ih.appendChild(el('h2', null, 'Ingredients (' + nItems + ')'));
@@ -510,6 +535,15 @@ td:first-child { font-weight: 600; white-space: nowrap; }
       stepBtns.push(b); li.appendChild(b); ol.appendChild(li);
     });
     body.appendChild(ol);
+    if (r.tips && r.tips.length) {
+      var tb = el('div', 'vbox'); tb.appendChild(el('h3', null, 'Tips'));
+      var tl = el('ul'); r.tips.forEach(function (x) { tl.appendChild(el('li', null, x)); }); tb.appendChild(tl);
+      body.appendChild(tb);
+    }
+    if (r.storage) {
+      var sb = el('div', 'vbox'); sb.appendChild(el('h3', null, 'Leftovers')); sb.appendChild(el('p', null, r.storage));
+      body.appendChild(sb);
+    }
     body.appendChild(el('p', 'vhint', 'Tap an ingredient or a step to check it off. Your checkmarks stay on this phone until you uncheck them.'));
     resetBtn.addEventListener('click', function () {
       saved = { i: [], s: [] }; save();
@@ -554,7 +588,8 @@ td:first-child { font-weight: 600; white-space: nowrap; }
         r.proteins.map(function (p) { return LABEL[p]; }).join(' '),
         r.slowCooker ? 'slow cooker crockpot' : '', r.cozy ? 'warm cozy fall' : '',
         r.source === 'made' ? "she's made it shes made" : 'new idea',
-        r.ingredients.map(function (g) { return (g.group || '') + ' ' + g.items.join(' '); }).join(' ')].join(' '));
+        r.ingredients.map(function (g) { return (g.group || '') + ' ' + g.items.join(' '); }).join(' '),
+        (r.equipment || []).join(' ')].join(' '));
     });
     var savedSel = load('ek-filters');
     if (savedSel) GROUPS.forEach(function (g) {
