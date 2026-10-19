@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mulberry Kitchen</title>
+<meta name="description" content="Mulberry Kitchen: a recipe box built to follow on a phone.">
+<meta name="theme-color" content="#f6f7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111713" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-title" content="Mulberry Kitchen">
+<link rel="icon" type="image/jpeg" href="../people/chef.jpg">
+<link rel="apple-touch-icon" href="../people/chef.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root { color-scheme: light; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<link rel="stylesheet" href="../app/app.css">
+</head>
+<body>
+<div class="wrap" id="main">
+  <header id="top">
+    <div class="title-row">
+      <img class="avatar" id="avatar" alt="" width="96" height="96" hidden>
+      <div><span class="eyebrow" id="handle"></span><h1 id="title">Mulberry Kitchen</h1></div>
+    </div>
+    <div class="facts" id="stats" aria-live="polite"></div>
+    <div class="header-foot"><span id="updated"></span><a href="../">Both kitchens</a></div>
+  </header>
+
+  <section class="finder" aria-labelledby="find-h">
+    <div class="finder-head">
+      <h2 id="find-h">Find a recipe</h2>
+      <a class="add-btn" id="add-open" href="#add">+ Add a recipe</a>
+    </div>
+    <div class="tabs" role="group" aria-label="Which recipes">
+      <button type="button" class="tab" id="tab-box" aria-pressed="true">Box</button>
+      <button type="button" class="tab" id="tab-library" aria-pressed="false">Whole library</button>
+    </div>
+    <label class="search" for="q">
+      <span class="sr">Search recipes</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg>
+      <input type="search" id="q" placeholder="Try salmon, pumpkin or tacos" autocomplete="off" enterkeyhint="search">
+    </label>
+    <div class="fgroups">
+      <div class="fgroup" role="group" aria-labelledby="fl-status"><span class="flabel" id="fl-status">Made</span>
+        <button type="button" class="fchip" data-group="status" data-value="made" aria-pressed="false">Made it <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="status" data-value="notmade" aria-pressed="false">Not yet <span class="n"></span></button>
+      </div>
+      <div class="fgroup" role="group" aria-labelledby="fl-protein"><span class="flabel" id="fl-protein">Protein</span>
+        <button type="button" class="fchip" data-group="protein" data-value="chicken" aria-pressed="false">Chicken <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="protein" data-value="beef" aria-pressed="false">Beef <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="protein" data-value="pork" aria-pressed="false">Pork <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="protein" data-value="seafood" aria-pressed="false">Seafood <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="protein" data-value="eggs" aria-pressed="false">Eggs <span class="n"></span></button>
+        <button type="button" class="fchip" data-group="protein" data-value="meatless" aria-pressed="false">Meatless <span class="n"></span></button>
+      </div>
+      <div class="fgroup" role="group" aria-labelledby="fl-style"><span class="flabel" id="fl-style">Style</span>
+        <button type="button" class="fchip style" data-group="slow" data-value="on" aria-pressed="false">Slow cooker <span class="n"></span></button>
+        <button type="button" class="fchip style" data-group="cozy" data-value="on" aria-pressed="false">Warm &amp; cozy <span class="n"></span></button>
+      </div>
+      <div class="fgroup" role="group" aria-labelledby="fl-tags" id="tag-group" hidden><span class="flabel" id="fl-tags">Tags</span></div>
+    </div>
+    <div class="fstatus"><span class="count" id="count" aria-live="polite"></span><button type="button" class="clear" id="clear" hidden>Clear filters</button></div>
+  </section>
+
+  <div id="results"><p class="loading">Loading recipes…</p></div>
+  <div class="empty" id="empty" hidden>
+    <p>No recipes match. Try a different word, or turn a filter off.</p>
+    <button type="button" id="reset">Show all recipes</button>
+  </div>
+
+</div>
+
+<div class="viewer" id="viewer" hidden></div>
+<div class="adder" id="adder" hidden></div>
+
+<script>window.KITCHEN = { person: "mulberry", root: "../" };</script>
+<script src="../app/app.js"></script>
+</body>
+</html>

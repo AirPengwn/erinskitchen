@@ -5,8 +5,8 @@ import worker from "../src/index.js";
 
 const ORIGIN = "https://airpengwn.github.io";
 const env = {
-  ANTHROPIC_API_KEY: "test-key", GITHUB_TOKEN: "test-token", PASSCODE: "correct horse",
-  GITHUB_REPO: "AirPengwn/erinskitchen", GITHUB_BRANCH: "main", ALLOWED_ORIGINS: ORIGIN,
+  ANTHROPIC_API_KEY: "test-key", GITHUB_TOKEN: "test-token", PASSCODES: JSON.stringify({ erin: "correct horse", mulberry: "blue lantern" }),
+  GITHUB_REPO: "AirPengwn/kitchen", GITHUB_BRANCH: "main", ALLOWED_ORIGINS: ORIGIN,
   MODEL: "claude-opus-5-5", EFFORT: "medium",
 };
 
@@ -15,6 +15,7 @@ const files = new Map();
 let shaN = 0;
 const put = (path, text) => files.set(path, { text, sha: `sha${++shaN}` });
 put("people/erin.json", JSON.stringify({ id: "erin", name: "Erin", sections: [{ id: "tex-mex", title: "Tex-Mex" }, { id: "soups-stews", title: "Soups & stews" }], box: [] }));
+put("people/mulberry.json", JSON.stringify({ id: "mulberry", name: "Mulberry", tags: ["john likes"], sections: [{ id: "dinners", title: "Dinners" }], box: [] }));
 put("library/recipes/chili-with-cornbread.json", "{}");
 
 // ---- fake Claude answer ----
@@ -41,7 +42,7 @@ globalThis.fetch = async (input, init = {}) => {
       usage: { input_tokens: 10, output_tokens: 10 },
     }), { status: 200, headers: { "content-type": "application/json", "request-id": "req_1" } });
   }
-  const m = url.match(/^https:\/\/api\.github\.com\/repos\/AirPengwn\/erinskitchen\/contents\/([^?]+)/);
+  const m = url.match(/^https:\/\/api\.github\.com\/repos\/AirPengwn\/kitchen\/contents\/([^?]+)/);
   if (m) {
     const path = decodeURIComponent(m[1]);
     const auth = new Headers(init.headers).get("authorization");
@@ -134,7 +135,7 @@ await test("oversized image is rejected before calling Claude", async () => {
 
 await test("save into the box picks a free id, writes the recipe and updates the person file", async () => {
   const { recipe } = await (await call("/parse", { passcode: "correct horse", person: "erin", text: "chili" })).json();
-  const r = await call("/save", { passcode: "correct horse", person: "erin", recipe, box: { mode: "made", section: "soups-stews", note: "Cozy." } });
+  const r = await call("/save", { passcode: "correct horse", person: "erin", recipe, box: { mode: "made", section: "soups-stews", blurb: "Cozy.", date: "Oct 19, 2026" } });
   const j = await r.json();
   assert.equal(r.status, 200, JSON.stringify(j));
   assert.equal(j.id, "chili-with-cornbread-2"); // the plain id already exists
@@ -144,7 +145,8 @@ await test("save into the box picks a free id, writes the recipe and updates the
   assert.equal(saved.ingredients[1].items[0], "½ cup sour cream");
   const p = JSON.parse(files.get("people/erin.json").text);
   assert.equal(p.box.length, 1);
-  assert.deepEqual(p.box[0], { id: "chili-with-cornbread-2", section: "soups-stews", source: "made", note: "Cozy.", madeTimes: 1, madeDates: p.box[0].madeDates, confidence: "clear" });
+  assert.deepEqual(p.box[0], { id: "chili-with-cornbread-2", section: "soups-stews", blurb: "Cozy.", note: "", tags: [], made: { count: 1, log: ["Oct 19, 2026"] }, confidence: "clear" });
+  assert.deepEqual(j.entry, p.box[0]);
 });
 
 await test("library-only save leaves the person file alone", async () => {
@@ -156,9 +158,45 @@ await test("library-only save leaves the person file alone", async () => {
 });
 
 await test("unknown person and incomplete recipes are refused", async () => {
-  assert.equal((await call("/save", { passcode: "correct horse", person: "nobody", recipe: fakeRecipe, box: { mode: "new" } })).status, 400);
+  assert.equal((await call("/save", { passcode: "correct horse", person: "nobody", recipe: fakeRecipe, box: { mode: "new" } })).status, 401);
   assert.equal((await call("/save", { passcode: "correct horse", person: "../etc", recipe: fakeRecipe })).status, 400);
   assert.equal((await call("/save", { passcode: "correct horse", person: "erin", recipe: { title: "x" } })).status, 400);
+});
+
+await test("passcodes are per person: Erin's can't change Mulberry's box, but any valid one can read recipes", async () => {
+  assert.equal((await call("/box", { passcode: "correct horse", person: "mulberry", id: "chili-with-cornbread", op: "add" })).status, 401);
+  assert.equal((await call("/parse", { passcode: "blue lantern", person: "mulberry", text: "chili" })).status, 200);
+  const c = await (await call("/check", { passcode: "blue lantern" })).json();
+  assert.equal(c.person, "mulberry");
+});
+
+await test("box: add, made, undo, tags, note, section, remove", async () => {
+  const pass = { passcode: "blue lantern", person: "mulberry", id: "chili-with-cornbread" };
+  const box = async (op, extra) => { const r = await call("/box", { ...pass, op, ...extra }); const j = await r.json(); assert.equal(r.status, 200, JSON.stringify(j)); return j; };
+  const mul = () => JSON.parse(files.get("people/mulberry.json").text);
+  let j = await box("add", { section: "nope" });
+  assert.equal(j.entry.section, "dinners");
+  assert.equal(mul().box.length, 1);
+  await box("add", { section: "dinners" });
+  assert.equal(mul().box.length, 1, "adding twice doesn't duplicate");
+  await box("made", { date: "Oct 19, 2026" });
+  j = await box("made", { date: "<script>" });
+  assert.equal(j.entry.made.count, 2);
+  assert.match(j.entry.made.log[1], /^[A-Z][a-z]{2} \d{1,2}, \d{4}$/, "bad dates are replaced");
+  j = await box("unmade");
+  assert.deepEqual(j.entry.made, { count: 1, log: ["Oct 19, 2026"] });
+  j = await box("tags", { tags: ["john likes", "John Likes", " date night ", ""] });
+  assert.deepEqual(j.entry.tags, ["john likes", "date night"]);
+  await box("note", { note: "Double the garlic." });
+  assert.equal(mul().box[0].note, "Double the garlic.");
+  assert.equal((await call("/box", { ...pass, op: "section", section: "nope" })).status, 400);
+  j = await box("remove");
+  assert.equal(j.entry, null);
+  assert.equal(mul().box.length, 0);
+  assert.ok(files.has("library/recipes/chili-with-cornbread.json"), "removing never touches the library");
+  assert.equal((await call("/box", { ...pass, op: "made" })).status, 409);
+  assert.equal((await call("/box", { ...pass, id: "not-a-recipe", op: "add" })).status, 400);
+  assert.equal((await call("/box", { ...pass, id: "../people/erin", op: "add" })).status, 400);
 });
 
 console.log(`\n${passed} tests passed.`);

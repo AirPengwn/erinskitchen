@@ -1,13 +1,13 @@
 # Cloudflare Worker settings for the kitchen helper.
 # Secrets are NOT stored here. Add them with:  npx wrangler@4 secret put NAME
-#   ANTHROPIC_API_KEY, GITHUB_TOKEN, PASSCODE
+#   ANTHROPIC_API_KEY, GITHUB_TOKEN, PASSCODES  (PASSCODES is JSON: {"erin": "...", "mulberry": "..."})
 name = "kitchen-helper"
 main = "src/index.js"
 compatibility_date = "2026-10-01"
 compatibility_flags = ["nodejs_compat"]
 
 [vars]
-GITHUB_REPO = "AirPengwn/erinskitchen"
+GITHUB_REPO = "AirPengwn/kitchen"
 GITHUB_BRANCH = "main"
 # Sites allowed to call the helper (comma-separated, no trailing slash).
 ALLOWED_ORIGINS = "https://airpengwn.github.io"

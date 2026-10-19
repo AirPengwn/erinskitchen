@@ -206,3 +206,35 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .choice input { margin-top: 5px; accent-color: var(--ink); width: 18px; height: 18px; flex: none; }
 .preview { border-top: 2px solid var(--ink); padding-top: 14px; display: flex; flex-direction: column; gap: 18px; }
 .linkish { background: none; border: 0; padding: 4px 0; font: 500 0.9rem var(--display); color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; align-self: flex-start; }
+
+/* Box / library tabs, status row */
+.tabs { display: flex; gap: 0; border: 1px solid var(--rule); border-radius: 999px; padding: 3px; background: var(--bg); align-self: flex-start; max-width: 100%; }
+.tab { font: 600 0.95rem var(--display); border: 0; background: none; color: var(--ink); border-radius: 999px; padding: 8px 16px; min-height: 40px; cursor: pointer; }
+.tab[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.fstatus { display: flex; align-items: center; gap: 12px; }
+.fstatus .clear { margin-left: 0; }
+.finder-head .add-btn { margin-left: auto; }
+
+/* Personal tags and the box panel */
+.tag.mine { background: color-mix(in srgb, var(--scallion) 22%, var(--surface)); text-transform: none; letter-spacing: 0; font-size: 0.75rem; }
+.tag.inbox { background: var(--chip); border: 1px solid var(--scallion); }
+.fchip.mine[aria-pressed="true"] { background: var(--scallion); border-color: var(--scallion); color: var(--bg); }
+.cnote.mine { color: var(--ink); font-style: italic; }
+.mybox { border: 2px solid var(--scallion); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 12px; font-size: 1rem; background: var(--surface); }
+.mybox-head h2 { font-size: 1.2rem; }
+.mybox-made { font: 600 1rem var(--display); }
+.tags.editable .tag { display: inline-flex; align-items: center; gap: 4px; padding: 3px 4px 3px 9px; font-size: 0.85rem; }
+.tagx { border: 0; background: none; color: inherit; font: 700 1rem var(--display); cursor: pointer; width: 28px; height: 28px; border-radius: 50%; }
+.tag.add { border: 1px dashed var(--muted); background: none; cursor: pointer; font-size: 0.8rem; padding: 5px 9px; min-height: 32px; text-transform: none; letter-spacing: 0; }
+.flabel-lg { font: 600 0.95rem var(--display); }
+.inline { display: flex; gap: 8px; }
+.inline input { flex: 1; min-width: 0; font: 400 1rem var(--body); font-size: max(16px, 1rem); color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 12px; min-height: 46px; }
+.field .hint, .tags .hint { font-size: 0.88rem; color: var(--muted); }
+.mybox .field textarea, .mybox .field select, .mybox .field input[type="password"] { background: var(--bg); }
+
+/* Landing page */
+.people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }
+.person { display: flex; align-items: center; gap: 16px; padding: 18px; border: 1px solid var(--rule); border-radius: 14px; background: var(--surface); color: inherit; text-decoration: none; }
+.person:hover { border-color: var(--scallion); }
+.person img { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--yolk); flex: none; }
+.person h2 { font-size: 1.35rem; }

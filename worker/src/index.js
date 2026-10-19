@@ -1,10 +1,13 @@
 // Kitchen helper: a small Cloudflare Worker behind the "Add a recipe" button.
-//   POST /check  { passcode }                       -> { ok }
+//   POST /check  { passcode }                       -> { ok, person }
 //   POST /parse  { passcode, person, text, images, sections, previous?, fix? }
 //                -> { recipe, note, suggestedSection, assumptions }
-//   POST /save   { passcode, person, recipe, box: { mode, section, note } }
-//                -> { id, recipe, boxEntry }
-// Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN, PASSCODE.
+//   POST /save   { passcode, person, recipe, box: { mode, section, blurb, date } }
+//                -> { id, recipe, entry }
+//   POST /box    { passcode, person, id, op: add|remove|made|unmade|tags|note|section, ... }
+//                -> { entry, updated }
+// Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN,
+// PASSCODES (JSON, one passcode per person: {"erin": "...", "mulberry": "..."}).
 // Settings in wrangler.toml: GITHUB_REPO, GITHUB_BRANCH, ALLOWED_ORIGINS, MODEL, EFFORT.
 import Anthropic from "@anthropic-ai/sdk";
 
@@ -93,9 +96,28 @@ function safeEqual(a, b) {
   for (let i = 0; i < Math.max(ea.length, eb.length); i++) diff |= (ea[i] || 0) ^ (eb[i] || 0);
   return diff === 0;
 }
-function checkPasscode(body, env) {
-  if (!env.PASSCODE) throw new HttpError(500, "The helper has no passcode set yet.");
-  if (!body.passcode || !safeEqual(body.passcode, env.PASSCODE)) throw new HttpError(401, "That passcode didn't work.");
+// PASSCODES is a JSON secret like {"erin": "...", "mulberry": "..."}: one passcode per person.
+// Returns the person the passcode belongs to. If `person` is given, the passcode must be theirs.
+function checkPasscode(body, env, person) {
+  let codes;
+  try { codes = JSON.parse(env.PASSCODES || ""); } catch { codes = null; }
+  if (!codes || typeof codes !== "object" || !Object.keys(codes).length) throw new HttpError(500, "The helper has no passcodes set yet.");
+  let who = null;
+  for (const [id, code] of Object.entries(codes)) if (body.passcode && safeEqual(body.passcode, String(code))) who = id;
+  if (!who || (person && who !== person)) throw new HttpError(401, person ? `That isn't the passcode for ${person}'s box.` : "That passcode didn't work.");
+  return who;
+}
+function displayDate(s) {
+  if (typeof s === "string" && /^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(s)) return s;
+  return new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+function cleanTags(tags) {
+  const seen = new Set(), out = [];
+  for (const t of Array.isArray(tags) ? tags : []) {
+    const v = cleanText(t, 30);
+    if (v && !seen.has(v.toLowerCase())) { seen.add(v.toLowerCase()); out.push(v); }
+  }
+  return out.slice(0, 12);
 }
 function checkPerson(person) {
   if (typeof person !== "string" || !/^[a-z0-9-]{1,40}$/.test(person)) throw new HttpError(400, "Unknown person.");
@@ -279,24 +301,78 @@ async function saveRecipe(body, env) {
   }
   if (!saved) throw new HttpError(409, "Couldn't find a free name for this recipe.");
 
-  let boxEntry = null;
+  let entry = null;
   if (mode !== "library") {
-    for (let attempt = 0; attempt < 3; attempt++) {
-      const pf = attempt === 0 ? personFile : await getFile(env, personPath);
-      const p = JSON.parse(pf.text);
+    const made = mode === "made";
+    const result = await editPerson(env, body.person, `Add ${recipe.title} to the box`, (p) => {
       const sectionIds = (p.sections || []).map((s) => s.id);
-      const section = sectionIds.includes(body.box.section) ? body.box.section : sectionIds[0];
-      boxEntry = {
-        id, section, source: mode, note: cleanText(body.box.note, 300),
-        madeTimes: mode === "made" ? 1 : null, madeDates: mode === "made" ? `Added ${today}` : null, confidence: "clear",
+      entry = {
+        id, section: sectionIds.includes(body.box.section) ? body.box.section : sectionIds[0],
+        blurb: cleanText(body.box.blurb, 300), note: "", tags: [],
+        made: { count: made ? 1 : 0, log: made ? [displayDate(body.box.date)] : [] }, confidence: "clear",
       };
-      p.box = (p.box || []).filter((b) => b.id !== id).concat([boxEntry]);
-      p.updated = today;
-      if (await putFile(env, personPath, JSON.stringify(p, null, 1) + "\n", `Add ${recipe.title} to ${p.name || body.person}'s box`, pf.sha)) break;
-      if (attempt === 2) throw new HttpError(409, "The recipe saved, but adding it to the box failed. Try saving again.");
-    }
+      p.box = (p.box || []).filter((b) => b.id !== id).concat([entry]);
+    }, personFile);
+    if (!result) throw new HttpError(409, "The recipe saved, but adding it to the box failed. Open it from the whole library and add it there.");
   }
-  return { id, recipe: full(), boxEntry };
+  return { id, recipe: full(), entry };
+}
+
+// Read-modify-write the person file, retrying if someone else saved in between.
+async function editPerson(env, person, message, change, first) {
+  const path = `people/${person}.json`;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    const pf = attempt === 0 && first ? first : await getFile(env, path);
+    if (!pf) throw new HttpError(400, "Unknown person.");
+    const p = JSON.parse(pf.text);
+    const res = change(p);
+    if (res === false) return p; // nothing to change
+    p.updated = new Date().toISOString().slice(0, 10);
+    if (await putFile(env, path, JSON.stringify(p, null, 1) + "\n", message, pf.sha)) return p;
+  }
+  return null;
+}
+
+/* ---------------- Box: add, remove, made, tags, note, section ---------------- */
+const BOX_OPS = ["add", "remove", "made", "unmade", "tags", "note", "section"];
+async function boxAction(body, env) {
+  checkPerson(body.person);
+  const op = body.op;
+  if (!BOX_OPS.includes(op)) throw new HttpError(400, "Unknown change.");
+  const id = typeof body.id === "string" && /^[a-z0-9-]{1,80}$/.test(body.id) ? body.id : null;
+  if (!id) throw new HttpError(400, "Unknown recipe.");
+  if (op === "add" && !(await getFile(env, `library/recipes/${id}.json`))) throw new HttpError(400, "That recipe isn't in the library.");
+
+  let entry = null;
+  const words = { add: "Add", remove: "Remove", made: "Mark made", unmade: "Undo made", tags: "Update tags on", note: "Update note on", section: "Move" };
+  const p = await editPerson(env, body.person, `${words[op]} ${id} (${body.person}'s box)`, (p) => {
+    p.box = p.box || [];
+    const i = p.box.findIndex((b) => b.id === id);
+    const sectionIds = (p.sections || []).map((s) => s.id);
+    if (op === "add") {
+      if (i !== -1) { entry = p.box[i]; return false; }
+      entry = { id, section: sectionIds.includes(body.section) ? body.section : sectionIds[0], blurb: "", note: "", tags: [], made: { count: 0, log: [] }, confidence: "clear" };
+      p.box.push(entry);
+      return;
+    }
+    if (i === -1) throw new HttpError(409, "That recipe isn't in the box anymore. Refresh the page.");
+    if (op === "remove") { p.box.splice(i, 1); return; }
+    const e = p.box[i];
+    if (op === "made") { e.made = { count: e.made.count + 1, log: e.made.log.concat([displayDate(body.date)]).slice(-50) }; }
+    if (op === "unmade") {
+      if (!e.made.count) { entry = e; return false; }
+      e.made = { count: e.made.count - 1, log: e.made.log.slice(0, -1) };
+    }
+    if (op === "tags") e.tags = cleanTags(body.tags);
+    if (op === "note") e.note = cleanText(body.note, 1000);
+    if (op === "section") {
+      if (!sectionIds.includes(body.section)) throw new HttpError(400, "Unknown section.");
+      e.section = body.section;
+    }
+    entry = e;
+  });
+  if (!p) throw new HttpError(409, "Someone else changed the box at the same moment. Try again.");
+  return { entry: op === "remove" ? null : entry, updated: p.updated };
 }
 
 /* ---------------- Router ---------------- */
@@ -311,10 +387,10 @@ export default {
     try {
       let body;
       try { body = await req.json(); } catch { throw new HttpError(400, "The request wasn't readable."); }
-      checkPasscode(body, env);
-      if (url.pathname === "/check") return json(req, env, 200, { ok: true });
-      if (url.pathname === "/parse") { checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
-      if (url.pathname === "/save") return json(req, env, 200, await saveRecipe(body, env));
+      if (url.pathname === "/check") return json(req, env, 200, { ok: true, person: checkPasscode(body, env) });
+      if (url.pathname === "/parse") { checkPasscode(body, env); checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
+      if (url.pathname === "/save") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await saveRecipe(body, env)); }
+      if (url.pathname === "/box") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await boxAction(body, env)); }
       return json(req, env, 404, { error: "Not found." });
     } catch (e) {
       if (e instanceof HttpError) return json(req, env, e.status, { error: e.message });

@@ -43,10 +43,15 @@ for (const file of readdirSync(PEOPLE_DIR).filter((f) => f.endsWith(".json"))) {
   try { p = JSON.parse(readFileSync(join(PEOPLE_DIR, file), "utf8")); }
   catch (e) { fail(file, `not valid JSON (${e.message})`); continue; }
   const sections = new Set((p.sections || []).map((s) => s.id));
+  if (!sections.size) fail(file, "needs at least one section");
+  const seen = new Set();
   for (const b of p.box || []) {
     if (!ids.has(b.id)) fail(file, `box lists "${b.id}", which isn't in the library`);
+    if (seen.has(b.id)) fail(file, `box lists "${b.id}" twice`);
+    seen.add(b.id);
     if (!sections.has(b.section)) fail(file, `"${b.id}" is in unknown section "${b.section}"`);
-    if (!["made", "new"].includes(b.source)) fail(file, `"${b.id}" has source "${b.source}"`);
+    if (!Array.isArray(b.tags) || !b.tags.every((t) => typeof t === "string")) fail(file, `"${b.id}" tags must be a list of text`);
+    if (!b.made || !Number.isInteger(b.made.count) || b.made.count < 0 || !Array.isArray(b.made.log)) fail(file, `"${b.id}" has a bad made record`);
   }
 }
 
