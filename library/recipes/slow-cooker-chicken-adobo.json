@@ -1,0 +1,66 @@
+{
+ "id": "slow-cooker-chicken-adobo",
+ "title": "Slow Cooker Chicken Adobo",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "4–6 servings",
+ "prep": "10 min",
+ "cook": "4–5 hr on low",
+ "total": "4 hr 30 min–5 hr 30 min",
+ "equipment": [
+  "12-inch skillet",
+  "6-quart slow cooker",
+  "Rimmed sheet pan",
+  "Medium saucepan",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2½–3 lb bone-in skin-on chicken thighs (or thighs and drumsticks), fully thawed",
+    "1 Tbsp neutral oil"
+   ]
+  },
+  {
+   "group": "Adobo sauce",
+   "items": [
+    "½ cup soy sauce",
+    "½ cup vinegar (Filipino cane vinegar, white vinegar or apple cider vinegar)",
+    "10 cloves garlic, smashed",
+    "3 bay leaves",
+    "1 tsp whole black peppercorns, lightly crushed",
+    "2 Tbsp brown sugar",
+    "¼ cup water"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "4–6 cups steamed white rice",
+    "2 green onions, thinly sliced"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the chicken dry. Heat the oil in a 12-inch skillet over medium-high heat and cook the thighs skin side down 5–6 min, until golden.",
+  "Set the chicken in the slow cooker skin side up. Stir together the soy sauce, vinegar, garlic, bay leaves, peppercorns, brown sugar and water, and pour it over the chicken.",
+  "Cover and cook on low 4–5 hr, until the thickest thigh reads at least 175°F and is tender but not falling apart.",
+  "Heat the broiler with a rack about 6 inches from the heat. Line a rimmed sheet pan with foil, set the thighs on it skin side up, and broil 3–5 min, until the skin crisps.",
+  "Skim the fat from the cooking liquid and pour it into a medium saucepan. Simmer over medium heat 8–10 min, until reduced by about half and slightly syrupy. Remove the bay leaves.",
+  "Serve the chicken over rice with the sauce spooned over it, and top with green onions."
+ ],
+ "tips": [
+  "For more flavor, marinate the chicken in the sauce in a zip-top bag in the fridge 1–8 hr. Pat it dry before browning and use the marinade as the sauce.",
+  "Too sour? Simmer the sauce a few minutes longer and add a little more sugar. Too salty? Thin it with water, and use low-sodium soy next time.",
+  "Leftovers make great adobo fried rice: chop the meat and stir-fry it with day-old rice, garlic and a spoonful of the sauce."
+ ],
+ "storage": "Fridge up to 4 days; adobo tastes even better on day 2. Freezer up to 3 months in the sauce. Reheat covered over medium-low heat until it reaches 165°F.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}

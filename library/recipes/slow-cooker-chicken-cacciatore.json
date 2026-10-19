@@ -1,0 +1,80 @@
+{
+ "id": "slow-cooker-chicken-cacciatore",
+ "title": "Slow Cooker Chicken Cacciatore",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "4–6 servings",
+ "prep": "20 min",
+ "cook": "5–6 hr on low",
+ "total": "5 hr 30 min–6 hr 30 min",
+ "equipment": [
+  "12-inch skillet",
+  "6-quart slow cooker",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "3 lb bone-in chicken thighs (6–8), fully thawed",
+    "1 tsp kosher salt",
+    "½ tsp black pepper",
+    "2 Tbsp all-purpose flour, optional, to help thicken the sauce",
+    "2 Tbsp olive oil"
+   ]
+  },
+  {
+   "group": "Vegetables",
+   "items": [
+    "1 yellow onion, sliced",
+    "1 red bell pepper, sliced",
+    "1 green bell pepper, sliced",
+    "8 oz cremini mushrooms, sliced",
+    "4 cloves garlic, minced"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "1 (28-oz) can crushed tomatoes",
+    "2 Tbsp tomato paste",
+    "½ cup dry red wine (or ½ cup chicken broth plus 1 Tbsp red wine vinegar)",
+    "1 tsp dried oregano",
+    "1 tsp dried basil",
+    "½ tsp red pepper flakes, optional",
+    "1 bay leaf",
+    "½ cup Kalamata or black olives",
+    "2 Tbsp capers, drained"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "¼ cup chopped fresh basil or parsley",
+    "¼ cup grated Parmesan"
+   ]
+  }
+ ],
+ "steps": [
+  "Pat the chicken dry and season with salt and pepper. Dust lightly with flour, if using.",
+  "Heat the oil in a 12-inch skillet over medium-high heat. Cook the chicken skin side down 5 min, until golden, then flip and cook 2 min more. Move to a plate. Pull off the skin now if you don't want it soft.",
+  "In the same pan, cook the onion, peppers and mushrooms 4–5 min, until they start to soften. Add the garlic for 30 seconds, then the tomato paste for 1 min.",
+  "Pour in the wine and scrape up the browned bits. Let it bubble 1 min.",
+  "Scrape the vegetables into the slow cooker. Stir in the crushed tomatoes, oregano, basil, pepper flakes and bay leaf, then nestle the chicken into the sauce.",
+  "Cover and cook on low 5–6 hr. Stir in the olives and capers for the last 30 min so they keep their texture. It's done when the meat comes easily off the bone and reads at least 175°F.",
+  "Skim the fat from the top. If the sauce is watery, cook uncovered on high 20–30 min. Remove the bay leaf, taste before adding salt since olives and capers are salty, and top with herbs and Parmesan."
+ ],
+ "tips": [
+  "Serve over soft polenta, penne or pappardelle, or roasted potatoes, with crusty bread for the sauce.",
+  "Too acidic? Stir in a pinch of sugar or a small pat of butter.",
+  "Leftovers: pull the meat off the bone, chop it and toss it with pasta and the sauce."
+ ],
+ "storage": "Fridge up to 4 days; it tastes even better the next day. Freezer up to 3 months. Reheat covered over medium-low heat until it reaches 165°F.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}

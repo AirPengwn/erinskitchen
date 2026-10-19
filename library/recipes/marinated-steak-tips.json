@@ -1,0 +1,62 @@
+{
+ "id": "marinated-steak-tips",
+ "title": "Marinated Steak Tips",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 servings",
+ "prep": "10 min, plus 4–8 hr marinating",
+ "cook": "15 min",
+ "total": "5–9 hr (mostly marinating)",
+ "equipment": [
+  "Gallon zip-top bag or large bowl",
+  "Griddle or large cast-iron skillet",
+  "Wire rack or paper towels",
+  "Tongs",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 lb sirloin steak tips (flap meat), cut into 1½-inch chunks",
+    "1 tsp neutral oil, for the griddle",
+    "½ tsp kosher salt, for finishing"
+   ]
+  },
+  {
+   "group": "Marinade",
+   "items": [
+    "5 Tbsp soy sauce",
+    "3 Tbsp Worcestershire sauce",
+    "3 Tbsp olive oil",
+    "2 Tbsp brown sugar",
+    "1 Tbsp Dijon mustard",
+    "1 Tbsp balsamic vinegar",
+    "4 cloves garlic, minced",
+    "1 tsp coarse ground black pepper",
+    "1 tsp onion powder"
+   ]
+  }
+ ],
+ "steps": [
+  "Whisk the soy sauce, Worcestershire, olive oil, brown sugar, Dijon, vinegar, garlic, pepper and onion powder in a bowl or zip-top bag. Don't add salt yet; the soy carries plenty.",
+  "Add the steak tips, press out the air and refrigerate 4–8 hr. Don't go past 12 hr, or the outside turns mushy.",
+  "Take the meat out 30–40 min before cooking. Discard the marinade, set the pieces on a rack or paper towels and pat them dry. Wet meat steams instead of searing.",
+  "Heat a griddle or cast-iron skillet over high heat 10 min, with a cooler zone if you can. It's ready when a drop of water skitters and vanishes. Wipe on a thin film of oil.",
+  "Lay the pieces down with space between them and don't touch them for 2–3 min. Turn to sear the other sides, about 2 min more, moving pieces to the cooler zone as they finish. Pull them at 125°F for medium-rare.",
+  "Tent loosely with foil and rest 5–8 min; the temperature climbs about 5°F. Season with the kosher salt and slice against the grain if the pieces are large."
+ ],
+ "tips": [
+  "Doneness, pull temp then final temp after resting: rare 115°F to 120°F, medium-rare 125°F to 130°F, medium 135°F to 140°F, medium-well 145°F to 150°F.",
+  "Ask for flap meat or sirloin tips, not stew beef. Flap meat is tender enough to sear but turns to leather if overcooked.",
+  "No griddle? Broil on the top rack on high 3–4 min per side, or use cast iron in batches so the pan stays hot."
+ ],
+ "storage": "Fridge up to 4 days. Leftovers are best sliced cold for sandwiches, since reheating pushes them past medium. If you reheat, do it briefly in a hot skillet.",
+ "credit": null,
+ "photo": "library/photos/marinated-steak-tips-mvft8ytf.jpg",
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}

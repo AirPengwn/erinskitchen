@@ -1,0 +1,59 @@
+{
+ "id": "slow-cooker-beef-stew",
+ "title": "Slow Cooker Beef Stew",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6–8 servings",
+ "prep": "30 min",
+ "cook": "8 hr on low or 4 hr on high",
+ "total": "8 hr 40 min on low (4 hr 40 min on high)",
+ "equipment": [
+  "12-inch skillet",
+  "Wooden spoon",
+  "6-quart slow cooker"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "3 lb boneless beef chuck roast, cut into 1½-inch cubes",
+    "¼ cup all-purpose flour",
+    "2 tsp kosher salt",
+    "1 tsp black pepper",
+    "3 Tbsp vegetable oil",
+    "1 large yellow onion, diced",
+    "3 Tbsp tomato paste",
+    "1 cup dry red wine (or 1 more cup broth plus 1 Tbsp red wine vinegar)",
+    "4 cups beef broth",
+    "2 Tbsp Worcestershire sauce",
+    "4 sprigs fresh thyme",
+    "2 bay leaves",
+    "1 lb carrots, peeled and cut into 1½-inch chunks",
+    "1½ lb Yukon gold potatoes, quartered",
+    "1 cup frozen peas"
+   ]
+  }
+ ],
+ "steps": [
+  "Toss the beef with the flour, salt and pepper until coated. The flour helps it brown and thickens the stew later.",
+  "Heat 1 Tbsp oil in a 12-inch skillet over medium-high heat until it shimmers. Sear the beef in batches, 2 min per side, adding oil as needed. Don't crowd the pan, or the meat steams instead of browning. Move each batch to the slow cooker.",
+  "Lower the heat to medium. Cook the onion in the same skillet 3 min, then add the tomato paste and stir 1 min, until it darkens from red to brick.",
+  "Pour in the wine and scrape the bottom hard with a wooden spoon. Simmer 3–4 min, until reduced by half, then pour it all into the slow cooker.",
+  "Add the broth, Worcestershire, thyme and bay leaves. Set the carrots and potatoes on top, where they steam instead of sitting submerged.",
+  "Cover and cook on low 8 hr or high 4 hr without lifting the lid, until the beef is fork-tender. If it's still tough, it's undercooked; give it 45–60 min more.",
+  "Stir in the peas for the last 10 min. Remove the thyme stems and bay leaves, then taste and add salt."
+ ],
+ "tips": [
+  "Buy a chuck roast and cube it yourself. Packaged stew meat is mixed scraps that cook unevenly.",
+  "Cut the carrots and potatoes at least 1½ inches. Smaller pieces break down and turn the stew pasty. Yukon golds hold their shape; red potatoes work too.",
+  "Too thin? Whisk 2 Tbsp cornstarch into ¼ cup cold water, stir it in and cook uncovered on high 15 min. Too thick? Add hot broth ½ cup at a time. Tastes flat? Add salt first, then 1 tsp red wine vinegar."
+ ],
+ "storage": "Fridge up to 4 days. Freezer up to 3 months; the potatoes get a little grainy. Reheat covered over medium-low heat, stirring, until bubbling, with a splash of broth if it's thick.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}

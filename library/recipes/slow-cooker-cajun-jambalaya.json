@@ -1,0 +1,82 @@
+{
+ "id": "slow-cooker-cajun-jambalaya",
+ "title": "Slow Cooker Cajun Jambalaya",
+ "proteins": [
+  "chicken",
+  "pork",
+  "seafood"
+ ],
+ "slowCooker": true,
+ "cozy": true,
+ "servings": "6–8 servings",
+ "prep": "20 min",
+ "cook": "6 hr on low, plus 30 min to finish",
+ "total": "About 7 hr",
+ "equipment": [
+  "12-inch skillet",
+  "6-quart slow cooker",
+  "Medium saucepan with a lid (for the rice)",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "12–14 oz andouille sausage, sliced into ¼-inch coins (or smoked kielbasa plus extra Cajun seasoning)",
+    "1 lb boneless skinless chicken thighs, cut into 1-inch pieces",
+    "1 yellow onion, diced",
+    "1 green bell pepper, diced",
+    "2 celery ribs, diced",
+    "4 cloves garlic, minced",
+    "2 Tbsp tomato paste"
+   ]
+  },
+  {
+   "group": "Liquid and seasoning",
+   "items": [
+    "1 (14.5-oz) can diced tomatoes, with their juice",
+    "1 cup chicken broth",
+    "2 Tbsp Cajun or Creole seasoning (salt-free if you can find it)",
+    "1 tsp dried thyme",
+    "1 tsp dried oregano",
+    "2 bay leaves",
+    "1 tsp Worcestershire sauce",
+    "1 tsp hot sauce"
+   ]
+  },
+  {
+   "group": "Shrimp and rice",
+   "items": [
+    "1 lb large raw shrimp, peeled and deveined, thawed if frozen",
+    "1½ cups long-grain white rice"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "3 green onions, sliced",
+    "¼ cup chopped fresh parsley",
+    "Hot sauce, to taste"
+   ]
+  }
+ ],
+ "steps": [
+  "Brown the andouille in a 12-inch skillet over medium-high heat 4–5 min. Move it to the slow cooker, leaving the drippings in the pan.",
+  "Cook the chicken in the drippings 3–4 min, just to color it, and add it to the slow cooker. It finishes cooking there.",
+  "In the same pan, cook the onion, bell pepper and celery 4–5 min, until softened. Add the garlic for 30 seconds and the tomato paste for 1 min, then scrape it all into the slow cooker.",
+  "Stir in the tomatoes, broth, Cajun seasoning, thyme, oregano, bay leaves, Worcestershire and hot sauce. Cover and cook on low 6 hr (or high 3–4 hr), until the chicken is tender and reads 165°F.",
+  "About 30 min before the end, cook the rice on the stove or in a rice cooker as the package directs. Don't cook it in the slow cooker, where it turns to mush.",
+  "Stir in the shrimp, switch to high, cover and cook 15–30 min, until the shrimp are pink, opaque and curled into a loose C. A tight O means they're overcooked.",
+  "Remove the bay leaves. Taste before adding salt, since the seasoning and sausage are already salty. Stir 2–4 cups of the rice into the pot or spoon the jambalaya over rice, and top with green onions and parsley."
+ ],
+ "tips": [
+  "To freeze some, set that portion aside before adding the shrimp. The base freezes well for 3 months, but shrimp turn rubbery.",
+  "Too salty? Stir in more broth and unsalted tomatoes. Too spicy? Stir in more rice.",
+  "Serve with cornbread or crusty French bread and a green salad with a vinegar dressing."
+ ],
+ "storage": "Fridge up to 3 days, since the shrimp shorten its life. Refrigerate within 2 hr of cooking. Reheat on the stove with a splash of broth just until hot, so the shrimp don't toughen.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}

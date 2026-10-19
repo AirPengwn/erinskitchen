@@ -71,6 +71,138 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-korean-braised-short-ribs",
+   "section": "dinners",
+   "blurb": "Galbi jjim: sweet, savory, garlicky Korean braised beef with carrots and daikon.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-honey-garlic-chicken-thighs",
+   "section": "dinners",
+   "blurb": "Sticky, sweet-savory glazed thighs, finished under the broiler.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-chicken-cacciatore",
+   "section": "dinners",
+   "blurb": "Italian hunter-style chicken braised with tomatoes, peppers, mushrooms and olives.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-sticky-asian-pork-ribs",
+   "section": "dinners",
+   "blurb": "Hoisin-honey glazed baby back ribs, finished under the broiler.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-chicken-adobo",
+   "section": "dinners",
+   "blurb": "The Filipino classic: tangy, garlicky, peppery chicken in a soy-vinegar sauce.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-cajun-jambalaya",
+   "section": "dinners",
+   "blurb": "New Orleans-style chicken, andouille and shrimp with the holy trinity, over rice.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "hawaiian-pineapple-rice",
+   "section": "sides-and-salads",
+   "blurb": "Fluffy rice simmered in pineapple juice. No egg, no frying.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-teriyaki-london-broil",
+   "section": "dinners",
+   "blurb": "Top round braised in homemade teriyaki, sliced thin and glazed.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-beef-stew",
+   "section": "soups-and-slow-cooker",
+   "blurb": "Classic chuck roast stew with red wine, carrots, Yukon golds and peas.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "marinated-steak-tips",
+   "section": "dinners",
+   "blurb": "New England-style tips in a soy-Worcestershire marinade, seared hot and fast.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "slow-cooker-braised-country-style-ribs",
+   "section": "dinners",
+   "blurb": "Bone-in pork ribs braised tangy-sweet, then glazed under the broiler.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
