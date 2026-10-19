@@ -1,0 +1,3474 @@
+{
+ "meta": {
+  "postsReviewed": 240,
+  "homeCooked": "~150",
+  "setAside": "~90",
+  "range": "July 2024 to October 2026",
+  "updated": "2026-10-19"
+ },
+ "sections": [
+  {
+   "id": "next-steps-on-dishes-she-already-makes",
+   "kind": "new",
+   "title": "Next steps on dishes she already makes",
+   "intro": "Same flavors she likes, made a slightly new way."
+  },
+  {
+   "id": "more-tex-mex",
+   "kind": "new",
+   "title": "More Tex-Mex",
+   "intro": "About 25 of her meals are Tex-Mex. These add new ways to use the toppings she already buys."
+  },
+  {
+   "id": "takeout-she-could-make-herself",
+   "kind": "new",
+   "title": "Takeout she could make herself",
+   "intro": "Things she has ordered and photographed. Each one uses skills she has already shown."
+  },
+  {
+   "id": "breakfast",
+   "kind": "new",
+   "title": "Breakfast",
+   "intro": ""
+  },
+  {
+   "id": "fall-comfort-food",
+   "kind": "new",
+   "title": "Fall comfort food",
+   "intro": ""
+  },
+  {
+   "id": "more-weeknight-dinners",
+   "kind": "new",
+   "title": "More weeknight dinners",
+   "intro": "A second round, picked to cover more proteins. Each one takes about 40 minutes or less."
+  },
+  {
+   "id": "slow-cooker",
+   "kind": "new",
+   "title": "Slow cooker",
+   "intro": "She already uses a slow cooker (a soup on Dec 2, 2024). These take about 20 minutes of prep, then cook on their own. The birria tacos in the Tex-Mex section are also slow-cooker recipes."
+  },
+  {
+   "id": "warm-and-cozy",
+   "kind": "new",
+   "title": "Warm and cozy",
+   "intro": "Four new recipes for crisp fall days. The \"Warm & cozy\" filter also finds the soups, stews, bakes and slow-cooker dishes elsewhere on the page, including ones she has already made."
+  },
+  {
+   "id": "pasta-italian",
+   "kind": "made",
+   "title": "Pasta & Italian",
+   "intro": "Her biggest category. These are my versions of what's in the photos, not her exact recipes. Cards marked Likely or Best guess are the ones I'm less sure about."
+  },
+  {
+   "id": "tex-mex",
+   "kind": "made",
+   "title": "Tex-Mex",
+   "intro": "Her second-biggest category."
+  },
+  {
+   "id": "eggs-breakfast",
+   "kind": "made",
+   "title": "Eggs & breakfast",
+   "intro": ""
+  },
+  {
+   "id": "bowls-stir-fries",
+   "kind": "made",
+   "title": "Bowls & stir-fries",
+   "intro": ""
+  },
+  {
+   "id": "potatoes",
+   "kind": "made",
+   "title": "Potatoes",
+   "intro": ""
+  },
+  {
+   "id": "soups-stews",
+   "kind": "made",
+   "title": "Soups & stews",
+   "intro": ""
+  },
+  {
+   "id": "salads-sides-dinners",
+   "kind": "made",
+   "title": "Salads, sides & dinners",
+   "intro": ""
+  },
+  {
+   "id": "burgers-baking",
+   "kind": "made",
+   "title": "Burgers & baking",
+   "intro": ""
+  }
+ ],
+ "recipes": [
+  {
+   "id": "salmon-sushi-bake",
+   "title": "Salmon sushi bake",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~40 min",
+   "note": "Three poke bowls this month (Oct 13–16, 2026) and salmon over rice with scallions five times (March 2025, August 2026). This is the same idea, baked as a casserole.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sushi rice",
+      "rice vinegar",
+      "salmon fillet",
+      "cream cheese",
+      "Japanese mayo",
+      "sriracha",
+      "furikake",
+      "roasted seaweed snack sheets",
+      "avocado",
+      "cucumber",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the rice and season it with rice vinegar, a little sugar and salt. Press it into an 8×8 dish and sprinkle with furikake.",
+    "Bake the salmon at 400°F for 12–15 min. Flake it and mix with 2 oz cream cheese, ¼ cup mayo and sriracha to taste.",
+    "Spread over the rice. Bake 10 min, then broil 2 min until it browns in spots.",
+    "Top with scallions and more sriracha mayo. Scoop onto the seaweed sheets with avocado and cucumber."
+   ]
+  },
+  {
+   "id": "ahi-tuna-on-crispy-rice",
+   "title": "Ahi tuna on crispy rice",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~30 min + 1 hr chill",
+   "note": "She already sears tuna: sliced over avocado and cucumber (Feb 2025), sesame-crusted (Mar 30, 2026), and in the October bowls. Crispy rice adds crunch.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sushi-grade ahi",
+      "sesame seeds",
+      "cold cooked sushi rice",
+      "neutral oil",
+      "ponzu",
+      "avocado",
+      "jalapeño",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Press cold rice ¾ inch thick into a lined pan. Chill 1 hour, then cut into squares.",
+    "Pan-fry the squares in oil until golden on both sides.",
+    "Coat the tuna in sesame seeds. Sear 30–45 seconds per side and slice thin.",
+    "Top each square with avocado, tuna and a thin slice of jalapeño. Spoon over a little ponzu."
+   ]
+  },
+  {
+   "id": "creamy-vodka-rigatoni",
+   "title": "Creamy vodka rigatoni",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~25 min",
+   "note": "Pasta is her biggest category. She makes both red sauce (rigatoni, Jul 2024; pappardelle, Aug 2026) and cream sauce (shrimp alfredo, Sep 2024). Vodka sauce is both at once.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Rigatoni",
+      "shallot",
+      "garlic",
+      "tomato paste",
+      "vodka (optional)",
+      "heavy cream",
+      "parmesan",
+      "chili flakes",
+      "basil",
+      "butter"
+     ]
+    }
+   ],
+   "steps": [
+    "Soften a minced shallot and 2 cloves of garlic in butter.",
+    "Add ¼ cup tomato paste and cook, stirring, until it turns brick-red (about 4 min). Add a splash of vodka and let it bubble off.",
+    "Stir in ¾ cup cream and a pinch of chili flakes.",
+    "Toss with the pasta, a splash of pasta water and a big handful of parmesan. Top with basil and more parm."
+   ]
+  },
+  {
+   "id": "shakshuka-with-garlic-toast",
+   "title": "Shakshuka with garlic toast",
+   "section": "next-steps-on-dishes-she-already-makes",
+   "source": "new",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~30 min",
+   "note": "Eggs are her most common breakfast, she made a tomato and egg scramble (Aug 13, 2025), and garlic toast is her usual side.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Eggs",
+      "crushed tomatoes",
+      "bell pepper",
+      "onion",
+      "garlic",
+      "cumin",
+      "smoked paprika",
+      "feta",
+      "cilantro or parsley",
+      "crusty bread"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the sliced onion and pepper until soft. Add garlic, 1 tsp cumin and 1 tsp paprika.",
+    "Add a 28 oz can of crushed tomatoes and simmer 10 min.",
+    "Make wells and crack in 4–5 eggs. Cover and cook 5–8 min, until the whites set.",
+    "Finish with feta and herbs. Serve with garlic toast for dipping."
+   ]
+  },
+  {
+   "id": "loaded-sweet-potatoes-with-chipotle-black-beans",
+   "title": "Loaded sweet potatoes with chipotle black beans",
+   "section": "more-tex-mex",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~1 hr, mostly oven",
+   "note": "She's made loaded potatoes about eight times (bacon, sour cream and scallions in Oct 2025; buffalo chicken in Nov 2024) and a sweet potato with ground beef (Jul 21, 2026).",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sweet potatoes",
+      "black beans",
+      "chipotle in adobo",
+      "corn",
+      "lime",
+      "sour cream",
+      "cotija",
+      "scallions",
+      "avocado"
+     ]
+    }
+   ],
+   "steps": [
+    "Bake the sweet potatoes at 400°F for 45–60 min, until soft.",
+    "Warm the beans and corn with 1 minced chipotle and a spoon of the adobo sauce.",
+    "Stir lime juice into the sour cream.",
+    "Split the potatoes and fill with the beans. Drizzle the lime sour cream in lines, then top with cotija, scallions and avocado."
+   ]
+  },
+  {
+   "id": "sheet-pan-chicken-fajitas",
+   "title": "Sheet-pan chicken fajitas",
+   "section": "more-tex-mex",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~35 min",
+   "note": "She made a sliced chicken bowl with peppers, corn and black beans (May 18, 2026) and steak tacos (Nov 18, 2025). This makes the filling on one pan.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Chicken thighs",
+      "3 bell peppers",
+      "1 onion",
+      "chili powder",
+      "cumin",
+      "smoked paprika",
+      "garlic powder",
+      "lime",
+      "tortillas",
+      "sour cream",
+      "avocado"
+     ]
+    }
+   ],
+   "steps": [
+    "Slice everything into strips. Toss with oil, 2 tsp chili powder, 1 tsp each cumin, paprika and garlic powder, plus salt.",
+    "Spread on a sheet pan in one layer and roast at 425°F for 20–25 min.",
+    "Squeeze lime over the top and serve in warm tortillas or over rice."
+   ]
+  },
+  {
+   "id": "slow-cooker-birria-tacos",
+   "title": "Slow-cooker birria tacos",
+   "section": "more-tex-mex",
+   "source": "new",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": true,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "20 min + 8 hr slow cook",
+   "note": "She uses a slow cooker (Dec 2, 2024), makes beef stew (Oct 2025, Mar 2026) and steak tacos. These are cheesy, crispy tacos you dip in their own broth.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Chuck roast",
+      "dried guajillo or ancho chiles (or 3 Tbsp chili powder)",
+      "1 chipotle in adobo",
+      "onion",
+      "garlic",
+      "cumin",
+      "oregano",
+      "beef broth",
+      "corn tortillas",
+      "Oaxaca or mozzarella cheese",
+      "cilantro",
+      "lime"
+     ]
+    }
+   ],
+   "steps": [
+    "Soak the chiles in hot water for 10 min. Blend with the chipotle, half the onion, garlic, spices and 2 cups broth.",
+    "Pour over the beef and cook on low for 8 hr. Shred the meat.",
+    "Dip each tortilla in the red fat on top of the broth. Griddle it with cheese and beef, then fold.",
+    "Serve with a cup of broth for dipping, plus onion, cilantro and lime."
+   ]
+  },
+  {
+   "id": "pad-see-ew",
+   "title": "Pad see ew",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~25 min",
+   "note": "She ordered pad see ew (Aug 21, 2025) and pad thai (Dec 15, 2024), and she already makes chicken and broccoli stir-fry (Jan 2025).",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Wide fresh rice noodles",
+      "chicken",
+      "broccoli or Chinese broccoli",
+      "2 eggs",
+      "garlic",
+      "oyster sauce",
+      "soy sauce",
+      "dark soy sauce",
+      "sugar"
+     ]
+    }
+   ],
+   "steps": [
+    "Mix the sauce: 2 Tbsp oyster sauce, 1 Tbsp soy sauce, 1 Tbsp dark soy and 2 tsp sugar (for 2 servings).",
+    "Stir-fry the chicken and garlic over high heat. Add the broccoli for 2 min.",
+    "Push everything aside and scramble the eggs.",
+    "Add the noodles and sauce. Let them sit undisturbed for 30 seconds at a time so they char a little."
+   ]
+  },
+  {
+   "id": "hibachi-fried-rice-with-yum-yum-sauce",
+   "title": "Hibachi fried rice with yum yum sauce",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "proteins": [
+    "chicken",
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~20 min",
+   "note": "She makes egg fried rice in a skillet (Mar 3, 2026), ordered hibachi (Sep 14, 2024), and puts a mayo sauce on all her bowls.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Day-old rice",
+      "eggs",
+      "butter",
+      "garlic",
+      "soy sauce",
+      "onion",
+      "peas and carrots",
+      "chicken or shrimp"
+     ]
+    },
+    {
+     "group": "Sauce",
+     "items": [
+      "mayo",
+      "ketchup",
+      "melted butter",
+      "garlic powder",
+      "paprika",
+      "sugar"
+     ]
+    }
+   ],
+   "steps": [
+    "Sauce: ½ cup mayo, 1 Tbsp ketchup, 1 Tbsp melted butter, ¼ tsp each garlic powder and paprika, 1 tsp sugar, a splash of water. Chill.",
+    "Cook the protein in butter and set it aside. Soften the onion, peas and carrots.",
+    "Add the rice, a big pat of butter, garlic and soy sauce. Scramble in the eggs.",
+    "Return the protein. Drizzle the sauce over the top in lines."
+   ]
+  },
+  {
+   "id": "misir-wot",
+   "title": "Misir wot (Ethiopian red lentils)",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~40 min",
+   "note": "She has eaten Ethiopian food twice (Aug 30, 2025 and Aug 29, 2026). Red lentils are cheap and the dish keeps for days.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 cup red lentils",
+      "2 onions (chopped fine)",
+      "garlic",
+      "ginger",
+      "tomato paste",
+      "berbere spice",
+      "butter",
+      "Injera from an Ethiopian market, or flatbread"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the onions in a dry pot over medium heat for 8–10 min, until soft and jammy.",
+    "Add 3 Tbsp butter, the garlic, ginger, 2–3 Tbsp berbere and 1 Tbsp tomato paste. Cook for 2 min.",
+    "Add the lentils and 3 cups water. Simmer 25 min, stirring often, until thick."
+   ]
+  },
+  {
+   "id": "burrito-bowl-with-cilantro-lime-rice",
+   "title": "Burrito bowl with cilantro-lime rice",
+   "section": "takeout-she-could-make-herself",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~35 min",
+   "note": "She bought a Chipotle bowl (May 27, 2026), and she builds her own bowls more than anything else.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Rice",
+      "lime",
+      "cilantro",
+      "chicken thighs",
+      "chipotle in adobo",
+      "black beans",
+      "corn",
+      "red onion",
+      "romaine",
+      "cheese",
+      "sour cream",
+      "guacamole"
+     ]
+    }
+   ],
+   "steps": [
+    "Stir lime juice, zest and chopped cilantro into hot rice.",
+    "Rub the chicken with blended chipotle, garlic and oil. Sear or grill it, then chop.",
+    "Corn salsa: corn, diced red onion, cilantro, lime and salt.",
+    "Build the bowls with rice, beans, chicken and salsa, then top with lettuce, cheese, sour cream and guac."
+   ]
+  },
+  {
+   "id": "turkish-eggs",
+   "title": "Turkish eggs (çılbır)",
+   "section": "breakfast",
+   "source": "new",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~15 min",
+   "note": "She has posted runny eggs on toast at least six times (Sep 2024 to Aug 2025), often with avocado and hot sauce. This puts the eggs on garlicky yogurt with chili butter.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Greek yogurt",
+      "garlic",
+      "eggs",
+      "butter",
+      "Aleppo pepper (or paprika plus a pinch of chili flakes)",
+      "dill",
+      "crusty bread"
+     ]
+    }
+   ],
+   "steps": [
+    "Stir a grated garlic clove and a pinch of salt into 1 cup yogurt. Spread it on a plate.",
+    "Poach or fry 2 eggs until the whites are just set and lay them on the yogurt.",
+    "Melt 2 Tbsp butter with 1 tsp Aleppo pepper and spoon it over. Add dill and serve with toast."
+   ]
+  },
+  {
+   "id": "pumpkin-pie-chia-pudding",
+   "title": "Pumpkin pie chia pudding",
+   "section": "breakfast",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "5 min + overnight",
+   "note": "Chia with blueberries and pepitas (Sep 27, 2026) and chocolate chia with raspberries (Sep 16, 2026). A fall flavor using the same method.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "¼ cup chia seeds",
+      "1 cup milk",
+      "⅓ cup pumpkin purée",
+      "1 Tbsp maple syrup",
+      "½ tsp pumpkin pie spice",
+      "vanilla",
+      "Greek yogurt",
+      "pepitas"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk everything except the yogurt and pepitas. Stir again after 10 min so it doesn't clump.",
+    "Chill overnight. Top with a spoon of yogurt and toasted pepitas."
+   ]
+  },
+  {
+   "id": "lemon-blueberry-baked-oats",
+   "title": "Lemon blueberry baked oats",
+   "section": "breakfast",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~35 min, makes 4",
+   "note": "She has posted yogurt, granola and blueberry bowls many times (Jan 31 and Feb 3, 2026) and made a lemon dessert (Nov 11, 2024). One pan covers breakfast for several days.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 cups oats",
+      "1 ripe banana",
+      "2 eggs",
+      "1 cup milk",
+      "½ cup Greek yogurt",
+      "1 tsp baking powder",
+      "zest of 1 lemon",
+      "1 cup blueberries",
+      "2 Tbsp maple syrup"
+     ]
+    }
+   ],
+   "steps": [
+    "Mash the banana and whisk in the eggs, milk, yogurt, maple syrup and lemon zest.",
+    "Stir in the oats and baking powder, then fold in the blueberries.",
+    "Bake in a greased 8×8 pan at 375°F for 25–30 min, until set in the middle."
+   ]
+  },
+  {
+   "id": "butternut-squash-mac-and-cheese",
+   "title": "Butternut squash mac and cheese",
+   "section": "fall-comfort-food",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~40 min",
+   "note": "A combination of her squash soup (Sep 23, 2026) and her cheesy sausage-and-pepper pasta (Sep 28, 2026).",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Short pasta",
+      "2 cups roasted or frozen butternut squash",
+      "milk",
+      "sharp cheddar",
+      "parmesan",
+      "garlic",
+      "a pinch of nutmeg",
+      "panko or crushed pepitas"
+     ]
+    }
+   ],
+   "steps": [
+    "Blend the squash with 1 cup warm milk and garlic until smooth.",
+    "Heat the purée and stir in 1½ cups cheddar, ½ cup parmesan, nutmeg and salt.",
+    "Toss with the cooked pasta. Top with panko or pepitas and broil 2–3 min."
+   ]
+  },
+  {
+   "id": "thai-red-curry-squash-soup",
+   "title": "Thai red curry squash soup",
+   "section": "fall-comfort-food",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~35 min",
+   "note": "The squash soup she already makes, with Thai flavors like the takeout she orders.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Butternut squash (cubed)",
+      "onion",
+      "garlic",
+      "ginger",
+      "2–3 Tbsp red curry paste",
+      "1 can coconut milk",
+      "broth",
+      "lime",
+      "cilantro",
+      "pepitas"
+     ]
+    }
+   ],
+   "steps": [
+    "Soften the onion, garlic and ginger. Stir in the curry paste for 1 min.",
+    "Add the squash, coconut milk and 2 cups broth. Simmer 20 min, until the squash is soft.",
+    "Blend until smooth and add lime juice to taste. Top with a swirl of coconut milk, cilantro and pepitas."
+   ]
+  },
+  {
+   "id": "korean-ground-beef-bowls",
+   "title": "Korean ground beef bowls",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~20 min",
+   "note": "Ground beef is the meat she cooks most (taco meat, taco salads, lettuce wraps on Mar 2, 2026), and rice bowls with scallions and a mayo drizzle are her favorite format.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground beef",
+      "garlic",
+      "fresh ginger",
+      "¼ cup soy sauce",
+      "2 Tbsp brown sugar",
+      "1 tsp sesame oil",
+      "gochujang (optional)",
+      "rice",
+      "cucumber",
+      "scallions",
+      "sesame seeds",
+      "eggs",
+      "sriracha mayo"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the beef and drain most of the fat. Add 3 cloves of garlic and 1 tsp grated ginger for 1 min.",
+    "Stir in the soy sauce, brown sugar, sesame oil and 1 Tbsp gochujang if using. Simmer 2–3 min until glossy.",
+    "Serve over rice with sliced cucumber, scallions and sesame seeds. Add a fried egg and drizzle sriracha mayo in lines."
+   ]
+  },
+  {
+   "id": "miso-glazed-salmon",
+   "title": "Miso-glazed salmon",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~20 min",
+   "note": "She has made salmon over rice with scallions five times (March 2025, August 2026). A sweet-salty glaze is an easy change from her usual.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Salmon fillets",
+      "2 Tbsp white miso",
+      "1 Tbsp honey or mirin",
+      "1 Tbsp soy sauce",
+      "1 tsp rice vinegar",
+      "rice",
+      "cucumber",
+      "scallions",
+      "sesame seeds"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk the miso, honey, soy sauce and vinegar together.",
+    "Set the salmon on a foil-lined pan and brush thickly with the glaze.",
+    "Broil 7–10 min, until the top caramelizes and the fish flakes. Watch closely, because the glaze burns fast.",
+    "Serve over rice with cucumber, scallions and sesame seeds."
+   ]
+  },
+  {
+   "id": "creamy-tuscan-chicken",
+   "title": "Creamy Tuscan chicken",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~30 min",
+   "note": "She made a creamy chicken and spinach pasta (Nov 6, 2025) and finishes nearly everything with parmesan. This is the same sauce with sun-dried tomatoes.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 chicken breasts (sliced in half to make thin cutlets)",
+      "garlic",
+      "⅓ cup sun-dried tomatoes",
+      "1 cup heavy cream",
+      "½ cup parmesan",
+      "Italian seasoning",
+      "2 handfuls spinach",
+      "pasta or crusty bread"
+     ]
+    }
+   ],
+   "steps": [
+    "Season the cutlets and sear in oil, 4–5 min per side, until cooked through. Set aside.",
+    "In the same pan, cook the garlic and sun-dried tomatoes for 1 min. Add the cream, parmesan and 1 tsp Italian seasoning.",
+    "Simmer 3 min, stir in the spinach until wilted, then return the chicken.",
+    "Serve over pasta, or with bread for the sauce."
+   ]
+  },
+  {
+   "id": "honey-garlic-pork-tenderloin-with-green-beans",
+   "title": "Honey-garlic pork tenderloin with green beans",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~35 min",
+   "note": "She roasted a pork tenderloin and served it with green beans in spring 2025, and blistered green beans or asparagus show up with a lot of her dinners. This version cooks everything on one pan.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 pork tenderloin (about 1¼ lb)",
+      "¼ cup honey",
+      "3 Tbsp soy sauce",
+      "3 cloves garlic",
+      "1 Tbsp butter",
+      "1 lb green beans",
+      "olive oil"
+     ]
+    }
+   ],
+   "steps": [
+    "Simmer the honey, soy sauce, garlic and butter for 2 min to make the glaze.",
+    "Put the pork in the middle of a sheet pan and toss the green beans with oil and salt around it. Brush the pork with half the glaze.",
+    "Roast at 425°F for 20–25 min, until the center of the pork reads 145°F. Rest 5 min.",
+    "Slice, then spoon the rest of the glaze over the top."
+   ]
+  },
+  {
+   "id": "garlic-butter-shrimp-orzo",
+   "title": "Garlic butter shrimp orzo",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~25 min, one pan",
+   "note": "She has made shrimp alfredo (Sep 25, 2024) and shrimp with ravioli (July 2024), plus a creamy orzo with broccoli. This combines the shrimp and the orzo.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 cup orzo",
+      "3 Tbsp butter",
+      "4 cloves garlic",
+      "2 cups chicken broth",
+      "1 lb peeled shrimp",
+      "1 lemon",
+      "½ cup parmesan",
+      "a handful of spinach or parsley"
+     ]
+    }
+   ],
+   "steps": [
+    "Melt the butter and toast the orzo with the garlic for 2 min.",
+    "Add the broth and simmer, stirring now and then, for about 8 min until almost tender.",
+    "Nestle in the seasoned shrimp, cover and cook 3–4 min until pink.",
+    "Stir in the lemon zest and juice, parmesan and greens."
+   ]
+  },
+  {
+   "id": "freezer-breakfast-burritos",
+   "title": "Freezer breakfast burritos",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "eggs",
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~45 min, makes 8",
+   "note": "She has posted burritos with tater tots (spring 2026) and an egg-and-tots plate (this past winter). These put everything in one wrap that keeps in the freezer.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "10 eggs",
+      "1 lb breakfast sausage or bacon",
+      "3 cups frozen tater tots or hash browns",
+      "2 cups shredded cheddar",
+      "salsa",
+      "8 large flour tortillas",
+      "foil"
+     ]
+    }
+   ],
+   "steps": [
+    "Bake the tots until crisp. Brown the sausage. Softly scramble the eggs.",
+    "Let everything cool for 10 min so the tortillas don't go soggy.",
+    "Fill each tortilla with eggs, sausage, tots, cheese and a spoon of salsa. Roll tightly and wrap in foil.",
+    "Freeze. To reheat, remove the foil, wrap in a damp paper towel and microwave 2–3 min, turning once."
+   ]
+  },
+  {
+   "id": "street-corn-pasta-salad",
+   "title": "Street corn pasta salad",
+   "section": "more-weeknight-dinners",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "~25 min",
+   "note": "She makes pasta salads (a caprese one in August 2025) and cowboy caviar (Sep 16, 2026). This brings Mexican street-corn flavors to a pasta salad.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "8 oz rotini",
+      "3 cups corn (charred in a skillet)",
+      "⅓ cup mayo",
+      "⅓ cup sour cream",
+      "2 limes",
+      "1 tsp chili powder",
+      "½ cup cotija",
+      "cilantro",
+      "scallions",
+      "1 jalapeño"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the pasta and rinse it under cold water.",
+    "Char the corn in a dry skillet over high heat until it browns in spots.",
+    "Whisk the mayo, sour cream, lime juice and chili powder.",
+    "Toss everything together and top with extra cotija and a sprinkle of chili powder."
+   ]
+  },
+  {
+   "id": "salsa-verde-shredded-chicken",
+   "title": "Salsa verde shredded chicken",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": true,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "10 min + 6 hr on low",
+   "note": "Chicken goes into a lot of her Tex-Mex meals, like the chicken and black bean bowl (May 18, 2026). One batch makes enough for bowls, tacos and quesadillas all week.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 lb boneless chicken thighs or breasts",
+      "16 oz jar salsa verde",
+      "1 tsp cumin",
+      "½ tsp garlic powder",
+      "salt",
+      "lime",
+      "cilantro"
+     ]
+    }
+   ],
+   "steps": [
+    "Put the chicken in the slow cooker with the seasonings and pour the salsa over.",
+    "Cook on low 6 hr or high 3–4 hr.",
+    "Shred with two forks right in the pot, then stir in lime juice and cilantro.",
+    "Serve in bowls or tacos with avocado and sour cream."
+   ]
+  },
+  {
+   "id": "crispy-pork-carnitas",
+   "title": "Crispy pork carnitas",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": true,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "20 min + 8–10 hr on low",
+   "note": "Her tacos and burrito bowls (steak tacos Nov 18, 2025; a Chipotle bowl May 27, 2026) are a natural fit for carnitas, and a quick broil makes the pork crispy.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "3–4 lb pork shoulder (cut in large chunks)",
+      "2 tsp salt",
+      "2 tsp cumin",
+      "1 tsp oregano",
+      "1 tsp chili powder",
+      "1 onion",
+      "4 cloves garlic",
+      "1 orange",
+      "1 lime",
+      "tortillas"
+     ]
+    }
+   ],
+   "steps": [
+    "Rub the pork with the salt and spices. Put it in the slow cooker on top of the sliced onion and garlic.",
+    "Squeeze the orange and lime juice over the top and add the spent halves. Cook on low 8–10 hr.",
+    "Shred, spread on a sheet pan and spoon over some of the juices.",
+    "Broil 3–5 min until the edges crisp. Serve in tortillas with onion, cilantro and salsa."
+   ]
+  },
+  {
+   "id": "beef-chili-with-all-the-toppings",
+   "title": "Beef chili with all the toppings",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": true,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "20 min + 6–8 hr on low",
+   "note": "She posted chili with avocado, sour cream and cilantro, with cornbread on the side, on Oct 7, 2026. A slow-cooker batch covers several dinners.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1½ lb ground beef",
+      "1 onion",
+      "4 cloves garlic",
+      "1 can kidney beans (drained)",
+      "1 can black beans (drained)",
+      "28 oz crushed tomatoes",
+      "15 oz diced tomatoes",
+      "3 Tbsp chili powder",
+      "2 tsp cumin",
+      "1 tsp smoked paprika",
+      "1 chipotle in adobo (optional)"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the beef with the onion and garlic in a skillet first, then drain. Raw ground beef shouldn't go straight into a slow cooker.",
+    "Add it to the slow cooker with everything else and 1 tsp salt.",
+    "Cook on low 6–8 hr. Taste and adjust the salt.",
+    "Top with avocado, sour cream, cheddar, cilantro and scallions. Serve with cornbread."
+   ]
+  },
+  {
+   "id": "chicken-tikka-masala",
+   "title": "Chicken tikka masala",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": true,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "15 min + 6 hr on low",
+   "note": "She makes a lot of tomato-cream sauces and a lot of dinners over rice. This is a new flavor in that same style.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 lb boneless chicken thighs (in chunks)",
+      "1 onion",
+      "4 cloves garlic",
+      "1 Tbsp grated ginger",
+      "15 oz tomato sauce",
+      "2 Tbsp tomato paste",
+      "2 Tbsp garam masala",
+      "1 tsp cumin",
+      "1 tsp paprika",
+      "¾ cup heavy cream or coconut milk",
+      "rice",
+      "cilantro",
+      "naan"
+     ]
+    }
+   ],
+   "steps": [
+    "Add everything except the cream to the slow cooker with 1 tsp salt and stir.",
+    "Cook on low 6 hr or high 3–4 hr.",
+    "Stir in the cream and cook 15 min more on high.",
+    "Serve over rice with cilantro and warm naan."
+   ]
+  },
+  {
+   "id": "beef-and-broccoli",
+   "title": "Beef and broccoli",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": true,
+   "cozy": false,
+   "confidence": "clear",
+   "time": "15 min + 5–6 hr on low",
+   "note": "She makes chicken and broccoli stir-fries (Jan 24, 2025) and orders takeout often. This is a takeout classic that cooks while she's out.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1½ lb flank steak or chuck (sliced thin)",
+      "1 cup beef broth",
+      "½ cup low-sodium soy sauce",
+      "⅓ cup brown sugar",
+      "1 Tbsp sesame oil",
+      "3 cloves garlic",
+      "2 Tbsp cornstarch",
+      "4 cups broccoli florets",
+      "rice",
+      "sesame seeds",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk the broth, soy sauce, brown sugar, sesame oil and garlic in the slow cooker. Add the beef.",
+    "Cook on low 5–6 hr.",
+    "Mix the cornstarch with 3 Tbsp water and stir it in with the broccoli. Cook on high 30 min, until the sauce thickens.",
+    "Serve over rice with sesame seeds and scallions."
+   ]
+  },
+  {
+   "id": "sausage-white-bean-and-kale-soup",
+   "title": "Sausage, white bean and kale soup",
+   "section": "slow-cooker",
+   "source": "new",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": true,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "20 min + 6–8 hr on low",
+   "note": "She made beef stew with white beans (Oct 29, 2025) and often serves soup with garlic toast and parmesan. This is a lighter Italian-style soup.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb Italian sausage",
+      "1 onion",
+      "2 carrots",
+      "2 celery ribs",
+      "4 cloves garlic",
+      "2 cans cannellini beans (drained)",
+      "15 oz diced tomatoes",
+      "4 cups chicken broth",
+      "1 tsp Italian seasoning",
+      "a parmesan rind (optional)",
+      "1 bunch kale"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the sausage in a skillet, breaking it up, then add it to the slow cooker.",
+    "Add the chopped vegetables, garlic, beans, tomatoes, broth, seasoning and parmesan rind.",
+    "Cook on low 6–8 hr. Stir in the chopped kale for the last 30 min.",
+    "Serve with shredded parmesan and garlic toast."
+   ]
+  },
+  {
+   "id": "chicken-pot-pie-soup-with-biscuits",
+   "title": "Chicken pot pie soup with biscuits",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~40 min",
+   "note": "Her corn chowder (Dec 3, 2025) and slow-cooker soup (Dec 2, 2024) show she likes a creamy, hearty bowl. This is pot pie in soup form.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "3 Tbsp butter",
+      "1 onion",
+      "2 carrots",
+      "2 celery ribs",
+      "2 cloves garlic",
+      "⅓ cup flour",
+      "4 cups chicken broth",
+      "1 cup milk",
+      "2 cups shredded rotisserie chicken",
+      "1 cup frozen peas",
+      "1 tsp thyme",
+      "a tube of refrigerated biscuits"
+     ]
+    }
+   ],
+   "steps": [
+    "Soften the onion, carrots and celery in the butter for 6–8 min. Add the garlic.",
+    "Stir in the flour for 1 min, then whisk in the broth and milk. Simmer 10 min, until thick.",
+    "Add the chicken, peas and thyme and season with salt and pepper.",
+    "Bake the biscuits and set one on top of each bowl."
+   ]
+  },
+  {
+   "id": "apple-cider-pork-chops-with-roasted-squash",
+   "title": "Apple cider pork chops with roasted squash",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~45 min",
+   "note": "She roasted pork tenderloin twice in June 2025 and made squash soup on Sep 23, 2026. This puts fall flavors on a weeknight pork dinner.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "4 bone-in pork chops (1 inch thick)",
+      "1 cup apple cider",
+      "1 Tbsp Dijon",
+      "1 Tbsp brown sugar",
+      "2 Tbsp butter",
+      "thyme",
+      "1 apple (sliced)",
+      "1 small butternut squash (cubed)",
+      "olive oil",
+      "a pinch of cinnamon"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the squash with oil, salt and cinnamon and roast at 425°F for 25–30 min.",
+    "Season the chops and sear 4–5 min per side, until 145°F inside. Rest on a plate.",
+    "In the same pan, cook the apple slices 2 min. Add the cider, Dijon and brown sugar and boil until reduced by half, about 5 min.",
+    "Swirl in the butter and thyme and spoon over the chops."
+   ]
+  },
+  {
+   "id": "sausage-baked-ziti",
+   "title": "Sausage baked ziti",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~1 hr",
+   "note": "Red-sauce pasta is her most-posted dish, and she has made sausage and pepper pasta three times. This bakes them together under melted cheese.",
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ziti",
+      "1 lb Italian sausage",
+      "1 onion",
+      "3 cloves garlic",
+      "24 oz marinara",
+      "15 oz ricotta",
+      "1 egg",
+      "2 cups mozzarella",
+      "½ cup parmesan",
+      "basil"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the ziti 2 min less than the package says.",
+    "Brown the sausage with the onion and garlic, then stir in the marinara.",
+    "Mix the ricotta, egg and half the parmesan. Toss the pasta with the sauce, layer it in a 9×13 with spoonfuls of ricotta, and top with mozzarella and the rest of the parmesan.",
+    "Bake covered at 375°F for 20 min, then uncovered 15 min until bubbly."
+   ]
+  },
+  {
+   "id": "pumpkin-cinnamon-rolls",
+   "title": "Pumpkin cinnamon rolls",
+   "section": "warm-and-cozy",
+   "source": "new",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "time": "~3 hr, mostly rising",
+   "note": "She made cinnamon rolls (Jul 29, 2024) and frosted bars for Thanksgiving (Nov 27, 2025). These are her rolls with pumpkin in the dough.",
+   "ingredients": [
+    {
+     "group": "Dough",
+     "items": [
+      "1 cup pumpkin purée",
+      "½ cup warm milk",
+      "2¼ tsp yeast",
+      "¼ cup brown sugar",
+      "1 egg",
+      "¼ cup melted butter",
+      "4 cups flour",
+      "1 tsp salt",
+      "1 tsp pumpkin pie spice"
+     ]
+    },
+    {
+     "group": "Filling",
+     "items": [
+      "⅓ cup soft butter",
+      "¾ cup brown sugar",
+      "1 Tbsp cinnamon"
+     ]
+    },
+    {
+     "group": "Icing",
+     "items": [
+      "4 oz cream cheese",
+      "2 Tbsp butter",
+      "1 cup powdered sugar",
+      "1 Tbsp maple syrup"
+     ]
+    }
+   ],
+   "steps": [
+    "Stir the yeast into the warm milk and wait 5 min. Mix in everything else and knead 6–8 min. The dough is sticky, so add flour 1 Tbsp at a time only if needed.",
+    "Let it rise 1–1½ hours, until doubled.",
+    "Roll to 16×12 inches, spread the filling, roll up and cut 12 rolls. Rise 45 min.",
+    "Bake at 350°F for 22–26 min. Beat the icing ingredients and spread on while warm."
+   ]
+  },
+  {
+   "id": "pasta-marinara-with-garlic-toast",
+   "title": "Pasta marinara with garlic toast",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 4,
+   "madeDates": "Jul 22, 2024 · Aug 20, 2024 · Nov 30, 2024 · Feb 15, 2026",
+   "note": "Rigatoni or spaghetti in red sauce under grated parmesan, usually with garlic toast.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb pasta",
+      "28 oz can crushed tomatoes",
+      "3 Tbsp olive oil",
+      "4 cloves garlic",
+      "1 tsp dried oregano",
+      "pinch of chili flakes",
+      "basil",
+      "parmesan"
+     ]
+    },
+    {
+     "group": "Toast",
+     "items": [
+      "bread",
+      "butter",
+      "garlic powder"
+     ]
+    }
+   ],
+   "steps": [
+    "Warm the sliced garlic in the oil for 1 min. Add the tomatoes, oregano, chili flakes and a pinch each of salt and sugar. Simmer 15 min.",
+    "Toss with the cooked pasta and a splash of pasta water. Top with parmesan and basil.",
+    "Garlic toast: spread bread with butter, sprinkle garlic powder and parmesan, and broil 2–3 min."
+   ]
+  },
+  {
+   "id": "pappardelle-with-meat-sauce",
+   "title": "Pappardelle with meat sauce",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Oct 7, 2025 · Aug 30, 2026",
+   "note": "Wide ribbon pasta in a meaty tomato sauce with shaved parmesan and basil.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground beef",
+      "1 onion",
+      "1 carrot",
+      "3 cloves garlic",
+      "2 Tbsp tomato paste",
+      "28 oz crushed tomatoes",
+      "¼ cup milk",
+      "1 tsp Italian seasoning",
+      "pappardelle",
+      "parmesan"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the beef with the finely chopped onion and carrot. Stir in the garlic and tomato paste for 1 min.",
+    "Add the tomatoes and seasoning and simmer at least 30 min. Stir in the milk at the end.",
+    "Toss with the pappardelle and top with shaved parmesan."
+   ]
+  },
+  {
+   "id": "spaghetti-and-homemade-meatballs",
+   "title": "Spaghetti and homemade meatballs",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Dec 10, 2025 (the meatballs got their own post)",
+   "note": "Browned meatballs in marinara over spaghetti with lots of parmesan.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground beef",
+      "½ cup breadcrumbs",
+      "¼ cup milk",
+      "1 egg",
+      "⅓ cup parmesan",
+      "2 cloves garlic",
+      "parsley",
+      "1 tsp salt",
+      "24 oz marinara",
+      "spaghetti"
+     ]
+    }
+   ],
+   "steps": [
+    "Soak the breadcrumbs in the milk for 5 min, then gently mix in everything else except the sauce and pasta.",
+    "Roll into 1½-inch balls and bake at 400°F for 15–18 min, until cooked through (160°F inside).",
+    "Simmer the meatballs in marinara for 10 min and serve over spaghetti."
+   ]
+  },
+  {
+   "id": "fettuccine-alfredo",
+   "title": "Fettuccine alfredo",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "seafood",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Sep 25, 2024 (with shrimp) · Jan 11, 2026 (with broccoli)",
+   "note": "Fettuccine in a creamy parmesan sauce, once with shrimp and once with broccoli.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "12 oz fettuccine",
+      "4 Tbsp butter",
+      "2 cloves garlic",
+      "1 cup heavy cream",
+      "1 cup finely grated parmesan",
+      "black pepper",
+      "1 lb shrimp or 2 cups broccoli florets"
+     ]
+    }
+   ],
+   "steps": [
+    "If using shrimp, cook them in 1 Tbsp butter for 2–3 min and set aside. Steam or boil the broccoli if using.",
+    "Melt the rest of the butter, add the garlic for 30 sec, then the cream. Simmer 3 min.",
+    "Take it off the heat and stir in the parmesan. Toss with the pasta, a splash of pasta water, and the shrimp or broccoli."
+   ]
+  },
+  {
+   "id": "creamy-chicken-and-spinach-pasta",
+   "title": "Creamy chicken and spinach pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Nov 6, 2025",
+   "note": "Rigatoni in a creamy sauce with chicken, spinach and parsley.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb chicken breast (diced)",
+      "12 oz short pasta",
+      "3 cloves garlic",
+      "¾ cup heavy cream",
+      "½ cup parmesan",
+      "2 handfuls spinach",
+      "parsley"
+     ]
+    }
+   ],
+   "steps": [
+    "Season and brown the chicken in oil until cooked through.",
+    "Add the garlic for 30 sec, then the cream and parmesan. Simmer 2–3 min.",
+    "Stir in the spinach until wilted, then toss with the pasta and some pasta water."
+   ]
+  },
+  {
+   "id": "sausage-and-pepper-pasta",
+   "title": "Sausage and pepper pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 3,
+   "madeDates": "Mar 15, 2025 · Jun 23, 2025 · Sep 28, 2026 (a cheesy skillet version)",
+   "note": "Short pasta with sausage, roasted red peppers and onion, finished with parmesan.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb Italian sausage",
+      "2 bell peppers",
+      "1 onion",
+      "3 cloves garlic",
+      "12 oz short pasta",
+      "parmesan"
+     ]
+    },
+    {
+     "group": "For the cheesy version",
+     "items": [
+      "1½ cups cheddar",
+      "½ cup cream"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the sausage, sliced or crumbled. Add the sliced peppers and onion and cook until soft and charred in spots.",
+    "Add the garlic for 1 min.",
+    "Toss with the pasta, pasta water and parmesan. For the cheesy skillet, stir in the cream and cheddar until melted."
+   ]
+  },
+  {
+   "id": "imitation-crab-pasta",
+   "title": "Imitation crab pasta",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "likely",
+   "madeTimes": 2,
+   "madeDates": "Mar 25, 2025 · Jun 2, 2026",
+   "note": "Pasta with pink-and-white strips that look like imitation crab, once with pesto and once in a cream sauce.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "12 oz rotini or fettuccine",
+      "8 oz imitation crab (pulled into strips)",
+      "2 Tbsp butter",
+      "2 cloves garlic",
+      "⅓ cup pesto or ½ cup cream plus ½ cup parmesan",
+      "lemon"
+     ]
+    }
+   ],
+   "steps": [
+    "Warm the garlic in the butter, then add the crab for 2 min.",
+    "Add the pesto, or the cream and parmesan, and heat through.",
+    "Toss with the pasta and a squeeze of lemon."
+   ]
+  },
+  {
+   "id": "bacon-carbonara",
+   "title": "Bacon carbonara",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "pork",
+    "eggs"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "likely",
+   "madeTimes": 2,
+   "madeDates": "Apr 14, 2025 · Oct 21, 2025",
+   "note": "Pasta with crispy bacon pieces and a cheesy coating.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "8 oz pasta",
+      "6 slices bacon",
+      "2 eggs plus 1 yolk",
+      "¾ cup parmesan or pecorino",
+      "lots of black pepper"
+     ]
+    }
+   ],
+   "steps": [
+    "Crisp the chopped bacon and keep 1 Tbsp of the fat in the pan.",
+    "Whisk the eggs, cheese and pepper together.",
+    "Off the heat, toss the hot pasta with the bacon, then the egg mixture and a splash of pasta water, stirring fast until creamy so the eggs don't scramble."
+   ]
+  },
+  {
+   "id": "chicken-parmesan",
+   "title": "Chicken parmesan",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Jul 31, 2024 · Jul 30, 2025",
+   "note": "Breaded chicken under marinara and melted cheese, served over pasta.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 chicken breasts (halved into thin cutlets)",
+      "flour",
+      "1 egg",
+      "1 cup breadcrumbs mixed with ¼ cup parmesan",
+      "marinara",
+      "1 cup mozzarella",
+      "pasta"
+     ]
+    }
+   ],
+   "steps": [
+    "Coat the cutlets in flour, then egg, then the breadcrumb mix.",
+    "Pan-fry in oil 3–4 min per side, or air fry at 400°F for 10–12 min.",
+    "Top with marinara and mozzarella and broil until bubbly. Serve over pasta."
+   ]
+  },
+  {
+   "id": "garlic-shrimp-and-mushrooms-with-ravioli",
+   "title": "Garlic shrimp and mushrooms with ravioli",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Jul 29, 2024",
+   "note": "Seared shrimp and browned mushrooms with large ravioli.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "9 oz fresh cheese ravioli",
+      "1 lb shrimp",
+      "8 oz mushrooms",
+      "3 Tbsp butter",
+      "3 cloves garlic",
+      "lemon",
+      "parsley"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the sliced mushrooms in a dry hot pan, then add the butter and garlic.",
+    "Add the shrimp and cook 2–3 min until pink.",
+    "Toss with the cooked ravioli, lemon juice and parsley."
+   ]
+  },
+  {
+   "id": "italian-pasta-salad",
+   "title": "Italian pasta salad",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "May 20, 2025 · Aug 10, 2025",
+   "note": "Rotini with mozzarella pearls, cherry tomatoes, olives, chickpeas, peppers and basil.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "12 oz rotini",
+      "mozzarella pearls",
+      "cherry tomatoes",
+      "black olives",
+      "1 can chickpeas",
+      "red bell pepper",
+      "basil",
+      "½ cup Italian dressing (or olive oil, red wine vinegar and oregano)"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the pasta and rinse it under cold water.",
+    "Toss with everything else and the dressing.",
+    "Chill 30 min before serving."
+   ]
+  },
+  {
+   "id": "pan-fried-gnocchi-with-chicken-and-pesto",
+   "title": "Pan-fried gnocchi with chicken and pesto",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "likely",
+   "madeTimes": 1,
+   "madeDates": "May 11, 2025",
+   "note": "Golden gnocchi tossed with chicken and herbs.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb shelf-stable gnocchi",
+      "1 chicken breast (diced)",
+      "⅓ cup pesto",
+      "parmesan"
+     ]
+    }
+   ],
+   "steps": [
+    "Pan-fry the gnocchi straight from the package in oil until golden, about 6 min. No boiling needed.",
+    "Brown the chicken in the same pan.",
+    "Toss everything with the pesto and top with parmesan."
+   ]
+  },
+  {
+   "id": "homemade-pepperoni-pizza",
+   "title": "Homemade pepperoni pizza",
+   "section": "pasta-italian",
+   "source": "made",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Sep 4, 2025 · Oct 11, 2025",
+   "note": "A charred, bubbly pizza on a pizza peel, and a second round with jalapeño and garlic flatbread slices.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb pizza dough",
+      "½ cup pizza sauce",
+      "2 cups low-moisture mozzarella",
+      "pepperoni",
+      "jalapeño (optional)"
+     ]
+    }
+   ],
+   "steps": [
+    "Heat the oven with a pizza stone or steel at 500°F for 45 min.",
+    "Stretch the dough on a floured peel and add the sauce, cheese and toppings.",
+    "Slide onto the stone and bake 7–10 min, until the crust has dark spots."
+   ]
+  },
+  {
+   "id": "taco-salad",
+   "title": "Taco salad",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 5,
+   "madeDates": "Feb 27, 2025 · Sep 2, 3 & 4, 2025 · Feb 2, 2026",
+   "note": "Seasoned ground meat over shredded lettuce with cheddar, tomato, guacamole or avocado, and sour cream in lines.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground beef or turkey",
+      "taco seasoning (2 tsp chili powder, 1 tsp cumin, ½ tsp each garlic powder, onion powder, paprika and salt)",
+      "lettuce",
+      "cheddar",
+      "tomato",
+      "avocado",
+      "sour cream",
+      "salsa"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the meat, add the seasoning and ¼ cup water, and simmer 3 min.",
+    "Pile the meat on shredded lettuce.",
+    "Add the toppings and drizzle sour cream in lines."
+   ]
+  },
+  {
+   "id": "quesadillas",
+   "title": "Quesadillas",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "chicken",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 3,
+   "madeDates": "Feb 22, 2025 · Nov 19, 2025 · May 31, 2026",
+   "note": "Golden quesadillas cut in wedges, sometimes with beans or meat, sour cream on the side.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Flour tortillas",
+      "shredded Mexican cheese",
+      "cooked chicken or refried beans",
+      "butter",
+      "sour cream",
+      "salsa"
+     ]
+    }
+   ],
+   "steps": [
+    "Spread the filling and cheese on half of each tortilla and fold.",
+    "Cook in a buttered skillet over medium heat 2–3 min per side, until golden and melted.",
+    "Cut into wedges and serve with sour cream and salsa."
+   ]
+  },
+  {
+   "id": "burritos-with-pico-de-gallo",
+   "title": "Burritos with pico de gallo",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "beef",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Apr 3, 2025 · May 17, 2026 (with tater tots)",
+   "note": "Flour tortilla burritos, one opened up to show fresh pico de gallo.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Large flour tortillas",
+      "seasoned ground beef or black beans",
+      "cooked rice",
+      "cheese"
+     ]
+    },
+    {
+     "group": "Pico",
+     "items": [
+      "2 tomatoes",
+      "½ onion",
+      "1 jalapeño",
+      "cilantro",
+      "lime",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Make the pico by dicing everything and mixing with lime and salt.",
+    "Warm the tortillas, fill, fold in the sides and roll up.",
+    "For a crisp outside, sear seam-side down in a dry skillet for 2 min."
+   ]
+  },
+  {
+   "id": "steak-tacos",
+   "title": "Steak tacos",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Nov 18, 2025",
+   "note": "Soft flour tortillas with seasoned beef, lettuce and tomato.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb flank or skirt steak",
+      "1 tsp chili powder",
+      "1 tsp cumin",
+      "garlic",
+      "lime",
+      "tortillas",
+      "lettuce",
+      "tomato",
+      "cheese"
+     ]
+    }
+   ],
+   "steps": [
+    "Rub the steak with the spices, garlic, lime and salt.",
+    "Sear in a very hot pan 3–4 min per side. Rest 5 min and slice thin across the grain.",
+    "Fill the warm tortillas and top."
+   ]
+  },
+  {
+   "id": "chili-with-cornbread",
+   "title": "Chili with cornbread",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 4,
+   "madeDates": "Oct 29, 2024 · Sep 10 & 11, 2025 · Oct 7, 2026",
+   "note": "Bean and tomato chili topped with avocado, sour cream lines and cilantro, with cornbread once.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground beef",
+      "1 onion",
+      "3 cloves garlic",
+      "2 cans beans (drained)",
+      "28 oz crushed tomatoes",
+      "2–3 Tbsp chili powder",
+      "2 tsp cumin",
+      "a box of cornbread mix"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the beef with the onion. Add the garlic and spices for 1 min.",
+    "Add the tomatoes and beans and simmer 30 min, stirring now and then.",
+    "Bake the cornbread from the box while it simmers. Top the chili with avocado, sour cream and cilantro."
+   ]
+  },
+  {
+   "id": "cowboy-caviar",
+   "title": "Cowboy caviar",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Jun 8, 2026 · Sep 16, 2026",
+   "note": "A big bowl of beans, chickpeas, corn, tomatoes, peppers and red onion.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 can black beans",
+      "1 can kidney beans",
+      "1 can chickpeas",
+      "1½ cups corn",
+      "cherry tomatoes",
+      "1 bell pepper",
+      "½ red onion",
+      "cilantro"
+     ]
+    },
+    {
+     "group": "Dressing",
+     "items": [
+      "⅓ cup olive oil",
+      "¼ cup red wine vinegar",
+      "1 lime",
+      "1 tsp sugar",
+      "½ tsp chili powder",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Rinse and drain the beans. Dice the vegetables.",
+    "Whisk the dressing and toss with everything.",
+    "Chill at least 30 min. Serve with tortilla chips."
+   ]
+  },
+  {
+   "id": "steak-bites-with-corn-salsa-and-guacamole",
+   "title": "Steak bites with corn salsa and guacamole",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Jun 18, 2026",
+   "note": "Seared steak pieces over corn and black bean salsa with guacamole in the middle.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb sirloin",
+      "salt",
+      "pepper",
+      "chili powder"
+     ]
+    },
+    {
+     "group": "Salsa",
+     "items": [
+      "corn",
+      "black beans",
+      "red pepper",
+      "red onion",
+      "lime",
+      "cilantro"
+     ]
+    },
+    {
+     "group": "Guac",
+     "items": [
+      "2 avocados",
+      "lime",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the salsa ingredients with lime juice and salt.",
+    "Mash the avocados with lime and salt.",
+    "Cube and season the steak, sear in a very hot pan 2–3 min, and serve over the salsa with the guac."
+   ]
+  },
+  {
+   "id": "southwest-chicken-chopped-salad",
+   "title": "Southwest chicken chopped salad",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "May 18, 2026",
+   "note": "Sliced seared chicken over chopped peppers, black beans, corn, red onion and tomatoes.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 chicken breasts",
+      "black beans",
+      "corn",
+      "2 bell peppers",
+      "red onion",
+      "tomatoes",
+      "cilantro"
+     ]
+    },
+    {
+     "group": "Dressing",
+     "items": [
+      "2 limes",
+      "¼ cup olive oil",
+      "1 tsp honey",
+      "cilantro",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Season the chicken and sear 5–6 min per side, until 165°F. Rest and slice.",
+    "Chop the vegetables and toss with the dressing.",
+    "Top with the chicken."
+   ]
+  },
+  {
+   "id": "mexican-rice-refried-beans-and-guacamole",
+   "title": "Mexican rice, refried beans and guacamole",
+   "section": "tex-mex",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Oct 4, 2025",
+   "note": "A plate of orange Mexican rice, refried beans and chunky guacamole.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 cup long-grain rice",
+      "1 Tbsp oil",
+      "½ onion",
+      "2 cloves garlic",
+      "8 oz tomato sauce",
+      "1¾ cups chicken broth",
+      "½ tsp cumin",
+      "1 can refried beans",
+      "2 avocados",
+      "lime",
+      "cilantro"
+     ]
+    }
+   ],
+   "steps": [
+    "Toast the rice in the oil until golden. Add the onion and garlic for 2 min.",
+    "Add the tomato sauce, broth and cumin. Cover and simmer on low 18–20 min, then rest 5 min.",
+    "Warm the beans and mash the avocados with lime, salt and cilantro."
+   ]
+  },
+  {
+   "id": "fried-eggs-on-avocado-toast",
+   "title": "Fried eggs on avocado toast",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 5,
+   "madeDates": "Sep 5 & 16, 2024 · Dec 8, 2024 · Mar 30, 2025 · Aug 19, 2025",
+   "note": "Runny fried eggs on toast or English muffins with mashed avocado, pepper or hot sauce.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sourdough or English muffins",
+      "1 avocado",
+      "2–4 eggs",
+      "butter",
+      "salt",
+      "lemon",
+      "everything seasoning or hot sauce"
+     ]
+    }
+   ],
+   "steps": [
+    "Toast the bread. Mash the avocado with salt and a squeeze of lemon.",
+    "Fry the eggs in butter over medium heat until the whites set and the yolks are still runny.",
+    "Spread the avocado on the toast, add the eggs and season."
+   ]
+  },
+  {
+   "id": "egg-salad-toast",
+   "title": "Egg salad toast",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 4,
+   "madeDates": "Jun 20 & 25, 2025 · Nov 23, 2025 · Feb 16, 2026",
+   "note": "Chunky egg salad with herbs piled on toast.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "6 eggs",
+      "¼ cup mayo",
+      "1 tsp Dijon",
+      "chives or dill",
+      "salt",
+      "pepper",
+      "toasted bread"
+     ]
+    }
+   ],
+   "steps": [
+    "Lower the eggs into boiling water and cook 11–12 min. Move to an ice bath.",
+    "Peel, chop and mix with the mayo, mustard, herbs, salt and pepper.",
+    "Pile onto toast."
+   ]
+  },
+  {
+   "id": "egg-muffins",
+   "title": "Egg muffins",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Apr 12, 2026 · Apr 28, 2026",
+   "note": "Baked egg cups with peppers, meat and cheese.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "8 eggs",
+      "¼ cup milk",
+      "1 diced bell pepper",
+      "1 cup cooked sausage or ham",
+      "¾ cup cheddar",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Grease a 12-cup muffin tin and divide the fillings among the cups.",
+    "Whisk the eggs, milk and salt and pour in until each cup is ¾ full.",
+    "Bake at 350°F for 18–22 min, until set. They keep 4 days in the fridge."
+   ]
+  },
+  {
+   "id": "spinach-and-cheese-breakfast-casserole",
+   "title": "Spinach and cheese breakfast casserole",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "likely",
+   "madeTimes": 1,
+   "madeDates": "Apr 28, 2025",
+   "note": "A cheesy egg bake with greens in a square pan.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "10 eggs",
+      "1 cup milk",
+      "2 cups frozen hash browns",
+      "2 cups spinach",
+      "1½ cups cheddar",
+      "½ onion",
+      "salt",
+      "pepper"
+     ]
+    }
+   ],
+   "steps": [
+    "Layer the hash browns, spinach and onion in a greased 9×13 pan.",
+    "Whisk the eggs, milk, salt and pepper and pour over. Top with the cheese.",
+    "Bake at 350°F for 40–45 min, until the center is set."
+   ]
+  },
+  {
+   "id": "tomato-and-egg-scramble",
+   "title": "Tomato and egg scramble",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "likely",
+   "madeTimes": 1,
+   "madeDates": "Aug 13, 2025",
+   "note": "Soft scrambled eggs with cooked cherry tomatoes.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "4 eggs",
+      "2 tomatoes (in wedges)",
+      "1 scallion",
+      "½ tsp sugar",
+      "salt",
+      "oil"
+     ]
+    }
+   ],
+   "steps": [
+    "Softly scramble the eggs in oil and set aside.",
+    "Cook the tomatoes with the sugar and salt until saucy, 3–4 min.",
+    "Fold the eggs back in and top with scallions. Serve with rice or toast."
+   ]
+  },
+  {
+   "id": "yogurt-and-granola-bowls",
+   "title": "Yogurt and granola bowls",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 4,
+   "madeDates": "Jun 16, 2025 · Jan 31, 2026 · Feb 3, 2026 · Mar 4, 2026",
+   "note": "Greek yogurt with granola, blueberries, strawberries or banana.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Greek yogurt",
+      "berries",
+      "banana"
+     ]
+    },
+    {
+     "group": "Homemade granola",
+     "items": [
+      "3 cups oats",
+      "1 cup nuts",
+      "⅓ cup maple syrup",
+      "¼ cup oil",
+      "1 tsp cinnamon",
+      "½ tsp salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Mix the granola ingredients and spread on a lined sheet pan.",
+    "Bake at 325°F for 25 min, stirring halfway. Let it cool on the pan so it forms clusters.",
+    "Layer with yogurt and fruit."
+   ]
+  },
+  {
+   "id": "chia-pudding",
+   "title": "Chia pudding",
+   "section": "eggs-breakfast",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Sep 16, 2026 (chocolate, with raspberries) · Sep 27, 2026 (with blueberries and pepitas)",
+   "note": "Chia pudding in plain and chocolate versions, topped with fruit and seeds.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "¼ cup chia seeds",
+      "1 cup milk",
+      "1 Tbsp maple syrup",
+      "½ tsp vanilla"
+     ]
+    },
+    {
+     "group": "For chocolate",
+     "items": [
+      "1 Tbsp cocoa powder"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk everything together and let it sit 10 min.",
+    "Whisk again so it doesn't clump, then chill at least 4 hours or overnight.",
+    "Top with berries and pepitas."
+   ]
+  },
+  {
+   "id": "salmon-poke-bowl",
+   "title": "Salmon poke bowl",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Oct 16, 2026",
+   "note": "Cubed salmon over rice with cucumber, avocado, scallions, chili crisp and Japanese mayo.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sushi-grade salmon",
+      "2 Tbsp soy sauce",
+      "1 tsp sesame oil",
+      "1 tsp rice vinegar",
+      "sushi rice",
+      "cucumber",
+      "avocado",
+      "scallions",
+      "chili crisp",
+      "Japanese mayo"
+     ]
+    }
+   ],
+   "steps": [
+    "Cube the salmon and toss with the soy sauce, sesame oil and vinegar. Keep it cold for 10 min. Buy raw fish labeled sushi-grade from a counter you trust.",
+    "Season warm rice with a little rice vinegar and salt.",
+    "Arrange everything over the rice, add chili crisp and drizzle the mayo in lines."
+   ]
+  },
+  {
+   "id": "seared-ahi-tuna-bowls",
+   "title": "Seared ahi tuna bowls",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 5,
+   "madeDates": "Feb 16 & 19, 2025 · Mar 30, 2026 · Oct 13 & 14, 2026",
+   "note": "Rare seared tuna, sometimes sesame-crusted, with avocado, cucumber, edamame, carrot and spicy mayo.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Ahi tuna steaks",
+      "sesame seeds",
+      "soy sauce",
+      "rice or greens",
+      "edamame",
+      "avocado",
+      "cucumber",
+      "shredded carrot",
+      "scallions",
+      "spicy mayo (mayo plus sriracha)"
+     ]
+    }
+   ],
+   "steps": [
+    "Pat the tuna dry, brush with soy sauce and press into sesame seeds.",
+    "Sear in a very hot oiled pan 45–60 sec per side, so the middle stays pink. Slice.",
+    "Build the bowls and drizzle spicy mayo in lines."
+   ]
+  },
+  {
+   "id": "glazed-salmon-over-rice",
+   "title": "Glazed salmon over rice",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "seafood"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 5,
+   "madeDates": "Mar 17, 18 & 24, 2025 · Aug 5 & 6, 2026",
+   "note": "A glazed salmon fillet over white rice with scallions, asparagus or green beans.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Salmon fillets",
+      "2 Tbsp soy sauce",
+      "1 Tbsp honey",
+      "1 tsp sriracha",
+      "1 clove garlic",
+      "rice",
+      "asparagus or green beans",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk the soy sauce, honey, sriracha and grated garlic.",
+    "Sear the salmon 3 min, flip, pour in the glaze and cook 3–4 min more, spooning it over, until the fish flakes.",
+    "Roast the asparagus at 425°F for 10 min. Serve everything over rice with scallions."
+   ]
+  },
+  {
+   "id": "chicken-and-broccoli-stir-fry",
+   "title": "Chicken and broccoli stir-fry",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Jan 22, 2025 · Jan 24, 2025",
+   "note": "Chicken with broccoli, carrots and edamame or peas in a glossy sauce, with rice and sesame seeds.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb chicken",
+      "broccoli",
+      "carrots",
+      "edamame or peas",
+      "Rice",
+      "sesame seeds"
+     ]
+    },
+    {
+     "group": "Sauce",
+     "items": [
+      "3 Tbsp soy sauce",
+      "1 Tbsp honey",
+      "1 tsp sesame oil",
+      "2 cloves garlic",
+      "1 tsp ginger",
+      "1 tsp cornstarch",
+      "¼ cup water"
+     ]
+    }
+   ],
+   "steps": [
+    "Sear the bite-size chicken in a hot pan until cooked and set aside.",
+    "Stir-fry the vegetables 3–4 min.",
+    "Return the chicken, add the sauce and let it bubble until thick. Serve over rice."
+   ]
+  },
+  {
+   "id": "orange-chicken",
+   "title": "Orange chicken",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Jun 6, 2026 (two posts)",
+   "note": "Crispy chicken in a sticky orange glaze, made in a skillet and served over rice.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1½ lb chicken thighs (cubed)",
+      "1 egg",
+      "½ cup cornstarch",
+      "Rice",
+      "scallions"
+     ]
+    },
+    {
+     "group": "Sauce",
+     "items": [
+      "½ cup orange juice",
+      "1 tsp zest",
+      "3 Tbsp soy sauce",
+      "3 Tbsp brown sugar",
+      "1 Tbsp rice vinegar",
+      "garlic",
+      "ginger",
+      "1 Tbsp cornstarch"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the chicken in the beaten egg, then the cornstarch.",
+    "Pan-fry in ¼ inch of oil until crisp and cooked through, or air fry at 400°F for 12–15 min.",
+    "Simmer the sauce until thick and toss with the chicken. Serve over rice with scallions."
+   ]
+  },
+  {
+   "id": "egg-fried-rice",
+   "title": "Egg fried rice",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "eggs",
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Mar 3, 2026",
+   "note": "A big skillet of fried rice with scrambled egg and herbs.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "3 cups day-old rice",
+      "3 eggs",
+      "2 Tbsp soy sauce",
+      "1 tsp sesame oil",
+      "2 cloves garlic",
+      "½ cup frozen peas",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Scramble the eggs in oil and set aside.",
+    "Cook the garlic and peas for 1 min, then add the rice. Spread it out and let it sit to toast.",
+    "Add the soy sauce, sesame oil, eggs and scallions."
+   ]
+  },
+  {
+   "id": "lettuce-wraps",
+   "title": "Lettuce wraps",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "pork",
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Mar 2, 2026",
+   "note": "Butter lettuce cups filled with saucy ground meat and scallions.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb ground pork or chicken",
+      "2 cloves garlic",
+      "1 tsp ginger",
+      "1 can water chestnuts (diced)",
+      "3 Tbsp hoisin",
+      "1 Tbsp soy sauce",
+      "1 tsp rice vinegar",
+      "sriracha",
+      "butter lettuce",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Brown the meat and add the garlic and ginger.",
+    "Add the water chestnuts and sauces and cook 2 min.",
+    "Spoon into lettuce leaves and top with scallions."
+   ]
+  },
+  {
+   "id": "ramen-noodle-stir-fry",
+   "title": "Ramen noodle stir-fry",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Apr 20, 2025 · Jul 15, 2026 (with rice noodles)",
+   "note": "Noodles tossed with chicken, broccoli, carrot and peppers.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 packs instant ramen (skip the seasoning) or rice noodles",
+      "1 chicken breast",
+      "broccoli",
+      "carrot",
+      "bell pepper"
+     ]
+    },
+    {
+     "group": "Sauce",
+     "items": [
+      "3 Tbsp soy sauce",
+      "1 Tbsp oyster sauce",
+      "1 Tbsp honey",
+      "1 tsp sesame oil",
+      "garlic"
+     ]
+    }
+   ],
+   "steps": [
+    "Boil the noodles 2 min and drain.",
+    "Stir-fry the chicken until cooked, then the vegetables for 3 min.",
+    "Add the noodles and sauce and toss over high heat."
+   ]
+  },
+  {
+   "id": "asian-cucumber-salad",
+   "title": "Asian cucumber salad",
+   "section": "bowls-stir-fries",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Mar 2, 2026",
+   "note": "Thin-sliced cucumbers with chili flakes in a light dressing.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 cucumbers",
+      "1 tsp salt",
+      "2 Tbsp rice vinegar",
+      "1 tsp sugar",
+      "1 tsp sesame oil",
+      "chili flakes",
+      "1 clove garlic"
+     ]
+    }
+   ],
+   "steps": [
+    "Slice the cucumbers thin, toss with the salt and let them sit 10 min. Drain.",
+    "Toss with everything else.",
+    "Chill until serving."
+   ]
+  },
+  {
+   "id": "loaded-baked-potatoes",
+   "title": "Loaded baked potatoes",
+   "section": "potatoes",
+   "source": "made",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 6,
+   "madeDates": "Jan 10, 2025 · Mar 4, 2025 · Oct 15 & 19, 2025 · Jan 20 & 23, 2026",
+   "note": "Baked or twice-baked potatoes with bacon, cheddar, sour cream and scallions.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Russet potatoes",
+      "oil",
+      "salt",
+      "bacon",
+      "cheddar",
+      "sour cream",
+      "scallions",
+      "butter"
+     ]
+    }
+   ],
+   "steps": [
+    "Rub the potatoes with oil and salt and bake at 425°F for 50–60 min, until tender.",
+    "Split, fluff and add butter. Top with cheese, bacon, sour cream and scallions.",
+    "Twice-baked: scoop out the inside, mash with sour cream and cheese, refill and bake 15 min more."
+   ]
+  },
+  {
+   "id": "buffalo-chicken-stuffed-potatoes",
+   "title": "Buffalo chicken stuffed potatoes",
+   "section": "potatoes",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Nov 21, 2024",
+   "note": "A baked potato stuffed with buffalo chicken, cheddar, sour cream and scallions.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Baked potatoes",
+      "2 cups shredded chicken",
+      "⅓ cup buffalo sauce",
+      "cheddar",
+      "ranch or sour cream",
+      "scallions"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the chicken with the buffalo sauce.",
+    "Split the baked potatoes, fill with chicken and top with cheese. Bake 10 min.",
+    "Finish with ranch or sour cream and scallions."
+   ]
+  },
+  {
+   "id": "sweet-potatoes-with-spiced-ground-beef",
+   "title": "Sweet potatoes with spiced ground beef",
+   "section": "potatoes",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Mar 5, 2025 (with bacon) · Jul 21, 2026",
+   "note": "Baked sweet potato with seasoned ground beef and a white garlic sauce.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Sweet potatoes",
+      "1 lb ground beef",
+      "1 tsp cumin",
+      "1 tsp paprika",
+      "garlic"
+     ]
+    },
+    {
+     "group": "Sauce",
+     "items": [
+      "½ cup Greek yogurt",
+      "1 clove garlic",
+      "lemon",
+      "salt"
+     ]
+    }
+   ],
+   "steps": [
+    "Bake the sweet potatoes at 400°F for 45–60 min.",
+    "Brown the beef with the spices and garlic.",
+    "Split the potatoes, fill with beef and drizzle with the yogurt sauce."
+   ]
+  },
+  {
+   "id": "beef-stew",
+   "title": "Beef stew",
+   "section": "soups-stews",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Oct 29, 2025 (with white beans) · Mar 18, 2026",
+   "note": "Chunks of beef with red potatoes, carrots, celery and onion in broth.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 lb beef chuck (cubed)",
+      "2 Tbsp flour",
+      "1 onion",
+      "3 carrots",
+      "2 celery ribs",
+      "1 lb red potatoes",
+      "3 cloves garlic",
+      "2 Tbsp tomato paste",
+      "4 cups beef broth",
+      "thyme",
+      "bay leaf"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the beef with the flour and salt and brown it in batches.",
+    "Add the onion, carrots, celery, garlic and tomato paste for 3 min. Add the broth and herbs.",
+    "Cover and simmer 1½–2 hours, adding the potatoes for the last 40 min. In a slow cooker: low for 8 hours."
+   ]
+  },
+  {
+   "id": "butternut-squash-soup",
+   "title": "Butternut squash soup",
+   "section": "soups-stews",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Sep 23, 2026",
+   "note": "Smooth orange squash soup topped with pepitas.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 butternut squash (peeled, cubed)",
+      "1 onion",
+      "2 cloves garlic",
+      "4 cups broth",
+      "½ cup cream or coconut milk",
+      "pinch of nutmeg or cinnamon",
+      "pepitas"
+     ]
+    }
+   ],
+   "steps": [
+    "Soften the onion and garlic in oil.",
+    "Add the squash and broth and simmer 20 min, until soft.",
+    "Blend smooth, stir in the cream and top with pepitas."
+   ]
+  },
+  {
+   "id": "corn-chowder",
+   "title": "Corn chowder",
+   "section": "soups-stews",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Dec 3, 2025",
+   "note": "A creamy skillet soup with corn and potatoes.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "4 slices bacon (optional)",
+      "1 onion",
+      "2 celery ribs",
+      "2 Tbsp flour",
+      "3 cups broth",
+      "2 cups milk",
+      "2 potatoes (diced)",
+      "3 cups corn",
+      "thyme"
+     ]
+    }
+   ],
+   "steps": [
+    "Cook the bacon if using, then the onion and celery until soft. Stir in the flour for 1 min.",
+    "Whisk in the broth and milk, add the potatoes and simmer 15 min.",
+    "Add the corn for 5 min. Mash some of the potatoes against the pot to thicken."
+   ]
+  },
+  {
+   "id": "slow-cooker-chicken-vegetable-soup",
+   "title": "Slow-cooker chicken vegetable soup",
+   "section": "soups-stews",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": true,
+   "cozy": true,
+   "confidence": "likely",
+   "madeTimes": 1,
+   "madeDates": "Dec 2, 2024",
+   "note": "A slow cooker full of soup with carrots, greens and noodles. It may have been leftover Thanksgiving turkey.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1½ lb chicken thighs (or leftover turkey)",
+      "1 onion",
+      "3 carrots",
+      "2 celery ribs",
+      "3 cloves garlic",
+      "14 oz diced tomatoes",
+      "6 cups broth",
+      "1 tsp Italian seasoning",
+      "spinach or kale",
+      "1 cup egg noodles"
+     ]
+    }
+   ],
+   "steps": [
+    "Add everything except the greens and noodles to the slow cooker.",
+    "Cook on low 6–7 hours. Shred the chicken.",
+    "Add the noodles and greens and cook on high 20–30 min more."
+   ]
+  },
+  {
+   "id": "tomato-soup-with-cheesy-garlic-toast",
+   "title": "Tomato soup with cheesy garlic toast",
+   "section": "soups-stews",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "likely",
+   "madeTimes": 2,
+   "madeDates": "Oct 8 & 9, 2025",
+   "note": "A bowl of red soup with parmesan and squares of cheesy garlic toast.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 Tbsp butter",
+      "1 onion",
+      "3 cloves garlic",
+      "28 oz crushed tomatoes",
+      "2 cups broth",
+      "½ cup cream",
+      "basil",
+      "parmesan"
+     ]
+    },
+    {
+     "group": "Toast",
+     "items": [
+      "bread",
+      "garlic butter",
+      "mozzarella"
+     ]
+    }
+   ],
+   "steps": [
+    "Soften the onion and garlic in the butter. Add the tomatoes and broth and simmer 20 min.",
+    "Blend and stir in the cream and basil.",
+    "Spread bread with garlic butter, top with cheese and broil until bubbly."
+   ]
+  },
+  {
+   "id": "caesar-salad",
+   "title": "Caesar salad",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 4,
+   "madeDates": "Jul 25, 2024 · Jun 3 & 7, 2025 · Aug 15, 2025",
+   "note": "Romaine with creamy dressing, croutons and parmesan, often with crispy chicken or bacon.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Romaine",
+      "parmesan",
+      "croutons",
+      "crispy chicken or bacon"
+     ]
+    },
+    {
+     "group": "Dressing",
+     "items": [
+      "½ cup mayo",
+      "1 Tbsp lemon juice",
+      "1 tsp Dijon",
+      "1 tsp Worcestershire",
+      "1 clove garlic",
+      "⅓ cup parmesan",
+      "anchovy paste (optional)"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk the dressing.",
+    "Toss with the chopped romaine.",
+    "Top with croutons, parmesan and the chicken or bacon."
+   ]
+  },
+  {
+   "id": "balsamic-asparagus-and-green-beans",
+   "title": "Balsamic asparagus and green beans",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Mar 18, 2025 · Mar 24, 2025",
+   "note": "Charred asparagus and green beans with a dark glaze.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Asparagus or green beans",
+      "olive oil",
+      "salt",
+      "balsamic glaze"
+     ]
+    }
+   ],
+   "steps": [
+    "Toss the vegetables with oil and salt.",
+    "Roast at 425°F for 10–12 min, or sear in a very hot skillet.",
+    "Drizzle with balsamic glaze."
+   ]
+  },
+  {
+   "id": "herb-crusted-pork-tenderloin",
+   "title": "Herb-crusted pork tenderloin",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "proteins": [
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 2,
+   "madeDates": "Jun 5, 2025 · Jun 18, 2025",
+   "note": "Sliced roast pork tenderloin with green beans and yellow squash.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 pork tenderloin",
+      "1 Tbsp Dijon",
+      "2 cloves garlic",
+      "1 tsp Italian herbs",
+      "olive oil",
+      "green beans",
+      "yellow squash"
+     ]
+    }
+   ],
+   "steps": [
+    "Rub the pork with Dijon, garlic, herbs and salt.",
+    "Sear on all sides for 5 min, then roast at 425°F for 12–18 min, until 145°F inside. Rest 5 min.",
+    "Roast or sauté the vegetables while it rests."
+   ]
+  },
+  {
+   "id": "crispy-chicken-wings",
+   "title": "Crispy chicken wings",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "proteins": [
+    "chicken"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 3,
+   "madeDates": "Sep 20, 2024 · Feb 7, 2026 · Mar 7, 2026",
+   "note": "Wings with ranch or blue cheese, celery and carrots, sometimes buffalo style.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "2 lb wings",
+      "1 Tbsp aluminum-free baking powder",
+      "1 tsp salt",
+      "½ tsp garlic powder",
+      "Ranch or blue cheese",
+      "celery",
+      "carrots"
+     ]
+    },
+    {
+     "group": "Buffalo sauce",
+     "items": [
+      "½ cup hot sauce",
+      "4 Tbsp melted butter"
+     ]
+    }
+   ],
+   "steps": [
+    "Pat the wings very dry and toss with the baking powder, salt and garlic powder.",
+    "Air fry at 380°F for 20 min, flip, then 400°F for 5–8 min. Or bake on a rack at 425°F for 45 min.",
+    "Toss in buffalo sauce if you like and serve with dip."
+   ]
+  },
+  {
+   "id": "steak-bites-with-sweet-potato-fries",
+   "title": "Steak bites with sweet potato fries",
+   "section": "salads-sides-dinners",
+   "source": "made",
+   "proteins": [
+    "beef"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Jan 6, 2026",
+   "note": "Seared steak bites and sweet potato fries with a green dipping sauce.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1 lb sirloin",
+      "butter",
+      "garlic",
+      "salt",
+      "pepper"
+     ]
+    },
+    {
+     "group": "Fries",
+     "items": [
+      "2 sweet potatoes",
+      "1 tsp cornstarch",
+      "oil",
+      "smoked paprika"
+     ]
+    },
+    {
+     "group": "Green dip",
+     "items": [
+      "ranch blended with a jalapeño and cilantro"
+     ]
+    }
+   ],
+   "steps": [
+    "Cut the sweet potatoes into fries, toss with the cornstarch, oil, paprika and salt, and bake at 425°F for 25–30 min, turning once.",
+    "Cube the steak, season and sear in a very hot pan 2–3 min. Add butter and garlic for the last minute.",
+    "Blend the dip and serve."
+   ]
+  },
+  {
+   "id": "burgers-caprese-or-avocado-bacon",
+   "title": "Burgers, caprese or avocado-bacon",
+   "section": "burgers-baking",
+   "source": "made",
+   "proteins": [
+    "beef",
+    "pork"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "clear",
+   "madeTimes": 3,
+   "madeDates": "Jul 17, 2024 (caprese) · Jul 30, 2024 · Dec 4, 2025",
+   "note": "One burger with fresh mozzarella, tomato, basil and balsamic, and others with cheddar, avocado or bacon.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "1½ lb ground beef (80/20)",
+      "brioche buns"
+     ]
+    },
+    {
+     "group": "Caprese",
+     "items": [
+      "fresh mozzarella",
+      "tomato",
+      "basil or pesto",
+      "balsamic glaze"
+     ]
+    },
+    {
+     "group": "Classic",
+     "items": [
+      "cheddar",
+      "bacon",
+      "avocado"
+     ]
+    }
+   ],
+   "steps": [
+    "Form ⅓-lb patties with a thumbprint in the middle and season well.",
+    "Cook 3–4 min per side, until 160°F inside. Add the cheese for the last minute with a lid on.",
+    "Build on toasted buns with your toppings."
+   ]
+  },
+  {
+   "id": "cinnamon-rolls",
+   "title": "Cinnamon rolls",
+   "section": "burgers-baking",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "clear",
+   "madeTimes": 1,
+   "madeDates": "Jul 29, 2024",
+   "note": "Fat, swirled cinnamon rolls with white icing.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": "Dough",
+     "items": [
+      "1 cup warm milk",
+      "2¼ tsp yeast",
+      "¼ cup sugar",
+      "1 egg",
+      "⅓ cup melted butter",
+      "3½ cups flour",
+      "1 tsp salt"
+     ]
+    },
+    {
+     "group": "Filling",
+     "items": [
+      "⅓ cup soft butter",
+      "¾ cup brown sugar",
+      "2 Tbsp cinnamon"
+     ]
+    },
+    {
+     "group": "Icing",
+     "items": [
+      "4 oz cream cheese",
+      "2 Tbsp butter",
+      "1 cup powdered sugar",
+      "vanilla"
+     ]
+    }
+   ],
+   "steps": [
+    "Mix and knead the dough 6–8 min. Let it rise 1 hour.",
+    "Roll to 16×12 inches, spread the filling, roll up and cut 12 rolls. Rise 30–45 min.",
+    "Bake at 350°F for 22–25 min and spread the icing on while warm."
+   ]
+  },
+  {
+   "id": "frosted-pumpkin-bars",
+   "title": "Frosted pumpkin bars",
+   "section": "burgers-baking",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": true,
+   "confidence": "guess",
+   "madeTimes": 1,
+   "madeDates": "Nov 27, 2025 (Thanksgiving)",
+   "note": "Squares with white frosting and a caramel-colored drizzle. I'm guessing pumpkin from the date and color.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "15 oz pumpkin purée",
+      "4 eggs",
+      "1 cup oil",
+      "1½ cups sugar",
+      "2 cups flour",
+      "2 tsp baking powder",
+      "1 tsp baking soda",
+      "2 tsp cinnamon",
+      "½ tsp salt",
+      "cream cheese frosting",
+      "caramel sauce"
+     ]
+    }
+   ],
+   "steps": [
+    "Whisk the wet ingredients, then stir in the dry.",
+    "Bake in a greased 10×15 pan at 350°F for 25–30 min. Cool completely.",
+    "Frost and drizzle with caramel."
+   ]
+  },
+  {
+   "id": "lemon-icebox-pie",
+   "title": "Lemon icebox pie",
+   "section": "burgers-baking",
+   "source": "made",
+   "proteins": [
+    "meatless"
+   ],
+   "slowCooker": false,
+   "cozy": false,
+   "confidence": "guess",
+   "madeTimes": 1,
+   "madeDates": "Nov 11, 2024",
+   "note": "A pale lemon dessert in a glass dish with a lemon slice on top.",
+   "time": null,
+   "ingredients": [
+    {
+     "group": null,
+     "items": [
+      "Graham cracker crust",
+      "8 oz cream cheese",
+      "14 oz sweetened condensed milk",
+      "½ cup lemon juice",
+      "1 Tbsp zest"
+     ]
+    }
+   ],
+   "steps": [
+    "Beat the cream cheese until smooth, then the condensed milk, lemon juice and zest.",
+    "Pour into the crust.",
+    "Chill at least 4 hours and top with a lemon slice."
+   ]
+  }
+ ]
+}
