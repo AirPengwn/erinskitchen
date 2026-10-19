@@ -43,5 +43,18 @@
    "intro": ""
   }
  ],
- "box": []
+ "box": [
+  {
+   "id": "slow-cooker-italian-sausage-and-peppers",
+   "section": "dinners",
+   "blurb": "",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  }
+ ]
 }
