@@ -656,7 +656,11 @@
     var storage = field('Leftovers', area(r.storage, 3, 'Fridge up to 4 days. Reheat...'));
     var credit = field('Source', text(r.credit, "Like: Grandma's card, or a website name"), 'Optional.');
 
-    var pass = passRow(form, true);
+    // A passcode typed in just for this editor (opts.passcode) is used as is and never remembered.
+    var pass = opts.passcode ? {
+      get: function () { return opts.passcode; }, ok: function () {}, need: function () { return false; },
+      bad: function () { setStatus('That passcode stopped working. Go back to the recipe and open the editor again.', true); }
+    } : passRow(form, true);
     var status = el('p', 'status'); status.setAttribute('aria-live', 'polite');
     function setStatus(msg, isErr) { status.textContent = msg; status.className = 'status' + (isErr ? ' error' : ''); }
 
@@ -751,24 +755,55 @@
     body.appendChild(el('p', 'vhint', "Changes go into the shared library, so they show in every kitchen. Your box, tags, notes and photo stay as they are."));
     var host = el('div'); body.appendChild(host);
     viewer.appendChild(body);
-    recipeForm(host, r, {
-      saveLabel: 'Save changes', askClaude: true, onCancel: toRecipe,
-      onSave: function (x, ui) {
-        if (ui.pass.need()) { ui.setStatus('Enter the passcode, then tap Save changes.', true); return Promise.resolve(); }
-        ui.setStatus('Saving…');
-        return helper('/edit', { passcode: ui.pass.get(), person: PERSON, id: r.id, recipe: x }).then(function (j) {
-          ui.pass.ok();
-          library.forEach(function (lr, i) { if (lr.id === r.id) library[i] = j.recipe; });
-          refresh();
-          flash = j.changed ? 'Saved. It shows here now; everyone else sees the change in a minute or two.' : 'Nothing had changed, so there was nothing to save.';
-          toRecipe();
-        });
-      }
+
+    // Editing always asks for the passcode, even on a device that remembers it for other changes.
+    var gate = el('form', 'editor egate'); gate.noValidate = true;
+    var gf = el('div', 'field');
+    var gl = el('label', null, person.name + "'s passcode"); gl.htmlFor = 'edit-pass';
+    var gi = el('input'); gi.type = 'password'; gi.id = 'edit-pass'; gi.autocomplete = 'current-password';
+    gf.appendChild(gl); gf.appendChild(gi);
+    gf.appendChild(el('span', 'hint', 'Editing asks for the passcode every time, and this device doesn\'t keep it.'));
+    gate.appendChild(gf);
+    var go = btn('btn primary', 'Start editing'); go.type = 'submit';
+    var cancel = btn('btn', 'Cancel'); cancel.addEventListener('click', toRecipe);
+    var gr = el('div', 'btn-row'); gr.appendChild(go); gr.appendChild(cancel); gate.appendChild(gr);
+    var gs = el('p', 'status'); gs.setAttribute('aria-live', 'polite'); gate.appendChild(gs);
+    host.appendChild(gate);
+    function gateErr(msg) { gs.className = 'status error'; gs.textContent = msg; gi.select(); gi.focus(); }
+    gate.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var code = gi.value.trim();
+      if (!code) { gateErr('Enter the passcode first.'); return; }
+      go.disabled = true; gs.className = 'status'; gs.textContent = 'Checking…';
+      helper('/check', { passcode: code }).then(function (j) {
+        if (j.person !== PERSON) { gateErr("That isn't " + person.name + "'s passcode."); return; }
+        openForm(code);
+      }).catch(function (err) {
+        gateErr(err.status === 401 ? "That passcode didn't work." : errText(err));
+      }).then(function () { go.disabled = false; });
     });
+
+    function openForm(code) {
+      recipeForm(host, r, {
+        saveLabel: 'Save changes', askClaude: true, onCancel: toRecipe, passcode: code,
+        onSave: function (x, ui) {
+          ui.setStatus('Saving…');
+          return helper('/edit', { passcode: code, person: PERSON, id: r.id, recipe: x }).then(function (j) {
+            library.forEach(function (lr, i) { if (lr.id === r.id) library[i] = j.recipe; });
+            refresh();
+            flash = j.changed ? 'Saved. It shows here now; everyone else sees the change in a minute or two.' : 'Nothing had changed, so there was nothing to save.';
+            toRecipe();
+          });
+        }
+      });
+      var first = host.querySelector('textarea, input');
+      if (first) first.focus({ preventScroll: true });
+    }
+
     show('viewer');
     document.title = 'Edit ' + r.title + ' · ' + person.title;
     window.scrollTo(0, 0);
-    back.focus({ preventScroll: true });
+    gi.focus({ preventScroll: true });
   }
 
   /* ---------- Recipe view ---------- */
