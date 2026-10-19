@@ -86,7 +86,7 @@ Put the helper's address in `site.json` at the top of the repo and commit:
 ## 7. Try it
 
 1. Open a kitchen (<https://airpengwn.github.io/kitchen/erin/> or <https://airpengwn.github.io/kitchen/mulberry/>) and tap **+ Add a recipe**.
-2. Paste a recipe or add a screenshot, enter the passcode and tap **Read recipe**.
+2. Paste a recipe, or add photos, screenshots, a PDF or a Word document (.docx, .doc or .rtf). Enter the passcode and tap **Read recipe**. Word documents are turned into text in the browser first; PDFs go to Claude as they are, so scanned pages work too.
 3. Check the preview. If something's wrong, describe it under **Something off?**, choose where the recipe goes, and tap **Save recipe**.
 
 ---

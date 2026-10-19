@@ -1,6 +1,6 @@
 // Kitchen helper: a small Cloudflare Worker behind the "Add a recipe" button.
 //   POST /check  { passcode }                       -> { ok, person }
-//   POST /parse  { passcode, person, text, images, sections, previous?, fix? }
+//   POST /parse  { passcode, person, text, images, pdf?: { name, data }, sections, previous?, fix? }
 //                -> { recipe, note, suggestedSection, assumptions }
 //   POST /save   { passcode, person, recipe, box: { mode, section, blurb, date } }
 //                -> { id, recipe, entry }
@@ -15,6 +15,8 @@ const PROTEINS = ["chicken", "beef", "pork", "seafood", "eggs", "meatless"];
 const IMAGE_TYPES = ["image/jpeg", "image/png", "image/webp", "image/gif"];
 const MAX_IMAGES = 3;
 const MAX_IMAGE_B64 = 7_000_000; // about 5 MB per image
+const MAX_PDF_B64 = 20_000_000; // about 15 MB
+const MAX_TOTAL_B64 = 28_000_000; // keeps the whole Claude request under its 32 MB limit
 const MAX_TEXT = 30_000;
 
 const STR_ARRAY = { type: "array", items: { type: "string" } };
@@ -53,7 +55,7 @@ const RECIPE_SCHEMA = {
 
 const SYSTEM = `You turn recipes into the house format for a family recipe website. The cook follows these recipes on a phone while cooking, so every recipe must be complete enough to cook from without guessing.
 
-You get a recipe as pasted text, one or more screenshots/photos, or both. Read all of it. If it is not a recipe, set isRecipe to false, leave the other text fields empty, and put one sentence in assumptions saying what you saw instead.
+You get a recipe as pasted text, screenshots/photos, a PDF, or a mix. Read all of it. A PDF may hold text, scanned pages, or both, and may contain more than one recipe or unrelated pages: use the recipe the cook means (the pasted text may say which; otherwise the first complete recipe), and if there were others, say in assumptions which one you used. If it is not a recipe, set isRecipe to false, leave the other text fields empty, and put one sentence in assumptions saying what you saw instead.
 
 Stay faithful to the source: same dish, same ingredients and amounts, same method. Write every step in your own words; never copy the source's sentences. Then fill in what the source leaves out, using standard technique, and list each thing you added or changed in "assumptions" as one short sentence (for example "Added an oven temperature of 425°F; the source didn't give one."). If the source is unreadable in places, say so in assumptions rather than inventing amounts.
 
@@ -173,8 +175,16 @@ async function parseRecipe(body, env) {
     if (!im || !IMAGE_TYPES.includes(im.media_type) || typeof im.data !== "string") throw new HttpError(400, "One of the images isn't a supported type.");
     if (im.data.length > MAX_IMAGE_B64) throw new HttpError(413, "One of the images is too large.");
   }
+  const pdf = body.pdf && typeof body.pdf === "object" ? body.pdf : null;
+  if (pdf) {
+    // the base64 of every PDF starts with "JVBER" ("%PDF")
+    if (typeof pdf.data !== "string" || !pdf.data.startsWith("JVBER")) throw new HttpError(400, "That file isn't a PDF.");
+    if (pdf.data.length > MAX_PDF_B64) throw new HttpError(413, "That PDF is too large. Save just the recipe pages as a new PDF, or use screenshots.");
+  }
+  const total = images.reduce((n, im) => n + im.data.length, 0) + (pdf ? pdf.data.length : 0);
+  if (total > MAX_TOTAL_B64) throw new HttpError(413, "That's too much to send at once. Use fewer or smaller files.");
   const hasPrevious = body.previous && typeof body.previous === "object";
-  if (!text.trim() && !images.length && !hasPrevious) throw new HttpError(400, "Paste some text or add an image first.");
+  if (!text.trim() && !images.length && !pdf && !hasPrevious) throw new HttpError(400, "Paste some text or add an image first.");
 
   const sections = (Array.isArray(body.sections) ? body.sections : []).slice(0, 40)
     .filter((s) => s && typeof s.id === "string").map((s) => `- ${cleanText(s.id, 80)}: ${cleanText(s.title, 120)}`).join("\n");
@@ -182,11 +192,13 @@ async function parseRecipe(body, env) {
   let prompt = `The recipe is for ${cleanText(body.person, 40)}'s page. Sections on that page:\n${sections || "(none)"}\n`;
   if (text.trim()) prompt += `\nPasted text:\n<<<\n${text}\n>>>\n`;
   if (images.length) prompt += `\n${images.length} image(s) of the recipe are attached above.\n`;
+  if (pdf) prompt += `\nA PDF${pdf.name ? ` ("${cleanText(pdf.name, 120)}")` : ""} with the recipe is attached above.\n`;
   if (hasPrevious) {
     prompt += `\nYou already turned this into the recipe below. Apply the cook's correction and return the full corrected recipe. Keep everything else the same unless the correction requires changing it.\nPrevious recipe:\n${JSON.stringify(body.previous).slice(0, 40_000)}\nCorrection:\n${cleanText(body.fix, 2000)}\n`;
   }
 
   const content = [
+    ...(pdf ? [{ type: "document", source: { type: "base64", media_type: "application/pdf", data: pdf.data } }] : []),
     ...images.map((im) => ({ type: "image", source: { type: "base64", media_type: im.media_type, data: im.data } })),
     { type: "text", text: prompt },
   ];
@@ -209,7 +221,7 @@ async function parseRecipe(body, env) {
   } catch (e) {
     if (e instanceof Anthropic.AuthenticationError) throw new HttpError(500, "The helper's Claude API key isn't working.");
     if (e instanceof Anthropic.RateLimitError) throw new HttpError(429, "Claude is busy right now. Wait a minute and try again.");
-    if (e instanceof Anthropic.BadRequestError) throw new HttpError(400, "Claude couldn't read that. Try a clearer screenshot or paste the text instead.");
+    if (e instanceof Anthropic.BadRequestError) throw new HttpError(400, pdf ? "Claude couldn't read that PDF. If it has a password, remove it or use screenshots instead." : "Claude couldn't read that. Try a clearer screenshot or paste the text instead.");
     if (e instanceof Anthropic.APIError) throw new HttpError(502, "Claude had a problem. Try again in a minute.");
     throw new HttpError(502, "Couldn't reach Claude. Try again in a minute.");
   }
@@ -383,7 +395,7 @@ export default {
     if (req.method === "GET" && url.pathname === "/") return json(req, env, 200, { ok: true, service: "kitchen-helper" });
     if (req.method !== "POST") return json(req, env, 405, { error: "Use POST." });
     const len = Number(req.headers.get("Content-Length") || 0);
-    if (len > 24_000_000) return json(req, env, 413, { error: "That's too much to send at once. Use fewer or smaller images." });
+    if (len > 30_000_000) return json(req, env, 413, { error: "That's too much to send at once. Use fewer or smaller files." });
     try {
       let body;
       try { body = await req.json(); } catch { throw new HttpError(400, "The request wasn't readable."); }

@@ -577,7 +577,7 @@
   window.addEventListener('hashchange', route);
 
   /* ---------- Add a recipe ---------- */
-  var add = { images: [], parsed: null, busy: false };
+  var add = { images: [], pdf: null, parsed: null, busy: false };
 
   function shrink(file) {
     return new Promise(function (resolve, reject) {
@@ -596,30 +596,69 @@
     });
   }
 
-  // Word documents are read in the browser: the text goes into the text box so it can be checked
-  // before Claude sees it. The reader (mammoth) is only downloaded the first time someone adds a .docx.
-  var MAMMOTH = { src: 'https://cdn.jsdelivr.net/npm/mammoth@1.12.3/mammoth.browser.min.js', integrity: 'sha384-xqNXvcKbEqifokHcBnB0H32p+OQchhD/T/xJGWCMAW5fC0c0MBf9atO3weoPCT84' };
-  var mammothLoad = null;
-  function loadMammoth() {
-    if (window.mammoth) return Promise.resolve(window.mammoth);
-    if (!mammothLoad) mammothLoad = new Promise(function (resolve, reject) {
+  // Documents are read in the browser so their text lands in the text box, where it can be checked
+  // before Claude sees it. PDFs go to Claude as they are: it reads both their text and their page
+  // images, so scanned recipes work too. Each reader is downloaded only the first time it's needed.
+  var LIBS = {
+    mammoth: { src: 'https://cdn.jsdelivr.net/npm/mammoth@1.12.3/mammoth.browser.min.js', integrity: 'sha384-xqNXvcKbEqifokHcBnB0H32p+OQchhD/T/xJGWCMAW5fC0c0MBf9atO3weoPCT84' },
+    CFB: { src: 'https://cdn.jsdelivr.net/npm/cfb@1.2.2/dist/cfb.min.js', integrity: 'sha384-peTByNpmIz2Wq5hOZJ3dZmZP4MJ6ZXwF9dZ3R8kW7/C6bMWdHEME3on5mt9DH7d5' }
+  };
+  var libLoads = {};
+  function loadLib(name) {
+    if (window[name]) return Promise.resolve(window[name]);
+    if (!libLoads[name]) libLoads[name] = new Promise(function (resolve, reject) {
       var s = document.createElement('script');
-      s.src = MAMMOTH.src; s.integrity = MAMMOTH.integrity; s.crossOrigin = 'anonymous';
-      s.onload = function () { resolve(window.mammoth); };
-      s.onerror = function () { mammothLoad = null; s.remove(); reject(new Error("Couldn't load the Word reader. Check the connection and try again.")); };
+      s.src = LIBS[name].src; s.integrity = LIBS[name].integrity; s.crossOrigin = 'anonymous';
+      s.onload = function () { resolve(window[name]); };
+      s.onerror = function () { delete libLoads[name]; s.remove(); reject(new Error("Couldn't load the document reader. Check the connection and try again.")); };
       document.head.appendChild(s);
     });
-    return mammothLoad;
+    return libLoads[name];
   }
-  function isDocx(f) { return /\.docx$/i.test(f.name || '') || f.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'; }
-  function isOldDoc(f) { return /\.doc$/i.test(f.name || '') || f.type === 'application/msword'; }
+  var MAX_PDF = 14500000; // the helper takes up to about 15 MB
+
+  // Go by a file's first bytes, not its name: old recipe files are often mislabeled.
+  function fileKind(f) {
+    return f.slice(0, 8).arrayBuffer().then(function (b) {
+      var u = new Uint8Array(b), head = String.fromCharCode.apply(null, u);
+      if (head.slice(0, 4) === '%PDF') return 'pdf';
+      if (head.slice(0, 4) === 'PK\x03\x04') return 'docx';
+      if (u[0] === 0xD0 && u[1] === 0xCF && u[2] === 0x11 && u[3] === 0xE0) return 'doc';
+      if (head.slice(0, 5) === '{\\rtf') return 'rtf';
+      if (/^image\//.test(f.type)) return 'image';
+      if (/^text\/plain/.test(f.type) || /\.txt$/i.test(f.name || '')) return 'txt';
+      return 'unknown';
+    });
+  }
+  function readText(file, kind) {
+    var read = kind === 'docx' ? readDocx(file) : file.arrayBuffer().then(function (buf) {
+      if (kind === 'txt') return { text: new TextDecoder().decode(buf), pics: [] };
+      if (kind === 'rtf') return { text: rtfText(new TextDecoder('windows-1252').decode(buf)), pics: [] };
+      return loadLib('CFB').then(function (CFB) {
+        try { return { text: docBinaryText(CFB, new Uint8Array(buf)), pics: [] }; }
+        catch (e) {
+          throw new Error(e.message === 'password' ? file.name + ' has a password. Open it in Word, remove the password, and add it again.'
+            : file.name + " couldn't be read. Open it in Word and use Save As → Word Document (.docx), or copy and paste the text.");
+        }
+      });
+    });
+    return read.then(function (d) { d.text = d.text.replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim(); return d; });
+  }
+  function readPdf(file) {
+    return new Promise(function (resolve, reject) {
+      var r = new FileReader();
+      r.onload = function () { resolve({ name: file.name, data: String(r.result).split(',')[1] }); };
+      r.onerror = function () { reject(new Error(file.name + " couldn't be opened.")); };
+      r.readAsDataURL(file);
+    });
+  }
   function readDocx(file) {
-    return Promise.all([loadMammoth(), file.arrayBuffer()]).then(function (r) {
+    return Promise.all([loadLib('mammoth'), file.arrayBuffer()]).then(function (r) {
       var m = r[0], buf = r[1], pics = [];
       var keepPic = m.images.imgElement(function (im) { pics.push(im); return Promise.resolve({ src: '' }); });
       return m.convertToHtml({ arrayBuffer: buf }, { convertImage: keepPic }).then(function (out) {
         return { text: docText(out.value), pics: pics };
-      }, function () { throw new Error(file.name + " couldn't be read as a Word document."); });
+      }, function () { throw new Error(file.name + " couldn't be read. If it's a Word document, open it in Word and save it again, or copy and paste the text."); });
     });
   }
   // Turns the document into plain lines: one per paragraph, list items keep their numbers or
@@ -660,6 +699,95 @@
     }).catch(function () { return null; }); // pictures the browser can't show (old Windows formats) are skipped
   }
 
+  // Old Word (.doc, Word 97–2003) is a binary "compound file". cfb opens the container; the text is
+  // then put back together from Word's piece table ([MS-DOC] 2.4.1). Formatting and automatic list
+  // numbers are lost, table rows come out as "a | b", and links keep only their visible text.
+  function docBinaryText(CFB, bytes) {
+    var cfb = CFB.read(bytes, { type: 'array' });
+    var wdEntry = CFB.find(cfb, 'WordDocument');
+    if (!wdEntry) throw new Error('not a Word file');
+    var wd = new Uint8Array(wdEntry.content), v = new DataView(wd.buffer, wd.byteOffset, wd.byteLength);
+    if (v.getUint16(0, true) !== 0xA5EC) throw new Error('not a Word file');
+    var nFib = v.getUint16(2, true), flags = v.getUint16(10, true);
+    if (flags & 0x0100) throw new Error('password');
+    var text;
+    if (nFib < 101) {
+      // Word 6/95: the text sits in one run of single-byte characters.
+      text = new TextDecoder('windows-1252').decode(wd.subarray(v.getUint32(0x18, true), v.getUint32(0x1C, true)));
+    } else {
+      var csw = v.getUint16(32, true), lw = 34 + csw * 2 + 2, cslw = v.getUint16(lw - 2, true);
+      var ccpText = v.getInt32(lw + 12, true), blob = lw + cslw * 4 + 2;
+      var fcClx = v.getUint32(blob + 33 * 8, true), lcbClx = v.getUint32(blob + 33 * 8 + 4, true);
+      var tblEntry = CFB.find(cfb, flags & 0x0200 ? '1Table' : '0Table');
+      if (!tblEntry || !lcbClx) throw new Error('no text table');
+      var tbl = new Uint8Array(tblEntry.content), tv = new DataView(tbl.buffer, tbl.byteOffset, tbl.byteLength);
+      var pos = fcClx, end = fcClx + lcbClx;
+      while (pos < end && tbl[pos] === 0x01) pos += 3 + tv.getUint16(pos + 1, true); // skip formatting blocks
+      if (tbl[pos] !== 0x02) throw new Error('no piece table');
+      var lcb = tv.getUint32(pos + 1, true), plc = pos + 5, n = (lcb - 4) / 12, parts = [];
+      var cp1252 = new TextDecoder('windows-1252'), utf16 = new TextDecoder('utf-16le');
+      for (var i = 0; i < n; i++) {
+        var cpStart = tv.getUint32(plc + i * 4, true), cpEnd = Math.min(tv.getUint32(plc + (i + 1) * 4, true), ccpText);
+        if (cpStart >= cpEnd) continue;
+        var fc = tv.getUint32(plc + (n + 1) * 4 + i * 8 + 2, true), len = cpEnd - cpStart;
+        if (fc & 0x40000000) { var o = (fc & 0x3FFFFFFF) / 2; parts.push(cp1252.decode(wd.subarray(o, o + len))); }
+        else parts.push(utf16.decode(wd.subarray(fc, fc + len * 2)));
+      }
+      text = parts.join('');
+    }
+    // Fields like links are "\x13 code \x14 shown text \x15": keep only the shown text.
+    var out = '', stack = [];
+    for (var k = 0; k < text.length; k++) {
+      var ch = text[k];
+      if (ch === '\x13') stack.push(false);
+      else if (ch === '\x14') { if (stack.length) stack[stack.length - 1] = true; }
+      else if (ch === '\x15') stack.pop();
+      else if (stack.every(Boolean)) out += ch;
+    }
+    return out
+      .replace(/\x07{2,}/g, '\n').replace(/\x07/g, ' | ') // table cells end in \x07, rows in another one
+      .replace(/[\r\x0b\x0c]/g, '\n').replace(/\x1e/g, '-').replace(/\xa0/g, ' ')
+      .replace(/[\x00-\x08\x0e-\x1f]/g, '');
+  }
+
+  // Some ".doc" files are really RTF; read the words out of it.
+  function rtfText(s) {
+    var out = '', depth = 0, skipAt = -1, uc = 1, skipChars = 0, i = 0;
+    var dest = /^(fonttbl|colortbl|stylesheet|info|pict|object|header|footer|headerl|headerr|footerl|footerr|listtable|listoverridetable|rsidtbl|generator|xmlnstbl|themedata|colorschememapping|latentstyles|datastore|fldinst)$/;
+    while (i < s.length) {
+      var c = s[i];
+      if (c === '{') { depth++; i++; continue; }
+      if (c === '}') { if (depth === skipAt) skipAt = -1; depth--; i++; continue; }
+      if (c === '\\') {
+        var m = /^\\(?:([a-zA-Z]+)(-?\d+)? ?|'([0-9a-fA-F]{2})|([^a-zA-Z]))/.exec(s.slice(i, i + 40));
+        if (!m) { i++; continue; }
+        i += m[0].length;
+        if (skipAt !== -1) continue;
+        if (m[4] === '*') { skipAt = depth; continue; }
+        var ch = '';
+        if (m[3]) ch = new TextDecoder('windows-1252').decode(new Uint8Array([parseInt(m[3], 16)]));
+        else if (m[4]) ch = m[4] === '~' ? ' ' : m[4] === '_' ? '-' : /[\\{}]/.test(m[4]) ? m[4] : m[4] === '\n' || m[4] === '\r' ? '\n' : '';
+        else if (dest.test(m[1])) { skipAt = depth; continue; }
+        else if (m[1] === 'uc') uc = +m[2];
+        else if (m[1] === 'u') { var code = +m[2]; ch = String.fromCharCode(code < 0 ? code + 65536 : code); skipChars = uc; out += ch; continue; }
+        else if (m[1] === 'par' || m[1] === 'line' || m[1] === 'row' || m[1] === 'sect' || m[1] === 'page') ch = '\n';
+        else if (m[1] === 'tab') ch = '\t';
+        else if (m[1] === 'cell') ch = ' | ';
+        else if (m[1] === 'emdash') ch = '—'; else if (m[1] === 'endash') ch = '–';
+        else if (m[1] === 'bullet') ch = '•';
+        else if (m[1] === 'lquote') ch = '‘'; else if (m[1] === 'rquote') ch = '’';
+        else if (m[1] === 'ldblquote') ch = '“'; else if (m[1] === 'rdblquote') ch = '”';
+        if (skipChars && m[3]) { skipChars--; continue; }
+        out += ch; continue;
+      }
+      i++;
+      if (skipAt !== -1 || c === '\r' || c === '\n') continue;
+      if (skipChars) { skipChars--; continue; }
+      out += c;
+    }
+    return out.replace(/(?: \| )+(?=\n|$)/g, '');
+  }
+
   function openAdd() {
     adder.textContent = '';
     add.parsed = null;
@@ -669,7 +797,7 @@
       adder.appendChild(el('p', 'status error', "Adding recipes isn't switched on yet. The helper service still needs to be set up (see SETUP.md in the GitHub repo)."));
       show('adder'); window.scrollTo(0, 0); return;
     }
-    adder.appendChild(el('p', 'vhint', "Paste a recipe's text, or add a screenshot, photo or Word document. Claude reads it and writes it in the same format as the other recipes. You'll see a preview before anything is saved. New recipes go into the whole library, so everyone can find them."));
+    adder.appendChild(el('p', 'vhint', "Paste a recipe's text, or add photos, screenshots, a PDF or a Word document. Claude reads it and writes it in the same format as the other recipes. You'll see a preview before anything is saved. New recipes go into the whole library, so everyone can find them."));
 
     var f1 = el('div', 'field');
     var l1 = el('label', null, 'Recipe text'); l1.htmlFor = 'add-text';
@@ -678,12 +806,12 @@
 
     var drop = el('div', 'drop');
     var file = el('input'); file.type = 'file'; file.multiple = true; file.id = 'add-file'; file.hidden = true;
-    file.accept = 'image/*,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
-    var pick = btn('btn', 'Add a photo or Word doc');
+    file.accept = 'image/*,.pdf,.docx,.doc,.rtf,.txt,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/msword,application/rtf,text/plain';
+    var pick = btn('btn', 'Add a photo or file');
     pick.addEventListener('click', function () { file.click(); });
     var thumbs = el('div', 'thumbs');
     drop.appendChild(pick); drop.appendChild(file);
-    drop.appendChild(el('span', 'hint', "Up to 3 images, for recipes that span a few screenshots. A Word document's text goes into the box above so you can check it. On a computer you can also drag or paste files here."));
+    drop.appendChild(el('span', 'hint', "Up to 3 photos or screenshots, and one PDF. A Word document's text (.docx or .doc) goes into the box above so you can check it. On a computer you can also drag or paste files here."));
     drop.appendChild(thumbs); adder.appendChild(drop);
 
     function drawThumbs() {
@@ -694,10 +822,16 @@
         x.addEventListener('click', function () { add.images.splice(i, 1); drawThumbs(); });
         t.appendChild(img); t.appendChild(x); thumbs.appendChild(t);
       });
+      if (add.pdf) {
+        var t = el('div', 'thumb file'); t.appendChild(el('strong', null, 'PDF')); t.appendChild(el('span', null, add.pdf.name));
+        var x = btn(null, '×'); x.setAttribute('aria-label', 'Remove ' + add.pdf.name);
+        x.addEventListener('click', function () { add.pdf = null; drawThumbs(); });
+        t.appendChild(x); thumbs.appendChild(t);
+      }
     }
-    function takeDoc(f) {
+    function takeDoc(f, kind) {
       setStatus('Reading ' + f.name + '…');
-      return readDocx(f).then(function (d) {
+      return readText(f, kind).then(function (d) {
         if (d.text) ta.value = (ta.value.trim() ? ta.value.trim() + '\n\n' : '') + d.text;
         // A doc that's mostly a pasted-in picture of a recipe: send the pictures. Otherwise the
         // text is the recipe and any photos are just decoration, so leave them out.
@@ -712,15 +846,33 @@
         });
       }).catch(function (e) { setStatus(e.message, true); });
     }
+    function takePdf(f) {
+      if (f.size > MAX_PDF) { setStatus(f.name + ' is over 14 MB. Save just the recipe pages as a new PDF, or use screenshots.', true); return Promise.resolve(); }
+      var replacing = !!add.pdf;
+      setStatus('Reading ' + f.name + '…');
+      return readPdf(f).then(function (p) {
+        add.pdf = p; drawThumbs();
+        setStatus((replacing ? 'Swapped in ' : 'Added ') + f.name + '. Claude reads the whole PDF when you tap Read recipe.');
+      }).catch(function (e) { setStatus(e.message, true); });
+    }
+    function takeImages(files) {
+      files = files.slice(0, 3 - add.images.length);
+      if (!files.length) { setStatus('You can add up to 3 photos. Remove one to add another.', true); return Promise.resolve(); }
+      setStatus('Preparing images…');
+      return Promise.all(files.map(shrink)).then(function (ims) { add.images = add.images.concat(ims).slice(0, 3); drawThumbs(); setStatus(''); })
+        .catch(function (e) { setStatus(e.message, true); });
+    }
     function takeFiles(list) {
       var all = Array.prototype.slice.call(list);
-      if (all.some(isOldDoc)) setStatus("That's an older Word file (.doc). Open it in Word, use Save As → Word Document (.docx), and add that instead. Or copy the text and paste it above.", true);
-      all.filter(isDocx).reduce(function (p, f) { return p.then(function () { return takeDoc(f); }); }, Promise.resolve());
-      var files = all.filter(function (f) { return /^image\//.test(f.type); }).slice(0, 3 - add.images.length);
-      if (!files.length) return;
-      setStatus('Preparing images…');
-      Promise.all(files.map(shrink)).then(function (ims) { add.images = add.images.concat(ims).slice(0, 3); drawThumbs(); setStatus(''); })
-        .catch(function (e) { setStatus(e.message, true); });
+      Promise.all(all.map(fileKind)).then(function (kinds) {
+        var imgs = [], pdfs = [], docs = [], bad = [];
+        all.forEach(function (f, i) { (kinds[i] === 'image' ? imgs : kinds[i] === 'pdf' ? pdfs : kinds[i] === 'unknown' ? bad : docs).push({ f: f, kind: kinds[i] }); });
+        var steps = Promise.resolve();
+        if (pdfs.length) steps = steps.then(function () { return takePdf(pdfs[pdfs.length - 1].f); });
+        docs.forEach(function (d) { steps = steps.then(function () { return takeDoc(d.f, d.kind); }); });
+        if (imgs.length) steps = steps.then(function () { return takeImages(imgs.map(function (x) { return x.f; })); });
+        if (bad.length) steps.then(function () { setStatus(bad[0].f.name + " isn't a kind of file that can be read here. Use a photo, screenshot, PDF or Word document, or paste the text.", true); });
+      });
     }
     file.addEventListener('change', function () { takeFiles(file.files); file.value = ''; });
     drop.addEventListener('dragover', function (e) { e.preventDefault(); drop.classList.add('over'); });
@@ -743,7 +895,7 @@
     function runParse(extra) {
       if (add.busy) return;
       var text = ta.value.trim();
-      if (!text && !add.images.length) { setStatus('Paste some text or add an image first.', true); return; }
+      if (!text && !add.images.length && !add.pdf) { setStatus('Paste some text or add a photo or file first.', true); return; }
       if (pass.need()) { setStatus('Enter the passcode.', true); return; }
       add.busy = true; go.disabled = true;
       var t0 = Date.now();
@@ -754,6 +906,7 @@
         images: add.images.map(function (im) { return { media_type: im.media_type, data: im.data }; }),
         sections: person.sections.map(function (s) { return { id: s.id, title: s.title }; })
       };
+      if (add.pdf) payload.pdf = { name: add.pdf.name, data: add.pdf.data };
       if (extra) { payload.previous = extra.previous; payload.fix = extra.fix; }
       helper('/parse', payload).then(function (j) {
         pass.ok();
@@ -817,7 +970,7 @@
 
       var saveBtn = btn('btn primary', 'Save recipe');
       var again = btn('btn', 'Start over');
-      again.addEventListener('click', function () { add.images = []; openAdd(); window.scrollTo(0, 0); });
+      again.addEventListener('click', function () { add.images = []; add.pdf = null; openAdd(); window.scrollTo(0, 0); });
       var sr = el('div', 'btn-row'); sr.appendChild(saveBtn); sr.appendChild(again); pv.appendChild(sr);
       var sstatus = el('p', 'status'); sstatus.setAttribute('aria-live', 'polite'); pv.appendChild(sstatus);
 
@@ -852,7 +1005,7 @@
       var row2 = el('div', 'btn-row');
       var view = el('a', 'btn primary', 'View recipe'); view.href = '#r-' + r.id;
       var another = btn('btn', 'Add another');
-      another.addEventListener('click', function () { add.images = []; openAdd(); window.scrollTo(0, 0); });
+      another.addEventListener('click', function () { add.images = []; add.pdf = null; openAdd(); window.scrollTo(0, 0); });
       row2.appendChild(view); row2.appendChild(another); adder.appendChild(row2);
       window.scrollTo(0, 0);
     }

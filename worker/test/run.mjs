@@ -133,6 +133,23 @@ await test("oversized image is rejected before calling Claude", async () => {
   assert.equal(lastClaudeBody, null);
 });
 
+await test("a PDF goes to Claude as a document, first, with its name in the prompt", async () => {
+  const r = await call("/parse", { passcode: "correct horse", person: "erin", pdf: { name: "Nana's pie.pdf", data: "JVBERi0xLjQK" } });
+  assert.equal(r.status, 200, JSON.stringify(await r.clone().json()));
+  const c = lastClaudeBody.messages[0].content;
+  assert.deepEqual(c[0], { type: "document", source: { type: "base64", media_type: "application/pdf", data: "JVBERi0xLjQK" } });
+  assert.match(c.at(-1).text, /A PDF \("Nana's pie.pdf"\) with the recipe is attached above/);
+});
+
+await test("bad and oversized PDFs are refused before calling Claude", async () => {
+  lastClaudeBody = null;
+  assert.equal((await call("/parse", { passcode: "correct horse", person: "erin", pdf: { data: "iVBORw0KGgo" } })).status, 400);
+  assert.equal((await call("/parse", { passcode: "correct horse", person: "erin", pdf: { data: "JVBER" + "A".repeat(20_000_000) } })).status, 413);
+  const big = { media_type: "image/jpeg", data: "A".repeat(6_000_000) };
+  assert.equal((await call("/parse", { passcode: "correct horse", person: "erin", images: [big, big], pdf: { data: "JVBER" + "A".repeat(17_000_000) } })).status, 413);
+  assert.equal(lastClaudeBody, null);
+});
+
 await test("save into the box picks a free id, writes the recipe and updates the person file", async () => {
   const { recipe } = await (await call("/parse", { passcode: "correct horse", person: "erin", text: "chili" })).json();
   const r = await call("/save", { passcode: "correct horse", person: "erin", recipe, box: { mode: "made", section: "soups-stews", blurb: "Cozy.", date: "Oct 19, 2026" } });
