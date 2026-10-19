@@ -43,18 +43,5 @@
    "intro": ""
   }
  ],
- "box": [
-  {
-   "id": "slow-cooker-italian-sausage-and-peppers",
-   "section": "soups-and-slow-cooker",
-   "blurb": "Well-browned sausage braised low and slow with peppers and onions makes a hearty filling for crusty grinders or a bowl of polenta.",
-   "note": "",
-   "tags": [],
-   "made": {
-    "count": 0,
-    "log": []
-   },
-   "confidence": "clear"
-  }
- ]
+ "box": []
 }
