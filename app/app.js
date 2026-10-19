@@ -596,6 +596,70 @@
     });
   }
 
+  // Word documents are read in the browser: the text goes into the text box so it can be checked
+  // before Claude sees it. The reader (mammoth) is only downloaded the first time someone adds a .docx.
+  var MAMMOTH = { src: 'https://cdn.jsdelivr.net/npm/mammoth@1.12.3/mammoth.browser.min.js', integrity: 'sha384-xqNXvcKbEqifokHcBnB0H32p+OQchhD/T/xJGWCMAW5fC0c0MBf9atO3weoPCT84' };
+  var mammothLoad = null;
+  function loadMammoth() {
+    if (window.mammoth) return Promise.resolve(window.mammoth);
+    if (!mammothLoad) mammothLoad = new Promise(function (resolve, reject) {
+      var s = document.createElement('script');
+      s.src = MAMMOTH.src; s.integrity = MAMMOTH.integrity; s.crossOrigin = 'anonymous';
+      s.onload = function () { resolve(window.mammoth); };
+      s.onerror = function () { mammothLoad = null; s.remove(); reject(new Error("Couldn't load the Word reader. Check the connection and try again.")); };
+      document.head.appendChild(s);
+    });
+    return mammothLoad;
+  }
+  function isDocx(f) { return /\.docx$/i.test(f.name || '') || f.type === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'; }
+  function isOldDoc(f) { return /\.doc$/i.test(f.name || '') || f.type === 'application/msword'; }
+  function readDocx(file) {
+    return Promise.all([loadMammoth(), file.arrayBuffer()]).then(function (r) {
+      var m = r[0], buf = r[1], pics = [];
+      var keepPic = m.images.imgElement(function (im) { pics.push(im); return Promise.resolve({ src: '' }); });
+      return m.convertToHtml({ arrayBuffer: buf }, { convertImage: keepPic }).then(function (out) {
+        return { text: docText(out.value), pics: pics };
+      }, function () { throw new Error(file.name + " couldn't be read as a Word document."); });
+    });
+  }
+  // Turns the document into plain lines: one per paragraph, list items keep their numbers or
+  // bullets, and each table row stays on one line ("1 cup | oats") so amounts stay with ingredients.
+  function docText(html) {
+    var body = new DOMParser().parseFromString('<body>' + html + '</body>', 'text/html').body, lines = [];
+    var clean = function (s) { return s.replace(/\s+/g, ' ').trim(); };
+    function list(n, depth) {
+      var i = 0;
+      Array.prototype.forEach.call(n.children, function (li) {
+        if (li.tagName !== 'LI') return;
+        var own = li.cloneNode(true);
+        Array.prototype.forEach.call(own.querySelectorAll('ol, ul'), function (x) { x.remove(); });
+        var t = clean(own.textContent);
+        if (t) lines.push('  '.repeat(depth) + (n.tagName === 'OL' ? ++i + '. ' : '• ') + t);
+        Array.prototype.forEach.call(li.children, function (c) { if (c.tagName === 'OL' || c.tagName === 'UL') list(c, depth + 1); });
+      });
+    }
+    Array.prototype.forEach.call(body.children, function (n) {
+      if (n.tagName === 'OL' || n.tagName === 'UL') list(n, 0);
+      else if (n.tagName === 'TABLE') Array.prototype.forEach.call(n.querySelectorAll('tr'), function (tr) {
+        var cells = Array.prototype.map.call(tr.children, function (c) { return clean(c.textContent); }).filter(Boolean);
+        if (cells.length) lines.push(cells.join(' | '));
+      });
+      else {
+        var t = clean(n.textContent);
+        if (/^H\d$/.test(n.tagName)) lines.push('');
+        if (t) lines.push(t);
+      }
+    });
+    return lines.join('\n').replace(/\n{3,}/g, '\n\n').trim();
+  }
+  function picToImage(im) {
+    return im.readAsBase64String().then(function (b64) {
+      var bin = atob(b64), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return shrink(new Blob([bytes], { type: im.contentType }));
+    }).catch(function () { return null; }); // pictures the browser can't show (old Windows formats) are skipped
+  }
+
   function openAdd() {
     adder.textContent = '';
     add.parsed = null;
@@ -605,7 +669,7 @@
       adder.appendChild(el('p', 'status error', "Adding recipes isn't switched on yet. The helper service still needs to be set up (see SETUP.md in the GitHub repo)."));
       show('adder'); window.scrollTo(0, 0); return;
     }
-    adder.appendChild(el('p', 'vhint', "Paste a recipe's text, add a screenshot or photo, or both. Claude reads it and writes it in the same format as the other recipes. You'll see a preview before anything is saved. New recipes go into the whole library, so everyone can find them."));
+    adder.appendChild(el('p', 'vhint', "Paste a recipe's text, or add a screenshot, photo or Word document. Claude reads it and writes it in the same format as the other recipes. You'll see a preview before anything is saved. New recipes go into the whole library, so everyone can find them."));
 
     var f1 = el('div', 'field');
     var l1 = el('label', null, 'Recipe text'); l1.htmlFor = 'add-text';
@@ -613,12 +677,13 @@
     f1.appendChild(l1); f1.appendChild(ta); adder.appendChild(f1);
 
     var drop = el('div', 'drop');
-    var file = el('input'); file.type = 'file'; file.accept = 'image/*'; file.multiple = true; file.id = 'add-file'; file.hidden = true;
-    var pick = btn('btn', 'Add a screenshot or photo');
+    var file = el('input'); file.type = 'file'; file.multiple = true; file.id = 'add-file'; file.hidden = true;
+    file.accept = 'image/*,.docx,application/vnd.openxmlformats-officedocument.wordprocessingml.document';
+    var pick = btn('btn', 'Add a photo or Word doc');
     pick.addEventListener('click', function () { file.click(); });
     var thumbs = el('div', 'thumbs');
     drop.appendChild(pick); drop.appendChild(file);
-    drop.appendChild(el('span', 'hint', 'Up to 3 images, for recipes that span a few screenshots. On a computer you can also drag or paste them here.'));
+    drop.appendChild(el('span', 'hint', "Up to 3 images, for recipes that span a few screenshots. A Word document's text goes into the box above so you can check it. On a computer you can also drag or paste files here."));
     drop.appendChild(thumbs); adder.appendChild(drop);
 
     function drawThumbs() {
@@ -630,8 +695,28 @@
         t.appendChild(img); t.appendChild(x); thumbs.appendChild(t);
       });
     }
+    function takeDoc(f) {
+      setStatus('Reading ' + f.name + '…');
+      return readDocx(f).then(function (d) {
+        if (d.text) ta.value = (ta.value.trim() ? ta.value.trim() + '\n\n' : '') + d.text;
+        // A doc that's mostly a pasted-in picture of a recipe: send the pictures. Otherwise the
+        // text is the recipe and any photos are just decoration, so leave them out.
+        var pics = d.text.length < 80 ? d.pics.slice(0, 3 - add.images.length) : [];
+        return Promise.all(pics.map(picToImage)).then(function (ims) {
+          ims = ims.filter(Boolean);
+          add.images = add.images.concat(ims).slice(0, 3); drawThumbs();
+          if (!d.text && !ims.length) { setStatus(f.name + " didn't have any text or pictures that could be read.", true); return; }
+          if (ta.value.length > 30000) { setStatus('That document is very long. Trim the text above down to just the recipe, then tap Read recipe.', true); return; }
+          var got = d.text && ims.length ? 'the text and pictures' : d.text ? 'the text' : 'the pictures';
+          setStatus('Got ' + got + ' from ' + f.name + '. Check ' + (d.text ? 'the text above' : 'them') + ', then tap Read recipe.');
+        });
+      }).catch(function (e) { setStatus(e.message, true); });
+    }
     function takeFiles(list) {
-      var files = Array.prototype.filter.call(list, function (f) { return /^image\//.test(f.type); }).slice(0, 3 - add.images.length);
+      var all = Array.prototype.slice.call(list);
+      if (all.some(isOldDoc)) setStatus("That's an older Word file (.doc). Open it in Word, use Save As → Word Document (.docx), and add that instead. Or copy the text and paste it above.", true);
+      all.filter(isDocx).reduce(function (p, f) { return p.then(function () { return takeDoc(f); }); }, Promise.resolve());
+      var files = all.filter(function (f) { return /^image\//.test(f.type); }).slice(0, 3 - add.images.length);
       if (!files.length) return;
       setStatus('Preparing images…');
       Promise.all(files.map(shrink)).then(function (ims) { add.images = add.images.concat(ims).slice(0, 3); drawThumbs(); setStatus(''); })
