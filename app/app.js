@@ -283,7 +283,10 @@
   function setWake(on) {
     wantWake = on;
     var b = $('wake'); if (b) { b.setAttribute('aria-pressed', String(on)); b.textContent = on ? 'Screen stays on' : 'Keep screen on'; }
-    if (on) navigator.wakeLock.request('screen').then(function (l) { wakeLock = l; }).catch(function () { wantWake = false; var b2 = $('wake'); if (b2) { b2.setAttribute('aria-pressed', 'false'); b2.textContent = 'Keep screen on'; } });
+    if (on) navigator.wakeLock.request('screen').then(function (l) {
+      wakeLock = l;
+      l.addEventListener('release', function () { if (wakeLock === l) wakeLock = null; });
+    }).catch(function () { wantWake = false; var b2 = $('wake'); if (b2) { b2.setAttribute('aria-pressed', 'false'); b2.textContent = 'Keep screen on'; } });
     else if (wakeLock) { wakeLock.release().catch(function () {}); wakeLock = null; }
   }
   document.addEventListener('visibilitychange', function () {
@@ -308,6 +311,8 @@
       w.setAttribute('aria-pressed', String(wantWake));
       w.addEventListener('click', function () { setWake(!wantWake); });
       top.bar.appendChild(w);
+      // The lock is released when a recipe closes; if it was on, take it again for this one.
+      if (wantWake && !wakeLock) setWake(true);
     }
     var body = el('article', 'vbody');
     renderRecipeBody(r, body, { interactive: true });
