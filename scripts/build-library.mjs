@@ -1,7 +1,7 @@
 // Combines library/recipes/*.json into library/recipes.json and checks every
 // recipe and person file. Runs in GitHub Actions before each deploy; a bad file
 // fails the build so the live site never breaks. Run locally: node scripts/build-library.mjs
-import { readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const ROOT = new URL("..", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1");
@@ -26,6 +26,10 @@ function checkRecipe(r, file) {
     if (!Array.isArray(g.items) || !g.items.length || !g.items.every((s) => typeof s === "string")) fail(file, "ingredient group needs items");
   }
   if (`${r.id}.json` !== file) fail(file, `id "${r.id}" doesn't match the file name`);
+  if (r.photo != null) {
+    if (typeof r.photo !== "string" || !/^library\/photos\/[a-z0-9-]+\.jpg$/.test(r.photo)) fail(file, `bad photo path "${r.photo}"`);
+    else if (!existsSync(join(ROOT, r.photo))) { console.warn(`${file}: photo ${r.photo} is missing, so it's left off`); r.photo = null; }
+  }
 }
 
 const recipes = [];

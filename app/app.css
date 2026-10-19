@@ -241,3 +241,65 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .person:hover { border-color: var(--scallion); }
 .person img { width: 72px; height: 72px; border-radius: 50%; border: 3px solid var(--yolk); flex: none; }
 .person h2 { font-size: 1.35rem; }
+
+/* Recipe photo, card thumbnails, recipe bar */
+.vbar-right { display: flex; gap: 8px; }
+.vback, .wake { white-space: nowrap; }
+@media (max-width: 520px) { .vprint-btn { padding-inline: 12px; } .vprint-btn .lbl { display: none; } }
+.vphoto-wrap { display: flex; flex-direction: column; gap: 8px; }
+.vphoto-wrap .status:empty { display: none; }
+.vphoto { margin: 0; }
+.vphoto img { display: block; width: 100%; max-height: 420px; object-fit: cover; border-radius: 12px; border: 1px solid var(--rule); background: var(--surface); }
+.photo-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; }
+.card.has-photo .card-top { position: relative; padding-right: 78px; min-height: 66px; }
+.cthumb { position: absolute; top: 0; right: 0; width: 66px; height: 66px; border-radius: 10px; object-fit: cover; border: 1px solid var(--rule); }
+.print-only { display: none; }
+
+/* Printing a recipe: black on white, letter paper, one or two pages */
+@media print {
+  @page { size: letter; margin: 0.45in 0.55in; }
+  :root, :root[data-theme="dark"] {
+    --bg: #fff; --surface: #fff; --ink: #000; --muted: #444; --rule: #bbb; --yolk: #000; --yolk-ink: #000;
+    --on-yolk: #fff; --done: #000; color-scheme: light;
+  }
+  html, body { background: #fff !important; color: #000; }
+  body { padding: 0; font-size: 10pt; line-height: 1.35; }
+  #main, #adder, .vbar, .mybox, .vfoot, .vhint, .photo-tools, .vphoto-wrap .status, .passrow, .vhead button, .vbody > .tags, .vbody > .eyebrow { display: none !important; }
+  .viewer { max-width: none; margin: 0; font-size: 10pt; line-height: 1.35; }
+  .vbody { display: block; }
+  .vbody > * { margin: 0 0 7pt; }
+  .vtitle { display: inline-block; font-size: 19pt; margin: 0 10pt 5pt 0 !important; }
+  .vphoto-wrap { float: right; width: 2.3in; margin: 0 0 8pt 14pt; }
+  .vphoto img { max-height: 1.9in; border-radius: 6pt; }
+  .vfacts { display: flex; flex-wrap: wrap; gap: 2pt 16pt; border: 0; border-radius: 0; background: none; overflow: visible; }
+  .vfacts div { padding: 0; background: none; }
+  .vfacts dt, .vfacts dd { display: inline; }
+  .vfacts dt { font-size: 7.5pt; }
+  .vfacts dt::after { content: " "; }
+  .vfacts dd { margin: 0; font-size: 10.5pt; }
+  .vnote, .vprint-note, .vbox { display: flow-root; } /* boxes sit beside the photo instead of under it */
+  .vnote { background: none; border-left: 2pt solid #000; border-radius: 0; padding: 3pt 9pt; font-size: 10pt; }
+  .vnote b { color: #000; }
+  .vhead { border-top: 1.2pt solid #000; padding-top: 4pt; margin-top: 2pt; break-after: avoid; }
+  .vhead h2 { font-size: 13pt; }
+  .vequip { display: block; columns: 2; column-gap: 0.3in; padding-left: 1.1em; font-size: 10pt; }
+  .vgroup { color: #000; font-size: 8.5pt; margin: 5pt 0 2pt; break-after: avoid; }
+  .checks { display: block; columns: 2; column-gap: 0.3in; }
+  .checks li { break-inside: avoid; }
+  .checks label { min-height: 0; padding: 1pt 0; border: 0; gap: 6pt; }
+  .checks input { width: 9pt; height: 9pt; margin-top: 3pt; border: 1pt solid #000; border-radius: 2pt; background: #fff; }
+  .checks input::after { display: none; }
+  .checks input:checked + span { color: #000; text-decoration: none; }
+  .vsteps { display: block; }
+  .vsteps li { break-inside: avoid; margin-bottom: 3.5pt; }
+  .step { gap: 8pt; padding: 0; border: 0; border-radius: 0; background: none; line-height: 1.35; }
+  .step .num, .step[aria-pressed="true"] .num { width: 16pt; height: 16pt; font-size: 8.5pt; background: none; color: #000; border: 1pt solid #000; }
+  .step[aria-pressed="true"] .txt { color: #000; }
+  .vbox { border: 1pt solid #bbb; border-radius: 6pt; padding: 6pt 9pt; gap: 3pt; break-inside: avoid; font-size: 10pt; }
+  .vbox h3 { font-size: 11pt; }
+  .vbox ul { gap: 2pt; }
+  .vcredit { font-size: 9pt; color: #444; }
+  .print-only { display: flow-root; }
+  .vprint-note { border: 1pt dashed #000; border-radius: 4pt; padding: 4pt 9pt; font-size: 10pt; }
+  .vbody > .vprint-from { display: inline-block; font-size: 8pt; color: #444; margin: 0 0 5pt; }
+}

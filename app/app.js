@@ -168,6 +168,12 @@
   function card(r) {
     var a = el('a', 'card'); a.href = '#r-' + r.id; r._card = a;
     var top = el('div', 'card-top'); top.appendChild(el('h3', null, r.title)); top.appendChild(el('span', 'meta', metaFor(r)));
+    var src = photoSrc(r);
+    if (src) {
+      a.classList.add('has-photo');
+      var th = el('img', 'cthumb'); th.src = src; th.alt = ''; th.loading = 'lazy'; th.decoding = 'async';
+      top.appendChild(th);
+    }
     a.appendChild(top); a.appendChild(tagsFor(r, { showBox: mode === 'library' }));
     if (r.myNote) a.appendChild(el('p', 'cnote mine', r.myNote));
     else if (r.blurb) a.appendChild(el('p', 'cnote', r.blurb));
@@ -274,14 +280,15 @@
     });
   }
   // A passcode field that only shows when this device doesn't know the passcode yet.
-  function passRow(parent) {
+  // `lazy` keeps it hidden until a change actually needs it.
+  function passRow(parent, lazy) {
     var f = el('div', 'field passrow');
     var id = 'pass-' + Math.random().toString(36).slice(2, 8);
     var l = el('label', null, person.name + "'s passcode"); l.htmlFor = id;
     var i = el('input'); i.type = 'password'; i.id = id; i.autocomplete = 'current-password';
     f.appendChild(l); f.appendChild(i);
     f.appendChild(el('span', 'hint', 'Needed once on this device to make changes.'));
-    f.hidden = !!load(PASS_KEY);
+    f.hidden = lazy || !!load(PASS_KEY);
     parent.appendChild(f);
     return {
       get: function () { return load(PASS_KEY) || i.value.trim(); },
@@ -299,6 +306,7 @@
     function save() { if (interactive) store('ek-check-' + r.id, saved); }
     body.appendChild(el(opts.headingTag || 'h1', 'vtitle', r.title));
     body.appendChild(tagsFor(r));
+    if (interactive) photoBlock(r, body);
     var facts = [['Serves', r.servings], ['Prep', r.prep], ['Cook', r.cook], ['Total', r.total]].filter(function (f) { return f[1]; });
     if (facts.length) {
       var fg = el('dl', 'vfacts');
@@ -369,6 +377,73 @@
         stepBtns.forEach(function (b) { b.setAttribute('aria-pressed', 'false'); });
       });
     }
+  }
+
+  /* ---------- Recipe photo (one per recipe, shared by every kitchen) ---------- */
+  var localPhotos = {}; // just-saved photos, shown from this device until the site rebuild publishes them
+  function photoSrc(r) { return localPhotos[r.id] || (r.photo ? ROOT + r.photo : null); }
+  function photoBlock(r, body) {
+    var wrap = el('div', 'vphoto-wrap'), shown = el('div'), tools = el('div', 'photo-tools');
+    var file = el('input'); file.type = 'file'; file.accept = 'image/*'; file.hidden = true;
+    wrap.appendChild(shown); wrap.appendChild(tools); wrap.appendChild(file);
+    var pass = passRow(wrap, true);
+    var status = el('p', 'status'); status.setAttribute('aria-live', 'polite'); wrap.appendChild(status);
+    body.appendChild(wrap);
+    var pending = null, retry = null, sure = false;
+
+    function setStatus(msg, isErr) { status.textContent = msg; status.className = 'status' + (isErr ? ' error' : ''); }
+    function draw() {
+      shown.textContent = ''; tools.textContent = '';
+      var src = pending ? pending.preview : photoSrc(r);
+      if (src) {
+        var fig = el('figure', 'vphoto'), img = el('img');
+        img.src = src; img.alt = 'Photo of ' + r.title;
+        fig.appendChild(img); shown.appendChild(fig);
+      }
+      if (retry) {
+        var save = btn('btn primary', pending ? 'Save photo' : 'Remove photo');
+        save.addEventListener('click', retry); tools.appendChild(save);
+      }
+      var pick = btn('linkish', src ? 'Change photo' : 'Add a photo of this dish');
+      pick.addEventListener('click', function () { file.click(); });
+      tools.appendChild(pick);
+      if (src && !pending) {
+        var rm = btn('linkish', sure ? 'Tap again to remove the photo' : 'Remove photo');
+        rm.addEventListener('click', function () {
+          if (!sure) { sure = true; draw(); return; }
+          sure = false; send(null);
+        });
+        tools.appendChild(rm);
+      }
+    }
+    function send(image) {
+      pending = image;
+      retry = function () { send(image); };
+      draw();
+      if (pass.need()) { setStatus('Enter the passcode, then tap ' + (image ? 'Save photo.' : 'Remove photo.'), true); return; }
+      setStatus(image ? 'Saving the photo…' : 'Removing the photo…');
+      helper('/photo', { passcode: pass.get(), person: PERSON, id: r.id, image: image ? { media_type: image.media_type, data: image.data } : null })
+        .then(function (j) {
+          pass.ok();
+          if (image) localPhotos[r.id] = image.preview; else delete localPhotos[r.id];
+          library.forEach(function (lr) { if (lr.id === r.id) lr.photo = j.photo; });
+          pending = null; retry = null;
+          refresh(); r = byId[r.id];
+          draw();
+          setStatus(image ? 'Saved. Everyone will see it on the site in a minute or two.' : 'Photo removed.');
+        })
+        .catch(function (e) {
+          if (e.status === 401) pass.bad();
+          setStatus(errText(e), true);
+        });
+    }
+    file.addEventListener('change', function () {
+      var f = file.files[0]; file.value = '';
+      if (!f) return;
+      setStatus('Preparing the photo…');
+      shrink(f, 1400, 0.82).then(send).catch(function (e) { setStatus(e.message, true); });
+    });
+    draw();
   }
 
   /* ---------- "My box" panel inside a recipe ---------- */
@@ -536,11 +611,18 @@
     current = r;
     viewer.textContent = '';
     var top = bar(viewer);
+    var right = el('div', 'vbar-right'); top.bar.appendChild(right);
+    var pr = btn('wake vprint-btn');
+    pr.setAttribute('aria-label', 'Print this recipe');
+    pr.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+      '<path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg><span class="lbl">Print</span>';
+    pr.addEventListener('click', function () { window.print(); });
+    right.appendChild(pr);
     if ('wakeLock' in navigator) {
       var w = btn('wake', wantWake ? 'Screen stays on' : 'Keep screen on'); w.id = 'wake';
       w.setAttribute('aria-pressed', String(wantWake));
       w.addEventListener('click', function () { setWake(!wantWake); });
-      top.bar.appendChild(w);
+      right.appendChild(w);
       // The lock is released when a recipe closes; if it was on, take it again for this one.
       if (wantWake && !wakeLock) setWake(true);
     }
@@ -548,6 +630,10 @@
     var sec = r.section ? sectionById(r.section) : null;
     body.appendChild(el('span', 'eyebrow', r.inBox ? (person.name + "'s box" + (sec ? ' · ' + sec.title : '')) : 'Whole library'));
     renderRecipeBody(r, body, { interactive: true, panel: boxPanel(r) });
+    // Only on paper: this person's own note, and where the printout came from.
+    if (r.myNote) body.insertBefore(el('p', 'print-only vprint-note', 'My note: ' + r.myNote), body.querySelector('.vhead'));
+    var titleEl = body.querySelector('.vtitle');
+    body.insertBefore(el('p', 'print-only vprint-from', person.title + ' · printed ' + fmtDate(new Date())), titleEl.nextSibling);
     var foot = el('div', 'vfoot'); var back2 = btn(null, '← Back to all recipes');
     back2.addEventListener('click', closeFromButton); foot.appendChild(back2); body.appendChild(foot);
     viewer.appendChild(body);
@@ -579,16 +665,17 @@
   /* ---------- Add a recipe ---------- */
   var add = { images: [], pdf: null, parsed: null, busy: false };
 
-  function shrink(file) {
+  function shrink(file, max, quality) {
+    max = max || 1600; quality = quality || 0.85;
     return new Promise(function (resolve, reject) {
       var url = URL.createObjectURL(file);
       var img = new Image();
       img.onload = function () {
-        var max = 1600, w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, max / Math.max(w, h));
+        var w = img.naturalWidth, h = img.naturalHeight, s = Math.min(1, max / Math.max(w, h));
         var c = document.createElement('canvas'); c.width = Math.round(w * s); c.height = Math.round(h * s);
         c.getContext('2d').drawImage(img, 0, 0, c.width, c.height);
         URL.revokeObjectURL(url);
-        var dataUrl = c.toDataURL('image/jpeg', 0.85);
+        var dataUrl = c.toDataURL('image/jpeg', quality);
         resolve({ media_type: 'image/jpeg', data: dataUrl.split(',')[1], preview: dataUrl });
       };
       img.onerror = function () { URL.revokeObjectURL(url); reject(new Error("That file couldn't be read as an image.")); };
@@ -859,7 +946,7 @@
       files = files.slice(0, 3 - add.images.length);
       if (!files.length) { setStatus('You can add up to 3 photos. Remove one to add another.', true); return Promise.resolve(); }
       setStatus('Preparing images…');
-      return Promise.all(files.map(shrink)).then(function (ims) { add.images = add.images.concat(ims).slice(0, 3); drawThumbs(); setStatus(''); })
+      return Promise.all(files.map(function (f) { return shrink(f); })).then(function (ims) { add.images = add.images.concat(ims).slice(0, 3); drawThumbs(); setStatus(''); })
         .catch(function (e) { setStatus(e.message, true); });
     }
     function takeFiles(list) {

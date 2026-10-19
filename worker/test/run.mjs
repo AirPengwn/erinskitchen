@@ -58,7 +58,16 @@ globalThis.fetch = async (input, init = {}) => {
       if (f && body.sha !== f.sha) return new Response("{}", { status: 409 });
       if (!f && body.sha) return new Response("{}", { status: 409 });
       put(path, Buffer.from(body.content, "base64").toString("utf8"));
+      files.get(path).b64 = body.content;
       return Response.json({ content: { sha: files.get(path).sha } }, { status: f ? 200 : 201 });
+    }
+    if (method === "DELETE") {
+      const body = JSON.parse(init.body);
+      const f = files.get(path);
+      if (!f) return new Response("{}", { status: 404 });
+      if (body.sha !== f.sha) return new Response("{}", { status: 409 });
+      files.delete(path);
+      return Response.json({});
     }
   }
   throw new Error("Unexpected fetch " + method + " " + url);
@@ -231,6 +240,51 @@ await test("box: add, made, undo, tags, note, section, remove", async () => {
   assert.equal((await call("/box", { ...pass, op: "made" })).status, 409);
   assert.equal((await call("/box", { ...pass, id: "not-a-recipe", op: "add" })).status, 400);
   assert.equal((await call("/box", { ...pass, id: "../people/erin", op: "add" })).status, 400);
+});
+
+await test("photos: add, replace (old file deleted), remove; checks and passcodes", async () => {
+  put("library/recipes/beef-stew.json", JSON.stringify({ id: "beef-stew", title: "Beef Stew", photo: null }, null, 1));
+  const jpeg = "/9j/4AAQSkZJRgABAQ";
+  const photo = async (extra, passcode = "blue lantern", person = "mulberry") => {
+    const r = await call("/photo", { passcode, person, id: "beef-stew", ...extra });
+    return { status: r.status, j: await r.json() };
+  };
+  const recipe = () => JSON.parse(files.get("library/recipes/beef-stew.json").text);
+
+  let { status, j } = await photo({ image: { media_type: "image/jpeg", data: jpeg } });
+  assert.equal(status, 200, JSON.stringify(j));
+  assert.match(j.photo, /^library\/photos\/beef-stew-[a-z0-9]+\.jpg$/);
+  assert.equal(recipe().photo, j.photo);
+  assert.equal(files.get(j.photo).b64, jpeg, "the JPEG is stored exactly as sent");
+  assert.equal(recipe().title, "Beef Stew", "nothing else in the recipe changes");
+  const first = j.photo;
+
+  await new Promise((r) => setTimeout(r, 5)); // a new timestamp, so a new file name
+  ({ status, j } = await photo({ image: { media_type: "image/jpeg", data: jpeg + "AA" } }));
+  assert.equal(status, 200);
+  assert.notEqual(j.photo, first);
+  assert.ok(!files.has(first), "the replaced photo is deleted");
+  assert.ok(files.has(j.photo));
+  const second = j.photo;
+
+  ({ status, j } = await photo({ image: null }));
+  assert.equal(status, 200);
+  assert.equal(j.photo, null);
+  assert.equal(recipe().photo, null);
+  assert.ok(!files.has(second), "a removed photo is deleted");
+
+  assert.equal((await photo({ image: { media_type: "image/png", data: "iVBORw0KGgo" } })).status, 400);
+  assert.equal((await photo({ image: { media_type: "image/jpeg", data: "/9j/" + "A".repeat(4_000_000) } })).status, 413);
+  assert.equal((await call("/photo", { passcode: "blue lantern", person: "mulberry", id: "no-such-recipe", image: null })).status, 400);
+  assert.equal((await call("/photo", { passcode: "blue lantern", person: "mulberry", id: "../people/erin", image: null })).status, 400);
+  assert.equal((await photo({ image: null }, "correct horse", "mulberry")).status, 401, "Erin's passcode can't act as Mulberry");
+  assert.equal((await photo({ image: null }, "correct horse", "erin")).status, 200, "either kitchen can change a library photo");
+});
+
+await test("new recipes are saved with an empty photo field", async () => {
+  const r = await call("/save", { passcode: "correct horse", person: "erin", recipe: { ...fakeRecipe, title: "Plain Rice" }, box: { mode: "library" } });
+  assert.equal(r.status, 200);
+  assert.equal(JSON.parse(files.get("library/recipes/plain-rice.json").text).photo, null);
 });
 
 console.log(`\n${passed} tests passed.`);

@@ -6,6 +6,8 @@
 //                -> { id, recipe, entry }
 //   POST /box    { passcode, person, id, op: add|remove|made|unmade|tags|note|section, ... }
 //                -> { entry, updated }
+//   POST /photo  { passcode, person, id, image: { media_type: "image/jpeg", data } | null }
+//                -> { id, photo }   (null image removes the photo)
 // Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN,
 // PASSCODES (JSON, one passcode per person: {"erin": "...", "mulberry": "..."}).
 // Settings in wrangler.toml: GITHUB_REPO, GITHUB_BRANCH, ALLOWED_ORIGINS, MODEL, EFFORT.
@@ -127,7 +129,8 @@ function checkPerson(person) {
 
 /* ---------------- Recipe cleanup and checks ---------------- */
 const LIB_FIELDS = ["id", "title", "proteins", "slowCooker", "cozy", "servings", "prep", "cook", "total",
-  "equipment", "ingredients", "steps", "tips", "storage", "credit", "addedBy", "addedAt"];
+  "equipment", "ingredients", "steps", "tips", "storage", "credit", "photo", "addedBy", "addedAt"];
+const MAX_PHOTO_B64 = 4_000_000; // about 3 MB; the site sends a resized JPEG of a few hundred KB
 
 function cleanText(s, max = 2000) { return typeof s === "string" ? s.replace(/\s+/g, " ").trim().slice(0, max) : ""; }
 function cleanList(a, max = 40) { return Array.isArray(a) ? a.map((s) => cleanText(s)).filter(Boolean).slice(0, max) : []; }
@@ -312,10 +315,52 @@ async function getFile(env, path) {
   return { sha: j.sha, text: b64decode(j.content) };
 }
 async function putFile(env, path, text, message, sha) {
-  const res = await gh(env, "PUT", path, { message, content: b64encode(text), ...(sha ? { sha } : {}) });
+  return putB64(env, path, b64encode(text), message, sha);
+}
+async function putB64(env, path, content, message, sha) {
+  const res = await gh(env, "PUT", path, { message, content, ...(sha ? { sha } : {}) });
   if (res.status === 409 || res.status === 422) return false; // changed underneath us, or already exists
   if (!res.ok) throw new HttpError(502, "Couldn't save to GitHub.");
   return true;
+}
+async function deleteFile(env, path, message) {
+  const res = await gh(env, "GET", path);
+  if (!res.ok) return;
+  const { sha } = await res.json();
+  await gh(env, "DELETE", path, { message, sha });
+}
+
+/* ---------------- Recipe photos (shared by every kitchen) ---------------- */
+// The photo is saved as library/photos/<id>-<stamp>.jpg; a new name each time means no browser
+// ever shows a stale copy. The old file is deleted once the recipe points at the new one.
+async function setPhoto(body, env) {
+  const id = typeof body.id === "string" && /^[a-z0-9-]{1,80}$/.test(body.id) ? body.id : null;
+  if (!id) throw new HttpError(400, "Unknown recipe.");
+  const path = `library/recipes/${id}.json`;
+  let file = await getFile(env, path);
+  if (!file) throw new HttpError(400, "That recipe isn't in the library.");
+
+  let photo = null;
+  if (body.image) {
+    const data = body.image && body.image.media_type === "image/jpeg" && typeof body.image.data === "string" ? body.image.data : "";
+    if (!data.startsWith("/9j/")) throw new HttpError(400, "That photo isn't a JPEG.");
+    if (data.length > MAX_PHOTO_B64) throw new HttpError(413, "That photo is too large.");
+    photo = `library/photos/${id}-${Date.now().toString(36)}.jpg`;
+    if (!(await putB64(env, photo, data, `Add photo: ${id}`))) throw new HttpError(502, "Couldn't save the photo to GitHub.");
+  }
+  let old = null;
+  for (let attempt = 0; attempt < 3; attempt++) {
+    if (attempt) file = await getFile(env, path);
+    const r = JSON.parse(file.text);
+    old = r.photo || null;
+    r.photo = photo;
+    const msg = photo ? `${old ? "Change" : "Add"} photo: ${r.title} (from the website)` : `Remove photo: ${r.title} (from the website)`;
+    if (await putFile(env, path, JSON.stringify(r, null, 1) + "\n", msg, file.sha)) {
+      if (old && old !== photo && /^library\/photos\/[a-z0-9-]+\.jpg$/.test(old)) await deleteFile(env, old, `Delete old photo: ${id}`).catch(() => {});
+      return { id, photo };
+    }
+  }
+  throw new HttpError(409, "Someone else changed this recipe at the same moment. Try again.");
 }
 
 async function saveRecipe(body, env) {
@@ -433,6 +478,7 @@ export default {
       if (url.pathname === "/parse") { checkPasscode(body, env); checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
       if (url.pathname === "/save") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await saveRecipe(body, env)); }
       if (url.pathname === "/box") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await boxAction(body, env)); }
+      if (url.pathname === "/photo") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await setPhoto(body, env)); }
       return json(req, env, 404, { error: "Not found." });
     } catch (e) {
       if (e instanceof HttpError) return json(req, env, e.status, { error: e.message });
