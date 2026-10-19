@@ -112,6 +112,25 @@ function checkPasscode(body, env, person) {
   if (!who || (person && who !== person)) throw new HttpError(401, person ? `That isn't the passcode for ${person}'s box.` : "That passcode didn't work.");
   return who;
 }
+// "Made it before" takes an optional date from the site's date picker (YYYY-MM-DD).
+// Blank means "made, date unknown": it counts, but adds nothing to the dated log.
+function madeDate(s) {
+  if (!s) return null;
+  const m = typeof s === "string" && /^(\d{4})-(\d{2})-(\d{2})$/.exec(s);
+  const d = m && new Date(Date.UTC(+m[1], +m[2] - 1, +m[3]));
+  if (!d || d.getUTCDate() !== +m[3] || +m[1] < 1950) throw new HttpError(400, "That date isn't valid.");
+  if (d.getTime() > Date.now() + 14 * 3600e3) throw new HttpError(400, "That date is in the future.");
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
+// Keeps the log in date order, so its last entry stays the most recent time it was made.
+function addToLog(log, d) {
+  const t = (s) => { const v = Date.parse(s + " UTC"); return isNaN(v) ? -Infinity : v; };
+  const out = log.slice();
+  let at = out.length;
+  while (at > 0 && t(out[at - 1]) > t(d)) at--;
+  out.splice(at, 0, d);
+  return out.slice(-50);
+}
 function displayDate(s) {
   if (typeof s === "string" && /^[A-Z][a-z]{2} \d{1,2}, \d{4}$/.test(s)) return s;
   return new Date().toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
@@ -391,7 +410,7 @@ async function saveRecipe(body, env) {
   const recipe = cleanRecipe(body.recipe || {});
   const missing = recipeProblems(recipe);
   if (missing.length) throw new HttpError(400, `The recipe is missing ${missing.join(", ")}.`);
-  const mode = body.box && ["new", "made", "library"].includes(body.box.mode) ? body.box.mode : "library";
+  const mode = body.box && ["new", "made", "madebefore", "library"].includes(body.box.mode) ? body.box.mode : "library";
 
   const personPath = `people/${body.person}.json`;
   const personFile = await getFile(env, personPath);
@@ -419,7 +438,7 @@ async function saveRecipe(body, env) {
       entry = {
         id, section: sectionIds.includes(body.box.section) ? body.box.section : sectionIds[0],
         blurb: cleanText(body.box.blurb, 300), note: "", tags: [],
-        made: { count: made ? 1 : 0, log: made ? [displayDate(body.box.date)] : [] }, confidence: "clear",
+        made: { count: made || mode === "madebefore" ? 1 : 0, log: made ? [displayDate(body.box.date)] : [] }, confidence: "clear",
       };
       p.box = (p.box || []).filter((b) => b.id !== id).concat([entry]);
     }, personFile);
@@ -443,8 +462,8 @@ async function editPerson(env, person, message, change, first) {
   return null;
 }
 
-/* ---------------- Box: add, remove, made, tags, note, section ---------------- */
-const BOX_OPS = ["add", "remove", "made", "unmade", "tags", "note", "section"];
+/* ---------------- Box: add, remove, made (today or before), tags, note, section ---------------- */
+const BOX_OPS = ["add", "remove", "made", "madebefore", "unmade", "tags", "note", "section"];
 async function boxAction(body, env) {
   checkPerson(body.person);
   const op = body.op;
@@ -454,7 +473,7 @@ async function boxAction(body, env) {
   if (op === "add" && !(await getFile(env, `library/recipes/${id}.json`))) throw new HttpError(400, "That recipe isn't in the library.");
 
   let entry = null;
-  const words = { add: "Add", remove: "Remove", made: "Mark made", unmade: "Undo made", tags: "Update tags on", note: "Update note on", section: "Move" };
+  const words = { add: "Add", remove: "Remove", made: "Mark made", madebefore: "Mark made before", unmade: "Undo made", tags: "Update tags on", note: "Update note on", section: "Move" };
   const p = await editPerson(env, body.person, `${words[op]} ${id} (${body.person}'s box)`, (p) => {
     p.box = p.box || [];
     const i = p.box.findIndex((b) => b.id === id);
@@ -468,10 +487,22 @@ async function boxAction(body, env) {
     if (i === -1) throw new HttpError(409, "That recipe isn't in the box anymore. Refresh the page.");
     if (op === "remove") { p.box.splice(i, 1); return; }
     const e = p.box[i];
-    if (op === "made") { e.made = { count: e.made.count + 1, log: e.made.log.concat([displayDate(body.date)]).slice(-50) }; }
+    // Each made mark remembers what it added (made.undo), so Undo last takes back exactly that.
+    if (op === "made") {
+      const d = displayDate(body.date);
+      e.made = { count: e.made.count + 1, log: e.made.log.concat([d]).slice(-50), undo: { date: d } };
+    }
+    if (op === "madebefore") {
+      const d = madeDate(body.date);
+      e.made = { count: e.made.count + 1, log: d ? addToLog(e.made.log, d) : e.made.log, undo: { date: d } };
+    }
     if (op === "unmade") {
       if (!e.made.count) { entry = e; return false; }
-      e.made = { count: e.made.count - 1, log: e.made.log.slice(0, -1) };
+      const u = e.made.undo;
+      let log = e.made.log;
+      if (!u) log = log.slice(0, -1);
+      else if (u.date && log.lastIndexOf(u.date) !== -1) { const k = log.lastIndexOf(u.date); log = log.slice(0, k).concat(log.slice(k + 1)); }
+      e.made = { count: e.made.count - 1, log };
     }
     if (op === "tags") e.tags = cleanTags(body.tags);
     if (op === "note") e.note = cleanText(body.note, 1000);

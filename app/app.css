@@ -183,7 +183,7 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .adder .vbar { margin-bottom: 0; }
 .field { display: flex; flex-direction: column; gap: 6px; }
 .field label, .field legend { font: 600 0.95rem var(--display); }
-.field textarea, .field input[type="password"], .field input[type="text"], .field select {
+.field textarea, .field input[type="password"], .field input[type="text"], .field input[type="date"], .field select {
   width: 100%; font: 400 1rem var(--body); font-size: max(16px, 1rem); color: var(--ink); background: var(--surface);
   border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; min-height: 48px; }
 .field textarea { resize: vertical; }
@@ -233,7 +233,8 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .inline { display: flex; gap: 8px; }
 .inline input { flex: 1; min-width: 0; font: 400 1rem var(--body); font-size: max(16px, 1rem); color: var(--ink); background: var(--bg); border: 1px solid var(--rule); border-radius: 10px; padding: 10px 12px; min-height: 46px; }
 .field .hint, .tags .hint { font-size: 0.88rem; color: var(--muted); }
-.mybox .field textarea, .mybox .field select, .mybox .field input[type="password"] { background: var(--bg); }
+.mybox .field textarea, .mybox .field select, .mybox .field input[type="password"], .mybox .field input[type="date"] { background: var(--bg); }
+.made-before { padding: 12px; border: 1px solid var(--rule); border-radius: 12px; }
 
 /* Landing page */
 .people { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; }

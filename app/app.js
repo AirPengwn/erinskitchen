@@ -505,7 +505,11 @@
           pass = passRow(panel);
           var addB = btn('btn primary', 'Add to ' + person.name + "'s box");
           addB.addEventListener('click', function () { act('add', { section: s.value }, status); });
-          var row = el('div', 'btn-row'); row.appendChild(addB); panel.appendChild(row);
+          var addMadeB = btn('btn', 'Add as already made');
+          addMadeB.addEventListener('click', function () {
+            act('add', { section: s.value }, status, function () { act('madebefore', { date: '' }, status); });
+          });
+          var row = el('div', 'btn-row'); row.appendChild(addB); row.appendChild(addMadeB); panel.appendChild(row);
           panel.appendChild(status);
           return;
         }
@@ -520,12 +524,33 @@
         var madeB = btn('btn primary', 'Made it today');
         madeB.addEventListener('click', function () { act('made', { date: fmtDate(new Date()) }, status); });
         row1.appendChild(madeB);
+        // For recipes made in the past: counts as made, with a date only if you know it.
+        var beforeB = btn('btn', 'Made it before');
+        beforeB.setAttribute('aria-expanded', 'false');
+        row1.appendChild(beforeB);
+        var before = el('div', 'field made-before'); before.hidden = true;
+        var bid = 'before-' + r.id;
+        var bl = el('label', null, 'When did you make it?'); bl.htmlFor = bid;
+        var bd = el('input'); bd.type = 'date'; bd.id = bid;
+        var now = new Date(); bd.max = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+        before.appendChild(bl); before.appendChild(bd);
+        before.appendChild(el('span', 'hint', "Leave it blank if you don't remember. It still counts as made."));
+        var brow = el('div', 'btn-row');
+        var bsave = btn('btn primary', 'Save'), bcancel = btn('linkish', 'Cancel');
+        brow.appendChild(bsave); brow.appendChild(bcancel); before.appendChild(brow);
+        beforeB.addEventListener('click', function () {
+          before.hidden = !before.hidden; beforeB.setAttribute('aria-expanded', String(!before.hidden));
+          if (!before.hidden) bd.focus();
+        });
+        bcancel.addEventListener('click', function () { before.hidden = true; beforeB.setAttribute('aria-expanded', 'false'); beforeB.focus(); });
+        bsave.addEventListener('click', function () { act('madebefore', { date: bd.value || '' }, status); });
         if (e.made.count) {
           var undo = btn('btn', 'Undo last');
           undo.addEventListener('click', function () { act('unmade', null, status); });
           row1.appendChild(undo);
         }
         panel.appendChild(row1);
+        panel.appendChild(before);
 
         // Tags
         var tf = el('div', 'field');
@@ -1384,7 +1409,8 @@
 
       var fs = el('fieldset', 'field choices');
       fs.appendChild(el('legend', null, 'Where should it go?'));
-      var opts = [['new', 'Library and ' + person.name + "'s box"], ['made', 'Library and ' + person.name + "'s box, marked as made today"], ['library', 'Library only']];
+      var opts = [['new', 'Library and ' + person.name + "'s box"], ['made', 'Library and ' + person.name + "'s box, made today"],
+        ['madebefore', 'Library and ' + person.name + "'s box, made before (no date)"], ['library', 'Library only']];
       opts.forEach(function (o, i) {
         var lab = el('label', 'choice'); var rb = el('input'); rb.type = 'radio'; rb.name = 'add-where'; rb.value = o[0]; rb.checked = i === 0;
         lab.appendChild(rb); lab.appendChild(el('span', null, o[1])); fs.appendChild(lab);

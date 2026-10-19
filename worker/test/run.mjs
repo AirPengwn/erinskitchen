@@ -242,6 +242,40 @@ await test("box: add, made, undo, tags, note, section, remove", async () => {
   assert.equal((await call("/box", { ...pass, id: "../people/erin", op: "add" })).status, 400);
 });
 
+await test("made it before: undated counts, dated slots in by date, undo takes back exactly the last mark", async () => {
+  const person = JSON.parse(files.get("people/erin.json").text);
+  person.box = [{ id: "chili-with-cornbread", section: "tex-mex", blurb: "", note: "", tags: [], made: { count: 4, log: ["Sep 2, 3 & 4, 2025", "Jan 5, 2026"] }, confidence: "clear" }];
+  put("people/erin.json", JSON.stringify(person));
+  const box = async (op, extra) => {
+    const r = await call("/box", { passcode: "correct horse", person: "erin", id: "chili-with-cornbread", op, ...extra });
+    const j = await r.json(); assert.equal(r.status, 200, JSON.stringify(j)); return j.entry.made;
+  };
+  let m = await box("madebefore", {});
+  assert.equal(m.count, 5); assert.deepEqual(m.log, ["Sep 2, 3 & 4, 2025", "Jan 5, 2026"], "no date: counts, log unchanged");
+  m = await box("unmade");
+  assert.equal(m.count, 4); assert.deepEqual(m.log, ["Sep 2, 3 & 4, 2025", "Jan 5, 2026"], "undo of an undated mark leaves the dates alone");
+  m = await box("madebefore", { date: "2025-11-20" });
+  assert.deepEqual(m.log, ["Sep 2, 3 & 4, 2025", "Nov 20, 2025", "Jan 5, 2026"], "a past date goes in date order, so 'last made' stays right");
+  m = await box("unmade");
+  assert.deepEqual(m.log, ["Sep 2, 3 & 4, 2025", "Jan 5, 2026"]); assert.equal(m.count, 4);
+  m = await box("made", { date: "Oct 19, 2026" });
+  m = await box("unmade");
+  assert.deepEqual(m, { count: 4, log: ["Sep 2, 3 & 4, 2025", "Jan 5, 2026"] }, "Made it today still undoes as before");
+  m = await box("unmade"); // no record of the last mark any more: falls back to dropping the newest date
+  assert.deepEqual(m, { count: 3, log: ["Sep 2, 3 & 4, 2025"] });
+  for (const date of ["2099-01-01", "2025-02-30", "yesterday", "1900-01-01"]) {
+    const r = await call("/box", { passcode: "correct horse", person: "erin", id: "chili-with-cornbread", op: "madebefore", date });
+    assert.equal(r.status, 400, date);
+  }
+});
+
+await test("a new recipe can go in the box as made before (no date)", async () => {
+  const r = await call("/save", { passcode: "correct horse", person: "erin", recipe: { ...fakeRecipe, title: "Old Favorite Soup" }, box: { mode: "madebefore", section: "soups-stews" } });
+  const j = await r.json();
+  assert.equal(r.status, 200, JSON.stringify(j));
+  assert.deepEqual(j.entry.made, { count: 1, log: [] });
+});
+
 await test("photos: add, replace (old file deleted), remove; checks and passcodes", async () => {
   put("library/recipes/beef-stew.json", JSON.stringify({ id: "beef-stew", title: "Beef Stew", photo: null }, null, 1));
   const jpeg = "/9j/4AAQSkZJRgABAQ";
