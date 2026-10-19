@@ -1,0 +1,63 @@
+{
+ "id": "john-s-award-winning-chili",
+ "title": "John's award-winning chili",
+ "proteins": [
+  "beef"
+ ],
+ "slowCooker": false,
+ "cozy": true,
+ "servings": "8 servings",
+ "prep": "30 min",
+ "cook": "2 hr 15 min",
+ "total": "2 hr 45 min",
+ "equipment": [
+  "7-quart Dutch oven or heavy pot",
+  "Cutting board and chef's knife",
+  "Slotted spoon",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 lb sirloin tips (2 packages), cut into ½-inch cubes",
+    "1½ lb ground sirloin (1 package)",
+    "1 tbsp vegetable oil",
+    "1½ large Spanish onions, chopped",
+    "1 large jalapeño, chopped (optional)",
+    "8 cloves garlic, minced",
+    "1 to 2 yellow bell peppers, chopped",
+    "1 to 2 poblano peppers, chopped",
+    "3 tbsp chili powder",
+    "1 tbsp ground cumin",
+    "1 tbsp dried oregano",
+    "½ tsp cayenne pepper",
+    "2 cans (28 oz each) whole peeled tomatoes, broken up by hand or with a knife",
+    "½ cup amber ale (about ⅓ of a 12-oz bottle)",
+    "1 can (14.5 oz) beef broth",
+    "1 tbsp brown sugar",
+    "1 to 2 cans (15 oz each) kidney beans, rinsed well and drained",
+    "Salt to taste",
+    "Black pepper to taste"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the oil in a 7-quart Dutch oven over medium-high heat until it shimmers. Brown the sirloin cubes in 2 or 3 batches so they don't crowd, 5 to 7 min per batch, until deeply browned on all sides. Move each batch to a bowl with a slotted spoon.",
+  "Add the ground sirloin to the same pot over medium-high heat. Break it up with a spoon and cook 6 to 8 min, until no pink remains and it reaches 160°F on an instant-read thermometer.",
+  "Return the browned sirloin cubes to the pot. Spoon off any excess grease, leaving about 1 tbsp.",
+  "Add the onions, jalapeño if using, garlic, bell peppers and poblanos. Stir in the chili powder, cumin, oregano and cayenne. Cook over medium heat, stirring often, about 7 min, until the vegetables soften and the spices smell toasty.",
+  "Stir in the tomatoes, ale, broth, brown sugar and beans. Scrape up any browned bits from the bottom of the pot. Bring to a boil over medium-high heat.",
+  "Lower the heat to medium-low so the chili simmers gently. Cook partly covered for 1½ to 2 hr, stirring often so it doesn't stick, until the beef cubes are tender and the chili is thick.",
+  "Season with salt and pepper to taste. Serve hot."
+ ],
+ "tips": [
+  "John usually doubles the recipe, triples the meat and doubles the chili powder and cumin.",
+  "Skip the jalapeño for a milder pot, or use 4 or more cans of mixed beans like pinto, black and kidney.",
+  "Chili tastes even better the next day, so it's a good make-ahead dish."
+ ],
+ "storage": "Keeps 4 days in the fridge or 3 months in the freezer. Thaw overnight in the fridge and reheat in a pot over medium-low heat, stirring and adding a splash of broth if thick, until steaming hot.",
+ "credit": "John",
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-19"
+}
