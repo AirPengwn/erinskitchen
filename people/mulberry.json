@@ -197,7 +197,9 @@
    "section": "dinners",
    "blurb": "Bone-in pork ribs braised tangy-sweet, then glazed under the broiler.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 0,
     "log": []
