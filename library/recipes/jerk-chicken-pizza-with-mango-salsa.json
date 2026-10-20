@@ -1,0 +1,66 @@
+{
+ "id": "jerk-chicken-pizza-with-mango-salsa",
+ "title": "Jerk Chicken Pizza with Mango Salsa",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "1 pizza (4 servings)",
+ "prep": "15 min",
+ "cook": "25 min",
+ "total": "40 min",
+ "equipment": [
+  "12-inch skillet",
+  "Large baking sheet or 12-inch pizza pan",
+  "Small mixing bowl",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 pre-baked pizza crust, about 12 inches",
+    "14 oz boneless skinless chicken breast",
+    "1 tbsp jerk seasoning",
+    "1 tbsp olive oil",
+    "½ cup sliced shiitake mushrooms",
+    "½ cup bottled barbecue sauce",
+    "¼ cup grated Asiago cheese (about ¾ oz)",
+    "¼ cup shredded mozzarella cheese (about 1 oz)",
+    "¼ cup grated smoked mozzarella cheese (about 1 oz)"
+   ]
+  },
+  {
+   "group": "Mango salsa",
+   "items": [
+    "½ ripe mango, peeled and diced",
+    "2 tbsp diced red onion",
+    "1 tbsp diced ripe tomato",
+    "1 tbsp olive oil",
+    "1½ tsp balsamic vinegar",
+    "1 tsp chopped fresh mint, basil, cilantro or a mix of all three"
+   ]
+  }
+ ],
+ "steps": [
+  "Preheat the oven to 450°F. Set the pizza crust on a large baking sheet or 12-inch pizza pan.",
+  "Rub the jerk seasoning all over the chicken. Heat 1 tbsp olive oil in a 12-inch skillet over medium-high heat until it shimmers. Cook the chicken 5 to 7 min per side, until browned and an instant-read thermometer in the thickest part reads 165°F. Move it to a cutting board and let it rest 5 min.",
+  "Add the mushrooms to the same skillet and cook over medium-high heat for 1 to 2 min, stirring, until they soften. Tip out any liquid in the pan.",
+  "Slice the rested chicken into thin strips.",
+  "In a small mixing bowl, stir together the mango, red onion, tomato, 1 tbsp olive oil, balsamic vinegar and herbs until well mixed.",
+  "Spread the barbecue sauce over the crust, leaving a ½-inch border. Top with the mushrooms and chicken strips, then scatter the Asiago, mozzarella and smoked mozzarella over everything.",
+  "Bake 7 to 8 min, until the crust edges are browned and the cheese is golden and bubbling.",
+  "Spoon the mango salsa over the hot pizza right away, slice and serve."
+ ],
+ "tips": [
+  "Pound the chicken breast to an even ¾-inch thickness so it cooks through without drying out.",
+  "Make the salsa up to 2 hr ahead and keep it chilled; stir before using.",
+  "Rotisserie chicken works in a pinch; toss the strips with the jerk seasoning instead of searing."
+ ],
+ "storage": "Refrigerate leftover pizza up to 3 days and the salsa separately up to 2 days. Reheat slices on a baking sheet at 400°F for 6 to 8 min until hot. The pizza does not freeze well once topped with salsa.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-20"
+}
