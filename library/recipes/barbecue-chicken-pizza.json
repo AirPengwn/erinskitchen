@@ -1,0 +1,62 @@
+{
+ "id": "barbecue-chicken-pizza",
+ "title": "Barbecue Chicken Pizza",
+ "proteins": [
+  "chicken"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "1 pizza (8 slices)",
+ "prep": "20 min",
+ "cook": "35 min",
+ "total": "6 hr 55 min",
+ "equipment": [
+  "Outdoor grill or grill pan",
+  "Meat mallet",
+  "Gallon zip-top bag",
+  "Pizza stone or 12-inch pizza pan",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb boneless skinless chicken breasts (1 large or 2 small)",
+    "¾ cup purchased barbecue sauce, for the marinade",
+    "½ cup purchased barbecue sauce, for the pizza, divided",
+    "1 (12-inch) Boboli thin pizza crust",
+    "2 cups shredded Monterey Jack cheese",
+    "Salt to taste",
+    "Black pepper to taste"
+   ]
+  },
+  {
+   "group": "Optional toppings",
+   "items": [
+    "1 cup sliced mushrooms, sautéed",
+    "½ medium red bell pepper, thinly sliced",
+    "½ cup caramelized onions"
+   ]
+  }
+ ],
+ "steps": [
+  "Lay the chicken between 2 sheets of plastic wrap and gently pound it with a meat mallet to an even ½-inch thickness. Season both sides with salt and pepper. Put the chicken in a gallon zip-top bag with ¾ cup barbecue sauce, seal, and turn to coat. Refrigerate for 6 hr or overnight.",
+  "Heat the grill to medium-high and oil the grates. Lift the chicken out of the bag and discard the used marinade.",
+  "Grill the chicken for 4 to 6 min per side, until it has good grill marks and an instant-read thermometer reads 165°F in the thickest part. Pull it off as soon as it hits 165°F so it stays juicy. Let it rest 5 min, then cut it into bite-size pieces.",
+  "Preheat the oven to 350°F. If using a pizza stone, set it in the oven while it heats.",
+  "Spread ¼ cup barbecue sauce in a thin layer over the crust. Scatter the chicken evenly over the top, then add the mushrooms, red pepper and caramelized onions, if using.",
+  "Drizzle the remaining ¼ cup barbecue sauce over the toppings. Sprinkle the Monterey Jack cheese evenly to the edges.",
+  "Slide the pizza onto the hot stone or set it on the pizza pan. Bake for about 20 min, until the cheese is fully melted and bubbling and the chicken is hot.",
+  "Let the pizza rest 2 min, then cut it into 8 wedges and serve."
+ ],
+ "tips": [
+  "Grill the chicken up to 2 days ahead and refrigerate it, so dinner night is just assembly and baking.",
+  "Don't reuse the raw-chicken marinade on the pizza. Use fresh sauce from the bottle.",
+  "Swap in smoked Gouda or cheddar for part of the Monterey Jack for a smokier flavor."
+ ],
+ "storage": "Refrigerate leftover slices in an airtight container for up to 3 days, or freeze wrapped slices for up to 2 months. Reheat in a 375°F oven or a covered skillet over medium-low heat for 8 to 10 min, until the cheese melts and the chicken is hot.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-20"
+}
