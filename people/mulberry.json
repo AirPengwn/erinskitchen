@@ -280,6 +280,18 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "barbecue-chicken-pizza",
+   "section": "dinners",
+   "blurb": "A shortcut pizza with smoky grilled chicken and melty Jack cheese that comes together fast once the chicken is grilled.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 1,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
