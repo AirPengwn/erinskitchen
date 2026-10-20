@@ -314,7 +314,9 @@
    "section": "dinners",
    "blurb": "A sweet, salty, gingery marinade that gives grilled steak a deep caramelized crust.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 1,
     "log": []
