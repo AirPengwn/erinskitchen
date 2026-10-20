@@ -1,0 +1,20 @@
+/* Mulberry Kitchen theme — Blue plate: navy + butter. Colors only; screen only so print stays black on white. */
+@media screen {
+  :root {
+    --bg: #f3f5f8; --surface: #ffffff; --ink: #172a46; --muted: #57667c; --rule: #d7dfe9;
+    --scallion: #2d68b0; --yolk: #f4c95d; --yolk-ink: #7a5700; --on-yolk: #2b2100;
+    --chip: #e6ecf4; --done: #8b97a8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0e1420; --surface: #161e2c; --ink: #e3eaf5; --muted: #a2b0c4; --rule: #283448;
+      --scallion: #7fb0ec; --yolk: #f4cd6a; --yolk-ink: #f4cd6a; --on-yolk: #2b2100;
+      --chip: #1f2a3c; --done: #6c7a8f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0e1420; --surface: #161e2c; --ink: #e3eaf5; --muted: #a2b0c4; --rule: #283448;
+    --scallion: #7fb0ec; --yolk: #f4cd6a; --yolk-ink: #f4cd6a; --on-yolk: #2b2100;
+    --chip: #1f2a3c; --done: #6c7a8f;
+  }
+}
