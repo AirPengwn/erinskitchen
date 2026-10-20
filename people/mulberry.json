@@ -238,6 +238,18 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "smoked-brisket-baked-beans",
+   "section": "sides-and-salads",
+   "blurb": "Leftover brisket turns a few cans of baked beans into a smoky, sweet side that steals the show at any cookout.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 1,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
