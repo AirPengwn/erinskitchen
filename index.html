@@ -16,6 +16,25 @@ img { max-width: 100%; }
 [hidden] { display: none !important; }
 </style>
 <link rel="stylesheet" href="app/app.css">
+<style>
+/* Mulberry's card wears its Blue plate theme (same colors as mulberry/theme.css; keep them in step).
+   Scoped to the card, so the rest of this page and Erin's card stay as they are. */
+.person.blueplate {
+  --bg: #f3f5f8; --surface: #ffffff; --ink: #172a46; --muted: #57667c; --rule: #d7dfe9;
+  --scallion: #2d68b0; --yolk: #f4c95d; --chip: #e6ecf4;
+  color: var(--ink); background: var(--chip);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .person.blueplate {
+    --bg: #0e1420; --surface: #161e2c; --ink: #e3eaf5; --muted: #a2b0c4; --rule: #283448;
+    --scallion: #7fb0ec; --yolk: #f4cd6a; --chip: #1f2a3c;
+  }
+}
+:root[data-theme="dark"] .person.blueplate {
+  --bg: #0e1420; --surface: #161e2c; --ink: #e3eaf5; --muted: #a2b0c4; --rule: #283448;
+  --scallion: #7fb0ec; --yolk: #f4cd6a; --chip: #1f2a3c;
+}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -25,7 +44,7 @@ img { max-width: 100%; }
   </header>
   <div class="people">
     <a class="person" href="erin/"><img src="people/chef.jpg" alt="" width="72" height="72"><div><h2>Erin's Kitchen</h2><span class="meta">Erin's recipe box</span></div></a>
-    <a class="person" href="mulberry/"><img src="people/chef.jpg" alt="" width="72" height="72"><div><h2>Mulberry Kitchen</h2><span class="meta">Mulberry's recipe box</span></div></a>
+    <a class="person blueplate" href="mulberry/"><img src="people/chef.jpg" alt="" width="72" height="72"><div><h2>Mulberry Kitchen</h2><span class="meta">Mulberry's recipe box</span></div></a>
   </div>
 </div>
 </body>
