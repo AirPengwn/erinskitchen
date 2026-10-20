@@ -258,7 +258,9 @@
    "section": "dinners",
    "blurb": "Smoky jerk chicken, barbecue sauce and three cheeses get a bright finish from fresh mango salsa on this easy weeknight pizza.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 1,
     "log": []
