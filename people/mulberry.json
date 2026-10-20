@@ -308,6 +308,18 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "soy-ginger-steak-on-a-stick-marinade",
+   "section": "dinners",
+   "blurb": "A sweet, salty, gingery marinade that gives grilled steak a deep caramelized crust.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 1,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
