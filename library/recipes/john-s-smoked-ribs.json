@@ -1,0 +1,73 @@
+{
+ "id": "john-s-smoked-ribs",
+ "title": "John's Smoked Ribs",
+ "proteins": [
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "6 servings",
+ "prep": "20 min",
+ "cook": "6 hr",
+ "total": "14 hr 30 min",
+ "equipment": [
+  "Smoker",
+  "Medium mixing bowl",
+  "Rimmed baking sheet",
+  "Plastic wrap",
+  "Heavy-duty aluminum foil",
+  "Instant-read thermometer"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "2 racks pork baby back ribs (about 5 to 6 lb total)",
+    "2 tbsp olive oil"
+   ]
+  },
+  {
+   "group": "Rub",
+   "items": [
+    "¾ to 1 cup packed brown sugar",
+    "½ cup paprika",
+    "1 tbsp onion powder",
+    "2 tbsp garlic powder",
+    "1 tbsp salt",
+    "1 to 2 tbsp ground black pepper",
+    "1 tbsp dried oregano",
+    "1 tsp dry mustard",
+    "1 to 2 tsp ground cumin",
+    "¼ tsp cayenne pepper, or to taste",
+    "¼ tsp ground árbol chile"
+   ]
+  },
+  {
+   "group": "Wrap",
+   "items": [
+    "½ cup honey",
+    "½ cup packed brown sugar"
+   ]
+  }
+ ],
+ "steps": [
+  "Set the ribs bone side up on a rimmed baking sheet. Slide a butter knife under the thin membrane on the back of each rack, grab it with a paper towel, and peel it off in one piece.",
+  "In a medium bowl, mix the ¾ to 1 cup brown sugar, paprika, onion powder, garlic powder, salt, black pepper, oregano, dry mustard, cumin, cayenne and árbol chile until no clumps of sugar remain.",
+  "Rub the olive oil all over both racks. Press the rub generously onto every side of the ribs. Wrap each rack tightly in plastic wrap and refrigerate overnight, at least 8 hr and up to 24 hr.",
+  "Start the smoker and bring it to 225°F, keeping it between 200°F and 250°F the whole cook. Unwrap the ribs and discard the plastic.",
+  "Place the ribs bone side down on the smoker grate. Smoke uncovered for 3 hr, until the surface is deep reddish brown and the rub has set into a dry crust.",
+  "Move the ribs to the baking sheet. Drizzle the honey over the meaty side and spread it evenly, then pat the ½ cup brown sugar over the honey. Wrap each rack tightly in a double layer of heavy-duty foil.",
+  "Return the wrapped ribs to the smoker and cook for at least 3 hr more, until an instant-read thermometer between the bones reads 195°F to 203°F and the probe slides in with almost no resistance. Pork is safe at 145°F, but ribs need the higher temperature to turn tender. Cook longer if you want them even softer.",
+  "Remove the ribs, rest them in the foil for 10 min, then unwrap carefully, watching for steam, and slice between the bones."
+ ],
+ "tips": [
+  "Use spare ribs instead of baby backs if you like; add about 1 hr to the wrapped stage.",
+  "Mix the rub up to 1 month ahead and store it airtight at room temperature.",
+  "Check the smoker temperature every hour, since letting it climb past 250°F can burn the sugar in the rub."
+ ],
+ "storage": "Refrigerate wrapped in foil up to 4 days or freeze up to 3 months. Reheat in foil in a 300°F oven for 20 to 30 min, until hot through.",
+ "credit": "John",
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-20"
+}
