@@ -270,7 +270,9 @@
    "section": "dinners",
    "blurb": "Smoked sausage, peppers and onion steam together in a sweet, spicy sauce for an easy grill dinner with almost no cleanup.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 1,
     "log": []
