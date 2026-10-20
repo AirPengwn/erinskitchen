@@ -1,0 +1,64 @@
+{
+ "id": "big-ol-mess",
+ "title": "Big Ol' Mess",
+ "proteins": [
+  "pork"
+ ],
+ "slowCooker": false,
+ "cozy": false,
+ "servings": "4 main-course servings (6 to 8 appetizer servings)",
+ "prep": "15 min",
+ "cook": "45 min",
+ "total": "1 hr",
+ "equipment": [
+  "Grill",
+  "Foil cooking bag or heavy-duty aluminum foil",
+  "Small mixing bowl",
+  "Long tongs",
+  "Instant-read thermometer",
+  "Wooden skewers (optional, for serving)"
+ ],
+ "ingredients": [
+  {
+   "group": null,
+   "items": [
+    "1 lb smoked sausage, cut into 1-inch chunks",
+    "3 jalapeño peppers, sliced into rings",
+    "1 large green bell pepper, cut into bite-size chunks",
+    "1 large sweet onion, cut into bite-size chunks"
+   ]
+  },
+  {
+   "group": "Sauce",
+   "items": [
+    "¼ cup Tabasco sauce",
+    "1 (10-oz) jar sweet-and-sour sauce"
+   ]
+  },
+  {
+   "group": "To serve",
+   "items": [
+    "1 loaf crusty bread, cut into chunks (optional)"
+   ]
+  }
+ ],
+ "steps": [
+  "Heat the grill to medium, about 350°F to 400°F.",
+  "Put the sausage, jalapeños, green pepper and onion in the foil cooking bag and spread them into an even layer.",
+  "In a small bowl, stir the Tabasco sauce into the sweet-and-sour sauce until smooth. Pour it over the sausage and vegetables in the bag.",
+  "Fold and crimp the open edge of the bag tightly so no steam or sauce can escape.",
+  "Set the bag on the grill grate, close the lid, and cook about 45 min. Use long tongs to flip the bag carefully every 15 min so everything cooks evenly.",
+  "Move the bag to a heatproof platter. Cut a slit in the top, keeping your face back from the hot steam. The vegetables should be tender and the sausage should read 165°F on an instant-read thermometer.",
+  "Serve straight from the bag. For an appetizer, thread the sausage and vegetables onto skewers, or spoon them over chunks of crusty bread."
+ ],
+ "tips": [
+  "No foil bag? Make a packet from two large sheets of heavy-duty foil and crimp all edges tightly.",
+  "For milder heat, seed the jalapeños or cut the Tabasco to 2 tbsp.",
+  "You can also bake the bag on a sheet pan at 400°F for about 45 min."
+ ],
+ "storage": "Refrigerate in an airtight container up to 3 days, or freeze up to 2 months. Reheat in a covered skillet over medium heat until hot, about 5 to 8 min.",
+ "credit": null,
+ "photo": null,
+ "addedBy": "mulberry",
+ "addedAt": "2026-10-20"
+}
