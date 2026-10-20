@@ -773,7 +773,7 @@
     var back = btn('vback', '← Back to recipe');
     function toRecipe() { location.hash = 'r-' + r.id; }
     back.addEventListener('click', toRecipe);
-    b.appendChild(back); viewer.appendChild(b);
+    b.appendChild(back); b.appendChild(homeButton()); viewer.appendChild(b);
     var body = el('article', 'vbody');
     body.appendChild(el('span', 'eyebrow', 'Edit recipe'));
     body.appendChild(el('h1', 'vtitle', r.title));
@@ -845,13 +845,21 @@
   document.addEventListener('visibilitychange', function () {
     if (wantWake && document.visibilityState === 'visible' && !viewer.hidden) setWake(true);
   });
+  var HOUSE = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>';
+  function homeButton() {
+    var b = btn('vback vhome');
+    b.innerHTML = HOUSE + '<span>Home</span>';
+    b.title = person.title + ' home';
+    b.addEventListener('click', goHome);
+    return b;
+  }
   function bar(target) {
     var b = el('div', 'vbar');
-    var back = btn('vback', '← All recipes');
-    back.addEventListener('click', closeFromButton);
-    b.appendChild(back);
+    var home = homeButton();
+    b.appendChild(home);
     target.appendChild(b);
-    return { bar: b, back: back };
+    return { bar: b, back: home };
   }
   function show(which) {
     main.hidden = which !== 'main'; viewer.hidden = which !== 'viewer'; adder.hidden = which !== 'adder';
@@ -890,8 +898,7 @@
     if (r.myNote) body.insertBefore(el('p', 'print-only vprint-note', 'My note: ' + r.myNote), body.querySelector('.vhead'));
     var titleEl = body.querySelector('.vtitle');
     body.insertBefore(el('p', 'print-only vprint-from', person.title + ' · printed ' + fmtDate(new Date())), titleEl.nextSibling);
-    var foot = el('div', 'vfoot'); var back2 = btn(null, '← Back to all recipes');
-    back2.addEventListener('click', closeFromButton); foot.appendChild(back2); body.appendChild(foot);
+    var foot = el('div', 'vfoot'); foot.appendChild(homeButton()); body.appendChild(foot);
     viewer.appendChild(body);
     show('viewer');
     document.title = r.title + ' · ' + person.title;
@@ -907,8 +914,12 @@
     document.title = person.title;
     window.scrollTo({ top: listScroll, behavior: 'auto' });
   }
-  function closeFromButton() {
-    if (openedFromList) history.back(); else location.hash = 'top';
+  // Home always lands on this kitchen's main page, never just one step back: at the spot you left
+  // the list if you came from it, otherwise at the top.
+  function goHome() {
+    if (!openedFromList) listScroll = 0;
+    if (location.hash.length > 1) history.pushState(null, '', location.pathname + location.search);
+    route();
   }
   function route() {
     var h = location.hash.slice(1);
