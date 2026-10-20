@@ -1242,7 +1242,8 @@
 
   function openAdd() {
     adder.textContent = '';
-    add.parsed = null;
+    // Every visit starts empty, like the text box: no photos or PDF left over from the last recipe.
+    add.parsed = null; add.images = []; add.pdf = null;
     bar(adder);
     adder.appendChild(el('h1', 'vtitle', 'Add a recipe'));
     if (!site.worker) {
@@ -1434,7 +1435,7 @@
 
       var saveBtn = btn('btn primary', 'Save recipe');
       var again = btn('btn', 'Start over');
-      again.addEventListener('click', function () { add.images = []; add.pdf = null; openAdd(); window.scrollTo(0, 0); });
+      again.addEventListener('click', function () { openAdd(); window.scrollTo(0, 0); });
       var sr = el('div', 'btn-row'); sr.appendChild(saveBtn); sr.appendChild(again); pv.appendChild(sr);
       var sstatus = el('p', 'status'); sstatus.setAttribute('aria-live', 'polite'); pv.appendChild(sstatus);
 
@@ -1469,7 +1470,7 @@
       var row2 = el('div', 'btn-row');
       var view = el('a', 'btn primary', 'View recipe'); view.href = '#r-' + r.id;
       var another = btn('btn', 'Add another');
-      another.addEventListener('click', function () { add.images = []; add.pdf = null; openAdd(); window.scrollTo(0, 0); });
+      another.addEventListener('click', function () { openAdd(); window.scrollTo(0, 0); });
       row2.appendChild(view); row2.appendChild(another); adder.appendChild(row2);
       window.scrollTo(0, 0);
     }
