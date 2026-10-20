@@ -286,7 +286,9 @@
    "section": "dinners",
    "blurb": "A shortcut pizza with smoky grilled chicken and melty Jack cheese that comes together fast once the chicken is grilled.",
    "note": "",
-   "tags": [],
+   "tags": [
+    "john likes"
+   ],
    "made": {
     "count": 1,
     "log": []
