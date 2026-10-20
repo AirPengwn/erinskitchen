@@ -7,7 +7,7 @@
  "avatarAlt": "A black dog wearing a chef's hat",
  "pronoun": "they",
  "stats": {},
- "updated": "2026-10-19",
+ "updated": "2026-10-20",
  "tags": [
   "john likes"
  ],
@@ -219,6 +219,18 @@
    "id": "anne-s-chicken-stuff",
    "section": "dinners",
    "blurb": "A creamy, crunchy-topped chicken bake from an old family recipe card that comes together with pantry staples.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 0,
+    "log": []
+   },
+   "confidence": "clear"
+  },
+  {
+   "id": "ronies-droney-tomato-macaroni-and-cheese",
+   "section": "dinners",
+   "blurb": "A creamy, tangy stovetop mac and cheese with tomato soup stirred in, the kind of family comfort food that's worth making by the potful.",
    "note": "",
    "tags": [],
    "made": {
