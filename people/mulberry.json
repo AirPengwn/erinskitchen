@@ -294,6 +294,18 @@
     "log": []
    },
    "confidence": "clear"
+  },
+  {
+   "id": "john-s-smoked-ribs",
+   "section": "dinners",
+   "blurb": "A sweet and smoky rib rubbed overnight, then wrapped in honey and brown sugar so it comes out sticky and fall-apart tender.",
+   "note": "",
+   "tags": [],
+   "made": {
+    "count": 1,
+    "log": []
+   },
+   "confidence": "clear"
   }
  ]
 }
