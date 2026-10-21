@@ -7,7 +7,7 @@
  "avatarAlt": "A black dog wearing a chef's hat",
  "pronoun": "they",
  "stats": {},
- "updated": "2026-10-20",
+ "updated": "2026-10-21",
  "tags": [
   "john likes"
  ],
@@ -210,8 +210,13 @@
     "john likes"
    ],
    "made": {
-    "count": 0,
-    "log": []
+    "count": 1,
+    "log": [
+     "Oct 21, 2026"
+    ],
+    "undo": {
+     "date": "Oct 21, 2026"
+    }
    },
    "confidence": "clear"
   },
