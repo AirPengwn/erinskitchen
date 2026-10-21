@@ -970,12 +970,13 @@
         var card = el('div', 'crop-card');
         card.setAttribute('role', 'dialog'); card.setAttribute('aria-modal', 'true'); card.setAttribute('aria-labelledby', 'crop-title');
         var h = el('h2', null, 'Frame the food'); h.id = 'crop-title'; card.appendChild(h);
-        card.appendChild(el('p', 'hint', 'Drag to move the photo. Pinch, scroll or use the slider to zoom. What is inside the frame is what shows on the recipe.'));
+        card.appendChild(el('p', 'hint', 'It starts with the whole photo. Pinch, scroll or use the slider to zoom in, and drag to move. What is inside the frame is what shows on the recipe; any empty space is filled with a soft blur of the photo.'));
         var stage = el('div', 'crop-stage'); stage.tabIndex = 0;
         stage.setAttribute('aria-label', 'Photo frame. Arrow keys move the photo, plus and minus zoom.');
+        var blur = el('img', 'crop-bg'); blur.src = url; blur.alt = ''; blur.draggable = false;
         img.className = 'crop-img'; img.alt = ''; img.draggable = false;
         img.style.width = nw + 'px'; img.style.height = nh + 'px';
-        stage.appendChild(img); stage.appendChild(el('div', 'crop-grid'));
+        stage.appendChild(blur); stage.appendChild(img); stage.appendChild(el('div', 'crop-grid'));
         card.appendChild(stage);
         var zl = el('label', 'crop-zoom'); zl.appendChild(el('span', null, 'Zoom'));
         var zoom = el('input'); zoom.type = 'range'; zoom.min = '1'; zoom.max = '5'; zoom.step = '0.01'; zoom.value = '1';
@@ -986,17 +987,25 @@
         modal.appendChild(card); document.body.appendChild(modal);
         var overflow = document.body.style.overflow; document.body.style.overflow = 'hidden';
 
-        // State: the photo point at the frame's center (cx, cy) and zoom z (1 = photo just covers the frame).
-        var W, H, base, z = 1, cx = nw / 2, cy = nh / 2;
-        function measure() { var b = stage.getBoundingClientRect(); W = b.width; H = b.height; base = Math.max(W / nw, H / nh); }
+        // State: the photo point at the frame's center (cx, cy) and zoom z. z = 1 shows the whole photo;
+        // zooming in to where it fills the frame and beyond (up to 5x that) is up to you.
+        var W, H, base, zMax = 5, z = 1, cx = nw / 2, cy = nh / 2;
+        function measure() {
+          var b = stage.getBoundingClientRect(); W = b.width; H = b.height;
+          base = Math.min(W / nw, H / nh);
+          zMax = 5 * Math.max(W / nw, H / nh) / base; zoom.max = String(zMax);
+        }
+        // Along a side where the photo is smaller than the frame it stays centered; along a side where
+        // it is bigger it can move, but never so far that a gap opens.
+        function fit(c, n, frame, s) { return n * s <= frame ? n / 2 : Math.min(Math.max(c, frame / (2 * s)), n - frame / (2 * s)); }
         function draw() {
-          var s = base * z, hw = W / (2 * s), hh = H / (2 * s);
-          cx = Math.min(Math.max(cx, hw), nw - hw); cy = Math.min(Math.max(cy, hh), nh - hh);
+          var s = base * z;
+          cx = fit(cx, nw, W, s); cy = fit(cy, nh, H, s);
           img.style.transform = 'translate(' + (W / 2 - cx * s) + 'px,' + (H / 2 - cy * s) + 'px) scale(' + s + ')';
           zoom.value = String(z);
         }
         function zoomAt(nz, px, py) { // keep the photo point under (px, py) where it is
-          nz = Math.min(5, Math.max(1, nz));
+          nz = Math.min(zMax, Math.max(1, nz));
           var s = base * z, ns = base * nz;
           var ix = cx + (px - W / 2) / s, iy = cy + (py - H / 2) / s;
           cx = ix - (px - W / 2) / ns; cy = iy - (py - H / 2) / ns; z = nz; draw();
@@ -1047,10 +1056,21 @@
         }
         cancel.addEventListener('click', function () { close(null); });
         use.addEventListener('click', function () {
-          var s = base * z, sw = W / s, sh = H / s;
-          var outW = Math.round(Math.min(1400, sw)), outH = Math.round(outW * H / W);
+          var s = base * z, sw = W / s;
+          var outW = Math.round(Math.min(1400, sw)), outH = Math.round(outW * H / W), k = outW / W;
           var c = document.createElement('canvas'); c.width = outW; c.height = outH;
-          c.getContext('2d').drawImage(img, cx - sw / 2, cy - sh / 2, sw, sh, 0, 0, outW, outH);
+          var ctx = c.getContext('2d');
+          if (nw * s < W - 0.5 || nh * s < H - 0.5) {
+            // Empty space around the photo: fill it with the photo itself, stretched to cover and
+            // blurred (drawn tiny, then scaled up, which works in every browser), and darkened a bit.
+            var tiny = document.createElement('canvas'); tiny.width = 24; tiny.height = 18;
+            var cover = Math.max(24 / nw, 18 / nh);
+            tiny.getContext('2d').drawImage(img, (24 - nw * cover) / 2, (18 - nh * cover) / 2, nw * cover, nh * cover);
+            ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = 'high';
+            ctx.drawImage(tiny, 0, 0, outW, outH);
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.25)'; ctx.fillRect(0, 0, outW, outH);
+          }
+          ctx.drawImage(img, (W / 2 - cx * s) * k, (H / 2 - cy * s) * k, nw * s * k, nh * s * k);
           var dataUrl = c.toDataURL('image/jpeg', 0.85);
           close({ media_type: 'image/jpeg', data: dataUrl.split(',')[1], preview: dataUrl });
         });
