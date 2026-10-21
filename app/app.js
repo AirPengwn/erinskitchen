@@ -299,6 +299,131 @@
   }
   function errText(e) { return e.message || "That didn't go through. Check your connection and try again."; }
 
+  /* ---------- Scaling a recipe (½×, 2×, ...) ---------- */
+  // Only the amount at the start of each ingredient (and the Serves line) changes; amounts inside the
+  // steps, pan sizes and times stay as written. "1 can" becomes "2 cans" and back.
+  var FRACS = { '½': 1 / 2, '⅓': 1 / 3, '⅔': 2 / 3, '¼': 1 / 4, '¾': 3 / 4, '⅛': 1 / 8, '⅜': 3 / 8, '⅝': 5 / 8, '⅞': 7 / 8, '⅕': 0.2, '⅖': 0.4, '⅗': 0.6, '⅘': 0.8, '⅙': 1 / 6, '⅚': 5 / 6 };
+  var FRAC_CH = Object.keys(FRACS).join('');
+  var NUM_RE = '(?:\\d+\\s?[' + FRAC_CH + ']|\\d+\\s+\\d+/\\d+|\\d+/\\d+|\\d*\\.\\d+|\\d+|[' + FRAC_CH + '])';
+  var LEAD_RE = new RegExp('^(' + NUM_RE + ')(\\s*(?:–|-|to)\\s*(' + NUM_RE + '))?');
+  var NICE = [[0, ''], [1 / 16, '1/16'], [1 / 8, '⅛'], [1 / 4, '¼'], [1 / 3, '⅓'], [3 / 8, '⅜'], [1 / 2, '½'], [5 / 8, '⅝'], [2 / 3, '⅔'], [3 / 4, '¾'], [7 / 8, '⅞'], [1, '']];
+  var PLURAL = {};
+  ('cup can clove egg onion carrot stalk rib sprig slice piece package packet bag jar bottle tortilla pepper apple lemon lime stick ' +
+   'head link fillet breast thigh drumstick shallot banana avocado pound ounce quart pint gallon sheet strip steak chop container envelope ' +
+   'scoop handful teaspoon tablespoon serving muffin cookie bar roll pie cake taco burrito bowl skewer wrap pizza square ball crust bun ' +
+   'biscuit pod star leg wing cube chunk').split(' ').forEach(function (w) { PLURAL[w] = w + 's'; });
+  Object.assign(PLURAL, { box: 'boxes', potato: 'potatoes', tomato: 'tomatoes', leaf: 'leaves', loaf: 'loaves', bunch: 'bunches', pinch: 'pinches', dash: 'dashes', sandwich: 'sandwiches', patty: 'patties', berry: 'berries', radish: 'radishes' });
+  var SINGULAR = {}; Object.keys(PLURAL).forEach(function (w) { SINGULAR[PLURAL[w]] = w; });
+  var ADJ = {}; ('large medium small whole big extra-large yellow red white green sweet ripe fresh boneless skinless bone-in russet roma heaping level dried ' +
+    'bay bell chicken garlic jalapeño jalapeno corn flour hamburger hot dog cherry plum english hard-boiled celery lemon lime').split(' ').forEach(function (w) { ADJ[w] = 1; });
+  function parseNum(s) {
+    var m; s = s.trim();
+    if ((m = new RegExp('^(\\d+)\\s?([' + FRAC_CH + '])$').exec(s))) return +m[1] + FRACS[m[2]];
+    if ((m = /^(\d+)\s+(\d+)\/(\d+)$/.exec(s))) return +m[1] + m[2] / m[3];
+    if ((m = /^(\d+)\/(\d+)$/.exec(s))) return m[1] / m[2];
+    if (FRACS[s] != null) return FRACS[s];
+    return parseFloat(s);
+  }
+  function fmtNum(n, metric) {
+    if (metric) return String(n >= 10 ? Math.round(n) : Math.round(n * 10) / 10);
+    if (n >= 10) { var h = Math.round(n * 2) / 2; return Math.floor(h) + (h % 1 ? '½' : ''); }
+    var whole = Math.floor(n), f = n - whole, best = NICE[0];
+    NICE.forEach(function (x) { if (Math.abs(x[0] - f) < Math.abs(best[0] - f)) best = x; });
+    if (best[0] === 1) { whole += 1; best = NICE[0]; }
+    if (!whole && !best[1]) best = NICE[1]; // never round a real amount down to nothing
+    if (whole && best[1] === '1/16') best = NICE[0];
+    return (whole || '') + best[1];
+  }
+  function scaleText(text, f) {
+    if (f === 1 || !text) return text;
+    var m = LEAD_RE.exec(text);
+    if (!m) return text;
+    if (!m[3] && /^-[a-z]/i.test(text.slice(m[1].length))) return text; // a size like "1-inch piece", not an amount
+    var a = parseNum(m[1]), b = m[3] ? parseNum(m[3]) : null;
+    if (!isFinite(a) || (b !== null && !isFinite(b))) return text;
+    var rest = text.slice(m[0].length);
+    var metric = /^\s*(g|grams?|kg|kilograms?|ml|millilit(er|re)s?|l|lit(er|re)s?)\b/i.test(rest);
+    var amount = fmtNum(a * f, metric) + (b !== null ? m[2].slice(0, m[2].length - m[3].length) + fmtNum(b * f, metric) : '');
+    var before = (b !== null ? b : a) > 1, after = (b !== null ? b : a) * f > 1;
+    if (before !== after) rest = renoun(rest, after);
+    return amount + rest;
+  }
+  // Switch the first counted noun after the amount between singular and plural, keeping its case.
+  function renoun(rest, plural) {
+    var re = /([A-Za-z-]+)/g, start = /^\s*(\([^)]*\)\s*)?/.exec(rest)[0].length, m, n = 0;
+    re.lastIndex = start;
+    while ((m = re.exec(rest)) && n < 3) {
+      var w = m[1], lw = w.toLowerCase(), to = plural ? PLURAL[lw] : SINGULAR[lw];
+      if (to) return rest.slice(0, m.index) + (w[0] === w[0].toUpperCase() ? to[0].toUpperCase() + to.slice(1) : to) + rest.slice(m.index + w.length);
+      if ((plural ? SINGULAR[lw] : PLURAL[lw]) || !ADJ[lw]) return rest; // already right, or not a word we know
+      n++;
+    }
+    return rest;
+  }
+
+  /* ---------- Nutrition estimate (saved with the recipe, shared by every kitchen) ---------- */
+  var NUTRI = [['protein_g', 'Protein', 'g'], ['carbs_g', 'Carbs', 'g'], ['fat_g', 'Fat', 'g'], ['saturated_fat_g', 'Saturated fat', 'g'], ['fiber_g', 'Fiber', 'g'], ['sugar_g', 'Sugar', 'g'], ['sodium_mg', 'Sodium', 'mg']];
+  function nutritionLine(n) {
+    var p = n.perServing;
+    return Math.round(p.calories) + ' cal · ' + p.protein_g + ' g protein · ' + p.carbs_g + ' g carbs · ' + p.fat_g + ' g fat · ' + p.sodium_mg + ' mg sodium';
+  }
+  function nutritionBlock(r, body) {
+    var row = el('div', 'vtools');
+    var pill = btn('pill', r.nutrition ? 'Nutrition · ' + Math.round(r.nutrition.perServing.calories) + ' cal' : 'Nutrition');
+    pill.setAttribute('aria-expanded', 'false');
+    row.appendChild(pill); body.appendChild(row);
+    var panel = el('section', 'vnutri'); panel.hidden = true; panel.setAttribute('aria-label', 'Nutrition');
+    body.appendChild(panel);
+    if (r.nutrition) body.appendChild(el('p', 'print-only vprint-nutri', 'Per serving (estimate): ' + nutritionLine(r.nutrition)));
+    pill.addEventListener('click', function () {
+      panel.hidden = !panel.hidden; pill.setAttribute('aria-expanded', String(!panel.hidden));
+      if (!panel.hidden) draw();
+    });
+    var pass = null;
+    function draw() {
+      panel.textContent = '';
+      var n = r.nutrition;
+      if (n) {
+        var head = el('div', 'nutri-head');
+        var cal = el('div', 'nutri-cal'); cal.appendChild(el('strong', null, String(Math.round(n.perServing.calories)))); cal.appendChild(el('span', null, 'calories'));
+        head.appendChild(cal);
+        head.appendChild(el('p', 'hint', 'Per serving, based on ' + n.servings + ' servings. An estimate from the ingredient list, not a lab measurement.'));
+        panel.appendChild(head);
+        var dl = el('dl', 'nutri-grid');
+        NUTRI.forEach(function (x) { var d = el('div'); d.appendChild(el('dt', null, x[1])); d.appendChild(el('dd', null, n.perServing[x[0]] + ' ' + x[2])); dl.appendChild(d); });
+        panel.appendChild(dl);
+        if (n.assumptions && n.assumptions.length) {
+          var det = el('details'); det.appendChild(el('summary', null, 'How this was estimated'));
+          var ul = el('ul'); n.assumptions.forEach(function (a) { ul.appendChild(el('li', null, a)); }); det.appendChild(ul);
+          panel.appendChild(det);
+        }
+      } else {
+        panel.appendChild(el('p', null, 'Get an estimate of calories, protein, carbs, fat, fiber, sugar and sodium per serving. Claude works it out from the ingredient list, and it\'s saved with the recipe for both kitchens.'));
+      }
+      pass = passRow(panel, true);
+      var status = el('p', 'status'); status.setAttribute('aria-live', 'polite');
+      var go = btn(n ? 'linkish' : 'btn primary', n ? 'Estimate again' : 'Estimate nutrition');
+      var br = el('div', 'btn-row'); br.appendChild(go); panel.appendChild(br); panel.appendChild(status);
+      go.addEventListener('click', function () {
+        if (pass.need()) { status.className = 'status error'; status.textContent = 'Enter the passcode, then tap ' + go.textContent + ' again.'; return; }
+        go.disabled = true;
+        var t0 = Date.now();
+        status.className = 'status'; status.textContent = 'Claude is working it out… this takes about 20–40 seconds.';
+        var tick = setInterval(function () { status.textContent = 'Claude is working it out… ' + Math.round((Date.now() - t0) / 1000) + ' sec'; }, 1000);
+        helper('/nutrition', { passcode: pass.get(), person: PERSON, id: r.id }).then(function (j) {
+          pass.ok();
+          library.forEach(function (lr) { if (lr.id === r.id) lr.nutrition = j.nutrition; });
+          r.nutrition = j.nutrition;
+          pill.textContent = 'Nutrition · ' + Math.round(j.nutrition.perServing.calories) + ' cal';
+          draw();
+        }).catch(function (e) {
+          if (e.status === 401) pass.bad();
+          status.className = 'status error'; status.textContent = errText(e);
+        }).then(function () { clearInterval(tick); go.disabled = false; });
+      });
+    }
+  }
+
   /* ---------- Recipe body (recipe view and add preview) ---------- */
   function renderRecipeBody(r, body, opts) {
     var interactive = opts.interactive;
@@ -308,11 +433,16 @@
     body.appendChild(tagsFor(r));
     if (interactive) photoBlock(r, body);
     var facts = [['Serves', r.servings], ['Prep', r.prep], ['Cook', r.cook], ['Total', r.total]].filter(function (f) { return f[1]; });
+    var servesDd = null;
     if (facts.length) {
       var fg = el('dl', 'vfacts');
-      facts.forEach(function (f) { var d = el('div'); d.appendChild(el('dt', null, f[0])); d.appendChild(el('dd', null, f[1])); fg.appendChild(d); });
+      facts.forEach(function (f) {
+        var d = el('div'), dd = el('dd', null, f[1]); if (f[0] === 'Serves') servesDd = dd;
+        d.appendChild(el('dt', null, f[0])); d.appendChild(dd); fg.appendChild(d);
+      });
       body.appendChild(fg);
     }
+    if (interactive) nutritionBlock(r, body);
     if (opts.panel) opts.panel(body);
     if (r.blurb) {
       var note = el('p', 'vnote');
@@ -330,6 +460,23 @@
     var resetBtn = null;
     if (interactive) { resetBtn = btn(null, 'Uncheck all'); ih.appendChild(resetBtn); }
     body.appendChild(ih);
+    // How much to make: changes the ingredient amounts and the Serves line, remembered per recipe.
+    var scaleRow = null, scaleNote = null, itemSpans = [];
+    if (interactive) {
+      scaleRow = el('div', 'scale');
+      scaleRow.setAttribute('role', 'group'); scaleRow.setAttribute('aria-label', 'How much to make');
+      scaleRow.appendChild(el('span', 'scale-label', 'Make'));
+      var pills = [[0.5, '½×'], [1, '1×'], [1.5, '1½×'], [2, '2×'], [3, '3×']].map(function (p) {
+        var b = btn('pill', p[1]); b.setAttribute('data-f', p[0]);
+        b.addEventListener('click', function () { setScale(p[0]); });
+        scaleRow.appendChild(b); return b;
+      });
+      var other = el('input'); other.type = 'number'; other.inputMode = 'decimal'; other.min = '0.1'; other.max = '20'; other.step = 'any';
+      other.placeholder = 'Other'; other.className = 'scale-other'; other.setAttribute('aria-label', 'Other amount, like 0.75 or 4');
+      other.addEventListener('change', function () { var v = parseFloat(other.value); if (v > 0 && v <= 20) setScale(v); });
+      scaleRow.appendChild(other);
+      body.appendChild(scaleRow);
+    }
     var idx = 0, boxes = [];
     r.ingredients.forEach(function (g) {
       if (g.group) body.appendChild(el('h3', 'vgroup', g.group));
@@ -342,10 +489,27 @@
         cb.addEventListener('change', function () {
           saved.i = saved.i.filter(function (x) { return x !== k; }); if (cb.checked) saved.i.push(k); save();
         });
-        lab.appendChild(cb); lab.appendChild(el('span', null, it)); li.appendChild(lab); ul.appendChild(li);
+        var sp = el('span', null, it); sp._orig = it; itemSpans.push(sp);
+        lab.appendChild(cb); lab.appendChild(sp); li.appendChild(lab); ul.appendChild(li);
       });
       body.appendChild(ul);
     });
+    if (interactive) {
+      scaleNote = el('p', 'vhint scale-note'); body.appendChild(scaleNote);
+      var setScale = function (f) {
+        f = Math.round(f * 100) / 100;
+        if (f === 1) forget('ek-scale-' + r.id); else store('ek-scale-' + r.id, f);
+        itemSpans.forEach(function (sp) { sp.textContent = scaleText(sp._orig, f); });
+        if (servesDd) servesDd.textContent = scaleText(r.servings, f);
+        var preset = false;
+        pills.forEach(function (b) { var on = +b.getAttribute('data-f') === f; if (on) preset = true; b.setAttribute('aria-pressed', String(on)); });
+        other.value = preset ? '' : String(f);
+        other.classList.toggle('on', !preset);
+        scaleNote.hidden = f === 1;
+        scaleNote.textContent = 'Ingredient amounts and servings are scaled ' + fmtNum(f) + '×. Amounts in the steps, pan sizes and cook times are as written; a bigger batch may need a larger pan or a few more minutes.';
+      };
+      setScale(load('ek-scale-' + r.id) || 1);
+    }
     var sh = el('div', 'vhead'); sh.appendChild(el('h2', null, 'Steps')); body.appendChild(sh);
     var ol = el('ol', 'vsteps'), stepBtns = [];
     r.steps.forEach(function (t, k) {

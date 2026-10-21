@@ -26,6 +26,10 @@ function checkRecipe(r, file) {
     if (!Array.isArray(g.items) || !g.items.length || !g.items.every((s) => typeof s === "string")) fail(file, "ingredient group needs items");
   }
   if (`${r.id}.json` !== file) fail(file, `id "${r.id}" doesn't match the file name`);
+  if (r.nutrition != null) {
+    const n = r.nutrition, keys = ["calories", "protein_g", "carbs_g", "fat_g", "saturated_fat_g", "fiber_g", "sugar_g", "sodium_mg"];
+    if (typeof n !== "object" || !n.perServing || !keys.every((k) => typeof n.perServing[k] === "number" && n.perServing[k] >= 0)) fail(file, "bad nutrition estimate");
+  }
   if (r.photo != null) {
     if (typeof r.photo !== "string" || !/^library\/photos\/[a-z0-9-]+\.jpg$/.test(r.photo)) fail(file, `bad photo path "${r.photo}"`);
     else if (!existsSync(join(ROOT, r.photo))) { console.warn(`${file}: photo ${r.photo} is missing, so it's left off`); r.photo = null; }

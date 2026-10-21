@@ -350,6 +350,41 @@ await test("editing a recipe: fields change, id/photo/addedBy stay, bad edits re
   assert.equal((await call("/edit", { passcode: "blue lantern", person: "mulberry", id: "../people/erin", recipe: now })).status, 400);
 });
 
+await test("nutrition: Claude's estimate is checked, rounded and saved with the recipe; edits clear it when it goes stale", async () => {
+  put("library/recipes/chili-pot.json", JSON.stringify({ id: "chili-pot", title: "Chili Pot", proteins: ["beef"], slowCooker: false, cozy: true,
+    servings: "4–6 servings", prep: "10 min", cook: "1 hr", total: "1 hr 10 min", equipment: ["Pot"],
+    ingredients: [{ group: null, items: ["1 lb ground beef", "1 can beans, drained"] }, { group: "To serve", items: ["½ cup sour cream"] }],
+    steps: ["Brown the beef until it reads 160°F.", "Simmer 45 min."], tips: [], storage: "Fridge 4 days.",
+    credit: null, photo: "library/photos/chili-pot-a.jpg", addedBy: "mulberry", addedAt: "2026-10-20" }, null, 1) + "\n");
+  claudeAnswer = { servings: 5, calories: 412.6, protein_g: 27.44, carbs_g: 18.2, fat_g: 24.06, saturated_fat_g: 9.84, fiber_g: 5.06, sugar_g: 3.3, sodium_mg: 612.4,
+    assumptions: ["Used 5 servings, the middle of 4–6."] };
+  const r = await call("/nutrition", { passcode: "blue lantern", person: "mulberry", id: "chili-pot" });
+  const j = await r.json();
+  assert.equal(r.status, 200, JSON.stringify(j));
+  assert.equal(lastClaudeBody.output_config.format.schema.required.includes("sodium_mg"), true);
+  assert.match(lastClaudeBody.messages[0].content[0].text, /To serve:\n- ½ cup sour cream/);
+  assert.match(lastClaudeBody.messages[0].content[0].text, /Servings: 4–6 servings/);
+  assert.deepEqual(j.nutrition.perServing, { calories: 413, protein_g: 27, carbs_g: 18, fat_g: 24, saturated_fat_g: 9.8, fiber_g: 5.1, sugar_g: 3.3, sodium_mg: 612 });
+  assert.equal(j.nutrition.servings, 5);
+  const saved = JSON.parse(files.get("library/recipes/chili-pot.json").text);
+  assert.deepEqual(saved.nutrition, j.nutrition);
+  assert.equal(saved.photo, "library/photos/chili-pot-a.jpg", "nothing else in the recipe changes");
+
+  // a title-only edit keeps the estimate; changing an ingredient clears it
+  let e = await (await call("/edit", { passcode: "blue lantern", person: "mulberry", id: "chili-pot", recipe: { ...saved, title: "Chili Pot Supreme" } })).json();
+  assert.deepEqual(e.recipe.nutrition, j.nutrition);
+  const items = saved.ingredients.map((g) => ({ ...g, items: g.items.slice() })); items[0].items[0] = "2 lb ground beef";
+  e = await (await call("/edit", { passcode: "blue lantern", person: "mulberry", id: "chili-pot", recipe: { ...saved, ingredients: items } })).json();
+  assert.equal(e.recipe.nutrition, null);
+
+  claudeAnswer = { ...claudeAnswer, calories: -5 };
+  assert.equal((await call("/nutrition", { passcode: "blue lantern", person: "mulberry", id: "chili-pot" })).status, 502, "nonsense numbers are refused");
+  assert.equal(JSON.parse(files.get("library/recipes/chili-pot.json").text).nutrition, null);
+  assert.equal((await call("/nutrition", { passcode: "correct horse", person: "mulberry", id: "chili-pot" })).status, 401);
+  assert.equal((await call("/nutrition", { passcode: "blue lantern", person: "mulberry", id: "no-such" })).status, 400);
+  claudeAnswer = fakeRecipe;
+});
+
 await test("new recipes are saved with an empty photo field", async () => {
   const r = await call("/save", { passcode: "correct horse", person: "erin", recipe: { ...fakeRecipe, title: "Plain Rice" }, box: { mode: "library" } });
   assert.equal(r.status, 200);

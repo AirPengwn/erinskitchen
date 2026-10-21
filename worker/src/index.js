@@ -7,6 +7,7 @@
 //   POST /box    { passcode, person, id, op: add|remove|made|unmade|tags|note|section, ... }
 //                -> { entry, updated }
 //   POST /edit   { passcode, person, id, recipe } -> { id, recipe, changed }   (id, photo and who added it stay)
+//   POST /nutrition { passcode, person, id } -> { id, nutrition }   (Claude's per-serving estimate, saved with the recipe)
 //   POST /photo  { passcode, person, id, image: { media_type: "image/jpeg", data } | null }
 //                -> { id, photo }   (null image removes the photo)
 // Secrets (never in the page): ANTHROPIC_API_KEY, GITHUB_TOKEN,
@@ -149,7 +150,7 @@ function checkPerson(person) {
 
 /* ---------------- Recipe cleanup and checks ---------------- */
 const LIB_FIELDS = ["id", "title", "proteins", "slowCooker", "cozy", "servings", "prep", "cook", "total",
-  "equipment", "ingredients", "steps", "tips", "storage", "credit", "photo", "addedBy", "addedAt"];
+  "equipment", "ingredients", "steps", "tips", "storage", "credit", "photo", "nutrition", "addedBy", "addedAt"];
 const MAX_PHOTO_B64 = 4_000_000; // about 3 MB; the site sends a resized JPEG of a few hundred KB
 
 function cleanText(s, max = 2000) { return typeof s === "string" ? s.replace(/\s+/g, " ").trim().slice(0, max) : ""; }
@@ -256,13 +257,33 @@ async function parseRecipe(body, env) {
     { type: "text", text: prompt },
   ];
 
+  const { out, model } = await askClaude(env, {
+    system: SYSTEM, content, schema: RECIPE_SCHEMA,
+    badRequest: pdf ? "Claude couldn't read that PDF. If it has a password, remove it or use screenshots instead." : "Claude couldn't read that. Try a clearer screenshot or paste the text instead.",
+  });
+  if (!out.isRecipe) throw new HttpError(422, (out.assumptions && out.assumptions[0]) || "That doesn't look like a recipe.");
+
+  const recipe = cleanRecipe(out);
+  const missing = recipeProblems(recipe);
+  if (missing.length) throw new HttpError(422, `The recipe came back incomplete (missing ${missing.join(", ")}). Try again or add more of the recipe.`);
+  return {
+    recipe,
+    note: cleanText(out.note, 300),
+    suggestedSection: cleanText(out.suggestedSection, 80),
+    assumptions: cleanList(out.assumptions, 15),
+    model,
+  };
+}
+
+// One structured-output request to Claude; returns the parsed JSON answer and the model that wrote it.
+async function askClaude(env, { system, content, schema, badRequest }) {
   const model = env.MODEL || "claude-opus-5-5";
   const params = {
     model,
     max_tokens: 16000,
-    system: SYSTEM,
+    system,
     messages: [{ role: "user", content }],
-    output_config: { effort: env.EFFORT || "medium", format: { type: "json_schema", schema: RECIPE_SCHEMA } },
+    output_config: { effort: env.EFFORT || "medium", format: { type: "json_schema", schema } },
   };
   const client = new Anthropic({ apiKey: env.ANTHROPIC_API_KEY });
   let msg;
@@ -274,27 +295,74 @@ async function parseRecipe(body, env) {
   } catch (e) {
     if (e instanceof Anthropic.AuthenticationError) throw new HttpError(500, "The helper's Claude API key isn't working.");
     if (e instanceof Anthropic.RateLimitError) throw new HttpError(429, "Claude is busy right now. Wait a minute and try again.");
-    if (e instanceof Anthropic.BadRequestError) throw new HttpError(400, pdf ? "Claude couldn't read that PDF. If it has a password, remove it or use screenshots instead." : "Claude couldn't read that. Try a clearer screenshot or paste the text instead.");
+    if (e instanceof Anthropic.BadRequestError) throw new HttpError(400, badRequest || "Claude couldn't work with that. Try again.");
     if (e instanceof Anthropic.APIError) throw new HttpError(502, "Claude had a problem. Try again in a minute.");
     throw new HttpError(502, "Couldn't reach Claude. Try again in a minute.");
   }
   if (msg.stop_reason === "refusal") throw new HttpError(422, "Claude declined to process this one.");
   if (msg.stop_reason === "max_tokens") throw new HttpError(422, "That recipe was too long to finish. Try splitting it up.");
   const block = msg.content.find((b) => b.type === "text");
-  let out;
-  try { out = JSON.parse(block ? block.text : ""); } catch { throw new HttpError(502, "Claude's answer came back garbled. Try again."); }
-  if (!out.isRecipe) throw new HttpError(422, (out.assumptions && out.assumptions[0]) || "That doesn't look like a recipe.");
+  try { return { out: JSON.parse(block ? block.text : ""), model: msg.model }; }
+  catch { throw new HttpError(502, "Claude's answer came back garbled. Try again."); }
+}
 
-  const recipe = cleanRecipe(out);
-  const missing = recipeProblems(recipe);
-  if (missing.length) throw new HttpError(422, `The recipe came back incomplete (missing ${missing.join(", ")}). Try again or add more of the recipe.`);
-  return {
-    recipe,
-    note: cleanText(out.note, 300),
-    suggestedSection: cleanText(out.suggestedSection, 80),
-    assumptions: cleanList(out.assumptions, 15),
-    model: msg.model,
-  };
+/* ---------------- Nutrition (an estimate, saved with the recipe) ---------------- */
+const NUTRIENTS = { calories: 5000, protein_g: 400, carbs_g: 800, fat_g: 400, saturated_fat_g: 200, fiber_g: 150, sugar_g: 500, sodium_mg: 20000 };
+const NUTRITION_SCHEMA = {
+  type: "object", additionalProperties: false,
+  required: ["servings", ...Object.keys(NUTRIENTS), "assumptions"],
+  properties: {
+    servings: { type: "number" },
+    ...Object.fromEntries(Object.keys(NUTRIENTS).map((k) => [k, { type: "number" }])),
+    assumptions: STR_ARRAY,
+  },
+};
+const NUTRITION_SYSTEM = `You estimate nutrition facts for home-cooked recipes on a family recipe website.
+
+Work from the ingredient list and amounts, using typical USDA values for each ingredient as bought (for example raw chicken thighs, dry pasta, canned beans drained if the recipe drains them). Follow what the steps do to the food: fat that is drained or skimmed off, a marinade that is thrown away, or oil used only for frying should be counted only in the share that ends up in the food. Count items in a "To serve" or toppings group at the amounts listed. Leave out ingredients marked optional. For "to taste" seasonings assume a modest amount (about ½ tsp salt for the whole recipe unless the recipe suggests more).
+
+Give the values for ONE serving. Use the recipe's servings; if it gives a range like "4–6 servings", use the middle and say so. Put the number of servings you divided by in "servings".
+
+Fields: calories (kcal), protein_g, carbs_g (total carbohydrate), fat_g (total fat), saturated_fat_g, fiber_g, sugar_g (total sugars), sodium_mg.
+
+In "assumptions", list up to 5 short sentences on the choices that most affect the numbers (servings used, what was left out, brand-dependent items like sauces). Plain, direct sentences, no em dashes.`;
+
+function round1(n) { return n >= 10 ? Math.round(n) : Math.round(n * 10) / 10; }
+async function estimateNutrition(body, env) {
+  const id = typeof body.id === "string" && /^[a-z0-9-]{1,80}$/.test(body.id) ? body.id : null;
+  if (!id) throw new HttpError(400, "Unknown recipe.");
+  const path = `library/recipes/${id}.json`;
+  const file = await getFile(env, path);
+  if (!file) throw new HttpError(400, "That recipe isn't in the library.");
+  const r = JSON.parse(file.text);
+  const recipeText = [
+    `Recipe: ${r.title}`, `Servings: ${r.servings}`, "", "Ingredients:",
+    ...r.ingredients.flatMap((g) => [g.group ? `${g.group}:` : null, ...g.items.map((x) => `- ${x}`)].filter(Boolean)),
+    "", "Steps:", ...r.steps.map((s, i) => `${i + 1}. ${s}`),
+  ].join("\n");
+  const { out, model } = await askClaude(env, {
+    system: NUTRITION_SYSTEM, schema: NUTRITION_SCHEMA,
+    content: [{ type: "text", text: `Estimate nutrition per serving for this recipe.\n\n${recipeText}` }],
+  });
+
+  const servings = Number(out.servings);
+  if (!Number.isFinite(servings) || servings <= 0 || servings > 200) throw new HttpError(502, "Claude's estimate didn't make sense. Try again.");
+  const perServing = {};
+  for (const [k, max] of Object.entries(NUTRIENTS)) {
+    const v = Number(out[k]);
+    if (!Number.isFinite(v) || v < 0 || v > max) throw new HttpError(502, "Claude's estimate didn't make sense. Try again.");
+    perServing[k] = k === "calories" || k === "sodium_mg" ? Math.round(v) : round1(v);
+  }
+  const nutrition = { servings: round1(servings), perServing, assumptions: cleanList(out.assumptions, 5), model, estimatedAt: new Date().toISOString().slice(0, 10) };
+
+  for (let attempt = 0, f = file; attempt < 3; attempt++) {
+    if (attempt) f = await getFile(env, path);
+    const cur = JSON.parse(f.text);
+    cur.nutrition = nutrition;
+    const outRecipe = Object.fromEntries(LIB_FIELDS.map((k) => [k, cur[k] === undefined ? null : cur[k]]));
+    if (await putFile(env, path, JSON.stringify(outRecipe, null, 1) + "\n", `Estimate nutrition: ${cur.title} (from the website)`, f.sha)) return { id, nutrition };
+  }
+  throw new HttpError(409, "Someone else changed this recipe at the same moment. Try again.");
 }
 
 /* ---------------- GitHub ---------------- */
@@ -364,6 +432,9 @@ async function editRecipe(body, env) {
     if (!file) throw new HttpError(400, "That recipe isn't in the library.");
     const old = JSON.parse(file.text);
     const r = { ...old, ...recipe, id };
+    // A nutrition estimate no longer fits once what goes in, or how many it serves, changes.
+    const basis = (x) => JSON.stringify([x.ingredients, x.servings, x.steps]);
+    if (basis(old) !== basis(r)) r.nutrition = null;
     const out = Object.fromEntries(LIB_FIELDS.map((k) => [k, r[k] === undefined ? null : r[k]]));
     const text = JSON.stringify(out, null, 1) + "\n";
     if (text === file.text) return { id, recipe: out, changed: false };
@@ -532,6 +603,7 @@ export default {
       if (url.pathname === "/parse") { checkPasscode(body, env); checkPerson(body.person); return json(req, env, 200, await parseRecipe(body, env)); }
       if (url.pathname === "/save") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await saveRecipe(body, env)); }
       if (url.pathname === "/box") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await boxAction(body, env)); }
+      if (url.pathname === "/nutrition") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await estimateNutrition(body, env)); }
       if (url.pathname === "/edit") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await editRecipe(body, env)); }
       if (url.pathname === "/photo") { checkPerson(body.person); checkPasscode(body, env, body.person); return json(req, env, 200, await setPhoto(body, env)); }
       return json(req, env, 404, { error: "Not found." });
