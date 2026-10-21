@@ -210,12 +210,12 @@
     "john likes"
    ],
    "made": {
-    "count": 1,
+    "count": 2,
     "log": [
      "Oct 21, 2026"
     ],
     "undo": {
-     "date": "Oct 21, 2026"
+     "date": null
     }
    },
    "confidence": "clear"
