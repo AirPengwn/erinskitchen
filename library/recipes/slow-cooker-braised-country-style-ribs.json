@@ -70,6 +70,28 @@
  "storage": "Fridge up to 4 days in the sauce. Freezer up to 3 months. Reheat covered, in the sauce, in a 300°F oven until hot.",
  "credit": null,
  "photo": "library/photos/slow-cooker-braised-country-style-ribs-mvir8tq8.jpg",
+ "nutrition": {
+  "servings": 4,
+  "perServing": {
+   "calories": 590,
+   "protein_g": 52,
+   "carbs_g": 18,
+   "fat_g": 33,
+   "saturated_fat_g": 11,
+   "fiber_g": 1,
+   "sugar_g": 12,
+   "sodium_mg": 815
+  },
+  "assumptions": [
+   "Used bone-in pork country-style ribs, about 20 percent bone, giving roughly 1,090 g of edible raw meat.",
+   "About a quarter of the meat's fat and half the searing oil were assumed to render out and be skimmed from the cooking liquid.",
+   "Onion and garlic are strained out, so only about half of the onion's carbs and sugar were counted as staying in the sauce.",
+   "Kosher salt was estimated at about 1,280 mg sodium per teaspoon, roughly between Diamond Crystal and Morton.",
+   "Sodium uses low-sodium chicken broth at about 140 mg per cup plus typical Worcestershire and Dijon values, and assumes no extra salt is added at the end."
+  ],
+  "model": "claude-opus-5-5",
+  "estimatedAt": "2026-10-21"
+ },
  "addedBy": "mulberry",
  "addedAt": "2026-10-19"
 }
