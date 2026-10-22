@@ -618,6 +618,16 @@
     draw();
   }
 
+  // This kitchen's own note on a recipe, shown above the ingredients on screen and on paper.
+  function syncNote(body, r) {
+    var box = body.querySelector('.vmynote');
+    if (!r.myNote) { if (box) box.remove(); return; }
+    if (!box) { box = el('div', 'vnote vmynote'); body.insertBefore(box, body.querySelector('.vhead')); }
+    box.textContent = '';
+    box.appendChild(el('b', null, 'My note'));
+    box.appendChild(document.createTextNode(r.myNote));
+  }
+
   /* ---------- "My box" panel inside a recipe ---------- */
   function boxPanel(r) {
     return function (body) {
@@ -641,16 +651,21 @@
             if (j.updated) person.updated = j.updated;
             refresh();
             r = byId[r.id];
+            if (op === 'note') { noteDraft = null; sentNote = null; }
+            syncNote(body, r);
             if (done) done();
             draw();
           })
           .catch(function (e) {
+            if (op === 'note') sentNote = null;
             if (e.status === 401) pass.bad();
             statusEl.className = 'status error'; statusEl.textContent = errText(e);
           });
       }
 
       var pass;
+      // Typed-but-unsaved note text survives redraws (like after tapping Made it), and is saved on its own.
+      var noteDraft = null, sentNote = null;
       function draw() {
         panel.textContent = '';
         var head = el('div', 'mybox-head');
@@ -753,10 +768,20 @@
         var nf = el('div', 'field');
         var nid = 'note-' + r.id;
         var nl = el('label', null, 'My note'); nl.htmlFor = nid;
-        var na = el('textarea'); na.id = nid; na.rows = 2; na.maxLength = 1000; na.value = e.note || ''; na.placeholder = 'Like: double the garlic';
+        var na = el('textarea'); na.id = nid; na.rows = 2; na.maxLength = 1000; na.placeholder = 'Like: double the garlic';
+        na.value = noteDraft != null ? noteDraft : (e.note || '');
         var ns = btn('btn', 'Save note');
-        ns.addEventListener('click', function () { act('note', { note: na.value.trim() }, status); });
-        nf.appendChild(nl); nf.appendChild(na); var nr = el('div', 'btn-row'); nr.appendChild(ns); nf.appendChild(nr);
+        var saveNote = function () {
+          var v = na.value.trim();
+          if (v === (e.note || '') || v === sentNote) return;
+          sentNote = v; act('note', { note: v }, status);
+        };
+        na.addEventListener('input', function () { noteDraft = na.value; });
+        na.addEventListener('change', saveNote); // tapping outside the box saves it
+        ns.addEventListener('click', saveNote);
+        nf.appendChild(nl); nf.appendChild(na);
+        nf.appendChild(el('span', 'hint', 'Saves when you tap Save note or tap outside the box. It shows at the top of this recipe and on its card.'));
+        var nr = el('div', 'btn-row'); nr.appendChild(ns); nf.appendChild(nr);
         panel.appendChild(nf);
 
         // Section + remove
@@ -1059,7 +1084,7 @@
     var editBtn = el('a', 'btn', 'Edit this recipe'); editBtn.href = '#e-' + r.id;
     editRow.appendChild(editBtn); body.appendChild(editRow);
     // Only on paper: this person's own note, and where the printout came from.
-    if (r.myNote) body.insertBefore(el('p', 'print-only vprint-note', 'My note: ' + r.myNote), body.querySelector('.vhead'));
+    syncNote(body, r);
     var titleEl = body.querySelector('.vtitle');
     body.insertBefore(el('p', 'print-only vprint-from', person.title + ' · printed ' + fmtDate(new Date())), titleEl.nextSibling);
     var foot = el('div', 'vfoot'); foot.appendChild(homeButton()); body.appendChild(foot);

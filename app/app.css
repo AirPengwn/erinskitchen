@@ -133,6 +133,8 @@ td:first-child { font-weight: 600; white-space: nowrap; }
 .vmeta { font-family: var(--mono); font-size: 0.85rem; color: var(--muted); }
 .vnote { background: var(--surface); border-left: 4px solid var(--yolk); border-radius: 0 10px 10px 0; padding: 12px 14px; font-size: 1rem; }
 .vnote b { display: block; font-family: var(--mono); font-weight: 500; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--yolk-ink); margin-bottom: 2px; }
+.vmynote { border-left-color: var(--scallion); white-space: pre-line; }
+.vmynote b { color: var(--scallion); }
 .vnote .conf { display: block; margin-top: 6px; color: var(--muted); font-size: 0.9rem; }
 .vhead { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 2px solid var(--ink); padding-top: 12px; margin-top: 6px; }
 .vhead h2 { font-size: 1.45rem; }
@@ -337,7 +339,7 @@ td:first-child { font-weight: 600; white-space: nowrap; }
   .vfacts dt { font-size: 7.5pt; }
   .vfacts dt::after { content: " "; }
   .vfacts dd { margin: 0; font-size: 10.5pt; }
-  .vnote, .vprint-note, .vbox { display: flow-root; } /* boxes sit beside the photo instead of under it */
+  .vnote, .vbox { display: flow-root; } /* boxes sit beside the photo instead of under it */
   .vnote { background: none; border-left: 2pt solid #000; border-radius: 0; padding: 3pt 9pt; font-size: 10pt; }
   .vnote b { color: #000; }
   .vhead { border-top: 1.2pt solid #000; padding-top: 4pt; margin-top: 2pt; break-after: avoid; }
@@ -360,7 +362,8 @@ td:first-child { font-weight: 600; white-space: nowrap; }
   .vbox ul { gap: 2pt; }
   .vcredit { font-size: 9pt; color: #444; }
   .print-only { display: flow-root; }
-  .vprint-note { border: 1pt dashed #000; border-radius: 4pt; padding: 4pt 9pt; font-size: 10pt; }
+  .vnote.vmynote { border: 1pt dashed #000; border-radius: 4pt; padding: 4pt 9pt; font-size: 10pt; }
+  .vmynote b { color: #000; }
   .vbody > .vprint-nutri { font-size: 9pt; color: #444; }
   .scale-note { font-size: 9pt; color: #444; font-style: italic; }
   .vbody > .vprint-from { display: inline-block; font-size: 8pt; color: #444; margin: 0 0 5pt; }
